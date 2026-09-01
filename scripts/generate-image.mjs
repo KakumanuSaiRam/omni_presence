@@ -13,7 +13,7 @@ const KEY = env.GEMINI_API_KEY;
 if (!KEY) throw new Error('GEMINI_API_KEY missing from .env');
 
 // One style guide for every image so the site looks like one system.
-const STYLE = `Flat modern vector illustration for an Indian education website. Warm cream background (#faf6ef), sage green (#2d6a5a) and warm orange (#e8821a) as the two accent colours, dark charcoal line details. Cheerful Indian students (varied skin tones, simple friendly faces with smiles). Clean geometric shapes, generous negative space, no gradients, no photorealism, absolutely no text, letters, numbers or words anywhere in the image. Wide 3:2 composition.`;
+const STYLE = `Flat modern vector illustration for an Indian education website. Light blue background (#e9f1fb), warm orange accents (#e8821a), navy blue details (#1f2368). Cheerful Indian students (varied skin tones, friendly faces). Clean geometric shapes, professional not childish. No gradients overload, no photorealism, absolutely no text, letters, numbers or words anywhere in the image. Wide 4:3 composition.`;
 
 const [, , outPath, scene] = process.argv;
 if (!outPath || !scene) {

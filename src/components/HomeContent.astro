@@ -1,4 +1,5 @@
 ---
+import Illustration from './Illustration.astro';
 import EnquiryForm from './EnquiryForm.astro';
 import BranchShowcase from './BranchShowcase.astro';
 import MapsIcon from './MapsIcon.astro';
@@ -43,23 +44,29 @@ const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
 
 <!-- Hero -->
 <section class="home-hero">
-  <div class="wrap home-hero-inner">
-    <p class="home-eyebrow">{hero.eyebrow}</p>
-    <h1 class="home-title">{hero.title}</h1>
-    <p class="home-lead">{hero.lead}</p>
-    <div class="home-actions">
-      <a class="btn btn-call" href={telHref}>{ui.call} {SITE.phone}</a>
-      <span class="home-action-links">
-        <a href={waHref}>{ui.whatsapp}</a>
-        <span aria-hidden="true">·</span>
-        <a href={SITE.mapsDirectionsUrl} class="home-maps-link"><MapsIcon size={16} />{ui.maps}</a>
-      </span>
+  <div class="wrap home-hero-grid">
+    <div class="home-hero-inner">
+      <p class="home-eyebrow">{hero.eyebrow}</p>
+      <h1 class="home-title">{hero.title}</h1>
+      <p class="home-sub">{hero.subline}</p>
+      <p class="home-lead">{hero.lead}</p>
+      <div class="home-actions">
+        <a class="btn btn-call" href={telHref}>{ui.call} {SITE.phone}</a>
+        <span class="home-action-links">
+          <a href={waHref}>{ui.whatsapp}</a>
+          <span aria-hidden="true">·</span>
+          <a href={SITE.mapsDirectionsUrl} class="home-maps-link"><MapsIcon size={16} />{ui.maps}</a>
+        </span>
+      </div>
+      <ul class="home-meta">
+        {trust.map((item) => (
+          <li><strong>{item.value}</strong> {item.label}</li>
+        ))}
+      </ul>
     </div>
-    <ul class="home-meta">
-      {trust.map((item) => (
-        <li><strong>{item.value}</strong> {item.label}</li>
-      ))}
-    </ul>
+    <div class="home-hero-media">
+      <Illustration src="/illustrations/hero-students.webp" alt={hero.imageAlt} class="home-hero-art" eager />
+    </div>
   </div>
 </section>
 
@@ -215,16 +222,33 @@ const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
   .home-hero {
     padding: 2.75rem 0 2rem;
     border-bottom: 1px solid var(--border);
-    background: var(--surface-raised);
+    background: linear-gradient(180deg, var(--surface-muted), var(--surface));
+  }
+  .home-hero-grid {
+    display: grid; gap: 2rem; align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) {
+    .home-hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 2.5rem; }
   }
   .home-hero-inner { max-width: 40rem; }
+  .home-hero-media { position: relative; }
+  .home-hero-art {
+    max-width: 22rem; margin: 0 auto;
+    box-shadow: 0 16px 40px var(--shadow);
+    border: none; background: transparent;
+  }
   .home-eyebrow {
     font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
     text-transform: uppercase; color: var(--ink-muted);
   }
   .home-title {
     font-size: clamp(1.65rem, 4vw, 2.25rem);
-    color: var(--accent-deep); margin: 0.5rem 0 0.75rem; line-height: 1.2;
+    color: var(--accent-deep); margin: 0.5rem 0 0.35rem; line-height: 1.2;
+  }
+  .home-sub {
+    font-weight: 600; color: var(--highlight-deep);
+    font-size: 0.95rem; max-width: 44ch; margin-bottom: 0.5rem;
   }
   .home-lead {
     color: var(--ink-muted); font-size: 1.05rem; line-height: 1.65; max-width: 42ch;
