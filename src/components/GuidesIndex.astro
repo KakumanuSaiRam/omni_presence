@@ -18,96 +18,138 @@ const sections = GUIDE_TOPICS.map((topic) => ({
 
 const tagList = FEATURED_GUIDE_TAGS;
 const total = enriched.length;
+const defaultSection = sections[0]?.id ?? '';
 ---
 
-<div class="guides-index">
+<div class="guides-index" data-default-section={defaultSection}>
   <header class="guides-header">
     <h1>Guides</h1>
-    <p class="guides-lede">{total} articles grouped by topic — search by keyword or tag below.</p>
+    <p class="guides-lede">{total} articles on exams, counselling and admissions.</p>
   </header>
 
-  <div class="guides-search-wrap">
-    <label class="guides-search-label" for="guides-search">Search guides</label>
-    <input
-      id="guides-search"
-      class="guides-search"
-      type="search"
-      placeholder="e.g. web options, NEET, POLYCET, scholarships…"
-      autocomplete="off"
-      spellcheck="false"
-    />
+  <div class="guides-toolbar">
+    <div class="guides-search-wrap">
+      <label class="guides-search-label" for="guides-search">Search</label>
+      <input
+        id="guides-search"
+        class="guides-search"
+        type="search"
+        placeholder="Keyword or tag — e.g. NEET, web options…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+    </div>
+    <div class="guides-tags" role="group" aria-label="Filter by tag">
+      <button type="button" class="guides-tag is-active" data-tag="">All</button>
+      {tagList.map((tag) => (
+        <button type="button" class="guides-tag" data-tag={tag.toLowerCase()}>
+          {tag}
+        </button>
+      ))}
+    </div>
     <p class="guides-search-hint" id="guides-search-status" aria-live="polite">
-      Showing all {total} guides · type any keyword or pick a tag
+      Pick a topic on the left, or search across all guides.
     </p>
   </div>
 
-  <div class="guides-tags" role="group" aria-label="Filter by tag">
-    <button type="button" class="guides-tag is-active" data-tag="">All</button>
-    {tagList.map((tag) => (
-      <button type="button" class="guides-tag" data-tag={tag.toLowerCase()}>
-        {tag}
-      </button>
-    ))}
-  </div>
-
-  <nav class="guides-toc" id="guides-toc" aria-label="Guide topics">
-    <p class="guides-toc-label">Topics</p>
-    <ul>
-      {sections.map((section) => (
-        <li>
-          <a href={`#guide-${section.id}`}>{section.label}</a>
-          <span class="guides-toc-count" data-section-count={section.id}>{section.posts.length}</span>
-        </li>
-      ))}
-    </ul>
-  </nav>
-
-  <div class="guides-sections" id="guides-sections">
-    {sections.map((section) => (
-      <section class="guides-section" id={`guide-${section.id}`} data-section={section.id}>
-        <div class="guides-section-head">
-          <h2>{section.label}</h2>
-          {section.hint && <p>{section.hint}</p>}
-        </div>
-        <ul class="guides-list">
-          {section.posts.map((post) => (
-            <li
-              class="guides-item"
-              data-slug={post.id}
-              data-tags={post.meta.tags.join('|').toLowerCase()}
-              data-search={`${post.data.title} ${post.data.description} ${post.meta.tags.join(' ')}`.toLowerCase()}
+  <div class="guides-layout">
+    <nav class="guides-nav" id="guides-nav" aria-label="Guide topics">
+      <p class="guides-nav-label">Topics</p>
+      <ul class="guides-nav-list">
+        {sections.map((section, i) => (
+          <li>
+            <button
+              type="button"
+              class:list={['guides-nav-btn', { 'is-active': i === 0 }]}
+              data-section={section.id}
+              aria-controls={`guide-panel-${section.id}`}
             >
-              <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-              <ul class="guides-item-tags" aria-label="Tags">
-                {post.meta.tags.map((tag) => (
-                  <li><span class="guides-item-tag">{tag}</span></li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </section>
-    ))}
-  </div>
+              <span class="guides-nav-text">{section.label}</span>
+              <span class="guides-nav-count" data-section-count={section.id}>{section.posts.length}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
 
-  <p class="guides-empty" id="guides-empty" hidden>No guides match your search. Try a shorter keyword or another tag.</p>
+    <div class="guides-main" id="guides-main">
+      {sections.map((section, i) => (
+        <section
+          class="guides-panel"
+          id={`guide-panel-${section.id}`}
+          data-section={section.id}
+          hidden={i !== 0}
+        >
+          <div class="guides-panel-head">
+            <h2>{section.label}</h2>
+            {section.hint && <p>{section.hint}</p>}
+          </div>
+          <ul class="guides-list">
+            {section.posts.map((post) => (
+              <li
+                class="guides-item"
+                data-slug={post.id}
+                data-tags={post.meta.tags.join('|').toLowerCase()}
+                data-search={`${post.data.title} ${post.data.description} ${post.meta.tags.join(' ')}`.toLowerCase()}
+              >
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                <ul class="guides-item-tags" aria-label="Tags">
+                  {post.meta.tags.map((tag) => (
+                    <li><span class="guides-item-tag">{tag}</span></li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+      <p class="guides-empty" id="guides-empty" hidden>No guides match. Try another keyword or tag.</p>
+    </div>
+  </div>
 </div>
 
 <script>
+  const root = document.querySelector('.guides-index');
   const search = document.getElementById('guides-search');
   const status = document.getElementById('guides-search-status');
   const empty = document.getElementById('guides-empty');
-  const toc = document.getElementById('guides-toc');
+  const nav = document.getElementById('guides-nav');
+  const navButtons = document.querySelectorAll('.guides-nav-btn');
   const tagButtons = document.querySelectorAll('.guides-tag');
   const items = document.querySelectorAll('.guides-item');
-  const sections = document.querySelectorAll('.guides-section');
+  const panels = document.querySelectorAll('.guides-panel');
 
+  const defaultSection = root?.getAttribute('data-default-section') ?? '';
+  let activeSection = defaultSection;
   let activeTag = '';
+  let filtering = false;
+
+  function isFiltering() {
+    const q = (search?.value ?? '').trim();
+    return q.length > 0 || activeTag.length > 0;
+  }
+
+  function setActiveSection(id) {
+    activeSection = id;
+    navButtons.forEach((btn) => {
+      const on = btn.getAttribute('data-section') === id;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-current', on ? 'true' : 'false');
+    });
+    if (!filtering) {
+      panels.forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-section') !== id;
+      });
+    }
+  }
 
   function applyFilter() {
+    filtering = isFiltering();
     const q = (search?.value ?? '').trim().toLowerCase();
     let visible = 0;
     const sectionCounts = new Map();
+    const sectionsWithResults = new Set();
 
     items.forEach((item) => {
       const haystack = item.getAttribute('data-search') ?? '';
@@ -118,28 +160,68 @@ const total = enriched.length;
       item.hidden = !show;
       if (show) {
         visible += 1;
-        const section = item.closest('.guides-section')?.getAttribute('data-section');
-        if (section) sectionCounts.set(section, (sectionCounts.get(section) ?? 0) + 1);
+        const section = item.closest('.guides-panel')?.getAttribute('data-section');
+        if (section) {
+          sectionCounts.set(section, (sectionCounts.get(section) ?? 0) + 1);
+          sectionsWithResults.add(section);
+        }
       }
     });
 
-    sections.forEach((section) => {
-      const id = section.getAttribute('data-section');
-      const count = sectionCounts.get(id) ?? 0;
-      section.hidden = count === 0;
+    navButtons.forEach((btn) => {
+      const id = btn.getAttribute('data-section') ?? '';
       const countEl = document.querySelector(`[data-section-count="${id}"]`);
-      if (countEl) countEl.textContent = String(count);
+      const count = filtering ? (sectionCounts.get(id) ?? 0) : countEl?.getAttribute('data-original-count');
+      if (countEl) {
+        if (!countEl.hasAttribute('data-original-count')) {
+          countEl.setAttribute('data-original-count', countEl.textContent ?? '0');
+        }
+        countEl.textContent = String(filtering ? (sectionCounts.get(id) ?? 0) : countEl.getAttribute('data-original-count'));
+      }
+      if (filtering) {
+        btn.classList.toggle('has-results', sectionsWithResults.has(id));
+        btn.disabled = !sectionsWithResults.has(id);
+      } else {
+        btn.classList.remove('has-results');
+        btn.disabled = false;
+      }
     });
 
-    if (status) {
-      status.textContent =
-        visible === items.length
-          ? `Showing all ${items.length} guides`
-          : `${visible} of ${items.length} guides match`;
+    if (filtering) {
+      nav?.classList.add('is-filtering');
+      panels.forEach((panel) => {
+        const id = panel.getAttribute('data-section') ?? '';
+        panel.hidden = !sectionsWithResults.has(id);
+      });
+      if (sectionsWithResults.size > 0 && !sectionsWithResults.has(activeSection)) {
+        setActiveSection([...sectionsWithResults][0]);
+      }
+    } else {
+      nav?.classList.remove('is-filtering');
+      setActiveSection(activeSection || defaultSection);
     }
-    if (empty) empty.hidden = visible > 0;
-    if (toc) toc.hidden = q.length > 0 || activeTag.length > 0;
+
+    if (status) {
+      if (!filtering) {
+        status.textContent = 'Pick a topic on the left, or search across all guides.';
+      } else if (visible === 0) {
+        status.textContent = 'No guides match your search.';
+      } else {
+        status.textContent = `${visible} guide${visible === 1 ? '' : 's'} match — showing relevant sections.`;
+      }
+    }
+    if (empty) empty.hidden = !filtering || visible > 0;
   }
+
+  navButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      setActiveSection(btn.getAttribute('data-section') ?? '');
+      if (!filtering) {
+        document.getElementById(`guide-panel-${btn.getAttribute('data-section')}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
   search?.addEventListener('input', applyFilter);
 
@@ -165,22 +247,24 @@ const total = enriched.length;
       applyFilter();
     });
   });
+
+  setActiveSection(defaultSection);
 </script>
 
 <style>
   .guides-index {
-    max-width: 40rem;
+    max-width: 56rem;
   }
 
   .guides-header {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
   }
 
   .guides-header h1 {
     color: var(--accent-deep);
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     line-height: 1.15;
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.4rem;
   }
 
   .guides-lede {
@@ -190,8 +274,14 @@ const total = enriched.length;
     margin: 0;
   }
 
+  .guides-toolbar {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
   .guides-search-wrap {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .guides-search-label {
@@ -201,14 +291,15 @@ const total = enriched.length;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-muted);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
   }
 
   .guides-search {
     width: 100%;
-    padding: 0.65rem 0.85rem;
+    max-width: 28rem;
+    padding: 0.6rem 0.85rem;
     font: inherit;
-    font-size: 1rem;
+    font-size: 0.9875rem;
     color: var(--ink);
     background: var(--surface-raised);
     border: 1px solid var(--border);
@@ -221,21 +312,15 @@ const total = enriched.length;
     border-color: var(--highlight-soft);
   }
 
-  .guides-search-hint {
-    margin: 0.45rem 0 0;
-    font-size: 0.875rem;
-    color: var(--ink-muted);
-  }
-
   .guides-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 1.75rem;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
   }
 
   .guides-tag {
-    padding: 0.3rem 0.65rem;
+    padding: 0.28rem 0.6rem;
     font: inherit;
     font-size: 0.8125rem;
     color: var(--ink-muted);
@@ -258,16 +343,39 @@ const total = enriched.length;
     font-weight: 600;
   }
 
-  .guides-toc {
-    margin-bottom: 2rem;
-    padding: 1rem 1.15rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--surface-muted);
+  .guides-search-hint {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--ink-muted);
   }
 
-  .guides-toc-label {
-    margin: 0 0 0.65rem;
+  .guides-layout {
+    display: grid;
+    grid-template-columns: 13.5rem 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .guides-layout {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .guides-nav {
+    position: sticky;
+    top: 5rem;
+  }
+
+  @media (max-width: 720px) {
+    .guides-nav {
+      position: static;
+    }
+  }
+
+  .guides-nav-label {
+    margin: 0 0 0.5rem;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -275,62 +383,130 @@ const total = enriched.length;
     color: var(--ink-muted);
   }
 
-  .guides-toc ul {
+  .guides-nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-raised);
   }
 
-  .guides-toc li {
+  @media (max-width: 720px) {
+    .guides-nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      border: none;
+      background: transparent;
+      overflow: visible;
+    }
+  }
+
+  .guides-nav-btn {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .guides-toc a {
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font: inherit;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    text-align: left;
     color: var(--ink);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    line-height: 1.4;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
   }
 
-  .guides-toc a:hover,
-  .guides-toc a:focus-visible {
+  @media (max-width: 720px) {
+    .guides-nav-btn {
+      width: auto;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      background: var(--surface-raised);
+    }
+  }
+
+  .guides-nav-list li:last-child .guides-nav-btn {
+    border-bottom: none;
+  }
+
+  @media (max-width: 720px) {
+    .guides-nav-list li:last-child .guides-nav-btn {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  .guides-nav-btn:hover:not(:disabled),
+  .guides-nav-btn:focus-visible:not(:disabled) {
+    background: var(--surface-muted);
     color: var(--highlight-deep);
-    text-decoration: underline;
-    text-underline-offset: 2px;
   }
 
-  .guides-toc-count {
+  .guides-nav-btn.is-active {
+    background: var(--surface-accent);
+    color: var(--highlight-deep);
+    font-weight: 600;
+    box-shadow: inset 3px 0 0 var(--highlight);
+  }
+
+  @media (max-width: 720px) {
+    .guides-nav-btn.is-active {
+      box-shadow: none;
+      border-color: var(--highlight-soft);
+    }
+  }
+
+  .guides-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .guides-nav-text {
+    flex: 1;
+  }
+
+  .guides-nav-count {
     flex-shrink: 0;
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     color: var(--ink-muted);
     font-variant-numeric: tabular-nums;
+    margin-top: 0.1rem;
   }
 
-  .guides-section {
+  .guides-nav-btn.is-active .guides-nav-count {
+    color: var(--highlight-deep);
+  }
+
+  .guides-main {
+    min-width: 0;
+  }
+
+  .guides-panel {
     scroll-margin-top: 5rem;
   }
 
-  .guides-section + .guides-section {
-    margin-top: 2.25rem;
-    padding-top: 2.25rem;
+  .guides-panel + .guides-panel:not([hidden]) {
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--border);
   }
 
-  .guides-section-head h2 {
+  .guides-panel-head h2 {
     font-family: 'Karla', system-ui, sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--accent-deep);
-    margin: 0 0 0.25rem;
+    margin: 0 0 0.3rem;
   }
 
-  .guides-section-head p {
-    margin: 0 0 0.85rem;
+  .guides-panel-head p {
+    margin: 0 0 1rem;
     font-size: 0.9rem;
     line-height: 1.45;
     color: var(--ink-muted);
@@ -343,7 +519,7 @@ const total = enriched.length;
   }
 
   .guides-item {
-    padding: 0.75rem 0;
+    padding: 0.7rem 0;
     border-bottom: 1px solid var(--border);
   }
 
@@ -372,7 +548,7 @@ const total = enriched.length;
     flex-wrap: wrap;
     gap: 0.35rem;
     list-style: none;
-    margin: 0.4rem 0 0;
+    margin: 0.35rem 0 0;
     padding: 0;
   }
 
@@ -391,8 +567,7 @@ const total = enriched.length;
   }
 
   .guides-empty {
-    margin-top: 2rem;
-    padding: 1rem;
+    padding: 1.25rem;
     text-align: center;
     color: var(--ink-muted);
     background: var(--surface-muted);
