@@ -4,20 +4,36 @@
 // platform changes its UI. Selectors are best-effort; a failed platform is
 // reported, never silently skipped.
 import { chromium } from 'playwright';
+import { appendFileSync, mkdirSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const PROFILE_DIR = path.join(os.homedir(), '.sivatuitions-broadcaster');
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)));
+const HISTORY_DIR = path.join(ROOT, 'posts');
+const HISTORY_FILE = path.join(HISTORY_DIR, 'history.jsonl');
+
+async function attachImage(scope, imagePath) {
+  if (!imagePath) return;
+  const input = scope.locator('input[type="file"]').first();
+  await input.setInputFiles(imagePath);
+  const page = 'waitForTimeout' in scope ? scope : scope.page();
+  await page.waitForTimeout(2000);
+}
 
 export const PLATFORMS = {
   facebook: {
     label: 'Facebook Page',
     loginUrl: 'https://www.facebook.com/',
-    post: async (page, text) => {
+    post: async (page, text, imagePath) => {
       await page.goto('https://www.facebook.com/', { waitUntil: 'domcontentloaded' });
       await page.getByRole('button', { name: /what's on your mind/i }).first().click();
       const dialog = page.getByRole('dialog');
       await dialog.getByRole('textbox').first().fill(text);
+      if (imagePath) {
+        await attachImage(dialog, imagePath);
+      }
       await dialog.getByRole('button', { name: /^post$/i }).click();
       await page.waitForTimeout(4000);
     },
@@ -25,8 +41,11 @@ export const PLATFORMS = {
   x: {
     label: 'X (Twitter)',
     loginUrl: 'https://x.com/login',
-    post: async (page, text) => {
+    post: async (page, text, imagePath) => {
       await page.goto('https://x.com/compose/post', { waitUntil: 'domcontentloaded' });
+      if (imagePath) {
+        await attachImage(page, imagePath);
+      }
       const box = page.getByRole('textbox', { name: /post text/i });
       await box.fill(text.slice(0, 275));
       await page.getByTestId('tweetButton').click();
@@ -60,6 +79,11 @@ export const PLATFORMS = {
   },
 };
 
+function logHistory(entry) {
+  mkdirSync(HISTORY_DIR, { recursive: true });
+  appendFileSync(HISTORY_FILE, `${JSON.stringify(entry)}\n`);
+}
+
 export async function openForLogin() {
   const ctx = await chromium.launchPersistentContext(PROFILE_DIR, { headless: false });
   for (const { label, loginUrl } of Object.values(PLATFORMS)) {
@@ -71,16 +95,35 @@ export async function openForLogin() {
   await new Promise((resolve) => ctx.on('close', resolve));
 }
 
-export async function broadcast(text, selected) {
-  const ctx = await chromium.launchPersistentContext(PROFILE_DIR, { headless: false });
+export async function broadcast(text, selected, { dryRun = false, imagePath = null } = {}) {
   const results = {};
+  if (dryRun) {
+    for (const key of selected) {
+      if (!PLATFORMS[key]) continue;
+      results[key] = imagePath
+        ? `dry-run (with image ${path.basename(imagePath)})`
+        : 'dry-run';
+    }
+    logHistory({
+      ts: new Date().toISOString(),
+      dryRun: true,
+      platforms: selected,
+      text,
+      image: imagePath ? path.basename(imagePath) : null,
+      results,
+    });
+    return results;
+  }
+
+  const ctx = await chromium.launchPersistentContext(PROFILE_DIR, { headless: false });
   for (const key of selected) {
     const platform = PLATFORMS[key];
     if (!platform) continue;
     const page = await ctx.newPage();
     try {
-      await platform.post(page, text);
-      results[key] = 'posted';
+      const wantsImage = (key === 'facebook' || key === 'x') && imagePath;
+      await platform.post(page, text, wantsImage ? imagePath : null);
+      results[key] = wantsImage ? 'posted (with image)' : 'posted';
     } catch (err) {
       results[key] = `FAILED: ${err.message.split('\n')[0]}`;
     } finally {
@@ -88,5 +131,13 @@ export async function broadcast(text, selected) {
     }
   }
   await ctx.close();
+  logHistory({
+    ts: new Date().toISOString(),
+    dryRun: false,
+    platforms: selected,
+    text,
+    image: imagePath ? path.basename(imagePath) : null,
+    results,
+  });
   return results;
 }

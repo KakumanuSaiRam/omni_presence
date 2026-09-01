@@ -18,9 +18,7 @@ npm run broadcast:login   # opens each platform — log in, then close the windo
 npm run broadcast         # opens http://localhost:4600
 ```
 
-Write the update, tick platforms, press **Post everywhere**. A visible browser
-does the posting so you can watch it happen; per-platform success/failure is
-reported back on the page.
+Write the update, optionally attach an image (Facebook and X), tick platforms, press **Post everywhere**. Tick **Dry run** to log the payload to `posts/history.jsonl` without opening a browser. A visible browser does the posting so you can watch it happen; per-platform success/failure is reported back on the page. Every attempt is appended to `broadcaster/posts/history.jsonl`.
 
 ## Limitations (by platform policy, not by us)
 
