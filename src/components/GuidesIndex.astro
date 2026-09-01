@@ -1,0 +1,402 @@
+---
+import { GUIDE_TOPICS, GUIDE_META, FEATURED_GUIDE_TAGS, topicById } from '../data/guides-meta.js';
+
+const { posts } = Astro.props;
+
+const enriched = posts.map((post) => {
+  const meta = GUIDE_META[post.id] ?? { topic: 'other', tags: [] };
+  const topic = topicById(meta.topic);
+  return { ...post, meta, topic };
+});
+
+const sections = GUIDE_TOPICS.map((topic) => ({
+  ...topic,
+  posts: enriched
+    .filter((p) => p.meta.topic === topic.id)
+    .sort((a, b) => a.data.title.localeCompare(b.data.title)),
+})).filter((s) => s.posts.length > 0);
+
+const tagList = FEATURED_GUIDE_TAGS;
+const total = enriched.length;
+---
+
+<div class="guides-index">
+  <header class="guides-header">
+    <h1>Guides</h1>
+    <p class="guides-lede">{total} articles grouped by topic — search by keyword or tag below.</p>
+  </header>
+
+  <div class="guides-search-wrap">
+    <label class="guides-search-label" for="guides-search">Search guides</label>
+    <input
+      id="guides-search"
+      class="guides-search"
+      type="search"
+      placeholder="e.g. web options, NEET, POLYCET, scholarships…"
+      autocomplete="off"
+      spellcheck="false"
+    />
+    <p class="guides-search-hint" id="guides-search-status" aria-live="polite">
+      Showing all {total} guides · type any keyword or pick a tag
+    </p>
+  </div>
+
+  <div class="guides-tags" role="group" aria-label="Filter by tag">
+    <button type="button" class="guides-tag is-active" data-tag="">All</button>
+    {tagList.map((tag) => (
+      <button type="button" class="guides-tag" data-tag={tag.toLowerCase()}>
+        {tag}
+      </button>
+    ))}
+  </div>
+
+  <nav class="guides-toc" id="guides-toc" aria-label="Guide topics">
+    <p class="guides-toc-label">Topics</p>
+    <ul>
+      {sections.map((section) => (
+        <li>
+          <a href={`#guide-${section.id}`}>{section.label}</a>
+          <span class="guides-toc-count" data-section-count={section.id}>{section.posts.length}</span>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <div class="guides-sections" id="guides-sections">
+    {sections.map((section) => (
+      <section class="guides-section" id={`guide-${section.id}`} data-section={section.id}>
+        <div class="guides-section-head">
+          <h2>{section.label}</h2>
+          {section.hint && <p>{section.hint}</p>}
+        </div>
+        <ul class="guides-list">
+          {section.posts.map((post) => (
+            <li
+              class="guides-item"
+              data-slug={post.id}
+              data-tags={post.meta.tags.join('|').toLowerCase()}
+              data-search={`${post.data.title} ${post.data.description} ${post.meta.tags.join(' ')}`.toLowerCase()}
+            >
+              <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              <ul class="guides-item-tags" aria-label="Tags">
+                {post.meta.tags.map((tag) => (
+                  <li><span class="guides-item-tag">{tag}</span></li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+
+  <p class="guides-empty" id="guides-empty" hidden>No guides match your search. Try a shorter keyword or another tag.</p>
+</div>
+
+<script>
+  const search = document.getElementById('guides-search');
+  const status = document.getElementById('guides-search-status');
+  const empty = document.getElementById('guides-empty');
+  const toc = document.getElementById('guides-toc');
+  const tagButtons = document.querySelectorAll('.guides-tag');
+  const items = document.querySelectorAll('.guides-item');
+  const sections = document.querySelectorAll('.guides-section');
+
+  let activeTag = '';
+
+  function applyFilter() {
+    const q = (search?.value ?? '').trim().toLowerCase();
+    let visible = 0;
+    const sectionCounts = new Map();
+
+    items.forEach((item) => {
+      const haystack = item.getAttribute('data-search') ?? '';
+      const tags = (item.getAttribute('data-tags') ?? '').split('|');
+      const matchesQuery = !q || haystack.includes(q);
+      const matchesTag = !activeTag || tags.includes(activeTag);
+      const show = matchesQuery && matchesTag;
+      item.hidden = !show;
+      if (show) {
+        visible += 1;
+        const section = item.closest('.guides-section')?.getAttribute('data-section');
+        if (section) sectionCounts.set(section, (sectionCounts.get(section) ?? 0) + 1);
+      }
+    });
+
+    sections.forEach((section) => {
+      const id = section.getAttribute('data-section');
+      const count = sectionCounts.get(id) ?? 0;
+      section.hidden = count === 0;
+      const countEl = document.querySelector(`[data-section-count="${id}"]`);
+      if (countEl) countEl.textContent = String(count);
+    });
+
+    if (status) {
+      status.textContent =
+        visible === items.length
+          ? `Showing all ${items.length} guides`
+          : `${visible} of ${items.length} guides match`;
+    }
+    if (empty) empty.hidden = visible > 0;
+    if (toc) toc.hidden = q.length > 0 || activeTag.length > 0;
+  }
+
+  search?.addEventListener('input', applyFilter);
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeTag = btn.getAttribute('data-tag') ?? '';
+      tagButtons.forEach((b) => b.classList.toggle('is-active', b === btn));
+      applyFilter();
+    });
+  });
+
+  document.querySelectorAll('.guides-item-tag').forEach((tagEl) => {
+    tagEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tag = tagEl.textContent?.trim().toLowerCase() ?? '';
+      activeTag = tag;
+      tagButtons.forEach((b) => {
+        b.classList.toggle('is-active', (b.getAttribute('data-tag') ?? '') === tag);
+      });
+      if (![...tagButtons].some((b) => b.classList.contains('is-active'))) {
+        tagButtons[0]?.classList.add('is-active');
+      }
+      applyFilter();
+    });
+  });
+</script>
+
+<style>
+  .guides-index {
+    max-width: 40rem;
+  }
+
+  .guides-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .guides-header h1 {
+    color: var(--accent-deep);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+  }
+
+  .guides-lede {
+    color: var(--ink-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .guides-search-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .guides-search-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .guides-search {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .guides-search:focus {
+    outline: 2px solid var(--highlight-soft);
+    outline-offset: 1px;
+    border-color: var(--highlight-soft);
+  }
+
+  .guides-search-hint {
+    margin: 0.45rem 0 0;
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+  }
+
+  .guides-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .guides-tag {
+    padding: 0.3rem 0.65rem;
+    font: inherit;
+    font-size: 0.8125rem;
+    color: var(--ink-muted);
+    background: var(--surface-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .guides-tag:hover,
+  .guides-tag:focus-visible {
+    border-color: var(--highlight-soft);
+    color: var(--ink);
+  }
+
+  .guides-tag.is-active {
+    background: var(--surface-accent);
+    border-color: var(--highlight-soft);
+    color: var(--highlight-deep);
+    font-weight: 600;
+  }
+
+  .guides-toc {
+    margin-bottom: 2rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-muted);
+  }
+
+  .guides-toc-label {
+    margin: 0 0 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .guides-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .guides-toc li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .guides-toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .guides-toc a:hover,
+  .guides-toc a:focus-visible {
+    color: var(--highlight-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .guides-toc-count {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .guides-section {
+    scroll-margin-top: 5rem;
+  }
+
+  .guides-section + .guides-section {
+    margin-top: 2.25rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .guides-section-head h2 {
+    font-family: 'Karla', system-ui, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent-deep);
+    margin: 0 0 0.25rem;
+  }
+
+  .guides-section-head p {
+    margin: 0 0 0.85rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--ink-muted);
+  }
+
+  .guides-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .guides-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .guides-item:last-child {
+    border-bottom: none;
+  }
+
+  .guides-item > a {
+    display: block;
+    font-size: 0.9875rem;
+    line-height: 1.45;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .guides-item > a:hover,
+  .guides-item > a:focus-visible {
+    color: var(--highlight-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .guides-item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0.4rem 0 0;
+    padding: 0;
+  }
+
+  .guides-item-tag {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    background: var(--surface-muted);
+    padding: 0.12rem 0.45rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .guides-item-tag:hover {
+    color: var(--highlight-deep);
+    background: var(--surface-accent);
+  }
+
+  .guides-empty {
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+    color: var(--ink-muted);
+    background: var(--surface-muted);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+  }
+</style>
