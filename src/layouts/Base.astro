@@ -55,7 +55,27 @@ const orgSchema = {
     jobTitle: DIRECTOR.role,
     url: `${SITE.url}/director/${DIRECTOR.slug}/`,
   },
-  sameAs: [SITE.playStoreUrl, SITE.mapsUrl],
+  sameAs: [
+    SITE.playStoreUrl,
+    SITE.mapsUrl,
+    'https://www.urbanpro.com/guntur/siva-tuitions-gujjanagundla/31503988',
+    'https://www.sulekha.com/profile/siva-tuitions-at-agraharam-guntur',
+  ],
+  knowsAbout: [
+    'EAPCET coaching Guntur',
+    'EAMCET coaching Guntur',
+    'NEET coaching Guntur',
+    'POLYCET coaching Guntur',
+    'web options counselling',
+    'Intermediate tuitions Guntur',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: SITE.phone,
+    contactType: 'customer service',
+    areaServed: 'IN',
+    availableLanguage: ['en', 'te'],
+  },
 };
 
 const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];

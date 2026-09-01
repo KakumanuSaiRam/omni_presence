@@ -33,6 +33,10 @@ export function staticOgPages() {
       title: 'FAQ — Tuitions, EAPCET, NEET & POLYCET in Guntur',
       description: 'Answers for parents and students at Siva Tuitions & Coachings, Pattabhipuram.',
     },
+    answers: {
+      title: 'Answers — tuitions, EAPCET, NEET, POLYCET in Guntur',
+      description: 'Direct answers to the questions students ask about coaching and counselling in Guntur.',
+    },
     blog: {
       title: 'Admission & exam guides',
       description: 'EAPCET, NEET, POLYCET and counselling guides from Siva Tuitions & Coachings.',

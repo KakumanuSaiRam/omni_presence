@@ -1,9 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE, COURSES, COUNSELLING, GLOBAL_FAQS } from '../data/site.js';
+import { VISIBILITY_ANSWERS } from '../data/visibility-answers.js';
 
 const allFaqs = [
   ...GLOBAL_FAQS,
+  ...VISIBILITY_ANSWERS.map(({ q, a }) => ({ q, a })),
   ...COURSES.flatMap((c) => c.faqs),
   ...COUNSELLING.flatMap((c) => c.faqs),
 ];
@@ -25,6 +27,10 @@ const faqSchema = {
     <div class="wrap">
       <div class="ruled"><p class="eyebrow">Everything, answered</p>
       <h1>Frequently asked questions</h1></div>
+      <p>
+        The same questions as a retrieval page for search and AI assistants:
+        <a href="/answers/">Answers — Guntur tuitions, EAPCET, NEET, POLYCET and counselling</a>.
+      </p>
       <dl class="faq">
         {allFaqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
       </dl>

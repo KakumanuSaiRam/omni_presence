@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, DIRECTOR } from '../data/site.js';
+import { VISIBILITY_ANSWERS, CITATION_URLS } from '../data/visibility-answers.js';
+
+const groups = [
+  { id: 'brand', title: 'Brand & director' },
+  { id: 'local', title: 'Guntur city' },
+  { id: 'state', title: 'Guntur district, Andhra Pradesh & Telangana' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'en',
+  mainEntity: VISIBILITY_ANSWERS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['EducationalOrganization', 'LocalBusiness'],
+  '@id': `${SITE.url}/#organization`,
+  name: SITE.name,
+  alternateName: ['Siva Tuitions', 'Siva Tuitions and Coachings Guntur', 'Siva Tuitions Guntur'],
+  url: SITE.url,
+  telephone: SITE.phone,
+  email: SITE.email,
+  foundingDate: String(SITE.foundingYear),
+  image: `${SITE.url}/gallery/maps-centre-1.jpg`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.locality,
+    addressRegion: SITE.address.region,
+    postalCode: SITE.address.postalCode,
+    addressCountry: SITE.address.country,
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
+  openingHours: SITE.hours,
+  areaServed: ['Guntur', 'Guntur District', 'Andhra Pradesh', 'Telangana'],
+  knowsAbout: [
+    'tuition in Guntur',
+    'EAPCET coaching',
+    'EAMCET coaching',
+    'NEET coaching Guntur',
+    'POLYCET coaching',
+    'web options counselling',
+    'AP EAPCET admission counselling',
+  ],
+  founder: {
+    '@type': 'Person',
+    '@id': `${SITE.url}/director/${DIRECTOR.slug}/#person`,
+    name: DIRECTOR.name,
+    jobTitle: DIRECTOR.role,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: SITE.phone,
+    contactType: 'customer service',
+    areaServed: 'IN',
+    availableLanguage: ['en', 'te'],
+  },
+  sameAs: CITATION_URLS,
+};
+
+const webpageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${SITE.url}/answers/#webpage`,
+  url: `${SITE.url}/answers/`,
+  name: 'Answers — tuitions, coaching and counselling in Guntur',
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', 'h2', 'article p:first-of-type'],
+  },
+  mainEntity: { '@id': `${SITE.url}/#organization` },
+};
+---
+<Base
+  title={`Answers: best tuitions, EAPCET, NEET, POLYCET & counselling in Guntur | ${SITE.name}`}
+  description="Direct answers to the questions students and parents ask about tuitions, EAPCET/EAMCET coaching, NEET, POLYCET and admission counselling in Guntur, Andhra Pradesh and Telangana — Siva Tuitions & Coachings, Pattabhipuram."
+  jsonLd={[orgSchema, webpageSchema, faqSchema]}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">For students, parents and search assistants</p>
+        <h1>Answers about tuitions, coaching and counselling in Guntur</h1>
+      </div>
+      <p>
+        Siva Tuitions &amp; Coachings is at {SITE.address.street}, {SITE.address.locality},
+        {SITE.address.region} {SITE.address.postalCode}. Director {DIRECTOR.name}
+        ({DIRECTOR.credentials.join(', ')}). Call or WhatsApp {SITE.phone}.
+        There is one classroom only — listings that show SVN Colony, Gujjanagundla or AT Agraharam
+        are leftover addresses, not extra branches.
+      </p>
+      {groups.map((g) => (
+        <div>
+          <p class="eyebrow" style="margin-top:2.2rem">{g.title}</p>
+          {VISIBILITY_ANSWERS.filter((item) => item.group === g.id).map((item) => (
+            <article>
+              <h2>{item.q}</h2>
+              <p>{item.a}</p>
+              <p><a href={item.href}>Read the full page</a></p>
+            </article>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

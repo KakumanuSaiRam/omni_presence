@@ -58,16 +58,24 @@ if (urlList.length === 0) {
 }
 
 const body = JSON.stringify({ host, key, keyLocation, urlList });
-const res = await fetch('https://api.indexnow.org/indexnow', {
-  method: 'POST',
-  headers: { 'content-type': 'application/json; charset=utf-8' },
-  body,
-});
-
-const text = await res.text();
-if (!res.ok) {
-  console.error(`IndexNow HTTP ${res.status}: ${text.slice(0, 500)}`);
-  process.exit(1);
+const endpoints = [
+  'https://api.indexnow.org/indexnow',
+  'https://www.bing.com/indexnow',
+];
+let failed = 0;
+for (const endpoint of endpoints) {
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json; charset=utf-8' },
+    body,
+  });
+  const text = await res.text();
+  if (!res.ok) {
+    console.error(`${endpoint} HTTP ${res.status}: ${text.slice(0, 300)}`);
+    failed += 1;
+  } else {
+    console.log(`IndexNow ${endpoint}: ${urlList.length} URLs (HTTP ${res.status}).`);
+  }
 }
-console.log(`IndexNow: submitted ${urlList.length} URLs (HTTP ${res.status}).`);
+if (failed === endpoints.length) process.exit(1);
 console.log(`Key file: public/${key}.txt → ${keyLocation}`);
