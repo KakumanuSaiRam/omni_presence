@@ -1,7 +1,13 @@
 # AI Visibility Validation Loop
 
-Run monthly (weekly during counselling season). Log every run in `docs/visibility-log.md`
-with date, platform, query, and whether Siva Tuitions appeared in the top 3 / top 10 / not at all.
+Run monthly (weekly during counselling season). The automated harness is
+`npm run measure` (`scripts/measure-visibility.mjs`): it asks each configured
+engine the query list in `scripts/visibility-queries.json`, writes
+`docs/visibility-runs/<YYYY-MM-DD>.json`, and appends summary rows here.
+
+Manual checks (ChatGPT, Copilot, Google/Bing SERP, GBP panel) are still worth
+doing — those have no stable API in this repo. Log every run with date,
+platform, query, and whether Siva Tuitions appeared in the top 3 / top 10 / not at all.
 
 ## Target queries (ask each platform, ideally from a Guntur/AP location or with that context)
 

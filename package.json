@@ -12,6 +12,7 @@
     "postdeploy:ping": "node scripts/indexnow.mjs",
     "generate:article": "node scripts/generate-article.mjs",
     "publish": "node publisher/publish.mjs",
+    "measure": "node scripts/measure-visibility.mjs",
     "test": "node --test"
   },
   "dependencies": {
