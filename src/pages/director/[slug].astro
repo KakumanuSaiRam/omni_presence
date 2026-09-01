@@ -1,0 +1,102 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE, DIRECTOR } from '../../data/site.js';
+
+export function getStaticPaths() {
+  return [{ params: { slug: DIRECTOR.slug } }];
+}
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${SITE.url}/director/${DIRECTOR.slug}/#person`,
+  name: DIRECTOR.name,
+  honorificPrefix: DIRECTOR.honorific,
+  jobTitle: DIRECTOR.role,
+  description: DIRECTOR.bio,
+  worksFor: { '@id': `${SITE.url}/#organization` },
+  hasCredential: DIRECTOR.credentials.map((c) => ({
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'degree',
+    name: c,
+  })),
+  knowsAbout: [
+    'AP EAPCET counselling', 'EAMCET coaching', 'NEET guidance', 'POLYCET admissions',
+    'web options counselling', 'Intermediate education Andhra Pradesh', 'career counselling',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Guntur',
+    addressRegion: 'Andhra Pradesh',
+    addressCountry: 'IN',
+  },
+  telephone: SITE.phone,
+  url: `${SITE.url}/director/${DIRECTOR.slug}/`,
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Who is Yadlapalli Naga Murali Krishna?',
+      acceptedAnswer: { '@type': 'Answer', text: DIRECTOR.bio },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the qualifications of the director of Siva Tuitions & Coachings?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Director ${DIRECTOR.name} holds four postgraduate degrees: ${DIRECTOR.credentials.join(', ')}.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can I book a counselling session with Yadlapalli Naga Murali Krishna?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Call or WhatsApp ${SITE.phone}, or visit Siva Tuitions & Coachings at ${SITE.address.street}, Guntur ${SITE.address.postalCode}.`,
+      },
+    },
+  ],
+};
+---
+<Base
+  title={`Yadlapalli Naga Murali Krishna — Director, Siva Tuitions & Coachings, Guntur`}
+  description={`Profile of ${DIRECTOR.name} (${DIRECTOR.credentials.join(', ')}), founder & director of Siva Tuitions & Coachings, Guntur — EAPCET, NEET and POLYCET coaching and admission counselling expert.`}
+  jsonLd={[personSchema, faqSchema]}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">{DIRECTOR.role}</p>
+        <h1 style="font-size:clamp(1.8rem,4.5vw,2.8rem)">{DIRECTOR.name}</h1>
+        <p style="font-family:'Fraunces',serif;font-size:1.2rem;color:var(--board);margin-top:0.3rem">
+          {DIRECTOR.credentials.join(' · ')}
+        </p>
+      </div>
+      <p style="max-width:68ch;margin-top:1.2rem">{DIRECTOR.bio}</p>
+      <p style="max-width:68ch;margin-top:1.1rem">
+        Four postgraduate degrees across management, computer science and the sciences give him an unusual
+        vantage point for career guidance: he has studied the paths he counsels students into. Families across
+        Guntur district, Andhra Pradesh and Telangana consult him for after-tenth choices, Intermediate group
+        selection, EAPCET/EAMCET web options, NEET counselling rounds, and POLYCET admissions — including
+        guidance for government polytechnics for women.
+      </p>
+      <h2 style="margin-top:2rem">Areas of guidance</h2>
+      <ul style="margin-top:0.75rem;padding-left:1.25rem;max-width:68ch">
+        <li>AP EAPCET / TS EAMCET rank analysis, certificate verification and web options</li>
+        <li>NEET UG counselling — All India and state quota rounds</li>
+        <li>After-tenth counselling: Intermediate groups vs Polytechnic</li>
+        <li>POLYCET admissions for men and women</li>
+        <li>Engineering branch and college selection across AP &amp; Telangana</li>
+        <li>Pharmacy and allied-health admission pathways</li>
+      </ul>
+      <p style="margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Book a counselling call — {SITE.phone}</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a>
+      </p>
+    </div>
+  </section>
+</Base>

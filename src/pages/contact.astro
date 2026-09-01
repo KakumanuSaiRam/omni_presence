@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site.js';
+---
+<Base
+  title={`Contact ${SITE.name} — Pattabhipuram, Guntur | Phone, WhatsApp, Directions`}
+  description={`Contact Siva Tuitions & Coachings: ${SITE.phone}, ${SITE.email}. Address: ${SITE.address.street}, Guntur ${SITE.address.postalCode}. Open ${SITE.hours}.`}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Visit · Call · WhatsApp</p>
+      <h1>Contact Siva Tuitions &amp; Coachings</h1></div>
+      <div class="grid" style="margin-top:1.5rem">
+        <div class="card">
+          <h3>Address</h3>
+          <p>{SITE.address.street},<br/>{SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</p>
+          <p style="margin-top:0.6rem"><a href={SITE.mapsUrl}>Open in Google Maps →</a></p>
+        </div>
+        <div class="card">
+          <h3>Phone &amp; WhatsApp</h3>
+          <p><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
+          <p style="margin-top:0.6rem"><a href={`https://wa.me/${SITE.whatsapp}`}>Message on WhatsApp →</a></p>
+        </div>
+        <div class="card">
+          <h3>Email &amp; app</h3>
+          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <p style="margin-top:0.6rem"><a href={SITE.playStoreUrl}>Android app on Google Play →</a></p>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem;max-width:65ch">
+        Working hours: Monday–Saturday, 6:00 AM – 9:00 PM. During EAPCET, NEET and POLYCET counselling
+        season the counselling desk also takes phone and WhatsApp consultations from students across
+        Andhra Pradesh and Telangana.
+      </p>
+    </div>
+  </section>
+</Base>

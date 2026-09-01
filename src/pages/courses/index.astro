@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE, COURSES } from '../../data/site.js';
+---
+<Base
+  title={`Courses & Coaching in Guntur — Tuitions, EAPCET, NEET, POLYCET | ${SITE.name}`}
+  description="All courses at Siva Tuitions & Coachings, Guntur: Classes 1–10 tuitions, Intermediate MPC/BiPC, EAPCET (EAMCET), NEET and POLYCET coaching."
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Courses</p>
+      <h1>Coaching &amp; tuitions at Siva Tuitions &amp; Coachings</h1></div>
+      <div class="grid" style="margin-top:1.5rem">
+        {COURSES.map((c) => (
+          <a class="card" href={`/courses/${c.slug}/`}>
+            <h3>{c.short}</h3>
+            <p>{c.metaDescription.split('.')[0]}.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

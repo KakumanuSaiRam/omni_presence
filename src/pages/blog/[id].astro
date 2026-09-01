@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { SITE, DIRECTOR } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: DIRECTOR.name,
+    url: `${SITE.url}/director/${DIRECTOR.slug}/`,
+  },
+  publisher: { '@id': `${SITE.url}/#organization` },
+}];
+---
+<Base title={`${post.data.title} | ${SITE.name}`} description={post.data.description} jsonLd={jsonLd}>
+  <section>
+    <div class="wrap" style="max-width:46rem">
+      <div class="ruled">
+        <p class="eyebrow">{post.data.date.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        <h1 style="font-size:clamp(1.7rem,4vw,2.5rem)">{post.data.title}</h1>
+      </div>
+      <article class="prose" style="margin-top:1.5rem">
+        <Content />
+      </article>
+      <div class="contact-strip" style="margin-top:2.5rem">
+        <div>
+          <p style="font-weight:700">Need guidance for your specific rank or situation?</p>
+          <p>Talk to {DIRECTOR.name} at Siva Tuitions &amp; Coachings, Guntur.</p>
+        </div>
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
+      </div>
+    </div>
+  </section>
+  <style is:global>
+    .prose h2 { margin-top: 1.75rem; color: var(--board); }
+    .prose h3 { margin-top: 1.25rem; }
+    .prose p, .prose li { margin-top: 0.75rem; }
+    .prose ul, .prose ol { padding-left: 1.25rem; }
+  </style>
+</Base>

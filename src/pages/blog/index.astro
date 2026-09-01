@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../data/site.js';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date - a.data.date);
+---
+<Base
+  title={`Guides — EAPCET, NEET, POLYCET & Admissions in AP | ${SITE.name}`}
+  description="Practical guides from Siva Tuitions & Coachings, Guntur: EAPCET web options, NEET counselling, POLYCET after tenth, choosing tuitions and coaching centres in Guntur."
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Guides for students &amp; parents</p>
+      <h1>Admission &amp; exam guides</h1></div>
+      <div class="grid" style="margin-top:1.5rem">
+        {posts.map((p) => (
+          <a class="card" href={`/blog/${p.id}/`}>
+            <h3>{p.data.title}</h3>
+            <p>{p.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,179 @@
+---
+import { SITE, DIRECTOR } from '../data/site.js';
+
+const { title, description, jsonLd = [], noOrgSchema = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['EducationalOrganization', 'LocalBusiness'],
+  '@id': `${SITE.url}/#organization`,
+  name: SITE.name,
+  alternateName: ['Siva Tuitions', 'Siva Tuitions and Coachings Guntur'],
+  url: SITE.url,
+  telephone: SITE.phone,
+  email: SITE.email,
+  foundingDate: String(SITE.foundingYear),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.locality,
+    addressRegion: SITE.address.region,
+    postalCode: SITE.address.postalCode,
+    addressCountry: SITE.address.country,
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
+  openingHours: SITE.hours,
+  areaServed: ['Guntur', 'Guntur District', 'Andhra Pradesh', 'Telangana'],
+  founder: {
+    '@type': 'Person',
+    '@id': `${SITE.url}/director/${DIRECTOR.slug}/#person`,
+    name: DIRECTOR.name,
+    jobTitle: DIRECTOR.role,
+    url: `${SITE.url}/director/${DIRECTOR.slug}/`,
+  },
+  sameAs: [SITE.playStoreUrl, SITE.mapsUrl],
+};
+
+const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:image" content={`${SITE.url}/logo.png`} />
+  <meta name="geo.region" content="IN-AP" />
+  <meta name="geo.placename" content="Guntur" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  {schemas.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
+  <style is:global>
+    /* Palette derived from the Siva Tuitions logo: indigo-navy crest,
+       orange wordmark, magenta pencil, white ground. Light theme only. */
+    :root {
+      --board: #2b308f;
+      --board-deep: #1f2368;
+      --chalk: #fbfaf7;
+      --ink: #21203a;
+      --marigold: #e8821a;
+      --kumkum: #c026d3;
+      --rule: rgba(33, 32, 58, 0.12);
+      --max: 68rem;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      font-family: 'Karla', system-ui, sans-serif;
+      background: var(--chalk);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 1.0625rem;
+    }
+    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.15; }
+    a { color: var(--board); }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--marigold); outline-offset: 2px;
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Signature: ruled-notebook section headers — red margin line + faint rules */
+    .ruled {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--kumkum);
+      background-image: repeating-linear-gradient(
+        to bottom, transparent, transparent 2.1rem, var(--rule) 2.1rem, var(--rule) calc(2.1rem + 1px)
+      );
+    }
+    .eyebrow {
+      font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--kumkum);
+    }
+
+    header.site {
+      background: var(--board); color: var(--chalk);
+      border-bottom: 4px solid var(--marigold);
+    }
+    header.site .wrap {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem;
+      padding-top: 0.9rem; padding-bottom: 0.9rem;
+    }
+    .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; color: var(--chalk); text-decoration: none; }
+    nav.main { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; font-size: 0.95rem; }
+    nav.main a { color: var(--chalk); text-decoration: none; opacity: 0.92; }
+    nav.main a:hover { text-decoration: underline; text-decoration-color: var(--marigold); text-underline-offset: 4px; }
+
+    .btn {
+      display: inline-block; padding: 0.7rem 1.3rem; border-radius: 6px;
+      font-weight: 700; text-decoration: none; font-size: 1rem;
+    }
+    .btn-call { background: var(--marigold); color: var(--board-deep); }
+    .btn-wa { background: transparent; color: inherit; border: 2px solid currentColor; }
+    .btn:hover { filter: brightness(1.06); }
+
+    main section { padding: 2.75rem 0; }
+    footer.site {
+      background: var(--board-deep); color: var(--chalk);
+      padding: 2.5rem 0; font-size: 0.95rem;
+    }
+    footer.site a { color: var(--marigold); }
+    .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+    .card {
+      background: #fff; border: 1px solid var(--rule); border-radius: 8px;
+      padding: 1.4rem; display: block; text-decoration: none; color: var(--ink);
+    }
+    .card:hover { border-color: var(--marigold); }
+    .card h3 { color: var(--board); margin-bottom: 0.4rem; }
+    dl.faq dt { font-weight: 700; font-family: 'Fraunces', serif; font-size: 1.1rem; margin-top: 1.4rem; color: var(--board); }
+    dl.faq dd { margin: 0.4rem 0 0; }
+    .contact-strip {
+      background: var(--board); color: var(--chalk); border-radius: 10px;
+      padding: 1.75rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="/" style="display:flex;align-items:center;gap:0.6rem">
+        <img src="/logo.png" alt="" width="46" height="46" style="background:#fff;border-radius:8px;object-fit:contain" />
+        Siva Tuitions &amp; Coachings
+      </a>
+      <nav class="main" aria-label="Main">
+        <a href="/courses/">Courses</a>
+        <a href="/counselling/">Counselling</a>
+        <a href="/director/yadlapalli-naga-murali-krishna/">Director</a>
+        <a href="/blog/">Guides</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <a class="btn btn-call" href={`tel:${SITE.phoneHref}`} style="margin-left:auto">Call {SITE.phone}</a>
+    </div>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      <p><strong>{SITE.name}</strong> — {SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</p>
+      <p>Phone / WhatsApp: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a> · Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> · <a href={SITE.mapsUrl}>Google Maps</a> · <a href={SITE.playStoreUrl}>Android app</a></p>
+      <p>Director: <a href="/director/yadlapalli-naga-murali-krishna/">{DIRECTOR.name}</a>, {DIRECTOR.credentials.join(', ')}</p>
+      <p>Serving Guntur city, Guntur district, Andhra Pradesh and Telangana — tuitions (Classes 1–10, Intermediate), EAPCET/EAMCET, NEET &amp; POLYCET coaching, and admission counselling.</p>
+    </div>
+  </footer>
+</body>
+</html>

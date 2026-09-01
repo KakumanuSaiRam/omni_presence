@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE, COURSES, COUNSELLING, LOCATIONS } from '../../data/site.js';
+
+export function getStaticPaths() {
+  return LOCATIONS.map((loc) => ({ params: { slug: loc.slug }, props: { loc } }));
+}
+const { loc } = Astro.props;
+
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: loc.title,
+  description: loc.blurb,
+  provider: { '@id': `${SITE.url}/#organization` },
+  areaServed: loc.name,
+}];
+---
+<Base title={`${loc.title} | ${SITE.name}`} description={loc.blurb} jsonLd={jsonLd}>
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Serving {loc.name}</p>
+      <h1 style="font-size:clamp(1.7rem,4vw,2.6rem)">{loc.title}</h1></div>
+      <p style="max-width:68ch;margin-top:1.1rem">{loc.blurb}</p>
+      <p style="max-width:68ch;margin-top:1.1rem">
+        Centre: {SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}.
+        Phone/WhatsApp counselling available for students who cannot visit in person.
+      </p>
+      <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp us</a>
+      </p>
+    </div>
+  </section>
+  <section style="background:#fff;border-block:1px solid var(--rule)">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">For students of {loc.name}</p><h2>Coaching &amp; counselling available</h2></div>
+      <div class="grid" style="margin-top:1.5rem">
+        {[...COURSES, ...COUNSELLING].map((c) => (
+          <a class="card" href={`/${c.audience ? 'courses' : 'counselling'}/${c.slug}/`}>
+            <h3>{c.short}</h3>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE, COURSES } from '../../data/site.js';
+
+export function getStaticPaths() {
+  return COURSES.map((course) => ({ params: { slug: course.slug }, props: { course } }));
+}
+const { course } = Astro.props;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: course.title,
+    description: course.metaDescription,
+    provider: { '@id': `${SITE.url}/#organization` },
+    audience: { '@type': 'EducationalAudience', educationalRole: 'student', audienceType: course.audience },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'onsite',
+      location: { '@type': 'Place', name: SITE.name, address: `${SITE.address.street}, ${SITE.address.locality} ${SITE.address.postalCode}` },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: course.faqs.map(({ q, a }) => ({
+      '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  },
+];
+---
+<Base title={`${course.title} | ${SITE.name}`} description={course.metaDescription} jsonLd={jsonLd}>
+  <section>
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">{course.audience}</p>
+        <h1 style="font-size:clamp(1.7rem,4vw,2.6rem)">{course.title}</h1>
+      </div>
+      {course.body.map((p) => <p style="max-width:68ch;margin-top:1.1rem">{p}</p>)}
+      <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp us</a>
+      </p>
+    </div>
+  </section>
+  <section style="background:#fff;border-block:1px solid var(--rule)">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Answers</p><h2>Common questions</h2></div>
+      <dl class="faq">
+        {course.faqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      </dl>
+      <p style="margin-top:1.5rem;font-size:0.95rem">
+        People also search for: {course.queries.join(' · ')}
+      </p>
+    </div>
+  </section>
+</Base>

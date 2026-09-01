@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, COURSES, COUNSELLING, GLOBAL_FAQS } from '../data/site.js';
+
+const allFaqs = [
+  ...GLOBAL_FAQS,
+  ...COURSES.flatMap((c) => c.faqs),
+  ...COUNSELLING.flatMap((c) => c.faqs),
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqs.map(({ q, a }) => ({
+    '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+<Base
+  title={`FAQ — Tuitions, EAPCET/EAMCET, NEET, POLYCET Coaching & Counselling in Guntur | ${SITE.name}`}
+  description="Every question parents and students ask about Siva Tuitions & Coachings, Guntur — best tuitions, EAPCET/EAMCET coaching, NEET guidance, POLYCET, web options counselling, fees and contact."
+  jsonLd={[faqSchema]}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Everything, answered</p>
+      <h1>Frequently asked questions</h1></div>
+      <dl class="faq">
+        {allFaqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      </dl>
+    </div>
+  </section>
+</Base>

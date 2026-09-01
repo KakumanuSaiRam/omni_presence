@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, DIRECTOR, COURSES, COUNSELLING, GLOBAL_FAQS } from '../data/site.js';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: GLOBAL_FAQS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+<Base
+  title="Siva Tuitions & Coachings, Guntur — Best Tuitions, EAPCET/EAMCET, NEET & POLYCET Coaching and Admission Counselling"
+  description="Siva Tuitions & Coachings, Pattabhipuram, Guntur: tuitions for Classes 1–10 and Intermediate, EAPCET (EAMCET), NEET and POLYCET coaching, plus web options and admission counselling for Andhra Pradesh and Telangana. Call +91 88797 97777."
+  jsonLd={[faqSchema]}
+>
+  <section style="background:var(--board);color:var(--chalk);border-bottom:4px solid var(--marigold)">
+    <div class="wrap" style="padding:3.5rem 1.25rem">
+      <p class="eyebrow" style="color:var(--marigold)">Pattabhipuram · Guntur · Since {SITE.foundingYear}</p>
+      <h1 style="font-size:clamp(2rem,5vw,3.2rem);max-width:26ch;margin:0.5rem 0 1rem">
+        Guntur's trusted tuition point — from Class 1 to your college seat.
+      </h1>
+      <p style="max-width:60ch;font-size:1.15rem">
+        Tuitions for Classes 1–10 and Intermediate. Coaching for <strong>EAPCET (EAMCET)</strong>,
+        <strong>NEET</strong> and <strong>POLYCET</strong>. And the part almost nobody else offers:
+        an <strong>admission-counselling desk</strong> that walks your family through rank analysis,
+        certificate verification and web options — for Andhra Pradesh and Telangana.
+      </p>
+      <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--chalk)">WhatsApp us</a>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Coaching &amp; tuitions</p>
+      <h2>What we teach</h2></div>
+      <div class="grid" style="margin-top:1.5rem">
+        {COURSES.map((c) => (
+          <a class="card" href={`/courses/${c.slug}/`}>
+            <h3>{c.short}</h3>
+            <p>{c.metaDescription.split('.')[0]}.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-block:1px solid var(--rule)">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Counselling desk</p>
+      <h2>From rank to seat — guided web options &amp; admissions</h2></div>
+      <div class="grid" style="margin-top:1.5rem">
+        {COUNSELLING.map((c) => (
+          <a class="card" href={`/counselling/${c.slug}/`}>
+            <h3>{c.short}</h3>
+            <p>{c.metaDescription.split('.')[0]}.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Leadership</p>
+      <h2>Director: {DIRECTOR.name}</h2></div>
+      <p style="max-width:65ch;margin-top:1rem">
+        {DIRECTOR.honorific} {DIRECTOR.name} — <strong>{DIRECTOR.credentials.join(', ')}</strong> —
+        founded Siva Tuitions &amp; Coachings and personally leads both the classroom coaching and the
+        admission-counselling desk. <a href={`/director/${DIRECTOR.slug}/`}>Read his full profile →</a>
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-strip">
+        <div>
+          <h2 style="font-size:1.4rem">Talk to us today</h2>
+          <p>{SITE.address.street}, {SITE.address.locality} {SITE.address.postalCode}</p>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
+          <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--chalk)">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">Quick answers</p>
+      <h2>Frequently asked questions</h2></div>
+      <dl class="faq">
+        {GLOBAL_FAQS.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      </dl>
+      <p style="margin-top:1.5rem"><a href="/faq/">See all FAQs →</a></p>
+    </div>
+  </section>
+</Base>
