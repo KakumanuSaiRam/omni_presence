@@ -1,0 +1,90 @@
+---
+const { quotes } = Astro.props;
+---
+<section class="quotes-section section-raised" aria-label="Inspirational quotes">
+  <div class="wrap">
+    <div class="ruled">
+      <p class="eyebrow">Words that stay</p>
+      <h2>Why education matters</h2>
+    </div>
+    <div class="quote-carousel" data-quote-carousel>
+      {quotes.map((q, i) => (
+        <blockquote class:list={['quote-slide', { active: i === 0 }]} data-slide={i}>
+          <p class="quote-text">"{q.text}"</p>
+          <footer class="quote-author">— {q.author}</footer>
+        </blockquote>
+      ))}
+      <div class="quote-controls" aria-hidden="false">
+        <button type="button" class="quote-btn" data-prev aria-label="Previous quote">←</button>
+        <div class="quote-dots" role="tablist">
+          {quotes.map((_, i) => (
+            <button type="button" class:list={['quote-dot', { active: i === 0 }]} data-dot={i} aria-label={`Quote ${i + 1}`} role="tab" />
+          ))}
+        </div>
+        <button type="button" class="quote-btn" data-next aria-label="Next quote">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quotes-section { padding: 2.75rem 0; }
+  .quote-carousel { position: relative; margin-top: 1.5rem; min-height: 9rem; }
+  .quote-slide {
+    display: none; margin: 0; padding: 1.5rem 1.75rem;
+    background: var(--surface-muted); border-radius: 10px;
+    border-left: 3px solid var(--highlight);
+  }
+  .quote-slide.active { display: block; animation: fadeIn 0.4s ease; }
+  .quote-text {
+    font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.15rem, 3vw, 1.45rem);
+    line-height: 1.4; color: var(--accent-deep); font-style: italic;
+  }
+  .quote-author { margin-top: 0.75rem; font-weight: 700; color: var(--highlight); font-size: 0.95rem; }
+  .quote-controls {
+    display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.25rem;
+  }
+  .quote-btn {
+    background: var(--surface-raised); border: 1px solid var(--border);
+    border-radius: 6px; width: 2.5rem; height: 2.5rem; cursor: pointer;
+    font-size: 1.1rem; color: var(--accent-deep);
+  }
+  .quote-btn:hover { border-color: var(--accent); }
+  .quote-dots { display: flex; gap: 0.4rem; }
+  .quote-dot {
+    width: 0.55rem; height: 0.55rem; border-radius: 50%;
+    border: none; background: var(--accent-soft); cursor: pointer; padding: 0;
+  }
+  .quote-dot.active { background: var(--accent-deep); }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .quote-slide.active { animation: none; }
+  }
+</style>
+
+<script>
+  function initQuoteCarousel(root) {
+    const slides = [...root.querySelectorAll('[data-slide]')];
+    const dots = [...root.querySelectorAll('[data-dot]')];
+    let idx = 0;
+    let timer;
+
+    function show(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(() => show(idx + 1), 6000);
+    }
+
+    root.querySelector('[data-prev]')?.addEventListener('click', () => { show(idx - 1); restart(); });
+    root.querySelector('[data-next]')?.addEventListener('click', () => { show(idx + 1); restart(); });
+    dots.forEach((d) => d.addEventListener('click', () => { show(+d.dataset.dot); restart(); }));
+    restart();
+  }
+
+  document.querySelectorAll('[data-quote-carousel]').forEach(initQuoteCarousel);
+</script>

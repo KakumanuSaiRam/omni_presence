@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" role="img" aria-label="Student celebrating an admission offer">
+  <ellipse cx="180" cy="150" rx="160" ry="100" fill="#d4e8e0"/>
+  <rect x="60" y="46" width="10" height="10" rx="2" fill="#e8821a" transform="rotate(20 65 51)"/>
+  <rect x="290" y="56" width="10" height="10" rx="2" fill="#2d6a5a" transform="rotate(-15 295 61)"/>
+  <circle cx="110" cy="30" r="5" fill="#2d6a5a"/>
+  <circle cx="250" cy="26" r="5" fill="#e8821a"/>
+  <path d="M180 18l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#e8821a"/>
+  <rect x="330" y="110" width="9" height="9" rx="2" fill="#e8821a" transform="rotate(30 334 114)"/>
+  <rect x="24" y="120" width="9" height="9" rx="2" fill="#2d6a5a" transform="rotate(-25 28 124)"/>
+  <g transform="rotate(-12 262 74)">
+    <path d="M262 66l30 10-30 10-30-10z" fill="#1e1d24"/>
+    <rect x="256" y="80" width="12" height="8" fill="#1e1d24"/>
+    <path d="M292 76v14" stroke="#e8821a" stroke-width="2.5"/>
+    <circle cx="292" cy="92" r="3" fill="#e8821a"/>
+  </g>
+  <circle cx="150" cy="104" r="24" fill="#f3c39a"/>
+  <path d="M132 94c2-12 34-12 36 0v-7c0-10-8-15-18-15s-16 5-18 15z" fill="#1e1d24"/>
+  <circle cx="143" cy="104" r="3" fill="#1e1d24"/>
+  <circle cx="158" cy="104" r="3" fill="#1e1d24"/>
+  <path d="M142 114q8 7 16 0" stroke="#1e1d24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M126 186v-34c0-15 9-23 24-23s24 8 24 23v34z" fill="#e8821a"/>
+  <path d="M122 138l-22-26" stroke="#e8821a" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="96" cy="106" r="7" fill="#f3c39a"/>
+  <path d="M178 138l24-24" stroke="#e8821a" stroke-width="11" stroke-linecap="round"/>
+  <g transform="rotate(18 210 106)">
+    <rect x="196" y="96" width="34" height="24" rx="3" fill="#fff" stroke="#1f4d42" stroke-width="2.5"/>
+    <circle cx="222" cy="114" r="4" fill="#e8821a"/>
+    <path d="M202 104h18M202 110h12" stroke="#9db8ae" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <circle cx="206" cy="112" r="7" fill="#f3c39a"/>
+  <rect x="70" y="196" width="220" height="8" rx="4" fill="#1f4d42" opacity="0.15"/>
+</svg>

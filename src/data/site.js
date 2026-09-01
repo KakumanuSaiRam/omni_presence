@@ -500,3 +500,88 @@ export function normalizePath(pathname) {
   if (!pathname || pathname === '/') return '/';
   return pathname.endsWith('/') ? pathname : `${pathname}/`;
 }
+
+/** Inspirational quotes — education-themed, attributed where possible. */
+export const QUOTES = [
+  {
+    text: 'Education is not the filling of a pail, but the lighting of a fire.',
+    author: 'W.B. Yeats',
+    theme: 'tuition',
+  },
+  {
+    text: 'The roots of education are bitter, but the fruit is sweet.',
+    author: 'Aristotle',
+    theme: 'coaching',
+  },
+  {
+    text: 'An investment in knowledge pays the best interest.',
+    author: 'Benjamin Franklin',
+    theme: 'counselling',
+  },
+  {
+    text: 'The beautiful thing about learning is that nobody can take it away from you.',
+    author: 'B.B. King',
+    theme: 'tuition',
+  },
+  {
+    text: 'Success is the sum of small efforts, repeated day in and day out.',
+    author: 'Robert Collier',
+    theme: 'coaching',
+  },
+  {
+    text: 'The expert in anything was once a beginner who refused to give up.',
+    author: 'Helen Hayes',
+    theme: 'coaching',
+  },
+];
+
+/** Gallery — curated centre photos (no third-party university backgrounds). */
+export const GALLERY = [
+  {
+    src: '/gallery/maps-centre-1.jpg',
+    alt: 'Siva Tuitions & Coachings centre, Pattabhipuram, Guntur',
+    caption: 'Pattabhipuram centre — 2nd Lane, Gang Colony.',
+  },
+  {
+    src: '/gallery/centre-office.jpg',
+    alt: 'Siva Tuitions office with coaching posters',
+    caption: 'Coaching desk — EAPCET, NEET, POLYCET and Intermediate batches.',
+  },
+  {
+    src: '/gallery/director-at-desk.jpg',
+    alt: 'Director Yadlapalli Naga Murali Krishna at the Siva Tuitions office',
+    caption: 'Director at the counselling and coaching desk.',
+  },
+  {
+    src: '/gallery/counselling-desk.jpg',
+    alt: 'Admission counselling and web-options guidance at Siva Tuitions',
+    caption: 'Web options and admission guidance for AP and Telangana.',
+  },
+  {
+    src: '/gallery/centre-entrance.jpg',
+    alt: 'Entrance to Siva Tuitions counselling office',
+    caption: 'College guidance and EAPCET counselling notices at the entrance.',
+  },
+  {
+    src: '/gallery/eamcet-team.jpg',
+    alt: 'Siva Tuitions faculty with EAMCET short-term coaching banner',
+    caption: 'EAMCET short-term coaching — daily tests and revision batches.',
+  },
+  {
+    src: '/gallery/office-room.jpg',
+    alt: 'Director office room at Siva Tuitions, Guntur',
+    caption: 'Director Y. Naga Murali Krishna — office, Pattabhipuram.',
+  },
+];
+
+export const BRAND = {
+  tagline: 'From Class 1 to your college seat.',
+  mission: 'One trusted place in Guntur for tuitions, entrance coaching, and admission counselling.',
+  values: [
+    { title: 'Small batches', body: 'Doubts cleared in class.' },
+    { title: 'Coaching + counselling', body: 'Same desk from prep to web options.' },
+    { title: 'Honest guidance', body: 'Realistic ranks and safety options.' },
+    { title: 'Director-led', body: `${DIRECTOR.name} runs coaching and counselling.` },
+  ],
+  directorImage: '/brand/director.jpg',
+};

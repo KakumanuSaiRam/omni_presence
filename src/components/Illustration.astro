@@ -1,0 +1,12 @@
+---
+const { src, alt, class: className = '' } = Astro.props;
+---
+<img src={src} alt={alt} class={`illus ${className}`} loading="lazy" decoding="async" />
+
+<style>
+  .illus {
+    width: 100%; height: auto; display: block;
+    border-radius: 10px; border: 1px solid var(--border);
+    background: var(--surface-muted);
+  }
+</style>

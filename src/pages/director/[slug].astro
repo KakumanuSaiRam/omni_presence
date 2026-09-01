@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { SITE, DIRECTOR } from '../../data/site.js';
+import { SITE, DIRECTOR, BRAND } from '../../data/site.js';
 
 export function getStaticPaths() {
   return [{ params: { slug: DIRECTOR.slug } }];
@@ -32,6 +32,7 @@ const personSchema = {
   },
   telephone: SITE.phone,
   url: `${SITE.url}/director/${DIRECTOR.slug}/`,
+  image: `${SITE.url}${BRAND.directorImage}`,
 };
 
 const faqSchema = {
@@ -68,7 +69,9 @@ const faqSchema = {
   jsonLd={[personSchema, faqSchema]}
 >
   <section>
-    <div class="wrap">
+    <div class="wrap director-layout">
+      <img src={BRAND.directorImage} alt={DIRECTOR.name} width="280" height="350" class="director-photo" />
+      <div>
       <div class="ruled">
         <p class="eyebrow">{DIRECTOR.role}</p>
         <h1 style="font-size:clamp(1.8rem,4.5vw,2.8rem)">{DIRECTOR.name}</h1>
@@ -97,6 +100,19 @@ const faqSchema = {
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Book a counselling call — {SITE.phone}</a>
         <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a>
       </p>
+      </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .director-layout {
+    display: grid; gap: 2rem; align-items: start;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .director-layout { grid-template-columns: minmax(11rem, 14rem) 1fr; } }
+  .director-photo {
+    width: 100%; max-width: 14rem; border-radius: 10px;
+    border: 1px solid var(--border); object-fit: cover;
+  }
+</style>

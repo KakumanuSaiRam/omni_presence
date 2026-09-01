@@ -1,60 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
+import Illustration from '../components/Illustration.astro';
 import { SITE, DIRECTOR, COURSES, COUNSELLING, GLOBAL_FAQS } from '../data/site.js';
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: GLOBAL_FAQS.map(({ q, a }) => ({
+  mainEntity: GLOBAL_FAQS.slice(0, 2).map(({ q, a }) => ({
     '@type': 'Question',
     name: q,
     acceptedAnswer: { '@type': 'Answer', text: a },
   })),
 };
 
-const TUITION_SLUGS = [
-  'school-tuitions-guntur',
-  'tenth-class-tuitions-guntur',
-  'intermediate-tuitions-guntur',
-];
-const ENTRANCE_SLUGS = [
-  'eamcet-eapcet-coaching-guntur',
-  'neet-coaching-guntur',
-  'polytechnic-polycet-coaching-guntur',
-  'short-term-crash-coaching-guntur',
-];
-
-const tuitionCourses = TUITION_SLUGS.map((slug) => COURSES.find((c) => c.slug === slug)).filter(Boolean);
-const entranceCourses = ENTRANCE_SLUGS.map((slug) => COURSES.find((c) => c.slug === slug)).filter(Boolean);
+const TUITION_SLUGS = ['school-tuitions-guntur', 'tenth-class-tuitions-guntur', 'intermediate-tuitions-guntur'];
+const ENTRANCE_SLUGS = ['eamcet-eapcet-coaching-guntur', 'neet-coaching-guntur', 'polytechnic-polycet-coaching-guntur', 'short-term-crash-coaching-guntur'];
 
 const SERVICE_SECTIONS = [
-  {
-    id: 'tuitions',
-    eyebrow: 'Classes 1 through Intermediate',
-    title: 'School & Intermediate tuitions',
-    intro:
-      'Strong basics from Class 1 through Intermediate — CBSE, ICSE and AP State board, MPC and BiPC — with small batches and regular parent feedback.',
-    courses: tuitionCourses,
-    muted: false,
-  },
-  {
-    id: 'coaching',
-    eyebrow: 'EAPCET · NEET · POLYCET',
-    title: 'Entrance exam coaching',
-    intro:
-      'Daily practice tests, previous-paper drills and mock analysis for AP EAPCET (EAMCET), NEET UG and POLYCET — plus short-term crash batches before each exam season.',
-    courses: entranceCourses,
-    muted: true,
-  },
-  {
-    id: 'counselling',
-    eyebrow: 'Rank to seat',
-    title: 'Admission counselling desk',
-    intro:
-      'The part almost nobody else offers — rank analysis, certificate verification and web options for engineering, medical, polytechnic and graduate admissions across Andhra Pradesh and Telangana.',
-    counselling: COUNSELLING,
-    muted: false,
-  },
+  { id: 'tuitions', title: 'Tuitions', items: TUITION_SLUGS.map((s) => COURSES.find((c) => c.slug === s)).filter(Boolean), muted: false },
+  { id: 'coaching', title: 'Entrance coaching', items: ENTRANCE_SLUGS.map((s) => COURSES.find((c) => c.slug === s)).filter(Boolean), muted: true },
+  { id: 'counselling', title: 'Admission counselling', items: COUNSELLING, muted: false, isCounselling: true },
 ];
 ---
 <Base
@@ -63,62 +28,55 @@ const SERVICE_SECTIONS = [
   jsonLd={[faqSchema]}
 >
   <section class="hero">
-    <div class="wrap" style="padding:3.5rem 1.25rem">
-      <p class="eyebrow">Pattabhipuram · Guntur · Since {SITE.foundingYear}</p>
-      <h1 style="font-size:clamp(2rem,5vw,3.2rem);max-width:26ch;margin:0.5rem 0 1rem;color:var(--accent-deep)">
-        Guntur's trusted tuition point — from Class 1 to your college seat.
-      </h1>
-      <p style="max-width:60ch;font-size:1.15rem;color:var(--ink-muted)">
-        Tuitions for Classes 1–10 and Intermediate. Coaching for <strong style="color:var(--ink)">EAPCET (EAMCET)</strong>,
-        <strong style="color:var(--ink)">NEET</strong> and <strong style="color:var(--ink)">POLYCET</strong>. And the part almost nobody else offers:
-        an <strong style="color:var(--ink)">admission-counselling desk</strong> that walks your family through rank analysis,
-        certificate verification and web options — for Andhra Pradesh and Telangana.
-      </p>
-      <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
-        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
-        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--accent-deep);border-color:var(--accent)">WhatsApp us</a>
-      </p>
+    <div class="wrap hero-split">
+      <div>
+        <p class="eyebrow">Pattabhipuram · Guntur · Since {SITE.foundingYear}</p>
+        <h1 class="hero-title">From Class 1 to your college seat.</h1>
+        <p class="hero-lead">Tuitions, EAPCET/NEET/POLYCET coaching, and admission counselling — one centre.</p>
+        <p class="hero-actions">
+          <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
+          <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp</a>
+        </p>
+      </div>
+      <Illustration src="/illustrations/students-classroom.svg" alt="" class="hero-art" />
     </div>
   </section>
 
   {SERVICE_SECTIONS.map((section) => (
-    <section
-      id={section.id}
-      class={section.muted ? 'section-muted' : section.id === 'counselling' ? 'section-raised' : ''}
-    >
+    <section id={section.id} class={section.muted ? 'section-muted' : ''}>
       <div class="wrap">
-        <div class="ruled">
-          <p class="eyebrow">{section.eyebrow}</p>
-          <h2>{section.title}</h2>
-        </div>
-        <p class="section-intro">{section.intro}</p>
-        <div class="grid" style="margin-top:1.5rem">
-          {section.courses?.map((c) => (
-            <a class="card" href={`/courses/${c.slug}/`}>
-              <h3>{c.short}</h3>
-              <p>{c.metaDescription.split('.')[0]}.</p>
-            </a>
-          ))}
-          {section.counselling?.map((c) => (
-            <a class="card" href={`/counselling/${c.slug}/`}>
-              <h3>{c.short}</h3>
-              <p>{c.metaDescription.split('.')[0]}.</p>
-            </a>
-          ))}
+        <div class={section.isCounselling ? 'split-art' : ''}>
+          <div>
+            <h2 class="section-heading">{section.title}</h2>
+            <ul class="link-list">
+              {section.items.map((item) => (
+                <li>
+                  <a href={section.isCounselling ? `/counselling/${item.slug}/` : `/courses/${item.slug}/`}>
+                    {item.short}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {section.isCounselling && (
+            <Illustration src="/illustrations/counselling-desk.svg" alt="" class="side-art" />
+          )}
         </div>
       </div>
     </section>
   ))}
 
   <section class="section-muted">
-    <div class="wrap">
-      <div class="ruled"><p class="eyebrow">Leadership</p>
-      <h2>Director: {DIRECTOR.name}</h2></div>
-      <p style="max-width:65ch;margin-top:1rem;color:var(--ink-muted)">
-        {DIRECTOR.honorific} {DIRECTOR.name} — <strong style="color:var(--ink)">{DIRECTOR.credentials.join(', ')}</strong> —
-        founded Siva Tuitions &amp; Coachings and personally leads both the classroom coaching and the
-        admission-counselling desk. <a href={`/director/${DIRECTOR.slug}/`}>Read his full profile →</a>
-      </p>
+    <div class="wrap split-art">
+      <div>
+        <h2 class="section-heading">Director: {DIRECTOR.name}</h2>
+        <p style="max-width:60ch;color:var(--ink-muted)">
+          {DIRECTOR.honorific} {DIRECTOR.name} — <strong style="color:var(--ink)">{DIRECTOR.credentials.join(', ')}</strong> —
+          founded the institute and personally leads both the coaching and the admission-counselling
+          desk. <a href={`/director/${DIRECTOR.slug}/`}>Read his full profile →</a>
+        </p>
+      </div>
+      <Illustration src="/illustrations/graduation-joy.svg" alt="" class="side-art side-art-sm" />
     </div>
   </section>
 
@@ -126,25 +84,56 @@ const SERVICE_SECTIONS = [
     <div class="wrap">
       <div class="contact-strip">
         <div>
-          <h2 style="font-size:1.4rem">Talk to us today</h2>
-          <p>{SITE.address.street}, {SITE.address.locality} {SITE.address.postalCode}</p>
+          <h2 style="font-size:1.25rem">Talk to us</h2>
+          <p>{SITE.address.locality}, {SITE.address.postalCode}</p>
         </div>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap">
-          <a class="btn btn-call" href={`tel:${SITE.phoneHref}`} style="background:#fff;color:var(--accent-deep)">Call {SITE.phone}</a>
-          <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:#fff;border-color:rgba(255,255,255,0.6)">WhatsApp</a>
-        </div>
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`} style="background:#fff;color:var(--accent-deep)">Call {SITE.phone}</a>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section class="section-muted" style="padding-top:1.5rem;padding-bottom:2rem">
     <div class="wrap">
-      <div class="ruled"><p class="eyebrow">Quick answers</p>
-      <h2>Frequently asked questions</h2></div>
-      <dl class="faq">
-        {GLOBAL_FAQS.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      <h2 class="section-heading">Common questions</h2>
+      <dl class="faq faq-compact">
+        {GLOBAL_FAQS.slice(0, 2).map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
       </dl>
-      <p style="margin-top:1.5rem"><a href="/faq/">See all FAQs →</a></p>
+      <p style="margin-top:1rem"><a href="/faq/">All FAQs →</a></p>
     </div>
   </section>
 </Base>
+
+<style>
+  .hero-split {
+    display: grid; gap: 1.5rem; align-items: center;
+    padding: 2.5rem 1.25rem; grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .hero-split { grid-template-columns: 1.1fr 0.9fr; } }
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem); color: var(--accent-deep);
+    max-width: 18ch; margin: 0.4rem 0 0.75rem;
+  }
+  .hero-lead { color: var(--ink-muted); max-width: 38ch; }
+  .hero-actions { margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero-art { max-width: 22rem; margin: 0 auto; }
+  .section-heading {
+    font-size: 1.35rem; color: var(--accent-deep); margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem; border-bottom: 1px solid var(--border);
+  }
+  .link-list {
+    list-style: none; padding: 0; display: grid;
+    gap: 0.35rem 1.5rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+  .link-list a {
+    display: block; padding: 0.55rem 0; text-decoration: none;
+    font-weight: 600; color: var(--ink);
+    border-bottom: 1px solid transparent;
+  }
+  .link-list a:hover { color: var(--accent); border-bottom-color: var(--accent-soft); }
+  .faq-compact dt { margin-top: 1rem; }
+  .faq-compact dd { font-size: 0.98rem; color: var(--ink-muted); }
+  .split-art { display: grid; gap: 1.5rem; align-items: center; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .split-art { grid-template-columns: 1.3fr 0.7fr; } }
+  .side-art { max-width: 17rem; margin: 0 auto; }
+  .side-art-sm { max-width: 13rem; }
+</style>
