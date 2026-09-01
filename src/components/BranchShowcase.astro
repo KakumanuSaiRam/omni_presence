@@ -1,6 +1,7 @@
 ---
 import { SITE, GALLERY } from '../data/site.js';
 import { BRANCH_SECTION, UI } from '../data/i18n.js';
+import MapsIcon from './MapsIcon.astro';
 
 const { lang = 'en' } = Astro.props;
 const copy = BRANCH_SECTION[lang];
@@ -36,7 +37,10 @@ const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.ad
       </ul>
       <p class="branch-actions">
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>{ui.call} {SITE.phone}</a>
-        <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>{copy.mapsLabel}</a>
+        <a class="btn btn-ghost btn-icon" href={SITE.mapsDirectionsUrl}>
+          <MapsIcon />
+          {copy.mapsLabel}
+        </a>
         <a class="btn btn-ghost" href={galleryHref}>{copy.galleryLabel}</a>
       </p>
     </div>

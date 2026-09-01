@@ -1,5 +1,6 @@
 ---
 import Illustration from './Illustration.astro';
+import MapsIcon from './MapsIcon.astro';
 import { SITE, DIRECTOR, BRAND, GALLERY } from '../data/site.js';
 import { ABOUT_SECTION, WHY_SECTION, ABOUT_PAGE, HERO, TRUST, UI } from '../data/i18n.js';
 
@@ -152,7 +153,10 @@ const galleryPhotos = GALLERY.slice(0, 3);
     </div>
     <div class="cta-actions">
       <a class="btn" href={`tel:${SITE.phoneHref}`}>{ui.call} {SITE.phone}</a>
-      <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>{ui.directions}</a>
+      <a class="btn btn-ghost btn-icon" href={SITE.mapsDirectionsUrl}>
+        <MapsIcon />
+        {ui.maps}
+      </a>
       <a class="btn btn-ghost" href={contactHref}>{ui.ask}</a>
     </div>
   </div>

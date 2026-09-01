@@ -2,6 +2,7 @@
 import Illustration from './Illustration.astro';
 import EnquiryForm from './EnquiryForm.astro';
 import BranchShowcase from './BranchShowcase.astro';
+import MapsIcon from './MapsIcon.astro';
 import { SITE, DIRECTOR, BRAND, GALLERY, SOCIAL_ACTIVITIES, GLOBAL_FAQS } from '../data/site.js';
 import {
   UI,
@@ -54,7 +55,10 @@ const telHref = `tel:${SITE.phoneHref}`;
       <p class="hero-actions">
         <a class="btn btn-call" href={telHref}>{ui.call} {SITE.phone}</a>
         <a class="btn btn-wa" href={waHref}>{ui.whatsapp}</a>
-        <a class="btn btn-wa" href={SITE.mapsDirectionsUrl}>{ui.directions}</a>
+        <a class="btn btn-wa btn-icon" href={SITE.mapsDirectionsUrl} aria-label={`${ui.maps} — ${addressLine}`}>
+          <MapsIcon />
+          {ui.maps}
+        </a>
       </p>
     </div>
     <div class="hero-media">
@@ -295,13 +299,16 @@ const telHref = `tel:${SITE.phoneHref}`;
         <p style="margin-top:0.35rem;opacity:0.9">
           <a href={telHref} style="color:inherit">{SITE.phone}</a>
           · <a href={`mailto:${SITE.email}`} style="color:inherit">{SITE.email}</a>
-          · <a href={SITE.mapsDirectionsUrl} style="color:inherit">{ui.directions}</a>
+          · <a href={SITE.mapsDirectionsUrl} style="color:inherit;display:inline-flex;align-items:center;gap:0.25rem"><MapsIcon size={16} />{ui.maps}</a>
         </p>
       </div>
       <div class="quick-btns">
         <a class="btn btn-call" href={telHref} style="background:#fff;color:var(--accent-deep)">{ui.callNow}</a>
         <a class="btn btn-wa" href={waHref} style="color:#fff;border-color:rgba(255,255,255,0.6)">{ui.whatsapp}</a>
-        <a class="btn btn-wa" href={SITE.mapsDirectionsUrl} style="color:#fff;border-color:rgba(255,255,255,0.6)">{ui.directions}</a>
+        <a class="btn btn-wa btn-icon" href={SITE.mapsDirectionsUrl} style="color:#fff;border-color:rgba(255,255,255,0.6)" aria-label={ui.maps}>
+          <MapsIcon />
+          {ui.maps}
+        </a>
         <a class="btn btn-wa" href={contact.askHref} style="color:#fff;border-color:rgba(255,255,255,0.6)">{contact.askLabel}</a>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { SITE, DIRECTOR, TE_ALTERNATES, EN_ALTERNATES, normalizePath } from '../
 import { NAV, UI } from '../data/i18n.js';
 import { ogImagePath } from '../data/og-pages.js';
 import EnquiryWidget from '../components/EnquiryWidget.astro';
+import MapsIcon from '../components/MapsIcon.astro';
 
 const { title, description, jsonLd = [], noOrgSchema = false, lang = 'en' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
@@ -262,6 +263,10 @@ const FONT_TOGGLE =
       color: #fff; box-shadow: 0 3px 12px rgba(232, 130, 26, 0.3);
     }
     .btn-wa { background: transparent; color: inherit; border: 2px solid currentColor; }
+    .btn-icon {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+    }
+    .btn-icon svg { flex-shrink: 0; }
     .btn-ghost {
       background: var(--surface-raised); color: var(--accent-deep);
       border: 1px solid var(--accent-soft);
@@ -280,6 +285,7 @@ const FONT_TOGGLE =
     }
     footer.site strong { color: #fff; }
     footer.site a { color: var(--highlight-soft); }
+    footer.site .footer-maps { display: inline-flex; align-items: center; gap: 0.3rem; }
     .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
     .card {
       background: var(--surface-raised); border: 1px solid var(--border); border-radius: 12px;
@@ -432,7 +438,7 @@ const FONT_TOGGLE =
       <p>
         {ui.phoneWhatsapp}: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
         · {ui.email}: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-        · <a href={SITE.mapsDirectionsUrl}>{ui.directions}</a>
+        · <a href={SITE.mapsDirectionsUrl} class="footer-maps"><MapsIcon size={14} />{ui.maps}</a>
         · <a href={SITE.mapsUrl}>{ui.maps}</a>
       </p>
       <p>

@@ -1,7 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
+import MapsIcon from '../components/MapsIcon.astro';
 import { SITE, GALLERY } from '../data/site.js';
+import { UI } from '../data/i18n.js';
+
+const ui = UI.en;
 
 const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
 const waHref = `https://wa.me/${SITE.whatsapp}`;
@@ -23,7 +27,10 @@ const centrePhoto = GALLERY[1];
         <p class="quick-btns">
           <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call Now</a>
           <a class="btn btn-ghost" href={waHref}>WhatsApp Us</a>
-          <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>Get Directions</a>
+          <a class="btn btn-ghost btn-icon" href={SITE.mapsDirectionsUrl}>
+            <MapsIcon />
+            {ui.maps}
+          </a>
         </p>
       </div>
       <figure class="hero-photo" data-reveal>

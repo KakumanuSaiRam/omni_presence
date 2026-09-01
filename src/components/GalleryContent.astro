@@ -1,6 +1,7 @@
 ---
 import { SITE, GALLERY, SOCIAL_ACTIVITIES } from '../data/site.js';
 import { GALLERY_PAGE_TE } from '../data/i18n.js';
+import MapsIcon from './MapsIcon.astro';
 
 const { lang = 'en' } = Astro.props;
 const isTe = lang === 'te';
@@ -25,7 +26,10 @@ const heroPhoto = GALLERY[0];
       <p class="section-intro">{copy.intro}</p>
       <p class="hero-links">
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
-        <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>{copy.mapsLabel} →</a>
+        <a class="btn btn-ghost btn-icon" href={SITE.mapsDirectionsUrl}>
+          <MapsIcon />
+          {copy.mapsLabel}
+        </a>
       </p>
     </div>
     <figure class="hero-photo" data-reveal data-reveal-delay="1">
