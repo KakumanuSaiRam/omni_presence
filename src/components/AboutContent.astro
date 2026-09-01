@@ -24,7 +24,7 @@ const galleryPhotos = GALLERY.slice(0, 3);
       <p class="hero-sub">{HERO[lang].subline}</p>
     </div>
     <div class="hero-media">
-      <Illustration src="/illustrations/about-graduation.webp" alt={page.heroImageAlt} class="hero-art" />
+      <Illustration src="/illustrations/about-graduation.webp" alt={page.heroImageAlt} class="hero-art" eager />
     </div>
   </div>
 </section>
@@ -180,7 +180,12 @@ const galleryPhotos = GALLERY.slice(0, 3);
     margin-top: 0.3rem;
   }
   .hero-sub { margin-top: 0.7rem; color: var(--highlight-deep); font-weight: 600; }
-  .hero-art { max-width: 18rem; margin: 0 auto; }
+  .hero-art {
+    max-width: 24rem; margin: 0 auto;
+    border: none; background: transparent;
+    box-shadow: 0 16px 40px var(--shadow);
+    border-radius: 12px;
+  }
 
   /* Trust strip */
   .trust-band { padding: 1.25rem 0; }
@@ -210,7 +215,12 @@ const galleryPhotos = GALLERY.slice(0, 3);
     grid-template-columns: 1fr;
   }
   @media (min-width: 720px) { .split-section { grid-template-columns: 1fr 1fr; } }
-  .section-art { max-width: 20rem; margin: 0 auto; }
+  .section-art {
+    max-width: 24rem; margin: 0 auto;
+    border: none; background: transparent;
+    box-shadow: 0 12px 32px var(--shadow);
+    border-radius: 12px;
+  }
   .story-lead { color: var(--ink); font-size: 1.08rem; max-width: 52ch; line-height: 1.55; }
   .aim { margin-top: 1.25rem; max-width: 52ch; }
   .aim p:last-child { margin-top: 0.3rem; color: var(--ink); }
