@@ -27,11 +27,12 @@ Andhra Pradesh and Telangana.
 - `src/layouts/Base.astro` holds the design system (CSS custom properties) and
   injects Organization JSON-LD on every page. Course/counselling/blog pages add
   their own Course/Service/FAQPage/Article JSON-LD — copy the existing patterns.
-- Design tokens (from the brand logo — indigo crest, orange wordmark, magenta
-  pencil, white ground): `--board:#2b308f`, `--board-deep:#1f2368`,
-  `--chalk:#fbfaf7`, `--ink:#21203a`, `--marigold:#e8821a`, `--kumkum:#c026d3`.
-  Light theme only. Fonts: Fraunces (display) + Karla (body). Signature motif:
-  thin `--kumkum` left margin rule on section headers (`.ruled`).
+- Design tokens are defined in `src/layouts/Base.astro` `:root` — a light,
+  complementary-to-logo palette (`--surface`, `--ink`, `--accent:#2d6a5a`,
+  `--accent-deep:#1f4d42`, `--highlight`, `--border`, etc.). Use ONLY these
+  custom properties; never hardcode hex values in pages. Light theme only.
+  Fonts: Fraunces (display) + Karla (body). Signature motif: thin `--accent`
+  left margin rule on section headers (`.ruled`).
 - `public/llms.txt` is a curated index for AI crawlers — **every new page you
   add must be added there too**, with a one-line description.
 - Build check after every task: `npm run build` must pass with zero errors.
