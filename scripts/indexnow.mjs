@@ -7,6 +7,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEnv } from './load-env.mjs';
+import { SITE } from '../src/data/site.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 process.chdir(root);
@@ -22,7 +23,8 @@ if (!/^[a-zA-Z0-9-]{8,128}$/.test(key)) {
   process.exit(1);
 }
 
-const host = 'sivatuitions.com';
+const host =
+  process.env.INDEXNOW_HOST?.trim() || new URL(SITE.url).hostname;
 const keyLocation = `https://${host}/${key}.txt`;
 
 writeFileSync(join(root, 'public', `${key}.txt`), `${key}\n`);

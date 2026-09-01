@@ -1,4 +1,4 @@
-const BRAND_RE = /siva\s*tuitions|sivatuitions\.com/i;
+const BRAND_RE = /siva\s*tuitions|sivatuitions\.com|sivatuitions\.github\.io/i;
 const DIRECTOR_RE = /yadlapalli|naga\s+murali\s+krishna/i;
 
 /** Real Guntur / AP coaching brands an answer might name. Used only to tally mentions. */
@@ -109,9 +109,12 @@ function hostOf(url) {
   }
 }
 
-/** Brave/SERP helper: sivatuitions.com in top 3 → 3, elsewhere on page → 1, else 0. */
-export function sitePosition(urls, host = 'sivatuitions.com') {
-  const rank = urls.findIndex((u) => hostOf(u) === host) + 1;
+const SITE_HOSTS = ['sivatuitions.github.io', 'sivatuitions.com'];
+
+/** Brave/SERP helper: live site in top 3 → 3, elsewhere on page → 1, else 0. */
+export function sitePosition(urls, host = SITE_HOSTS) {
+  const hosts = Array.isArray(host) ? host : [host];
+  const rank = urls.findIndex((u) => hosts.includes(hostOf(u))) + 1;
   if (!rank) return { score: 0, rank: null };
   if (rank <= 3) return { score: 3, rank };
   return { score: 1, rank };

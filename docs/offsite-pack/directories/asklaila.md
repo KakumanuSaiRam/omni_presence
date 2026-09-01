@@ -24,7 +24,7 @@ AskLaila Guntur education listings sit under **Educational Institutions → Trai
 | PIN | 522006 |
 | Phone | +91 88797 97777 |
 | Email | sivatuitions@gmail.com |
-| Website | https://sivatuitions.com |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
 
 If the form splits “opposite / landmark”: **behind Jamili Dental Hospital**.
 
@@ -47,7 +47,7 @@ Do not list under Vocational Training Centers or overseas-education consultancie
 ## Opening hours
 
 Monday–Saturday: 06:00 AM – 09:00 PM  
-Sunday: Closed — `TODO(owner: confirm)`
+Sunday: 10:00 AM – 02:00 PM
 
 ---
 
@@ -125,4 +125,4 @@ AskLaila listings are often photo-poor; even 3 images help.
 - Locality must be **Pattabhipuram**, not Arundelpet / Brodipet (those are just popular AskLaila education hubs).
 - AskLaila displays a “100%” rate-now widget that is not a real rating. Do not screenshot it as social proof.
 - Phone format: include `+91 88797 97777` so it matches GBP. If the form strips `+91`, enter `8879797777` and confirm the public page still shows the canonical spacing where possible.
-- Website field: `https://sivatuitions.com` (with https).
+- Website field: `https://sivatuitions.github.io` (with https). Switch to sivatuitions.com after DNS.

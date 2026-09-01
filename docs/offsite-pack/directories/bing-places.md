@@ -23,8 +23,8 @@ Fastest path: **Import from Google** after GBP is verified, then **re-check ever
 | Postal code | 522006 |
 | Phone | +91 88797 97777 |
 | Email | sivatuitions@gmail.com |
-| Website | https://sivatuitions.com |
-| Opening date | `TODO(owner: confirm; website lists 2005)` |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
+| Opening date | 2005
 
 Name must match GBP exactly. No “Siva Tuitions Guntur EAPCET” modifier.
 
@@ -67,7 +67,7 @@ If Bing’s picker after Google-import shows only “School”, change it to Tut
 | Thursday | 06:00 – 21:00 |
 | Friday | 06:00 – 21:00 |
 | Saturday | 06:00 – 21:00 |
-| Sunday | Closed — `TODO(owner: confirm)` |
+| Sunday | 10:00 – 14:00 |
 
 Bing publishes no official description character limit. Whitespark and Bing Places help treat it as a factual summary. Target **150–300 words** (this draft is 150 words / 1,054 characters).
 
@@ -83,8 +83,8 @@ The institute also operates an admission-counselling desk. Director Yadlapalli N
 Street address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 Phone: +91 88797 97777
 Email: sivatuitions@gmail.com
-Website: https://sivatuitions.com
-Hours: Monday to Saturday, 06:00 to 21:00.
+Website: https://sivatuitions.github.io
+Hours: Monday to Saturday 06:00–21:00; Sunday 10:00–14:00.
 ```
 
 Character count of the block above: **1,054** (spaces included). First ~200 characters (what Bing Announcements / some SERP snippets keep):
@@ -147,7 +147,7 @@ A: Yes. The counselling desk guides rank analysis, certificates and web options 
 
 ## Announcements (optional, first 200 characters display)
 
-Reuse GBP weekly posts; trim to 200 characters + link https://sivatuitions.com
+Reuse GBP weekly posts; trim to 200 characters + link https://sivatuitions.github.io
 
 ---
 
@@ -156,6 +156,6 @@ Reuse GBP weekly posts; trim to 200 characters + link https://sivatuitions.com
 - Import-from-Google is fine for speed; **re-select categories**. “Coaching center” on Google may land on a vague Bing school category.
 - Verification can take 7–14 days after publish. Do not create a second Places listing while waiting.
 - Social links: add Facebook / Instagram / X only if those profiles already show the same NAP.
-- Phone: use the same `+91 88797 97777` string as GBP. `TODO(owner: verify number before first Bing publish.)`
+- Phone: use the same `+91 88797 97777` string as GBP.
 - If Bing Maps already dropped a pin on **SVN Colony** or **Gujjanagundla**, claim that place and **move** it to Pattabhipuram 2nd Lane. Those are stale pins, not branches. Two Bing pins with one phone number split ChatGPT citations.
-- Do not mark Sunday open unless the owner confirms.
+- Sunday hours are **10:00–14:00** (confirmed). Do not mark Sunday closed.

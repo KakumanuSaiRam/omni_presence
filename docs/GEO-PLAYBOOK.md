@@ -29,18 +29,19 @@ Consequences:
 Name:    Siva Tuitions & Coachings
 Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram,
          Guntur, Andhra Pradesh 522006
-Phone:   +91 88797 97777        <-- VERIFY with owner before publishing anywhere
+Phone:   +91 88797 97777
 Email:   sivatuitions@gmail.com
-Website: https://sivatuitions.com
+Website: https://sivatuitions.github.io   (intended: https://sivatuitions.com — DNS not live yet)
+Hours:   Monday–Saturday 06:00–21:00; Sunday 10:00–14:00
 Director: Yadlapalli Naga Murali Krishna, M.B.A, M.Tech (CSE), M.Sc, MCA
 ```
 
 ## Phase 1 — Indexing (Week 1) — REQUIRES OWNER LOGINS
 
-1. **DNS**: at the registrar for sivatuitions.com, replace parking records with:
-   - `A` records for apex: 185.199.108.153 / .109. / .110. / .111.153
-   - `CNAME` www → `kakumanusairam.github.io`
-   - In repo Settings → Pages: custom domain `sivatuitions.com`, enforce HTTPS.
+1. **DNS**: sivatuitions.com is **not live**. Until it is, the public site is
+   https://sivatuitions.github.io — use that URL on every listing. When the
+   registrar is ready, see `docs/dns-sivatuitions-com.md`. Do not put a `CNAME`
+   file back in `public/` until those DNS records exist.
 2. **Google Search Console**: add sivatuitions.com (DNS verification), submit
    `sitemap-index.xml`, request indexing of home, director, and counselling pages.
 3. **Bing Webmaster Tools**: import from Search Console (one click), submit sitemap,
@@ -55,7 +56,7 @@ The GBP is the strongest single local signal for Gemini and Google AI Overviews.
 - Claim/verify the listing from the Maps link (owner's Google account).
 - Set name exactly `Siva Tuitions & Coachings` (no keyword stuffing — that risks suspension).
 - Categories: primary "Coaching center"; secondary "Tutoring service", "Educational consultant".
-- Website: https://sivatuitions.com. Phone: canonical number. Hours: real hours.
+- Website: https://sivatuitions.github.io (switch to sivatuitions.com after DNS). Phone: +91 88797 97777. Hours: Mon–Sat 06:00–21:00, Sun 10:00–14:00.
 - Description (750 chars): use the text in `docs/social-drafts/gbp-description.txt`.
 - Photos: front of centre, classrooms, director portrait, counselling desk (owner supplies).
 - **Reviews**: ask every genuinely satisfied parent/student to leave a Google review

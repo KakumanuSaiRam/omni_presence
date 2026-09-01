@@ -35,8 +35,8 @@ Siva Tuitions & Coachings
 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram  
 Guntur, Andhra Pradesh 522006  
 +91 88797 97777 · sivatuitions@gmail.com  
-https://sivatuitions.com  
-https://sivatuitions.com/counselling/neet-medical-admission-counselling/
+https://sivatuitions.github.io  
+https://sivatuitions.github.io/counselling/neet-medical-admission-counselling/
 
 ## Tags
 

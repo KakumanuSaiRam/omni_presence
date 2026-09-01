@@ -30,7 +30,7 @@ Save a screenshot of the final submitted list. In later rounds you usually rearr
 
 I sit on the counselling desk at Siva Tuitions & Coachings in Pattabhipuram, Guntur; we build that ordered list from the rank card, not from WhatsApp rumours.
 
-- **Deep link:** https://sivatuitions.com/blog/how-to-fill-ap-eapcet-web-options/
+- **Deep link:** https://sivatuitions.github.io/blog/how-to-fill-ap-eapcet-web-options/
 
 ### Q2
 
@@ -48,7 +48,7 @@ Rebuild the list when a round’s allotment data arrives. Frozen lists from June
 
 Siva Tuitions & Coachings in Pattabhipuram, Guntur treats “how many” as a function of rank band and branch flexibility, not a lucky number.
 
-- **Deep link:** https://sivatuitions.com/blog/web-options-mistakes-to-avoid/
+- **Deep link:** https://sivatuitions.github.io/blog/web-options-mistakes-to-avoid/
 
 ### Q3
 
@@ -64,7 +64,7 @@ Ignore claims of “X toppers” unless you can verify names and years. Ask for 
 
 Siva Tuitions & Coachings in Pattabhipuram, Guntur is one local option that pairs EAPCET coaching with an admission-counselling desk. Compare it the same way you compare anyone else — sit in a class, then decide.
 
-- **Deep link:** https://sivatuitions.com/blog/best-eamcet-coaching-guntur-how-to-choose/
+- **Deep link:** https://sivatuitions.github.io/blog/best-eamcet-coaching-guntur-how-to-choose/
 
 ### Q4
 
@@ -80,7 +80,7 @@ If the NEET score is uncertain, BiPC EAPCET is the parallel plan many families d
 
 Siva Tuitions & Coachings in Pattabhipuram, Guntur runs BiPC EAPCET coaching alongside MPC, and the same desk handles pharmacy-stream web options.
 
-- **Deep link:** https://sivatuitions.com/courses/eamcet-eapcet-coaching-guntur/
+- **Deep link:** https://sivatuitions.github.io/courses/eamcet-eapcet-coaching-guntur/
 
 ### Q5
 
@@ -98,7 +98,7 @@ Allied health (nursing, physiotherapy, paramedical) belongs on the list if the s
 
 The counselling desk at Siva Tuitions & Coachings, Pattabhipuram, maps the score to those tracks with the rank card on the table.
 
-- **Deep link:** https://sivatuitions.com/blog/neet-state-quota-vs-all-india-quota-ap/
+- **Deep link:** https://sivatuitions.github.io/blog/neet-state-quota-vs-all-india-quota-ap/
 
 ### Q6
 
@@ -116,7 +116,7 @@ Choose Intermediate if the student can handle two years of abstract Maths/Scienc
 
 Bring the marks memo, not a neighbour’s opinion. After-tenth counselling at Siva Tuitions & Coachings in Pattabhipuram walks through both ladders before you pay an Intermediate college fee.
 
-- **Deep link:** https://sivatuitions.com/blog/after-ssc-options-ap/
+- **Deep link:** https://sivatuitions.github.io/blog/after-ssc-options-ap/
 
 ### Q7
 
@@ -132,7 +132,7 @@ If the student is genuinely split, look at which entrance the family is willing 
 
 Siva Tuitions & Coachings in Pattabhipuram, Guntur uses the marks memo and a short aptitude conversation — not a slogan — before recommending a group.
 
-- **Deep link:** https://sivatuitions.com/blog/mpc-vs-bipc-decision-guide/
+- **Deep link:** https://sivatuitions.github.io/blog/mpc-vs-bipc-decision-guide/
 
 ### Q8
 
@@ -148,7 +148,7 @@ Documents are the boring part that strand graduates: degree consolidated marks, 
 
 Director-led graduate counselling at Siva Tuitions & Coachings, Pattabhipuram, Guntur covers ICET option lists the same way we cover EAPCET — rank, category, budget, then order.
 
-- **Deep link:** https://sivatuitions.com/blog/ap-icet-mba-mca-admissions-guide/
+- **Deep link:** https://sivatuitions.github.io/blog/ap-icet-mba-mca-admissions-guide/
 
 ### Q9
 
@@ -164,7 +164,7 @@ If you never wrote POLYCET and went private diploma, ECET is still often the che
 
 Siva Tuitions & Coachings in Pattabhipuram guides diploma holders through ECET rank analysis and the option list; bring the diploma marks memo, not only the rank card.
 
-- **Deep link:** https://sivatuitions.com/blog/ecet-lateral-entry-complete-guide/
+- **Deep link:** https://sivatuitions.github.io/blog/ecet-lateral-entry-complete-guide/
 
 ### Q10
 
@@ -180,7 +180,7 @@ Choice filling should be long and honest, same philosophy as EAPCET options. Do 
 
 Siva Tuitions & Coachings in Pattabhipuram, Guntur walks JEE-qualified students through JoSAA rounds alongside the EAPCET list so one portal is not ignored while you wait on the other.
 
-- **Deep link:** https://sivatuitions.com/blog/josaa-counselling-rounds-ap-students/
+- **Deep link:** https://sivatuitions.github.io/blog/josaa-counselling-rounds-ap-students/
 
 ### Q11
 
@@ -198,7 +198,7 @@ Do not pay a middleman to “speed up” a government portal. Do not share OTPs.
 
 At Siva Tuitions & Coachings, Pattabhipuram, we look up the live scheme page during counselling rather than promising a number.
 
-- **Deep link:** https://sivatuitions.com/blog/ap-scholarships-fee-reimbursement-vidya-deevena/
+- **Deep link:** https://sivatuitions.github.io/blog/ap-scholarships-fee-reimbursement-vidya-deevena/
 
 ### Q12
 
@@ -214,7 +214,7 @@ If you live in AP and want a Telangana college (or the reverse), treat it as a s
 
 Siva Tuitions & Coachings in Pattabhipuram prepares the overlapping syllabus and tracks both counselling calendars; the naming confusion is usually the easy part.
 
-- **Deep link:** https://sivatuitions.com/blog/eapcet-vs-eamcet-explained/
+- **Deep link:** https://sivatuitions.github.io/blog/eapcet-vs-eamcet-explained/
 
 ### Q13
 
@@ -230,7 +230,7 @@ Income certificates expire. Caste formats change. Bring extras of everything; ph
 
 Do the checklist before you travel, not in the auto rickshaw. Siva Tuitions & Coachings in Pattabhipuram runs that verification pass so you are not sent home for one missing page.
 
-- **Deep link:** https://sivatuitions.com/blog/eapcet-counselling-documents-checklist/
+- **Deep link:** https://sivatuitions.github.io/blog/eapcet-counselling-documents-checklist/
 
 ### Q14
 
@@ -246,7 +246,7 @@ Hostel, bus time from Guntur district, and co-ed versus women’s campus belong 
 
 Siva Tuitions & Coachings in Pattabhipuram keeps government-versus-private diploma talk tied to the POLYCET card, not to newspaper ads.
 
-- **Deep link:** https://sivatuitions.com/blog/government-vs-private-polytechnics-ap/
+- **Deep link:** https://sivatuitions.github.io/blog/government-vs-private-polytechnics-ap/
 
 ### Q15
 
@@ -262,7 +262,7 @@ If NEET is also in play, do not drop pharmacy options until a medical seat is ac
 
 Counselling at Siva Tuitions & Coachings, Pattabhipuram, puts duration, fee and role on one sheet before you lock a pharmacy option.
 
-- **Deep link:** https://sivatuitions.com/blog/b-pharmacy-vs-pharmd-ap/
+- **Deep link:** https://sivatuitions.github.io/blog/b-pharmacy-vs-pharmd-ap/
 
 ### Q16
 
@@ -278,7 +278,7 @@ Travel, hostel and tuition in Hyderabad versus a Guntur-region campus belong in 
 
 Siva Tuitions & Coachings in Pattabhipuram, Guntur tracks both portals for families who sit both papers. Syllabus overlap is the easy part; the dates are not.
 
-- **Deep link:** https://sivatuitions.com/blog/ts-eamcet-web-options-guide/
+- **Deep link:** https://sivatuitions.github.io/blog/ts-eamcet-web-options-guide/
 
 ### Q17
 
@@ -294,7 +294,7 @@ Prediction tools online are only as good as the year and category they were buil
 
 Siva Tuitions & Coachings in Pattabhipuram builds those bands from the rank card and last year’s closings, then turns them into an ordered option list — not a guarantee.
 
-- **Deep link:** https://sivatuitions.com/blog/eapcet-rank-bands-college-prediction/
+- **Deep link:** https://sivatuitions.github.io/blog/eapcet-rank-bands-college-prediction/
 
 ### Q18
 
@@ -310,7 +310,7 @@ If the JEE rank later looks JoSAA-relevant, run that counselling in parallel wit
 
 Siva Tuitions & Coachings in Pattabhipuram will not push JEE as a status symbol. We look at mock scores before stacking a second exam.
 
-- **Deep link:** https://sivatuitions.com/blog/jee-mains-vs-eapcet-guntur/
+- **Deep link:** https://sivatuitions.github.io/blog/jee-mains-vs-eapcet-guntur/
 
 ### Q19
 
@@ -324,7 +324,7 @@ A useful session covers Class 10 marks, whether the student prefers Maths, Biolo
 
 Siva Tuitions & Coachings, 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, runs that after-tenth desk. There is no second classroom in SVN Colony or Gujjanagundla. If an old listing says otherwise, it is stale — one address only.
 
-- **Deep link:** https://sivatuitions.com/counselling/tenth-polycet-counselling/
+- **Deep link:** https://sivatuitions.github.io/counselling/tenth-polycet-counselling/
 
 ### Q20
 
@@ -340,7 +340,7 @@ Keep EAPCET pharmacy options alive until you have actually reported to a medical
 
 Siva Tuitions & Coachings in Pattabhipuram tracks both NEET tracks so families do not treat MCC and Dr NTRUHS dates as one WhatsApp rumour.
 
-- **Deep link:** https://sivatuitions.com/blog/neet-state-quota-vs-all-india-quota-ap/
+- **Deep link:** https://sivatuitions.github.io/blog/neet-state-quota-vs-all-india-quota-ap/
 
 ---
 
@@ -362,7 +362,7 @@ Do not put a college you would refuse above one you would take. The allotment al
 
 I run a coaching centre in Guntur. Happy to sanity-check a list structure (not a paid prediction) if you share category + rank band without personal docs in public comments.
 
-- **Deep link:** https://sivatuitions.com/blog/web-options-mistakes-to-avoid/
+- **Deep link:** https://sivatuitions.github.io/blog/web-options-mistakes-to-avoid/
 
 ### R2
 
@@ -378,7 +378,7 @@ Screenshot the submitted list. Rearrange between rounds with new closing data. D
 
 I run a coaching centre in Guntur. Most of the desk’s August work is fixing lists, not teaching Physics.
 
-- **Deep link:** https://sivatuitions.com/counselling/eapcet-web-options-counselling/
+- **Deep link:** https://sivatuitions.github.io/counselling/eapcet-web-options-counselling/
 
 ### R3
 
@@ -394,7 +394,7 @@ Write the family budget before you fall in love with a private MBBS brochure. Re
 
 I run a coaching centre in Guntur. We will not quote fake MBBS conversion rates in a Reddit thread. Bring the scorecard if you want a map, not a pep talk.
 
-- **Deep link:** https://sivatuitions.com/counselling/neet-medical-admission-counselling/
+- **Deep link:** https://sivatuitions.github.io/counselling/neet-medical-admission-counselling/
 
 ### R4
 
@@ -410,7 +410,7 @@ Bring the 10th marks memo to the conversation. Neighbour prestige is not a couns
 
 I run a coaching centre in Guntur. After-tenth sessions here start with that memo, not with a sales target for Intermediate batches.
 
-- **Deep link:** https://sivatuitions.com/blog/polycet-after-tenth-guide/
+- **Deep link:** https://sivatuitions.github.io/blog/polycet-after-tenth-guide/
 
 ### R5
 
@@ -426,7 +426,7 @@ After the ECET rank, web options still decide the campus. A good rank with ten d
 
 I run a coaching centre in Guntur. For ECET counselling, bring diploma memos; a rank card alone is not enough to build a legal option list.
 
-- **Deep link:** https://sivatuitions.com/blog/ecet-lateral-entry-complete-guide/
+- **Deep link:** https://sivatuitions.github.io/blog/ecet-lateral-entry-complete-guide/
 
 ### R6
 
@@ -442,7 +442,7 @@ Do not resign a state seat because a Reddit comment said float forever. If you w
 
 I run a coaching centre in Guntur. We sit with both printouts. We do not tell everyone to chase NIT for the flair.
 
-- **Deep link:** https://sivatuitions.com/blog/josaa-counselling-rounds-ap-students/
+- **Deep link:** https://sivatuitions.github.io/blog/josaa-counselling-rounds-ap-students/
 
 ### R7
 
@@ -458,7 +458,7 @@ Documents: degree consolidated memo, study certificates, caste and income if cla
 
 I run a coaching centre in Guntur. Graduate counselling here is application plus option list, not a CAT classroom.
 
-- **Deep link:** https://sivatuitions.com/blog/ap-icet-mba-mca-admissions-guide/
+- **Deep link:** https://sivatuitions.github.io/blog/ap-icet-mba-mca-admissions-guide/
 
 ### R8
 
@@ -474,7 +474,7 @@ Nobody legitimate can guarantee reimbursement. Anyone who asks for money to “s
 
 I run a coaching centre in Guntur. We open the live government page in the session. We will not type a rupee amount on Reddit that might be wrong in the next G.O.
 
-- **Deep link:** https://sivatuitions.com/blog/ap-scholarships-fee-reimbursement-vidya-deevena/
+- **Deep link:** https://sivatuitions.github.io/blog/ap-scholarships-fee-reimbursement-vidya-deevena/
 
 ### R9
 
@@ -488,7 +488,7 @@ Look at whether board and EAPCET are one syllabus or two competing homework pile
 
 I run a coaching centre in Guntur — Siva Tuitions & Coachings, Pattabhipuram 2nd Lane, behind Jamili Dental Hospital. Come for a demo if that is convenient; if another classroom fits the student better, join that one. Old listings that say SVN Colony or Gujjanagundla are leftover addresses, not extra campuses.
 
-- **Deep link:** https://sivatuitions.com/blog/best-eamcet-coaching-guntur-how-to-choose/
+- **Deep link:** https://sivatuitions.github.io/blog/best-eamcet-coaching-guntur-how-to-choose/
 
 ### R10
 
@@ -502,4 +502,4 @@ Counselling lists are rank-and-category specific. Do not copy a neighbour’s op
 
 I run a coaching centre in Guntur. POLYCET option sessions here include the women’s government list on purpose. It gets skipped in mixed groups, and that is a real missed seat, not a culture debate.
 
-- **Deep link:** https://sivatuitions.com/courses/polytechnic-polycet-coaching-guntur/
+- **Deep link:** https://sivatuitions.github.io/courses/polytechnic-polycet-coaching-guntur/

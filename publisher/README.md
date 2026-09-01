@@ -14,7 +14,7 @@ Post format (YAML frontmatter + body):
 ```markdown
 ---
 title: EAPCET web options week
-image: https://sivatuitions.com/gallery/centre-office.jpg   # optional
+image: https://sivatuitions.github.io/gallery/centre-office.jpg   # optional
 platforms: [facebook, instagram, x, linkedin, reddit, gbp, telegram]
 ---
 Body text. Canonical NAP only — never invent results or student counts.
@@ -53,7 +53,7 @@ Posts: text → `POST /{page-id}/feed`. Photo → `POST /{page-id}/photos`.
 3. `IG_USER_ID` is the Instagram professional account id (Graph `/{page-id}?fields=instagram_business_account`).
 4. App Review again: `instagram_content_publish` is a gated permission.
 5. Every post needs an image. The Graph API takes `image_url` pointing at a **publicly
-   reachable** file — host it on sivatuitions.com (or similar) and put that URL in
+   reachable** file — host it on sivatuitions.github.io (or sivatuitions.com after DNS) and put that URL in
    frontmatter. Local files are skipped on purpose.
 
 Flow: create media container → `media_publish`.

@@ -19,7 +19,7 @@ Character counts below are of the paste block only (not the metadata).
 **Chars:** 663
 
 ```
-Our website is live: https://sivatuitions.com
+Our website is live: https://sivatuitions.github.io
 
 Tuitions for Classes 1–10 (CBSE, ICSE, AP State) and Intermediate MPC & BiPC, plus coaching for AP EAPCET (EAMCET), NEET and POLYCET. The same desk guides web options and certificates after results — EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA.
 
@@ -36,7 +36,7 @@ Call +91 88797 97777 to visit or to book a phone counselling slot.
 
 **Type:** What’s new  
 **CTA button:** Call now  
-**Learn more:** https://sivatuitions.com/blog/how-to-fill-ap-eapcet-web-options/  
+**Learn more:** https://sivatuitions.github.io/blog/how-to-fill-ap-eapcet-web-options/  
 **Chars:** 828
 
 ```
@@ -48,7 +48,7 @@ Certificates must match the application name. A mismatch at verification can can
 
 Director Yadlapalli Naga Murali Krishna reviews rank, category and budget at our Pattabhipuram desk, in person or on WhatsApp.
 
-Call +91 88797 97777. Guide: https://sivatuitions.com/blog/how-to-fill-ap-eapcet-web-options/
+Call +91 88797 97777. Guide: https://sivatuitions.github.io/blog/how-to-fill-ap-eapcet-web-options/
 ```
 
 ---
@@ -77,7 +77,7 @@ Call +91 88797 97777.
 
 **Type:** What’s new  
 **CTA button:** Call now  
-**Learn more:** https://sivatuitions.com/courses/intermediate-tuitions-guntur/  
+**Learn more:** https://sivatuitions.github.io/courses/intermediate-tuitions-guntur/  
 **Chars:** 594
 
 ```
@@ -88,7 +88,7 @@ We run subject-wise Intermediate tuitions in MPC (Maths, Physics, Chemistry) and
 Small batches. Weekly tests. Entrance pattern mixed into board work so February does not become two syllabi.
 
 Call +91 88797 97777 for the current 1st-year and 2nd-year slots.
-https://sivatuitions.com/courses/intermediate-tuitions-guntur/
+https://sivatuitions.github.io/courses/intermediate-tuitions-guntur/
 ```
 
 ---
@@ -97,7 +97,7 @@ https://sivatuitions.com/courses/intermediate-tuitions-guntur/
 
 **Type:** What’s new  
 **CTA button:** Call now  
-**Learn more:** https://sivatuitions.com/blog/after-ssc-options-ap/  
+**Learn more:** https://sivatuitions.github.io/blog/after-ssc-options-ap/  
 **Chars:** 667
 
 ```
@@ -108,7 +108,7 @@ A: They are different ladders. Intermediate keeps EAPCET/NEET and university opt
 
 We counsel this at 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram — not at leftover SVN Colony pins on the internet.
 
-Call +91 88797 97777. Free read: https://sivatuitions.com/blog/after-ssc-options-ap/
+Call +91 88797 97777. Free read: https://sivatuitions.github.io/blog/after-ssc-options-ap/
 ```
 
 ---
@@ -117,7 +117,7 @@ Call +91 88797 97777. Free read: https://sivatuitions.com/blog/after-ssc-options
 
 **Type:** What’s new  
 **CTA button:** Call now  
-**Learn more:** https://sivatuitions.com/courses/eamcet-eapcet-coaching-guntur/  
+**Learn more:** https://sivatuitions.github.io/courses/eamcet-eapcet-coaching-guntur/  
 **Chars:** 588
 
 ```
@@ -128,7 +128,7 @@ Regular batches plus short-term crash batches: mock, error analysis, re-teach th
 One classroom: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 
 Call +91 88797 97777 for the current batch timetable.
-https://sivatuitions.com/courses/eamcet-eapcet-coaching-guntur/
+https://sivatuitions.github.io/courses/eamcet-eapcet-coaching-guntur/
 ```
 
 ---
@@ -137,7 +137,7 @@ https://sivatuitions.com/courses/eamcet-eapcet-coaching-guntur/
 
 **Type:** What’s new  
 **CTA button:** Call now  
-**Learn more:** https://sivatuitions.com/counselling/neet-medical-admission-counselling/  
+**Learn more:** https://sivatuitions.github.io/counselling/neet-medical-admission-counselling/  
 **Chars:** 655
 
 ```
@@ -150,7 +150,7 @@ Bring the scorecard. We will not invent a conversion rate on a poster.
 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur.
 
 Call +91 88797 97777.
-https://sivatuitions.com/counselling/neet-medical-admission-counselling/
+https://sivatuitions.github.io/counselling/neet-medical-admission-counselling/
 ```
 
 ---
@@ -171,7 +171,7 @@ Have the ordered list ready BEFORE the window, not during it. Too few options st
 In-person: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. Rank review also on WhatsApp if you cannot leave Tenali, Mangalagiri or Narasaraopet on a weekday.
 
 Call +91 88797 97777.
-https://sivatuitions.com/counselling/eapcet-web-options-counselling/
+https://sivatuitions.github.io/counselling/eapcet-web-options-counselling/
 ```
 
 ---
@@ -180,7 +180,7 @@ https://sivatuitions.com/counselling/eapcet-web-options-counselling/
 
 **Type:** What’s new  
 **CTA button:** Call now  
-**Learn more:** https://sivatuitions.com/courses/polytechnic-polycet-coaching-guntur/  
+**Learn more:** https://sivatuitions.github.io/courses/polytechnic-polycet-coaching-guntur/  
 **Chars:** 559
 
 ```
@@ -191,7 +191,7 @@ We run all-subject SSC tuitions (AP State, CBSE, ICSE) and POLYCET coaching — 
 Classroom: Pattabhipuram 2nd Lane, behind Jamili Dental Hospital, Guntur. One location.
 
 Call +91 88797 97777 for 10th and POLYCET batch timings.
-https://sivatuitions.com/courses/polytechnic-polycet-coaching-guntur/
+https://sivatuitions.github.io/courses/polytechnic-polycet-coaching-guntur/
 ```
 
 ---
@@ -211,7 +211,7 @@ A: As many realistic rows as you would actually join. Often 100 or more for engi
 Bring rank card, category, local area and a budget number. We build the list at Pattabhipuram — 2nd Lane, behind Jamili Dental Hospital, Gang Colony.
 
 Call +91 88797 97777.
-https://sivatuitions.com/blog/web-options-mistakes-to-avoid/
+https://sivatuitions.github.io/blog/web-options-mistakes-to-avoid/
 ```
 
 ---
@@ -232,7 +232,7 @@ Classes 1–10 tuitions continue (CBSE, ICSE, State) so the next Intermediate ye
 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 
 Call +91 88797 97777.
-https://sivatuitions.com/courses/short-term-crash-coaching-guntur/
+https://sivatuitions.github.io/courses/short-term-crash-coaching-guntur/
 ```
 
 ---
@@ -241,7 +241,7 @@ https://sivatuitions.com/courses/short-term-crash-coaching-guntur/
 
 **Type:** What’s new  
 **CTA button:** Call now  
-**Learn more:** https://sivatuitions.com/counselling/graduate-web-counselling-icet-ecet-pgcet/  
+**Learn more:** https://sivatuitions.github.io/counselling/graduate-web-counselling-icet-ecet-pgcet/  
 **Chars:** 669
 
 ```
@@ -252,7 +252,7 @@ The desk also handles AP ICET (MBA/MCA), AP ECET (diploma → B.Tech second year
 If a counselling session already helped your family, a genuine Google review that names what we did (web options, 10th tuition, POLYCET) helps the next parent find Pattabhipuram 2nd Lane. Please do not invent praise.
 
 Call +91 88797 97777.
-https://sivatuitions.com/counselling/graduate-web-counselling-icet-ecet-pgcet/
+https://sivatuitions.github.io/counselling/graduate-web-counselling-icet-ecet-pgcet/
 ```
 
 ---
@@ -260,6 +260,6 @@ https://sivatuitions.com/counselling/graduate-web-counselling-icet-ecet-pgcet/
 ## Owner checklist before each publish
 
 - [ ] Replace every `TODO(owner: date)` with the live notification date
-- [ ] Confirm Sunday hours if you mention walk-ins
+- [ ] Sunday hours are 10 AM – 2 PM if you mention walk-ins
 - [ ] Photo is this classroom, not an old SVN Colony landmark
 - [ ] Count still ≤ 1500 (re-count if you add Telugu)

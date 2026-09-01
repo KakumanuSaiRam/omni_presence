@@ -20,8 +20,8 @@ Claim the Maps listing first (search the canonical name + Pattabhipuram). Do not
 | PIN | 522006 |
 | Country | India |
 | Phone | +91 88797 97777 |
-| Website | https://sivatuitions.com |
-| Appointment URL (optional) | https://sivatuitions.com/contact/ |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
+| Appointment URL (optional) | https://sivatuitions.github.io/contact/ |
 
 Legal name if Google asks separately: **Siva Tuitions and Coachings**
 
@@ -54,7 +54,7 @@ Labels below are in Google’s public category list (GBP Academy / Maps category
 
 ## Opening hours
 
-Source: `Mo-Sa 06:00-21:00` in `src/data/site.js`. Confirm before publish.
+Source: `src/data/site.js`.
 
 | Day | Hours |
 |---|---|
@@ -64,7 +64,7 @@ Source: `Mo-Sa 06:00-21:00` in `src/data/site.js`. Confirm before publish.
 | Thursday | 06:00 AM – 09:00 PM |
 | Friday | 06:00 AM – 09:00 PM |
 | Saturday | 06:00 AM – 09:00 PM |
-| Sunday | Closed — `TODO(owner: confirm)` |
+| Sunday | 10:00 AM – 02:00 PM |
 
 Special hours: add public holidays / counselling-season extra evening slots only when they are real. `TODO(owner: EAPCET counselling week hours)`
 
@@ -157,7 +157,7 @@ WhatsApp: link Business profile on +91 88797 97777.
 
 ## Posts
 
-GBP posts = **1,500 characters**. 12 ready-to-paste weekly posts live in `docs/offsite-pack/gbp-calendar.md` (also reusable on the broadcaster). CTA on every post: call **+91 88797 97777**. Button: **Call now** (or Learn more → https://sivatuitions.com).
+GBP posts = **1,500 characters**. 12 ready-to-paste weekly posts live in `docs/offsite-pack/gbp-calendar.md` (also reusable on the broadcaster). CTA on every post: call **+91 88797 97777**. Button: **Call now** (or Learn more → https://sivatuitions.github.io).
 
 ---
 

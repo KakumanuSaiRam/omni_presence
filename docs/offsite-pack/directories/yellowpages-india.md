@@ -22,7 +22,7 @@ If a sales PDF cites a different “Yellow Pages India” domain, still paste th
 | PIN | 522006 |
 | Phone | +91 88797 97777 |
 | Email | sivatuitions@gmail.com |
-| Website | https://sivatuitions.com |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
 | Contact person | Yadlapalli Naga Murali Krishna |
 
 ---
@@ -57,7 +57,7 @@ Do not pick “Education (Foreign & Indian) Consultants” — that bucket is st
 ## Opening hours
 
 Monday–Saturday: 06:00 AM – 09:00 PM  
-Sunday: Closed — `TODO(owner: confirm)`
+Sunday: 10:00 AM – 02:00 PM
 
 ---
 
@@ -83,7 +83,7 @@ Counselling: rank analysis, certificate verification and web options for EAPCET,
 Director Yadlapalli Naga Murali Krishna holds an M.B.A, M.Tech (CSE), M.Sc and MCA.
 
 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006
-+91 88797 97777 · sivatuitions@gmail.com · https://sivatuitions.com
++91 88797 97777 · sivatuitions@gmail.com · https://sivatuitions.github.io
 ```
 
 ---
@@ -124,7 +124,7 @@ Many Yellow Pages clones ignore photos; still upload so aggregators that scrape 
 
 | Field | Paste |
 |---|---|
-| Year established | `TODO(owner: confirm; website lists 2005)` |
+| Year established | 2005 |
 | Business type | Service — Education |
 | Working days | Monday to Saturday |
 

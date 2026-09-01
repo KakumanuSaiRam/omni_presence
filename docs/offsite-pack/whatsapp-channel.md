@@ -19,7 +19,7 @@ Classes 1–10, Intermediate, EAPCET/NEET/POLYCET coaching, web options counsell
 Classroom okkate: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur 522006.
 
 Call / this number: +91 88797 97777  
-https://sivatuitions.com
+https://sivatuitions.github.io
 
 ---
 
@@ -32,7 +32,7 @@ Paper meeda list rayandi. Mee category closing ranks. 15 options chaalu kadu.
 Help kavali ante rank card photo pampandi, leka Pattabhipuram 2nd Lane ki randi.
 
 +91 88797 97777  
-https://sivatuitions.com/blog/how-to-fill-ap-eapcet-web-options/
+https://sivatuitions.github.io/blog/how-to-fill-ap-eapcet-web-options/
 
 ---
 
@@ -45,7 +45,7 @@ Marks memo chusi decide cheyandi, neighbour kathalu kadu. Government polytechnic
 Counselling: Pattabhipuram 2nd Lane, behind Jamili Dental Hospital.
 
 +91 88797 97777  
-https://sivatuitions.com/blog/after-ssc-options-ap/
+https://sivatuitions.github.io/blog/after-ssc-options-ap/
 
 ---
 
@@ -68,7 +68,7 @@ Late ga join aithe day-one gap assessment.
 Timings ki call cheyandi. Address: Pattabhipuram 2nd Lane.
 
 +91 88797 97777  
-https://sivatuitions.com/courses/short-term-crash-coaching-guntur/
+https://sivatuitions.github.io/courses/short-term-crash-coaching-guntur/
 
 ---
 
@@ -81,7 +81,7 @@ State quota, All India Quota — rendu portals. EAPCET BiPC (B.Pharmacy etc.) ni
 Scorecard tho +91 88797 97777.  
 2nd Lane, behind Jamili Dental Hospital, Pattabhipuram.
 
-https://sivatuitions.com/counselling/neet-medical-admission-counselling/
+https://sivatuitions.github.io/counselling/neet-medical-admission-counselling/
 
 ---
 
@@ -93,7 +93,7 @@ ICET (MBA/MCA), ECET (diploma → B.Tech 2nd year), PG-CET, JoSAA kuda same desk
 
 Degree memo tesukuni randi / WhatsApp cheyandi.  
 +91 88797 97777  
-https://sivatuitions.com/counselling/graduate-web-counselling-icet-ecet-pgcet/
+https://sivatuitions.github.io/counselling/graduate-web-counselling-icet-ecet-pgcet/
 
 ---
 
@@ -103,5 +103,5 @@ Session useful ayindi ante Google lo Siva Tuitions & Coachings, Pattabhipuram an
 
 Maps pin Pattabhipuram 2nd Lane, behind Jamili Dental Hospital undali. SVN Colony / Gujjanagundla old listings correction cheyyincham.
 
-Website: https://sivatuitions.com  
+Website: https://sivatuitions.github.io  
 Phone: +91 88797 97777

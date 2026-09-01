@@ -23,7 +23,7 @@ Search first for existing Guntur listings under “Siva Tuitions” before creat
 | Phone (primary) | +91 88797 97777 |
 | WhatsApp | +91 88797 97777 |
 | Email | sivatuitions@gmail.com |
-| Website | https://sivatuitions.com |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
 | Contact person | Yadlapalli Naga Murali Krishna |
 
 Do not keyword-stuff the name (no “Best EAPCET Coaching Guntur”). Justdial’s name field must match the signboard.
@@ -60,14 +60,14 @@ If the picker offers these additional labels, add them:
 
 ## Opening hours
 
-Source: `src/data/site.js` (`Mo-Sa 06:00-21:00`). Confirm before going live.
+Source: `src/data/site.js`.
 
 | Day | Hours |
 |---|---|
 | Monday–Saturday | 06:00 AM – 09:00 PM |
-| Sunday | Closed — `TODO(owner: confirm Sunday hours)` |
+| Sunday | 10:00 AM – 02:00 PM |
 
-Established year: `TODO(owner: confirm; site currently lists 2005)`
+Established year: 2005
 
 ---
 
@@ -88,7 +88,7 @@ Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattab
 
 What students and parents usually need after the exam is as important as the coaching itself. Our admission-counselling desk — led by director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) — handles rank analysis, certificate-verification checklists and web-options entry for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA. Families from Guntur city, Guntur district, Andhra Pradesh and Telangana can visit in person or take a phone / WhatsApp session.
 
-Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. Phone / WhatsApp: +91 88797 97777. Website: https://sivatuitions.com
+Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. Phone / WhatsApp: +91 88797 97777. Website: https://sivatuitions.github.io
 ```
 
 ---
@@ -137,7 +137,7 @@ Do not paste these into the **business name**.
 
 | Field | Paste |
 |---|---|
-| Year established | `TODO(owner: confirm; 2005 is listed on the website pending verification)` |
+| Year established | 2005 |
 | Modes of payment | Cash, UPI — `TODO(owner: add cards if you accept them)` |
 | Parking | `TODO(owner: street / none)` |
 | Women-friendly / family | Yes (co-ed batches; POLYCET guidance includes government polytechnics for women) |

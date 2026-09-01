@@ -23,7 +23,7 @@ That page currently shows a **stale address** (SVN Colony / AT Agraharam). The i
 | PIN | 522006 |
 | Phone | +91 88797 97777 |
 | Email | sivatuitions@gmail.com |
-| Website | https://sivatuitions.com |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
 | Contact person | Yadlapalli Naga Murali Krishna |
 
 ---
@@ -60,7 +60,7 @@ Do **not** tick study-abroad, IELTS, CAT, or IAS unless you actually offer them.
 | Day | Hours |
 |---|---|
 | Monday–Saturday | 06:00 AM – 09:00 PM |
-| Sunday | Closed — `TODO(owner: confirm)` |
+| Sunday | 10:00 AM – 02:00 PM |
 
 ---
 
@@ -86,7 +86,7 @@ Director: Yadlapalli Naga Murali Krishna, M.B.A, M.Tech (CSE), M.Sc, MCA.
 Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 Phone / WhatsApp: +91 88797 97777
 Email: sivatuitions@gmail.com
-Website: https://sivatuitions.com
+Website: https://sivatuitions.github.io
 ```
 
 Do not paste the existing Sulekha boilerplate (“proven track record”, “growing number of satisfied students”). It is generic and unverifiable.

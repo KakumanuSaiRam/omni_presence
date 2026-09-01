@@ -50,7 +50,7 @@ platform, query, and whether Siva Tuitions appeared in the top 3 / top 10 / not 
 | Perplexity | Default mode; note the citations list |
 | Claude | With web search enabled |
 | Copilot | copilot.microsoft.com |
-| Google Search | Classic results — track position of sivatuitions.com and GBP panel |
+| Google Search | Classic results — track position of sivatuitions.github.io (sivatuitions.com after DNS) and GBP panel |
 | Bing Search | Same |
 
 ## Scoring

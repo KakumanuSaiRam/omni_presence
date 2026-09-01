@@ -45,7 +45,7 @@ export const UI = {
     more: 'More',
     viewAll: 'View all',
     fullProfile: 'Full profile',
-    hours: 'Hours: Monday–Saturday, 6 AM – 9 PM.',
+    hours: 'Hours: Monday–Saturday, 6 AM – 9 PM; Sunday, 10 AM – 2 PM.',
   },
   te: {
     navLabel: 'ప్రధాన నావిగేషన్',
@@ -66,7 +66,7 @@ export const UI = {
     more: 'మరిన్ని',
     viewAll: 'అన్నీ చూడండి',
     fullProfile: 'పూర్తి ప్రొఫైల్',
-    hours: 'పని వేళలు: సోమవారం–శనివారం, ఉదయం 6:00 – రాత్రి 9:00.',
+    hours: 'పని వేళలు: సోమవారం–శనివారం, ఉదయం 6:00 – రాత్రి 9:00; ఆదివారం, ఉదయం 10:00 – మధ్యాహ్నం 2:00.',
   },
 };
 
@@ -467,9 +467,69 @@ export const RESOURCES_PAGE_TE = {
 /** Telugu labels for the gallery page. */
 export const GALLERY_PAGE_TE = {
   title: 'గ్యాలరీ',
-  intro: 'పట్టాభిపురం కేంద్రం — గూగుల్ మ్యాప్స్‌లో చూడండి.',
+  intro: 'పట్టాభిపురం కేంద్రం',
+  mapsLabel: 'గూగుల్ మ్యాప్స్‌లో చూడండి',
   socialTitle: 'సామాజిక కార్యక్రమాలు',
   socialIntro: 'కమ్యూనిటీ కార్యక్రమాలు, విద్యా అవగాహన, పట్టాభిపురం కేంద్రం వెలుపల కార్యకలాపాలు.',
+};
+
+/** Telugu titles/blurbs for course cards, keyed by slug. `href` set when a Telugu page exists. */
+export const COURSES_TE = {
+  'school-tuitions-guntur': {
+    short: 'స్కూల్ ట్యూషన్లు (1–10)',
+    blurb: 'CBSE, ICSE, ఏపీ స్టేట్ బోర్డు — 1 నుంచి 10వ తరగతి వరకు చిన్న బ్యాచ్‌లు.',
+  },
+  'tenth-class-tuitions-guntur': {
+    short: '10వ తరగతి ట్యూషన్లు',
+    blurb: 'SSC / CBSE / ICSE అన్ని సబ్జెక్టులు, వారంవారీ టెస్టులు, 10 తర్వాత మార్గదర్శకత్వం.',
+  },
+  'intermediate-tuitions-guntur': {
+    short: 'ఇంటర్మీడియట్ ట్యూషన్లు',
+    blurb: 'MPC, BiPC — మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీ, బోటనీ, జువాలజీ.',
+  },
+  'eamcet-eapcet-coaching-guntur': {
+    short: 'EAMCET / EAPCET కోచింగ్',
+    blurb: 'ఇంజనీరింగ్, ఫార్మసీ సీట్ల కోసం MPC, BiPC విద్యార్థులకు కోచింగ్.',
+    href: '/te/courses/eamcet-eapcet-coaching-guntur/',
+  },
+  'neet-coaching-guntur': {
+    short: 'NEET కోచింగ్',
+    blurb: 'BiPC విద్యార్థులకు బయాలజీ, ఫిజిక్స్, కెమిస్ట్రీ — NEET నమూనా మాక్ టెస్టులు.',
+  },
+  'polytechnic-polycet-coaching-guntur': {
+    short: 'పాలిటెక్నిక్ (POLYCET)',
+    blurb: 'పదో తరగతి తర్వాత డిప్లొమా సీట్లు — అబ్బాయిలు, అమ్మాయిలకు మార్గదర్శకత్వం.',
+    href: '/te/courses/polytechnic-polycet-coaching-guntur/',
+  },
+  'short-term-crash-coaching-guntur': {
+    short: 'షార్ట్-టర్మ్ క్రాష్ కోచింగ్',
+    blurb: 'పరీక్షకు ముందు వారాల్లో పునశ్చరణ, పూర్తి నిడివి మాక్ టెస్టులు, తప్పుల విశ్లేషణ.',
+  },
+};
+
+/** Telugu titles/blurbs for counselling cards, keyed by slug. */
+export const COUNSELLING_TE = {
+  'eapcet-web-options-counselling': {
+    short: 'EAPCET వెబ్ ఆప్షన్స్',
+    blurb: 'ర్యాంక్ విశ్లేషణ, ఆర్డర్ చేసిన ఆప్షన్ లిస్ట్, సర్టిఫికెట్ వెరిఫికేషన్.',
+    href: '/te/counselling/eapcet-web-options-counselling/',
+  },
+  'neet-medical-admission-counselling': {
+    short: 'NEET ప్రవేశ కౌన్సెలింగ్',
+    blurb: 'ఆంధ్రప్రదేశ్, తెలంగాణ స్టేట్ కోటా, ఆల్ ఇండియా కోటా రౌండ్లు.',
+  },
+  'tenth-polycet-counselling': {
+    short: '10 తర్వాత & POLYCET కౌన్సెలింగ్',
+    blurb: 'ఇంటర్ గ్రూప్ ఎంపిక, పాలిటెక్నిక్ ఆప్షన్లు, వెబ్ ఆప్షన్స్ సహాయం.',
+  },
+  'graduate-web-counselling-icet-ecet-pgcet': {
+    short: 'గ్రాడ్యుయేట్ కౌన్సెలింగ్ (ICET, ECET, PG-CET, JoSAA)',
+    blurb: 'MBA/MCA, డిప్లొమా లేటరల్ ఎంట్రీ, PG, IIT/NIT ప్రవేశాల సహాయం.',
+  },
+  'engineering-college-guidance-ap-interstate': {
+    short: 'ఇంజనీరింగ్ కాలేజీ గైడెన్స్ (ఏపీ & ఇతర రాష్ట్రాలు)',
+    blurb: 'ఆంధ్రప్రదేశ్, తెలంగాణ, డీమ్డ్ యూనివర్సిటీలు, ఇతర రాష్ట్రాల ఎంపికలు.',
+  },
 };
 
 /** Telugu labels for listing pages. */

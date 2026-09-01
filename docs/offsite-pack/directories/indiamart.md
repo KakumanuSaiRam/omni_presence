@@ -20,7 +20,7 @@ IndiaMART is a B2B catalogue. Treat courses as **services / products**, not a Go
 | Country | India |
 | Mobile | +91 88797 97777 |
 | Email | sivatuitions@gmail.com |
-| Website | https://sivatuitions.com |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
 | Contact person | Yadlapalli Naga Murali Krishna |
 | Designation | Founder & Director |
 
@@ -53,7 +53,7 @@ Nature of business: **Service Provider** (not Manufacturer / Wholesaler).
 ## Opening hours (company profile)
 
 Monday–Saturday 06:00 AM – 09:00 PM  
-Sunday: Closed — `TODO(owner)`
+Sunday: 10:00 AM – 02:00 PM
 
 ---
 
@@ -71,7 +71,7 @@ Director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) leads aca
 Classroom coaching is at: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 Phone / WhatsApp: +91 88797 97777
 Email: sivatuitions@gmail.com
-Website: https://sivatuitions.com
+Website: https://sivatuitions.github.io
 ```
 
 ---
@@ -160,7 +160,7 @@ IndiaMART wants one image per product plus a company logo.
 
 | Field | Paste |
 |---|---|
-| Year of establishment | `TODO(owner: confirm; website lists 2005)` |
+| Year of establishment | 2005 |
 | Number of employees | `TODO(owner)` — do not guess |
 | Annual turnover | Leave blank |
 | TrustSEAL | Optional paid badge; not required for a citation |

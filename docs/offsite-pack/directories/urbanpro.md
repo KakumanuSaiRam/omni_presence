@@ -22,7 +22,7 @@ That locality is stale. The institute is **only** at Pattabhipuram 2nd Lane — 
 | PIN | 522006 |
 | Phone | +91 88797 97777 |
 | Email | sivatuitions@gmail.com |
-| Website | https://sivatuitions.com |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
 | Contact / director | Yadlapalli Naga Murali Krishna |
 
 ---
@@ -91,7 +91,7 @@ Director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) also runs
 
 Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 Phone / WhatsApp: +91 88797 97777
-https://sivatuitions.com
+https://sivatuitions.github.io
 ```
 
 Replace the current one-line dump (“Inter (Maths Physics Chemistry English) 6,7,8,9,10 … Iiit Mains Jee Aprjc Etc. With Distance Mode Also”). That line is unreadable and claims IIIT/JEE/APRJC/distance mode without confirmation.
@@ -104,7 +104,7 @@ Replace the current one-line dump (“Inter (Maths Physics Chemistry English) 6,
 
 UrbanPro often infers hours from class slots rather than a GBP-style grid. If a hours field exists:
 
-Monday–Saturday 06:00–21:00. Sunday: `TODO(owner)`.
+Monday–Saturday 06:00–21:00. Sunday 10:00–14:00.
 
 Experience years: `TODO(owner)` — do not copy “13 years” from unrelated “Siva” tutor profiles.
 

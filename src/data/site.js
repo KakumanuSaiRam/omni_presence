@@ -5,12 +5,14 @@
 export const SITE = {
   name: 'Siva Tuitions & Coachings',
   legalName: 'Siva Tuitions and Coachings',
-  url: 'https://sivatuitions.com',
-  phone: '+91 88797 97777', // TODO(owner): verify — pulled from LocalVyaparHub listing
+  // Live public site until DNS for sivatuitions.com is pointed at GitHub Pages.
+  url: 'https://sivatuitions.github.io',
+  intendedUrl: 'https://sivatuitions.com',
+  phone: '+91 88797 97777',
   phoneHref: '+918879797777',
   whatsapp: '918879797777',
   email: 'sivatuitions@gmail.com',
-  foundingYear: 2005, // TODO(owner): confirm actual founding year
+  foundingYear: 2005,
   address: {
     street: '2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram',
     locality: 'Guntur',
@@ -23,7 +25,8 @@ export const SITE = {
     'https://www.google.com/maps/search/?api=1&query=Siva+Tuitions+and+Coachings+Pattabhipuram+Guntur',
   playStoreUrl:
     'https://play.google.com/store/apps/details?id=com.hallmark.learninglabs.sivatuitions',
-  hours: 'Mo-Sa 06:00-21:00', // TODO(owner): confirm
+  hours: ['Mo-Sa 06:00-21:00', 'Su 10:00-14:00'],
+  hoursLabel: 'Monday–Saturday, 6 AM – 9 PM; Sunday, 10 AM – 2 PM',
 };
 
 export const DIRECTOR = {
@@ -490,11 +493,22 @@ export const GLOBAL_FAQS = [
 /** English path → Telugu path. Keep trailing slashes; used for hreflang + header toggle. */
 export const TE_ALTERNATES = {
   '/': '/te/',
+  '/courses/': '/te/courses/',
+  '/counselling/': '/te/counselling/',
+  '/resources/': '/te/resources/',
+  '/gallery/': '/te/gallery/',
+  '/brand/': '/te/about/',
+  '/faq/': '/te/faq/',
+  '/contact/': '/te/contact/',
   '/courses/eamcet-eapcet-coaching-guntur/': '/te/courses/eamcet-eapcet-coaching-guntur/',
   '/courses/polytechnic-polycet-coaching-guntur/': '/te/courses/polytechnic-polycet-coaching-guntur/',
   '/counselling/eapcet-web-options-counselling/': '/te/counselling/eapcet-web-options-counselling/',
-  '/contact/': '/te/contact/',
 };
+
+/** Telugu path → English path. Reverse of TE_ALTERNATES, for the language toggle. */
+export const EN_ALTERNATES = Object.fromEntries(
+  Object.entries(TE_ALTERNATES).map(([en, te]) => [te, en])
+);
 
 export function normalizePath(pathname) {
   if (!pathname || pathname === '/') return '/';
@@ -541,36 +555,43 @@ export const GALLERY = [
     src: '/gallery/maps-centre-1.jpg',
     alt: 'Siva Tuitions & Coachings centre, Pattabhipuram, Guntur',
     caption: 'Pattabhipuram centre — 2nd Lane, Gang Colony.',
+    captionTe: 'పట్టాభిపురం కేంద్రం — 2వ లేన్, గ్యాంగ్ కాలనీ.',
   },
   {
     src: '/gallery/centre-office.jpg',
     alt: 'Siva Tuitions office with coaching posters',
     caption: 'Coaching desk — EAPCET, NEET, POLYCET and Intermediate batches.',
+    captionTe: 'కోచింగ్ డెస్క్ — EAPCET, NEET, POLYCET, ఇంటర్ బ్యాచ్‌లు.',
   },
   {
     src: '/gallery/director-at-desk.jpg',
     alt: 'Director Yadlapalli Naga Murali Krishna at the Siva Tuitions office',
     caption: 'Director at the counselling and coaching desk.',
+    captionTe: 'కౌన్సెలింగ్, కోచింగ్ డెస్క్ వద్ద డైరెక్టర్.',
   },
   {
     src: '/gallery/counselling-desk.jpg',
     alt: 'Admission counselling and web-options guidance at Siva Tuitions',
     caption: 'Web options and admission guidance for AP and Telangana.',
+    captionTe: 'ఆంధ్రప్రదేశ్, తెలంగాణకు వెబ్ ఆప్షన్స్, ప్రవేశ మార్గదర్శకత్వం.',
   },
   {
     src: '/gallery/centre-entrance.jpg',
     alt: 'Entrance to Siva Tuitions counselling office',
     caption: 'College guidance and EAPCET counselling notices at the entrance.',
+    captionTe: 'ప్రవేశ ద్వారం వద్ద కాలేజీ గైడెన్స్, EAPCET కౌన్సెలింగ్ నోటీసులు.',
   },
   {
     src: '/gallery/eamcet-team.jpg',
     alt: 'Siva Tuitions faculty with EAMCET short-term coaching banner',
     caption: 'EAMCET short-term coaching — daily tests and revision batches.',
+    captionTe: 'EAMCET షార్ట్-టర్మ్ కోచింగ్ — రోజువారీ టెస్టులు, రివిజన్ బ్యాచ్‌లు.',
   },
   {
     src: '/gallery/office-room.jpg',
     alt: 'Director office room at Siva Tuitions, Guntur',
     caption: 'Director Y. Naga Murali Krishna — office, Pattabhipuram.',
+    captionTe: 'డైరెక్టర్ వై. నాగ మురళీ కృష్ణ — కార్యాలయం, పట్టాభిపురం.',
   },
 ];
 
@@ -598,103 +619,12 @@ export const INSTITUTE_VISITS = {
   ],
 };
 
-/** Homepage & marketing copy — concise, scannable. */
-export const HOME = {
-  subline: 'Academic Excellence · Competitive Coaching · Career & Counselling Guidance',
-  teluguTagline:
-    'మీ పిల్లల చదువు నుంచి ఉన్నత విద్య వరకు — ఒకే చోట పూర్తి మార్గదర్శకత్వం.',
-  servicesTitleTe: 'మా ప్రధాన సేవలు',
-};
-
-export const ACADEMIC_TUITIONS = {
-  title: 'Academic Tuitions',
-  telugu: 'రెగ్యులర్, సప్లిమెంటరీ & బెటర్‌మెంట్ ట్యూషన్లు',
-  classes: '6th to Intermediate',
-  boards10: ['CBSE', 'ICSE', 'State Board'],
-  inter: ['State Board', 'CBSE', 'MPC', 'Maths', 'Physics', 'Chemistry', 'EAPCET-oriented preparation'],
-  highlightsTe: [
-    'Regular Classes',
-    'Supplementary Preparation',
-    'Betterment Coaching',
-    'Subject-wise Coaching',
-    'Exam-oriented Preparation',
-  ],
-  illustration: '/illustrations/tuition-classroom.png',
-};
-
-export const COMPETITIVE_COACHING = {
-  title: 'Short-Term Competitive Coaching',
-  telugu: 'Summer & Short-Term Programs',
-  intro: 'Focused coaching for entrance examinations — concept revision, problem solving and exam strategy.',
-  programs: ['MPC', 'EAPCET', 'POLYCET', 'Bi.P.C', 'NEET-oriented preparation', 'Polytechnic (POLYCET)'],
-  focus: ['Concept Revision', 'Problem Solving', 'Exam Strategy', 'Previous Papers', 'Mock Tests'],
-  illustration: '/illustrations/exam-prep-students.png',
-};
-
-export const COUNSELLING_HUB = {
-  title: 'Admissions & Counselling Guidance Centre',
-  telugu: 'ప్రవేశం నుంచి అడ్మిషన్ వరకు — students & parents కి complete guidance',
-  intro:
-    'From entrance examination to final admission — rank analysis, cut-offs, college & branch selection, web options and seat allotment.',
-  objective: 'Right Rank + Right Branch + Right College = Right Career Decision',
-  entranceExams: [
-    'EAPCET',
-    'POLYCET',
-    'ICET',
-    'ECET',
-    'PGECET',
-    'PGSET',
-    'NEET',
-    'Other state-level entrances',
-  ],
-  courses: [
-    'B.Tech',
-    'M.Tech',
-    'MCA',
-    'MBA',
-    'Polytechnic',
-    'MBBS',
-    'BDS',
-    'Veterinary',
-    'Agriculture',
-    'Other professional courses',
-  ],
-  services: [
-    'Application & Registration',
-    'Certificates / Documents',
-    'Rank & Category Analysis',
-    'Previous Year Cut-offs',
-    'College & Branch Analysis',
-    'College Prediction',
-    'Web Counselling & Option Entry',
-    'Seat Allotment & Final Admission',
-  ],
-  illustration: '/gallery/counselling-desk.jpg', // real photo; swap back to a generated scene when image quota returns
-};
-
-export const WHY_CHOOSE = [
-  'Experienced Academic Guidance',
-  'Personalized Student Support',
-  'Competitive Exam Preparation',
-  'Rank & Cut-off Analysis',
-  'Complete Counselling Support',
-  'Parent & Student Guidance',
-];
-
-export const ABOUT = {
-  title: 'About Siva Tuitions & Coachings',
-  paragraphs: [
-    'Siva Tuitions & Coachings is an academic, competitive coaching and educational counselling centre dedicated to helping students achieve their academic and career goals.',
-    'We provide academic tuition from 6th Class to Intermediate — CBSE, ICSE and State Board — with specialized coaching in Mathematics, Physics and Chemistry.',
-    'Short-term programs prepare students for EAPCET, POLYCET and other competitive entrance examinations.',
-    'Our Counselling & Guidance Centre supports students and parents from application and rank analysis through cut-offs, branch selection, web options and final admission.',
-  ],
-  aim: 'The right academic support, reliable information and practical guidance at every important stage.',
-};
+// Homepage marketing copy (hero, service sections, why-choose, about) lives in
+// data/i18n.js so the English and Telugu trees render from one set of strings.
 
 export const BRAND = {
   tagline: 'From Class 1 to your college seat.',
-  mission: HOME.subline,
+  mission: 'Academic Excellence · Competitive Coaching · Career & Counselling Guidance',
   values: [
     { title: 'Small batches', body: 'Doubts cleared in class.' },
     { title: 'Coaching + counselling', body: 'Same desk from prep to web options.' },
@@ -703,19 +633,6 @@ export const BRAND = {
   ],
   directorImage: '/brand/director.jpg',
 };
-
-/** Parent enquiry form — categories for WhatsApp / email routing. */
-export const ENQUIRY_CATEGORIES = [
-  'Academic Tuitions (Classes 6–10 / Intermediate)',
-  'EAPCET / EAMCET Coaching',
-  'NEET Coaching',
-  'POLYCET / Polytechnic',
-  'Admission Counselling',
-  'Web Options Guidance',
-  'After 10th — group & course choice',
-  'Scholarships & fee reimbursement',
-  'Other',
-];
 
 /** Official portals — AP, Telangana & national (verify URLs each admission season). */
 export const OFFICIAL_RESOURCES = {

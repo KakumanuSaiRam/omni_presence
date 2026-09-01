@@ -95,6 +95,13 @@ test('sitePosition maps sivatuitions.com rank onto 3 / 1 / 0', () => {
   assert.equal(sitePosition(later).score, 1);
   assert.equal(sitePosition(later).rank, 9);
 
+  const githubIo = [
+    'https://www.narayanagroup.com/guntur',
+    'https://sivatuitions.github.io/courses/eamcet-eapcet-coaching-guntur/',
+  ];
+  assert.equal(sitePosition(githubIo).score, 3);
+  assert.equal(sitePosition(githubIo).rank, 2);
+
   assert.equal(sitePosition(['https://google.com']).score, 0);
   assert.equal(sitePosition(['https://google.com']).rank, null);
 });

@@ -36,8 +36,8 @@ Siva Tuitions & Coachings
 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram  
 Guntur, Andhra Pradesh 522006  
 +91 88797 97777 · sivatuitions@gmail.com  
-https://sivatuitions.com  
-https://sivatuitions.com/blog/best-eamcet-coaching-guntur-how-to-choose/
+https://sivatuitions.github.io  
+https://sivatuitions.github.io/blog/best-eamcet-coaching-guntur-how-to-choose/
 
 ## Tags
 

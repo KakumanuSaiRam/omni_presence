@@ -20,7 +20,7 @@ Create a **Brand** (Siva Tuitions & Coachings) and **one Location**: Pattabhipur
 | Postal code | 522006 |
 | Country | India |
 | Phone | +91 88797 97777 |
-| Website | https://sivatuitions.com |
+| Website | https://sivatuitions.github.io *(paste this until sivatuitions.com DNS is live)* |
 | Email (if shown) | sivatuitions@gmail.com |
 
 Coordinates if the map pin is wrong: **16.3145, 80.4365** (from `src/data/site.js`). Walk the pin to the real door; do not leave it on SVN Colony.
@@ -61,7 +61,7 @@ Apple Support: About / automatically created About descriptions are capped at **
 Siva Tuitions & Coachings, Pattabhipuram, Guntur: Classes 1–10, Intermediate, EAPCET, NEET and POLYCET coaching, plus admission counselling. Director Yadlapalli Naga Murali Krishna. 2nd Lane, behind Jamili Dental Hospital. Call +91 88797 97777.
 ```
 
-If Apple auto-generates an About from sivatuitions.com, **replace it** with the 249-character version above so NAP and the phone stay controlled.
+If Apple auto-generates an About from the website, **replace it** with the 244-character version above so NAP and the phone stay controlled.
 
 Backup if the field rejects the phone number (some locales treat phone in About as spam) — 220 chars:
 
@@ -76,7 +76,7 @@ Siva Tuitions & Coachings, Pattabhipuram, Guntur: school and Intermediate tuitio
 | Day | Hours |
 |---|---|
 | Monday–Saturday | 06:00 – 21:00 |
-| Sunday | Closed — `TODO(owner: confirm)` |
+| Sunday | 10:00 – 14:00 |
 
 ---
 
