@@ -1,50 +1,23 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GroupedCards from '../../components/GroupedCards.astro';
-import SectionPhoto from '../../components/SectionPhoto.astro';
 import { SITE } from '../../data/site.js';
+import { COURSES_LISTING } from '../../data/i18n.js';
+
+const copy = COURSES_LISTING.en;
 ---
 <Base
   title={`Courses & Coaching in Guntur — Tuitions, EAPCET, NEET, POLYCET | ${SITE.name}`}
   description="All courses at Siva Tuitions & Coachings, Guntur: Classes 1–10 tuitions, Intermediate MPC/BiPC, EAPCET (EAMCET), NEET and POLYCET coaching."
 >
-  <section class="page-hero">
-    <div class="wrap hero-row">
-      <div class="ruled" data-reveal>
-        <p class="eyebrow">Courses</p>
-        <h1>Coaching &amp; tuitions at Siva Tuitions &amp; Coachings</h1>
-        <p class="section-intro">
-          Grouped by the stage your child is at — school, Intermediate, then the entrance exam
-          their stream points to.
-        </p>
-      </div>
-      <div data-reveal data-reveal-delay="1">
-        <SectionPhoto
-          src="/gallery/eamcet-team.jpg"
-          alt="Siva Tuitions faculty with EAMCET short-term coaching banner"
-          caption="EAPCET, NEET and POLYCET batches — Pattabhipuram centre."
-          class="hero-art"
-        />
-      </div>
-    </div>
-  </section>
-  <section style="padding-top:0">
+  <section>
     <div class="wrap">
+      <div class="ruled" data-reveal>
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
+      </div>
+      <p class="section-intro" data-reveal>{copy.intro}</p>
       <GroupedCards kind="courses" lang="en" />
     </div>
   </section>
 </Base>
-
-<style>
-  .page-hero {
-    background: linear-gradient(180deg, var(--surface-muted), var(--surface));
-    border-bottom: 1px solid var(--border);
-    padding: 2.5rem 0 1.5rem;
-  }
-  .hero-row {
-    display: grid; gap: 1.5rem; align-items: center;
-    grid-template-columns: 1fr;
-  }
-  @media (min-width: 760px) { .hero-row { grid-template-columns: 1.2fr 0.8fr; } }
-  .hero-art { max-width: 16rem; margin: 0 auto; }
-</style>

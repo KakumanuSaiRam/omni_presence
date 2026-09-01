@@ -213,9 +213,9 @@ export const COACHING_SECTION = {
       { label: 'POLYCET', href: '/courses/polytechnic-polycet-coaching-guntur/' },
       { label: 'Crash batches', href: '/courses/short-term-crash-coaching-guntur/' },
     ],
-    imageAlt: 'Siva Tuitions faculty with EAMCET short-term coaching banner at Pattabhipuram centre',
-    photoSrc: '/gallery/eamcet-team.jpg',
-    photoCaption: 'EAMCET short-term coaching — daily tests and revision batches at our centre.',
+    imageAlt: 'Siva Tuitions coaching desk with EAPCET, NEET and POLYCET batch notices',
+    photoSrc: '/gallery/centre-office.jpg',
+    photoCaption: 'Coaching desk — EAPCET, NEET, POLYCET and Intermediate batches.',
   },
   te: {
     eyebrow: 'సమ్మర్ & షార్ట్-టర్మ్ ప్రోగ్రామ్‌లు',
@@ -230,9 +230,9 @@ export const COACHING_SECTION = {
       { label: 'POLYCET', href: '/te/courses/polytechnic-polycet-coaching-guntur/' },
       { label: 'క్రాష్ బ్యాచ్‌లు', href: '/courses/short-term-crash-coaching-guntur/' },
     ],
-    imageAlt: 'Siva Tuitions వద్ద EAMCET షార్ట్-టర్మ్ కోచింగ్ బ్యానర్',
-    photoSrc: '/gallery/eamcet-team.jpg',
-    photoCaption: 'EAMCET షార్ట్-టర్మ్ కోచింగ్ — రోజువారీ టెస్టులు, రివిజన్ బ్యాచ్‌లు.',
+    imageAlt: 'Siva Tuitions కోచింగ్ డెస్క్ — EAPCET, NEET, POLYCET నోటీసులు',
+    photoSrc: '/gallery/centre-office.jpg',
+    photoCaption: 'కోచింగ్ డెస్క్ — EAPCET, NEET, POLYCET, ఇంటర్ బ్యాచ్‌లు.',
   },
 };
 
@@ -847,13 +847,42 @@ export const COUNSELLING_TE = {
   },
 };
 
+/** Headings for course and counselling listing pages. */
+export const COURSES_LISTING = {
+  en: {
+    eyebrow: 'Courses',
+    title: 'From Class 6 to entrance exams',
+    intro:
+      'School tuitions, Intermediate MPC/BiPC, and short-term EAPCET, NEET or POLYCET batches — pick the stage below.',
+  },
+  te: {
+    eyebrow: 'కోర్సులు',
+    title: '6వ తరగతి నుంచి ప్రవేశ పరీక్షల వరకు',
+    intro:
+      '1–10వ తరగతి, ఇంటర్ ట్యూషన్లు; EAPCET, NEET, POLYCET షార్ట్-టర్మ్ బ్యాచ్‌లు — క్రింద మీ దశను ఎంచుకోండి.',
+  },
+};
+
+export const COUNSELLING_LISTING = {
+  en: {
+    eyebrow: 'Counselling desk',
+    title: 'From rank to confirmed seat',
+    intro:
+      'Rank analysis, college choice, certificates and web options — grouped by the admission route you are on.',
+  },
+  te: {
+    eyebrow: 'కౌన్సెలింగ్ డెస్క్',
+    title: 'ర్యాంక్ నుంచి ఖాయమైన సీట్ వరకు',
+    intro:
+      'ర్యాంక్ విశ్లేషణ, కాలేజీ ఎంపిక, సర్టిఫికెట్లు, వెబ్ ఆప్షన్స్ — మీ ప్రవేశ మార్గం ప్రకారం క్రింద చూడండి.',
+  },
+};
+
 /** Telugu labels for listing pages. */
 export const LISTING_TE = {
-  coursesTitle: 'కోర్సులు & కోచింగ్',
-  coursesIntro:
-    '1–10వ తరగతి, ఇంటర్మీడియట్ ట్యూషన్లు; EAPCET, NEET, POLYCET ప్రవేశ కోచింగ్ — పట్టాభిపురం, గుంటూరు.',
-  counsellingTitle: 'ప్రవేశ కౌన్సెలింగ్ సేవలు',
-  counsellingIntro:
-    'ర్యాంక్ విశ్లేషణ, కాలేజీ ఎంపిక, సర్టిఫికెట్ వెరిఫికేషన్, వెబ్ ఆప్షన్స్ — ఆంధ్రప్రదేశ్, తెలంగాణ విద్యార్థులకు.',
+  coursesTitle: COURSES_LISTING.te.title,
+  coursesIntro: COURSES_LISTING.te.intro,
+  counsellingTitle: COUNSELLING_LISTING.te.title,
+  counsellingIntro: COUNSELLING_LISTING.te.intro,
   englishPageNote: 'ఈ పేజీ ఆంగ్లంలో ఉంది',
 };

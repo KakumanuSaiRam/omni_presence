@@ -1,7 +1,9 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import GroupedCards from '../../../components/GroupedCards.astro';
-import { LISTING_TE } from '../../../data/i18n.js';
+import { COURSES_LISTING } from '../../../data/i18n.js';
+
+const copy = COURSES_LISTING.te;
 ---
 <Base
   lang="te"
@@ -11,10 +13,10 @@ import { LISTING_TE } from '../../../data/i18n.js';
   <section>
     <div class="wrap">
       <div class="ruled" data-reveal>
-        <p class="eyebrow">కోర్సులు</p>
-        <h1>{LISTING_TE.coursesTitle}</h1>
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
       </div>
-      <p class="section-intro" data-reveal>{LISTING_TE.coursesIntro}</p>
+      <p class="section-intro" data-reveal>{copy.intro}</p>
       <GroupedCards kind="courses" lang="te" />
     </div>
   </section>

@@ -1,50 +1,23 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GroupedCards from '../../components/GroupedCards.astro';
-import SectionPhoto from '../../components/SectionPhoto.astro';
 import { SITE } from '../../data/site.js';
+import { COUNSELLING_LISTING } from '../../data/i18n.js';
+
+const copy = COUNSELLING_LISTING.en;
 ---
 <Base
   title={`Admission Counselling & Web Options Guidance — Guntur, AP & Telangana | ${SITE.name}`}
   description="EAPCET web options, NEET admission counselling and after-tenth/POLYCET guidance in Guntur — for students across Andhra Pradesh and Telangana."
 >
-  <section class="page-hero">
-    <div class="wrap hero-row">
-      <div class="ruled" data-reveal>
-        <p class="eyebrow">Counselling desk</p>
-        <h1>Admission counselling &amp; web options guidance</h1>
-        <p class="section-intro">
-          A rank is only half the journey. The counselling desk turns ranks into seats — grouped
-          below by the admission route you are on.
-        </p>
-      </div>
-      <div data-reveal data-reveal-delay="1">
-        <SectionPhoto
-          src="/gallery/counselling-desk.jpg"
-          alt="Admission counselling and web options guidance at Siva Tuitions"
-          caption="Rank analysis, web options and admission guidance — AP & Telangana."
-          class="hero-art"
-        />
-      </div>
-    </div>
-  </section>
-  <section style="padding-top:0">
+  <section>
     <div class="wrap">
+      <div class="ruled" data-reveal>
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
+      </div>
+      <p class="section-intro" data-reveal>{copy.intro}</p>
       <GroupedCards kind="counselling" lang="en" />
     </div>
   </section>
 </Base>
-
-<style>
-  .page-hero {
-    background: linear-gradient(180deg, var(--surface-muted), var(--surface));
-    border-bottom: 1px solid var(--border);
-    padding: 2.5rem 0 1.5rem;
-  }
-  .hero-row {
-    display: grid; gap: 1.5rem; align-items: center;
-    grid-template-columns: 1fr;
-  }
-  @media (min-width: 760px) { .hero-row { grid-template-columns: 1.2fr 0.8fr; } }
-  .hero-art { max-width: 16rem; margin: 0 auto; }
-</style>
