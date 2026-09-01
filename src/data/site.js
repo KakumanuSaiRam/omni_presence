@@ -395,6 +395,69 @@ export const LOCATIONS = [
     blurb:
       'Telangana students preparing for TS EAMCET, NEET or polytechnic entry can take coaching and counselling from Siva Tuitions & Coachings — the syllabus overlap with AP EAPCET is nearly complete, and the counselling desk tracks Telangana counselling schedules too.',
   },
+  {
+    slug: 'tenali',
+    name: 'Tenali',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Tenali',
+    blurb:
+      'Tenali families use Siva Tuitions & Coachings in Pattabhipuram, Guntur for Intermediate tuitions, EAPCET coaching and web-options counselling — the centre is a short train or RTC bus ride away, not a Tenali branch. Rank analysis and option-list reviews also happen over phone and WhatsApp for parents who cannot travel on a weekday. Call +91 88797 97777 to book a visit or a remote counselling slot.',
+  },
+  {
+    slug: 'mangalagiri',
+    name: 'Mangalagiri',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Mangalagiri',
+    blurb:
+      'Mangalagiri and Amaravati-corridor students reach the Pattabhipuram centre in Guntur city for EAPCET/NEET coaching and after-tenth guidance; there is no separate Mangalagiri campus. Many families combine a classroom visit with phone counselling during AP EAPCET web-options week so travel stays to one trip. WhatsApp +91 88797 97777 for a rank review without leaving Mangalagiri.',
+  },
+  {
+    slug: 'narasaraopet',
+    name: 'Narasaraopet',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Narasaraopet',
+    blurb:
+      'Students from Narasaraopet and the Palnadu belt travel to Siva Tuitions & Coachings in Pattabhipuram, Guntur for entrance coaching and admission counselling — we do not operate a Narasaraopet branch. Phone and WhatsApp sessions cover certificate checklists and ordered web-option lists when the commute is inconvenient. Director Yadlapalli Naga Murali Krishna reviews ranks remotely on +91 88797 97777.',
+  },
+  {
+    slug: 'ponnur',
+    name: 'Ponnur',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Ponnur',
+    blurb:
+      'Ponnur and surrounding coastal-Guntur families come to the Pattabhipuram centre for Intermediate tuitions, POLYCET guidance and EAPCET web options; there is no Ponnur classroom. Weekend visits plus mid-week phone counselling is the usual pattern during counselling season. Call +91 88797 97777 to plan either a Guntur visit or a remote session.',
+  },
+  {
+    slug: 'sattenapalli',
+    name: 'Sattenapalli',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Sattenapalli',
+    blurb:
+      'Sattenapalli students use the Guntur city centre at Pattabhipuram for EAPCET coaching and college-choice counselling rather than a local branch. Families who cannot travel mid-week get rank-band advice and document checklists over phone or WhatsApp. Book a slot with Siva Tuitions & Coachings on +91 88797 97777.',
+  },
+  {
+    slug: 'bapatla',
+    name: 'Bapatla',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Bapatla',
+    blurb:
+      'Bapatla students preparing for EAPCET, NEET or POLYCET take coaching and admission counselling at Siva Tuitions & Coachings in Pattabhipuram, Guntur — not from a Bapatla branch. Phone counselling is the practical option during allotment rounds so a parent can stay in Bapatla while the option list is built. WhatsApp +91 88797 97777 with the rank card to start.',
+  },
+  {
+    slug: 'chilakaluripet',
+    name: 'Chilakaluripet',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Chilakaluripet',
+    blurb:
+      'Chilakaluripet families travel along NH16 to the Pattabhipuram, Guntur centre for tuitions, EAPCET coaching and web-options guidance; we do not run a Chilakaluripet classroom. Certificate verification lists and college-preference reviews are done over phone when a weekday visit is not possible. Call +91 88797 97777 before you travel so the counselling desk has your rank ready.',
+  },
+  {
+    slug: 'vijayawada',
+    name: 'Vijayawada',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Vijayawada',
+    blurb:
+      'Vijayawada and Krishna-district students who want Guntur-based coaching and AP/TS admission counselling visit Siva Tuitions & Coachings in Pattabhipuram — there is no Vijayawada branch. Many families handle web-options season entirely by phone and WhatsApp, then visit once for a face-to-face option-list review. Director Yadlapalli Naga Murali Krishna is reachable on +91 88797 97777.',
+  },
+  {
+    slug: 'hyderabad',
+    name: 'Hyderabad',
+    title: 'Tuitions, EAPCET Coaching & Admission Counselling for Students from Hyderabad',
+    blurb:
+      'Hyderabad and Telangana students use Siva Tuitions & Coachings in Pattabhipuram, Guntur for TS EAMCET / AP EAPCET overlap coaching and for counselling that tracks both state portals — we do not have a Hyderabad campus. Rank analysis, certificate checklists and web-option lists are done over phone and WhatsApp so a Hyderabad family never has to claim a local branch. Call +91 88797 97777 for a Telangana-schedule counselling slot.',
+  },
 ];
 
 export const GLOBAL_FAQS = [
