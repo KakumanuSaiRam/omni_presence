@@ -82,11 +82,17 @@ const defaultSection = sections[0]?.id ?? '';
           data-section={section.id}
           hidden={i !== 0}
         >
-          <div class="guides-panel-head">
+          <header class="guides-panel-head">
             <h2>{section.label}</h2>
-            {section.hint && <p>{section.hint}</p>}
-          </div>
-          <div class="guides-list-scroll" tabindex="0" aria-label={`${section.label} guides`}>
+            {section.hint && <p class="guides-panel-lede">{section.hint}</p>}
+          </header>
+          <div
+            class="guides-list-scroll"
+            class:list={{ 'has-scroll': section.posts.length > 10 }}
+            data-count={section.posts.length}
+            tabindex="0"
+            aria-label={`${section.label} guides`}
+          >
             <ul class="guides-list">
               {section.posts.map((post) => (
                 <li
@@ -147,7 +153,17 @@ const defaultSection = sections[0]?.id ?? '';
         panel.hidden = !show;
         if (show) panel.querySelector('.guides-list-scroll')?.scrollTo(0, 0);
       });
+      updateScrollState();
     }
+  }
+
+  function updateScrollState() {
+    document.querySelectorAll('.guides-list-scroll').forEach((scrollEl) => {
+      const panel = scrollEl.closest('.guides-panel');
+      if (panel?.hidden) return;
+      const visible = scrollEl.querySelectorAll('.guides-item:not([hidden])').length;
+      scrollEl.classList.toggle('has-scroll', visible > 10);
+    });
   }
 
   function applyFilter() {
@@ -217,6 +233,7 @@ const defaultSection = sections[0]?.id ?? '';
       }
     }
     if (empty) empty.hidden = !filtering || visible > 0;
+    updateScrollState();
   }
 
   navButtons.forEach((btn) => {
@@ -255,11 +272,14 @@ const defaultSection = sections[0]?.id ?? '';
   });
 
   setActiveSection(defaultSection);
+  updateScrollState();
 </script>
 
 <style>
   .guides-index {
     max-width: 56rem;
+    --guides-row: 2.85rem;
+    --guides-visible: 10;
   }
 
   .guides-header {
@@ -518,6 +538,8 @@ const defaultSection = sections[0]?.id ?? '';
 
   .guides-main {
     min-width: 0;
+    /* Fixed block height: header + 10 list rows — keeps footer position stable */
+    min-height: calc(5.5rem + var(--guides-row) * var(--guides-visible));
   }
 
   .guides-panel {
@@ -530,31 +552,43 @@ const defaultSection = sections[0]?.id ?? '';
     border-top: 1px solid var(--border);
   }
 
+  .guides-panel-head {
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 2px solid var(--accent-deep);
+  }
+
   .guides-panel-head h2 {
     font-family: 'Karla', system-ui, sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--accent-deep);
-    margin: 0 0 0.3rem;
+    margin: 0;
+    line-height: 1.25;
   }
 
-  .guides-panel-head p {
-    margin: 0 0 0.75rem;
-    font-size: 0.9rem;
-    line-height: 1.45;
+  .guides-panel-lede {
+    margin: 0.45rem 0 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
     color: var(--ink-muted);
+    max-width: 42ch;
   }
 
-  /* ~10 compact rows, then scroll */
+  /* Always reserve space for 10 rows; scroll only when section has more */
   .guides-list-scroll {
-    --guides-row: 2.85rem;
-    max-height: calc(var(--guides-row) * 10);
-    overflow-y: auto;
+    height: calc(var(--guides-row) * var(--guides-visible));
+    overflow-y: hidden;
     overflow-x: hidden;
     padding-right: 0.35rem;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-top: 3px solid var(--accent-deep);
+    border-radius: 0 0 8px 8px;
     background: var(--surface-raised);
+  }
+
+  .guides-list-scroll.has-scroll {
+    overflow-y: auto;
   }
 
   .guides-list-scroll:focus-visible {
