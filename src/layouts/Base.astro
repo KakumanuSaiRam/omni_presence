@@ -1,5 +1,7 @@
 ---
+import '../styles/platform.css';
 import { SITE, DIRECTOR, TE_ALTERNATES, EN_ALTERNATES, normalizePath } from '../data/site.js';
+import { GOOGLE_LISTING, googleAggregateRatingSchema } from '../data/reviews.js';
 import { NAV, UI } from '../data/i18n.js';
 import { ogImagePath } from '../data/og-pages.js';
 import EnquiryWidget from '../components/EnquiryWidget.astro';
@@ -60,6 +62,7 @@ const orgSchema = {
     SITE.playStoreUrl,
     SITE.mapsUrl,
     SITE.mapsDirectionsUrl,
+    GOOGLE_LISTING.mapsUrl,
     'https://www.urbanpro.com/guntur/siva-tuitions-gujjanagundla/31503988',
     'https://www.sulekha.com/profile/siva-tuitions-at-agraharam-guntur',
   ],
@@ -78,6 +81,7 @@ const orgSchema = {
     areaServed: 'IN',
     availableLanguage: ['en', 'te'],
   },
+  aggregateRating: googleAggregateRatingSchema(),
 };
 
 const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
@@ -92,7 +96,9 @@ const FONT_TOGGLE =
 <html lang={lang}>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f2368" />
+  <meta name="format-detection" content="telephone=yes" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
@@ -104,6 +110,7 @@ const FONT_TOGGLE =
     </>
   )}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -158,7 +165,8 @@ const FONT_TOGGLE =
     /* A `display` rule on a component beats the UA's [hidden] { display: none },
        so restate it with priority. */
     [hidden] { display: none !important; }
-    html { scroll-behavior: smooth; overflow-x: clip; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { overflow-x: hidden; }
     img, svg, video { max-width: 100%; height: auto; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     body {
@@ -173,7 +181,12 @@ const FONT_TOGGLE =
     a:focus-visible, button:focus-visible {
       outline: 3px solid var(--accent-soft); outline-offset: 2px;
     }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: max(1.25rem, var(--safe-left));
+      padding-right: max(1.25rem, var(--safe-right));
+    }
 
     /* Page/section headers: a short orange rule above the title, no ruled lines
        running through the text. */
@@ -216,6 +229,9 @@ const FONT_TOGGLE =
       border-bottom: 1px solid var(--border);
       box-shadow: 0 1px 0 var(--shadow);
       position: sticky; top: 0; z-index: 40;
+      overflow-x: clip;
+      container-type: inline-size;
+      container-name: site-header;
     }
     header.site .wrap {
       display: grid;
@@ -225,13 +241,16 @@ const FONT_TOGGLE =
       row-gap: 0.65rem;
       padding-top: 0.85rem;
       padding-bottom: 0.85rem;
+      min-width: 0;
+      max-width: 100%;
     }
     .brand {
       display: flex;
       align-items: center;
       gap: 0.65rem;
       text-decoration: none;
-      flex-shrink: 0;
+      flex-shrink: 1;
+      min-width: 0;
     }
     .brand-text {
       display: flex;
@@ -277,14 +296,16 @@ const FONT_TOGGLE =
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      flex-shrink: 0;
+      flex-shrink: 1;
+      min-width: 0;
       justify-self: end;
     }
     .header-call {
       padding: 0.55rem 1rem;
-      font-size: 0.9rem;
+      font-size: clamp(0.78rem, 0.7rem + 0.45vw, 0.9rem);
       line-height: 1.2;
       white-space: nowrap;
+      max-width: 100%;
     }
     .header-call-text {
       display: inline-flex;
@@ -292,6 +313,7 @@ const FONT_TOGGLE =
       gap: 0.35rem;
     }
     .header-call-num { font-variant-numeric: tabular-nums; }
+    .phone-prefix { white-space: nowrap; }
     nav.main a {
       color: var(--ink-muted); text-decoration: none;
       position: relative; padding-bottom: 2px;
@@ -330,12 +352,13 @@ const FONT_TOGGLE =
     .btn-call:hover { box-shadow: 0 6px 18px rgba(232, 130, 26, 0.38); }
     .btn:active { transform: translateY(0); }
 
+    main { overflow-x: clip; max-width: 100%; }
     main section { padding: 2.75rem 0; }
     .section-muted { background: var(--surface-muted); }
     .section-raised { background: var(--surface-raised); border-block: 1px solid var(--border); }
     footer.site {
       background: var(--accent-deep); color: #dfe6f5;
-      padding: 2.5rem 0; font-size: 0.95rem;
+      padding: 2.5rem 0 max(2.5rem, var(--safe-bottom)); font-size: 0.95rem;
     }
     footer.site strong { color: #fff; }
     footer.site a { color: var(--highlight-soft); }
@@ -369,8 +392,9 @@ const FONT_TOGGLE =
     .footer-body p { margin: 0; line-height: 1.55; }
     .footer-body p + p { margin-top: 0.65rem; }
     @media (max-width: 640px) {
-      .footer-layout { gap: 1rem 1.25rem; align-items: start; }
+      .footer-layout { grid-template-columns: 1fr; gap: 1rem; }
       .footer-logo { height: 4.5rem; max-width: 4.5rem; }
+      .footer-body p { overflow-wrap: anywhere; }
     }
     .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
     .card {
@@ -488,24 +512,68 @@ const FONT_TOGGLE =
     }
     .lang-toggle:hover { background: var(--surface-accent); border-color: var(--highlight); }
 
-    /* Header: logo + two-line name stay together; nav wraps on its own row on narrow screens. */
-    @media (max-width: 900px) {
+    /* Header adapts to available width (mobile browser, installed app, split-screen). */
+    @container site-header (max-width: 56rem) {
       header.site .wrap {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         grid-template-areas:
           "brand actions"
           "nav nav";
       }
       .brand { grid-area: brand; }
-      .header-actions { grid-area: actions; }
-      nav.main { grid-area: nav; width: 100%; }
-      .brand-line { font-size: 1.05rem; }
-      .brand-line--sub { font-size: 0.95rem; }
-      .logo-mark { width: 3.25rem; height: 3.25rem; }
+      .header-actions { grid-area: actions; max-width: 100%; }
+      nav.main {
+        grid-area: nav;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .brand-line { font-size: clamp(0.95rem, 2.5cqi, 1.05rem); }
+      .brand-line--sub { font-size: clamp(0.88rem, 2.2cqi, 0.95rem); }
+      .logo-mark { width: clamp(2.85rem, 8cqi, 3.25rem); height: clamp(2.85rem, 8cqi, 3.25rem); }
     }
-    @media (max-width: 480px) {
-      .header-call-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-      .header-call { padding: 0.5rem 0.75rem; font-size: 0.82rem; }
+    @container site-header (max-width: 30rem) {
+      header.site .wrap {
+        padding-left: max(1rem, var(--safe-left));
+        padding-right: max(1rem, var(--safe-right));
+      }
+      .header-call { padding: 0.5rem 0.65rem; font-size: clamp(0.78rem, 3.5cqi, 0.88rem); }
+      nav.main { gap: 0.35rem 0.75rem; font-size: 0.88rem; }
+      .brand-line { white-space: normal; line-height: 1.15; }
+      .lang-toggle { font-size: 0.82rem; padding: 0.35rem 0.55rem; }
+      .phone-prefix { display: none; }
+    }
+
+    /* Viewport fallbacks mirror container rules for older browsers / edge cases. */
+    @media (max-width: 56rem) {
+      header.site .wrap {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+          "brand actions"
+          "nav nav";
+      }
+      .brand { grid-area: brand; }
+      .header-actions { grid-area: actions; max-width: 100%; }
+      nav.main {
+        grid-area: nav;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .brand-line { font-size: clamp(0.95rem, 2.5vw, 1.05rem); }
+      .brand-line--sub { font-size: clamp(0.88rem, 2.2vw, 0.95rem); }
+      .logo-mark { width: clamp(2.85rem, 8vw, 3.25rem); height: clamp(2.85rem, 8vw, 3.25rem); }
+    }
+    @media (max-width: 30rem) {
+      header.site .wrap {
+        padding-left: max(1rem, var(--safe-left));
+        padding-right: max(1rem, var(--safe-right));
+      }
+      .header-call { padding: 0.5rem 0.65rem; }
+      nav.main { gap: 0.35rem 0.75rem; font-size: 0.88rem; }
+      .brand-line { white-space: normal; line-height: 1.15; }
+      .lang-toggle { font-size: 0.82rem; padding: 0.35rem 0.55rem; }
+      .phone-prefix { display: none; }
     }
   </style>
 </head>
@@ -528,8 +596,10 @@ const FONT_TOGGLE =
         <a class="lang-toggle" href={langHref} lang={isTe ? 'en' : 'te'} hreflang={isTe ? 'en' : 'te'}>{langLabel}</a>
         <a class="btn btn-call header-call" href={`tel:${SITE.phoneHref}`}>
           <span class="header-call-text">
-            <span class="header-call-label">{ui.call}</span>
-            <span class="header-call-num">{SITE.phone}</span>
+            <span class="visually-hidden">{ui.call} </span>
+            <span class="header-call-num">
+              <span class="phone-prefix">+91 </span>{SITE.phoneLocal}
+            </span>
           </span>
         </a>
       </div>

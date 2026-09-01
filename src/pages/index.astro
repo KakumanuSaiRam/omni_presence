@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HomeContent from '../components/HomeContent.astro';
 import { GLOBAL_FAQS, SITE, ACADEMIC } from '../data/site.js';
+import { googleReviewsSchema } from '../data/reviews.js';
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -16,7 +17,7 @@ const faqSchema = {
 <Base
   title="Siva Tuitions & Coachings, Guntur — Tuitions, EAPCET, NEET, POLYCET Coaching & Admission Counselling"
   description={`Siva Tuitions & Coachings, Pattabhipuram, Guntur: tuitions ${ACADEMIC.trustStrip}, EAPCET/NEET/POLYCET coaching, and admission counselling for AP & Telangana. Call ${SITE.phone}.`}
-  jsonLd={[faqSchema]}
+  jsonLd={[faqSchema, { '@context': 'https://schema.org', '@graph': googleReviewsSchema() }]}
 >
   <HomeContent lang="en" />
 </Base>

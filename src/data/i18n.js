@@ -7,6 +7,7 @@ import { SITE, DIRECTOR, BRAND, ACADEMIC } from './site.js';
 /** Primary navigation, per locale. Telugu links stay inside /te/ where a page exists. */
 export const NAV = {
   en: [
+    { label: 'Home', href: '/' },
     { label: 'Courses', href: '/courses/' },
     { label: 'Counselling', href: '/counselling/' },
     { label: 'Important links', href: '/resources/' },
@@ -15,6 +16,7 @@ export const NAV = {
     { label: 'Contact', href: '/contact/' },
   ],
   te: [
+    { label: 'హోమ్', href: '/te/' },
     { label: 'కోర్సులు', href: '/te/courses/' },
     { label: 'కౌన్సెలింగ్', href: '/te/counselling/' },
     { label: 'ముఖ్య లింకులు', href: '/te/resources/' },
@@ -138,27 +140,17 @@ export const TRUST = {
   ],
 };
 
-/** Section 3 — "what we do" overview cards. */
+/** Heading copy for the homepage "what we do" section that introduces the three offerings. */
 export const SERVICES_OVERVIEW = {
   en: {
     eyebrow: 'Our main services',
     title: 'What we do',
     lead: 'Three services under one roof — and the third is what most coaching centres in Guntur do not offer.',
-    items: [
-      { icon: '📚', title: 'Academic Tuitions', body: `${ACADEMIC.toIntermediate} — CBSE, ICSE and State Board.`, href: '#tuitions' },
-      { icon: '🎯', title: 'Competitive Coaching', body: 'Short-term and summer programmes for EAPCET, NEET and POLYCET.', href: '#coaching' },
-      { icon: '🎓', title: 'Admissions & Counselling', body: 'Rank analysis to final admission — the guidance families struggle to find.', href: '#counselling' },
-    ],
   },
   te: {
     eyebrow: 'మా ప్రధాన సేవలు',
     title: 'మేము అందించే సేవలు',
     lead: 'ఒకే చోట మూడు సేవలు — మూడోది గుంటూరులో చాలా కోచింగ్ సెంటర్లు ఇవ్వని సేవ.',
-    items: [
-      { icon: '📚', title: 'అకడమిక్ ట్యూషన్లు', body: '6–10వ తరగతి నుంచి ఇంటర్ వరకు — CBSE, ICSE, స్టేట్ బోర్డు.', href: '#tuitions' },
-      { icon: '🎯', title: 'పోటీ పరీక్షల కోచింగ్', body: 'EAPCET, NEET, POLYCET కోసం షార్ట్-టర్మ్, సమ్మర్ ప్రోగ్రామ్‌లు.', href: '#coaching' },
-      { icon: '🎓', title: 'ప్రవేశాలు & కౌన్సెలింగ్', body: 'ర్యాంక్ విశ్లేషణ నుంచి తుది అడ్మిషన్ వరకు పూర్తి మార్గదర్శకత్వం.', href: '#counselling' },
-    ],
   },
 };
 
@@ -272,6 +264,38 @@ export const COUNSELLING_SECTION = {
   },
 };
 
+/** Homepage Google-review marquee — quotes stay in English (original Maps text). */
+export const REVIEWS_SECTION = {
+  en: {
+    eyebrow: 'Google reviews · Pattabhipuram',
+    title: 'What families tell Google',
+    lead: 'Ten Google reviews from the Pattabhipuram listing — engineering admission, counselling, short-term EAMCET coaching, and classroom tuitions. Quotes are copied as families wrote them.',
+    countLabel: '{n} Google reviews',
+    linkLabel: 'Read them on Google Maps',
+    source: 'Google review',
+    topics: {
+      counselling: 'Counselling',
+      'engineering-admission': 'Engineering admission',
+      'short-term-eamcet': 'Short-term EAMCET',
+      tuitions: 'Tuitions',
+    },
+  },
+  te: {
+    eyebrow: 'గూగుల్ రివ్యూలు · పట్టాభిపురం',
+    title: 'కుటుంబాలు గూగుల్‌లో చెప్పినది',
+    lead: 'పట్టాభిపురం లిస్టింగ్ నుంచి పది గూగుల్ రివ్యూలు — ఇంజనీరింగ్ ప్రవేశం, కౌన్సెలింగ్, షార్ట్-టర్మ్ EAMCET, ట్యూషన్లు. వాక్యాలు గూగుల్‌లో ఉన్నట్టే (ఇంగ్లీష్‌లో) ఉంచాం.',
+    countLabel: '{n} గూగుల్ రివ్యూలు',
+    linkLabel: 'గూగుల్ మ్యాప్స్‌లో చూడండి',
+    source: 'గూగుల్ రివ్యూ',
+    topics: {
+      counselling: 'కౌన్సెలింగ్',
+      'engineering-admission': 'ఇంజనీరింగ్ ప్రవేశం',
+      'short-term-eamcet': 'షార్ట్-టర్మ్ EAMCET',
+      tuitions: 'ట్యూషన్లు',
+    },
+  },
+};
+
 /** Section 7 — why choose us. */
 export const WHY_SECTION = {
   en: {
@@ -295,24 +319,6 @@ export const WHY_SECTION = {
       { icon: '🎓', text: 'పూర్తి కౌన్సెలింగ్ సహాయం' },
       { icon: '👨‍👩‍👧', text: 'తల్లిదండ్రులు, విద్యార్థులకు మార్గదర్శకత్వం' },
     ],
-  },
-};
-
-/** Section 8 — enquiry block wrapper copy (form labels live in ENQUIRY_FORM). */
-export const ENQUIRE_SECTION = {
-  en: {
-    eyebrow: 'Parents & students',
-    title: 'Ask us your question',
-    lead: 'Pick a topic, write your doubt, and send it straight to our WhatsApp for a same-day callback.',
-    linkLabel: 'Full contact form',
-    linkHref: '/contact/#enquire',
-  },
-  te: {
-    eyebrow: 'తల్లిదండ్రులు & విద్యార్థులు',
-    title: 'మీ ప్రశ్న అడగండి',
-    lead: 'ఒక అంశాన్ని ఎంచుకోండి, మీ సందేహం రాయండి — నేరుగా మా వాట్సాప్‌కు పంపండి, అదే రోజు కాల్ బ్యాక్.',
-    linkLabel: 'పూర్తి సంప్రదింపు ఫారమ్',
-    linkHref: '/te/contact/#enquire',
   },
 };
 

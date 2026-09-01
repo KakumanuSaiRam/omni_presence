@@ -1,8 +1,8 @@
 ---
 import Illustration from './Illustration.astro';
-import EnquiryForm from './EnquiryForm.astro';
 import BranchShowcase from './BranchShowcase.astro';
 import MapsIcon from './MapsIcon.astro';
+import ReviewMarquee from './ReviewMarquee.astro';
 import { SITE, DIRECTOR, BRAND, GLOBAL_FAQS } from '../data/site.js';
 import {
   UI,
@@ -12,8 +12,6 @@ import {
   TUITIONS_SECTION,
   COACHING_SECTION,
   COUNSELLING_SECTION,
-  WHY_SECTION,
-  ENQUIRE_SECTION,
   ABOUT_SECTION,
   FAQ_SECTION,
   CONTACT_SECTION,
@@ -29,17 +27,13 @@ const services = SERVICES_OVERVIEW[lang];
 const tuitions = TUITIONS_SECTION[lang];
 const coaching = COACHING_SECTION[lang];
 const counselling = COUNSELLING_SECTION[lang];
-const why = WHY_SECTION[lang];
-const enquire = ENQUIRE_SECTION[lang];
 const about = ABOUT_SECTION[lang];
 const faqBlock = FAQ_SECTION[lang];
 const contact = CONTACT_SECTION[lang];
 
 const homeFaqs = (lang === 'te' ? FAQS_TE : GLOBAL_FAQS).slice(0, 3);
-const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
 const waHref = `https://wa.me/${SITE.whatsapp}`;
 const telHref = `tel:${SITE.phoneHref}`;
-const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
 ---
 
 <!-- Hero -->
@@ -72,94 +66,64 @@ const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
 
 <BranchShowcase lang={lang} />
 
-<!-- What we do -->
-<section id="services" class="home-section">
+<!-- What we do — overview and the three offerings in one pass -->
+<section id="services" class="home-section home-section--line">
   <div class="wrap">
-    <h2 class="home-h2">{services.title}</h2>
-    <p class="home-text">{services.lead}</p>
-    <ul class="home-service-list">
-      {services.items.map((item) => (
-        <li>
-          <a href={item.href}>
-            <span class="home-service-name">{item.title}</span>
-            <span class="home-service-desc">{item.body}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-</section>
-
-<!-- Tuitions, coaching, counselling — one calm block -->
-<section class="home-section home-section--line">
-  <div class="wrap home-offerings">
-    <article id="tuitions" class="home-offer">
-      <h3 class="home-h3">{tuitions.title}</h3>
-      <p class="home-text">{tuitions.lead}</p>
-      {tuitions.groups.map((group) => (
-        <p class="home-detail"><strong>{group.label}:</strong> {group.items.join(', ')}</p>
-      ))}
-      <p class="home-links">
-        {tuitions.links.map((link, i) => (
-          <>
-            {i > 0 && ' · '}
-            <a href={link.href}>{link.label}</a>
-          </>
-        ))}
-      </p>
-    </article>
-
-    <article id="coaching" class="home-offer">
-      <h3 class="home-h3">{coaching.title}</h3>
-      <p class="home-text">{coaching.lead}</p>
-      <p class="home-detail"><strong>{coaching.programs.join(' · ')}</strong></p>
-      <p class="home-detail">{coaching.focusLabel}: {coaching.focus.join(', ')}</p>
-      <p class="home-links">
-        {coaching.links.map((link, i) => (
-          <>
-            {i > 0 && ' · '}
-            <a href={link.href}>{link.label}</a>
-          </>
-        ))}
-      </p>
-    </article>
-
-    <article id="counselling" class="home-offer">
-      <h3 class="home-h3">{counselling.title}</h3>
-      <p class="home-text">{counselling.lead}</p>
-      <p class="home-text home-note">{counselling.objective}</p>
-      {counselling.columns.map((column) => (
-        <div class="home-subblock">
-          <h4 class="home-h4">{column.title}</h4>
-          <p class="home-detail">{column.items.join(' · ')}</p>
-        </div>
-      ))}
-      <p class="home-links"><a href={counselling.linkHref}>{counselling.linkLabel}</a></p>
-    </article>
-  </div>
-</section>
-
-<!-- Why choose -->
-<section class="home-section">
-  <div class="wrap">
-    <h2 class="home-h2">{why.title}</h2>
-    <ul class="home-checklist">
-      {why.points.map((point) => <li>{point.text}</li>)}
-    </ul>
-  </div>
-</section>
-
-<!-- Enquiry -->
-<section id="enquire" class="home-section home-section--line">
-  <div class="wrap home-enquire">
-    <div class="home-enquire-copy">
-      <h2 class="home-h2">{enquire.title}</h2>
-      <p class="home-text">{enquire.lead}</p>
-      <p class="home-links"><a href={enquire.linkHref}>{enquire.linkLabel}</a></p>
+    <div class="ruled">
+      <p class="eyebrow">{services.eyebrow}</p>
+      <h2 class="home-h2 home-services-title">{services.title}</h2>
     </div>
-    <EnquiryForm compact id="home-enquiry" lang={lang} />
+    <p class="home-text home-services-lead">{services.lead}</p>
+
+    <div class="home-offerings">
+      <article id="tuitions" class="home-offer">
+        <h3 class="home-h3">{tuitions.title}</h3>
+        <p class="home-text">{tuitions.lead}</p>
+        {tuitions.groups.map((group) => (
+          <p class="home-detail"><strong>{group.label}:</strong> {group.items.join(', ')}</p>
+        ))}
+        <p class="home-links">
+          {tuitions.links.map((link, i) => (
+            <>
+              {i > 0 && ' · '}
+              <a href={link.href}>{link.label}</a>
+            </>
+          ))}
+        </p>
+      </article>
+
+      <article id="coaching" class="home-offer">
+        <h3 class="home-h3">{coaching.title}</h3>
+        <p class="home-text">{coaching.lead}</p>
+        <p class="home-detail"><strong>{coaching.programs.join(' · ')}</strong></p>
+        <p class="home-detail">{coaching.focusLabel}: {coaching.focus.join(', ')}</p>
+        <p class="home-links">
+          {coaching.links.map((link, i) => (
+            <>
+              {i > 0 && ' · '}
+              <a href={link.href}>{link.label}</a>
+            </>
+          ))}
+        </p>
+      </article>
+
+      <article id="counselling" class="home-offer">
+        <h3 class="home-h3">{counselling.title}</h3>
+        <p class="home-text">{counselling.lead}</p>
+        <p class="home-text home-note">{counselling.objective}</p>
+        {counselling.columns.map((column) => (
+          <div class="home-subblock">
+            <h4 class="home-h4">{column.title}</h4>
+            <p class="home-detail">{column.items.join(' · ')}</p>
+          </div>
+        ))}
+        <p class="home-links"><a href={counselling.linkHref}>{counselling.linkLabel}</a></p>
+      </article>
+    </div>
   </div>
 </section>
+
+<ReviewMarquee lang={lang} />
 
 <!-- About & director -->
 <section id="about" class="home-section">
@@ -197,17 +161,15 @@ const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
   </div>
 </section>
 
-<!-- Contact -->
+<!-- Closing call to action -->
 <section class="home-section">
   <div class="wrap">
     <div class="home-contact">
       <div>
         <h2 class="home-h2">{contact.title}</h2>
-        <p class="home-text"><a href={SITE.mapsDirectionsUrl}>{addressLine}</a></p>
         <p class="home-text">
           <a href={telHref}>{SITE.phone}</a>
           · <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-          · <a href={galleryHref}>{ui.gallery}</a>
         </p>
       </div>
       <div class="home-contact-actions">
@@ -293,45 +255,36 @@ const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
   }
   .home-detail strong { color: var(--ink); font-weight: 600; }
 
-  .home-service-list {
-    list-style: none; padding: 0; margin: 1.25rem 0 0;
-    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-  }
-  .home-service-list li + li { border-top: 1px solid var(--border); }
-  .home-service-list a {
-    display: block; padding: 1rem 1.1rem; text-decoration: none; color: inherit;
-    transition: background 0.15s ease;
-  }
-  .home-service-list a:hover { background: var(--surface-muted); }
-  .home-service-name {
-    display: block; font-weight: 700; color: var(--accent-deep); margin-bottom: 0.15rem;
-  }
-  .home-service-desc { display: block; font-size: 0.92rem; color: var(--ink-muted); }
+  .home-services-title { margin-top: 0.15rem; margin-bottom: 0; }
+  .home-services-lead { margin-top: 0.75rem; }
 
-  .home-offerings { display: grid; gap: 2.25rem; }
+  /* Three offerings read as a numbered set, not three unrelated text blocks. */
+  .home-offerings {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+    counter-reset: offer;
+  }
   @media (min-width: 720px) {
     .home-offerings { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
   }
-  .home-offer + .home-offer {
-    padding-top: 2rem; border-top: 1px solid var(--border);
+  .home-offer {
+    counter-increment: offer;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--highlight-soft);
   }
-  @media (min-width: 720px) {
-    .home-offer + .home-offer { padding-top: 0; border-top: none; }
+  .home-offer::before {
+    content: counter(offer, decimal-leading-zero);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+    color: var(--highlight);
   }
   .home-subblock + .home-subblock { margin-top: 0.5rem; }
-
-  .home-checklist {
-    margin: 0.75rem 0 0; padding-left: 1.2rem; max-width: 42rem;
-    color: var(--ink-muted); display: grid; gap: 0.45rem;
-  }
-  .home-checklist li { line-height: 1.5; }
-
-  .home-enquire {
-    display: grid; gap: 1.75rem; align-items: start;
-  }
-  @media (min-width: 720px) {
-    .home-enquire { grid-template-columns: 0.85fr 1.15fr; gap: 2.5rem; }
-  }
 
   .home-about {
     display: grid; gap: 2rem; align-items: start;
@@ -340,8 +293,11 @@ const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
     .home-about { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   }
   .home-director {
-    margin: 0; display: grid; gap: 1rem;
-    grid-template-columns: 7rem 1fr; align-items: start;
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 7rem), 1fr));
+    align-items: start;
   }
   .home-director img {
     width: 100%; border-radius: 8px; border: 1px solid var(--border); object-fit: cover;
@@ -370,5 +326,18 @@ const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
     padding: 1.5rem; border: 1px solid var(--border); border-radius: 10px;
     background: var(--surface-raised);
   }
-  .home-contact-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .home-contact-actions {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    flex: 1 1 12rem;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 480px) {
+    .home-hero { padding-top: 2rem; }
+    .home-section { padding: 2rem 0; }
+    .home-director { justify-items: center; text-align: center; }
+    .home-director img { max-width: 6.5rem; }
+    .home-contact-actions { justify-content: stretch; }
+    .home-contact-actions .btn { flex: 1 1 auto; text-align: center; }
+  }
 </style>

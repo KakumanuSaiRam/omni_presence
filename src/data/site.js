@@ -9,6 +9,8 @@ export const SITE = {
   url: 'https://sivatuitions.github.io',
   intendedUrl: 'https://sivatuitions.com',
   phone: '+91 88797 97777',
+  /** Local number without country code — used for compact header display via CSS. */
+  phoneLocal: '88797 97777',
   phoneHref: '+918879797777',
   whatsapp: '918879797777',
   email: 'sivatuitions@gmail.com',

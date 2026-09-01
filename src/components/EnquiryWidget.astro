@@ -346,7 +346,10 @@ const t = ENQUIRY_WIDGET[lang] ?? ENQUIRY_WIDGET.en;
 
 <style>
   .fab {
-    position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 60;
+    position: fixed;
+    right: max(1.1rem, var(--safe-right));
+    bottom: max(1.1rem, var(--safe-bottom));
+    z-index: 60;
     display: inline-flex; align-items: center; gap: 0.5rem;
     padding: 0.8rem 1.15rem; border: none; border-radius: 999px;
     background: linear-gradient(135deg, var(--highlight), var(--highlight-deep));
@@ -370,9 +373,12 @@ const t = ENQUIRY_WIDGET[lang] ?? ENQUIRY_WIDGET.en;
     70% { opacity: 0; transform: scale(1.35); }
     100% { opacity: 0; transform: scale(1.35); }
   }
-  @media (max-width: 480px) {
+  @media (pointer: coarse) and (max-width: 30rem) {
     .fab span { display: none; }
     .fab { padding: 0.95rem; }
+  }
+  @media (display-mode: standalone) {
+    .fab { bottom: max(1.35rem, var(--safe-bottom)); }
   }
 
   /* Centre explicitly rather than relying on UA defaults, which vary once the
@@ -381,7 +387,7 @@ const t = ENQUIRY_WIDGET[lang] ?? ENQUIRY_WIDGET.en;
     position: fixed;
     inset: 0;
     margin: auto;
-    width: min(38rem, calc(100vw - 1.5rem));
+    width: min(38rem, calc(100% - 1.5rem - var(--safe-left) - var(--safe-right)));
     max-height: min(92svh, 46rem);
     /* Head stays put, body scrolls when the form is taller than the screen. */
     display: flex;
