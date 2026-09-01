@@ -3,10 +3,13 @@ dist/
 .astro/
 .env
 .env.*
+!.env.example
 .DS_Store
 drafts/*
 !drafts/.gitkeep
 broadcaster/posts/
 broadcaster/uploads/
+publisher/history.jsonl
+publisher/outbox/*.txt
 # IndexNow host-key file written by postdeploy:ping
 /public/*-*.txt

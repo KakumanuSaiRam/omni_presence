@@ -10,7 +10,9 @@
     "broadcast": "node broadcaster/server.js",
     "broadcast:login": "node broadcaster/login.js",
     "postdeploy:ping": "node scripts/indexnow.mjs",
-    "generate:article": "node scripts/generate-article.mjs"
+    "generate:article": "node scripts/generate-article.mjs",
+    "publish": "node publisher/publish.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
