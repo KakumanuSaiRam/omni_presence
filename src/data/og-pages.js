@@ -26,7 +26,7 @@ export function staticOgPages() {
       description: `${SITE.address.street}, Guntur ${SITE.address.postalCode} · ${SITE.phone}`,
     },
     resources: {
-      title: 'Official exam links & scholarships',
+      title: 'Important links & scholarships',
       description: 'AP EAPCET, TS EAMCET, NEET, POLYCET, ECET, JoSAA and scholarship portals for AP & Telangana.',
     },
     faq: {
@@ -78,7 +78,7 @@ export function staticOgPages() {
       description: 'ర్యాంక్ విశ్లేషణ, కాలేజీ ఎంపిక, వెబ్ ఆప్షన్స్ — ఏపీ, తెలంగాణ.',
     },
     'te/resources': {
-      title: 'అధికారిక పరీక్ష లింకులు & స్కాలర్‌షిప్‌లు',
+      title: 'ముఖ్య లింకులు & స్కాలర్‌షిప్‌లు',
       description: 'EAPCET, NEET, POLYCET, ECET, జ్ఞానభూమి, ePASS — ఒకే చోట.',
     },
     'te/gallery': {

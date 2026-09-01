@@ -714,7 +714,7 @@ export const ENQUIRY_DELIVERY = {
 
 /** Official portals — AP, Telangana & national (verify URLs each admission season). */
 export const OFFICIAL_RESOURCES = {
-  title: 'Official Links & Scholarships',
+  title: 'Important Links & Scholarships',
   intro:
     'Quick links to official entrance-exam and scholarship portals for Andhra Pradesh and Telangana. Always confirm dates on the official site.',
   scholarships: {

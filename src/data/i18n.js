@@ -9,7 +9,7 @@ export const NAV = {
   en: [
     { label: 'Courses', href: '/courses/' },
     { label: 'Counselling', href: '/counselling/' },
-    { label: 'Exam links', href: '/resources/' },
+    { label: 'Important links', href: '/resources/' },
     { label: 'Guides', href: '/blog/' },
     { label: 'About', href: '/brand/' },
     { label: 'Contact', href: '/contact/' },
@@ -17,7 +17,7 @@ export const NAV = {
   te: [
     { label: 'కోర్సులు', href: '/te/courses/' },
     { label: 'కౌన్సెలింగ్', href: '/te/counselling/' },
-    { label: 'పరీక్ష లింకులు', href: '/te/resources/' },
+    { label: 'ముఖ్య లింకులు', href: '/te/resources/' },
     { label: 'గైడ్స్', href: '/blog/' },
     { label: 'మా గురించి', href: '/te/about/' },
     { label: 'సంప్రదించండి', href: '/te/contact/' },
@@ -37,7 +37,7 @@ export const UI = {
     maps: 'Maps',
     gallery: 'Gallery',
     social: 'Social',
-    links: 'Exam links',
+    links: 'Important links',
     ask: 'Ask a question',
     about: 'About',
     faq: 'FAQ',
@@ -58,7 +58,7 @@ export const UI = {
     maps: 'మ్యాప్స్',
     gallery: 'గ్యాలరీ',
     social: 'సామాజిక కార్యక్రమాలు',
-    links: 'పరీక్ష లింకులు',
+    links: 'ముఖ్య లింకులు',
     ask: 'ప్రశ్న అడగండి',
     about: 'మా గురించి',
     faq: 'ప్రశ్నలు',
@@ -304,15 +304,15 @@ export const ENQUIRE_SECTION = {
     eyebrow: 'Parents & students',
     title: 'Ask us your question',
     lead: 'Pick a topic, write your doubt, and send it straight to our WhatsApp for a same-day callback.',
-    linkLabel: 'Official exam & scholarship links',
-    linkHref: '/resources/',
+    linkLabel: 'Full contact form',
+    linkHref: '/contact/#enquire',
   },
   te: {
     eyebrow: 'తల్లిదండ్రులు & విద్యార్థులు',
     title: 'మీ ప్రశ్న అడగండి',
     lead: 'ఒక అంశాన్ని ఎంచుకోండి, మీ సందేహం రాయండి — నేరుగా మా వాట్సాప్‌కు పంపండి, అదే రోజు కాల్ బ్యాక్.',
-    linkLabel: 'అధికారిక పరీక్ష & స్కాలర్‌షిప్ లింకులు',
-    linkHref: '/te/resources/',
+    linkLabel: 'పూర్తి సంప్రదింపు ఫారమ్',
+    linkHref: '/te/contact/#enquire',
   },
 };
 
@@ -553,19 +553,19 @@ export const ABOUT_PAGE = {
     pillarsLabel: 'Three services, one desk',
     pillars: [
       {
-        icon: '📚',
+        image: '/illustrations/pillar-tuitions.webp',
         title: 'Academic tuitions',
         body: `${ACADEMIC.toIntermediate} — CBSE, ICSE and State Board, with Maths, Physics and Chemistry.`,
         href: '/courses/school-tuitions-guntur/',
       },
       {
-        icon: '🎯',
+        image: '/illustrations/pillar-coaching.webp',
         title: 'Entrance coaching',
         body: 'Short-term batches for EAPCET, NEET, POLYCET and other competitive exams.',
         href: '/courses/eamcet-eapcet-coaching-guntur/',
       },
       {
-        icon: '🎓',
+        image: '/illustrations/pillar-counselling.webp',
         title: 'Admission counselling',
         body: 'Rank analysis, cut-offs, branch choice, web options and final admission.',
         href: '/counselling/eapcet-web-options-counselling/',
@@ -598,19 +598,19 @@ export const ABOUT_PAGE = {
     pillarsLabel: 'మూడు సేవలు, ఒకే డెస్క్',
     pillars: [
       {
-        icon: '📚',
+        image: '/illustrations/pillar-tuitions.webp',
         title: 'అకడమిక్ ట్యూషన్లు',
         body: '6–10వ తరగతి నుంచి ఇంటర్ — CBSE, ICSE, స్టేట్ బోర్డు; మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీ.',
         href: '/courses/school-tuitions-guntur/',
       },
       {
-        icon: '🎯',
+        image: '/illustrations/pillar-coaching.webp',
         title: 'ప్రవేశ పరీక్షల కోచింగ్',
         body: 'EAPCET, NEET, POLYCET తదితర పోటీ పరీక్షలకు షార్ట్-టర్మ్ బ్యాచ్‌లు.',
         href: '/courses/eamcet-eapcet-coaching-guntur/',
       },
       {
-        icon: '🎓',
+        image: '/illustrations/pillar-counselling.webp',
         title: 'ప్రవేశ కౌన్సెలింగ్',
         body: 'ర్యాంక్ విశ్లేషణ, కట్-ఆఫ్‌లు, బ్రాంచ్ ఎంపిక, వెబ్ ఆప్షన్స్, తుది అడ్మిషన్.',
         href: '/counselling/eapcet-web-options-counselling/',
@@ -659,7 +659,7 @@ export const PROOF_SECTION = {
 export const RESOURCES_SECTION = {
   en: {
     eyebrow: 'What we track for you',
-    title: 'Official exam links & scholarships',
+    title: 'Important links & scholarships',
     lead: 'Every AP and Telangana entrance portal plus scholarship schemes, in one place — so no family misses a deadline.',
     chips: ['AP EAPCET', 'TG EAPCET', 'NEET', 'POLYCET', 'ECET', 'ICET', 'PGECET', 'JoSAA', 'Jnanabhumi', 'ePASS'],
     linkLabel: 'Open the links page',
@@ -667,7 +667,7 @@ export const RESOURCES_SECTION = {
   },
   te: {
     eyebrow: 'మీ కోసం మేము గమనించేవి',
-    title: 'అధికారిక పరీక్ష లింకులు & స్కాలర్‌షిప్‌లు',
+    title: 'ముఖ్య లింకులు & స్కాలర్‌షిప్‌లు',
     lead: 'ఆంధ్రప్రదేశ్, తెలంగాణ ప్రవేశ పరీక్షల పోర్టల్‌లు, స్కాలర్‌షిప్ పథకాలు — ఒకే చోట, ఏ కుటుంబం గడువు కోల్పోకుండా.',
     chips: ['AP EAPCET', 'TG EAPCET', 'NEET', 'POLYCET', 'ECET', 'ICET', 'PGECET', 'JoSAA', 'జ్ఞానభూమి', 'ePASS'],
     linkLabel: 'లింకుల పేజీ తెరవండి',

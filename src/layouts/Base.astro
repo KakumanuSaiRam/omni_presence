@@ -218,16 +218,44 @@ const FONT_TOGGLE =
       position: sticky; top: 0; z-index: 40;
     }
     header.site .wrap {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem;
-      padding-top: 0.9rem; padding-bottom: 0.9rem;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      column-gap: 1.25rem;
+      row-gap: 0.65rem;
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
     }
     .brand {
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem;
-      color: var(--accent-deep); text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.12;
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      color: var(--accent-deep);
+    }
+    .brand-line {
+      font-size: 1.2rem;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+    .brand-line--sub {
+      font-size: 1.08rem;
+      color: var(--accent);
     }
     .logo-mark {
       display: block;
-      width: 52px; height: 52px;
+      width: 3.65rem;
+      height: 3.65rem;
+      flex-shrink: 0;
       background: #fff;
       border-radius: 10px;
       object-fit: contain;
@@ -237,7 +265,33 @@ const FONT_TOGGLE =
       transition: transform 0.3s var(--ease);
     }
     .brand:hover .logo-mark { transform: rotate(-4deg) scale(1.05); }
-    nav.main { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; font-size: 0.95rem; }
+    nav.main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      font-size: 0.95rem;
+      justify-self: start;
+      min-width: 0;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      justify-self: end;
+    }
+    .header-call {
+      padding: 0.55rem 1rem;
+      font-size: 0.9rem;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .header-call-text {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+    .header-call-num { font-variant-numeric: tabular-nums; }
     nav.main a {
       color: var(--ink-muted); text-decoration: none;
       position: relative; padding-bottom: 2px;
@@ -402,29 +456,51 @@ const FONT_TOGGLE =
     }
     .lang-toggle:hover { background: var(--surface-accent); border-color: var(--highlight); }
 
-    /* Header: compact on phones — logo + call stay visible; nav wraps cleanly. */
-    @media (max-width: 720px) {
-      header.site .brand { font-size: 1rem; max-width: 12rem; line-height: 1.2; }
-      header.site .btn-call { padding: 0.55rem 0.85rem; font-size: 0.88rem; margin-left: 0 !important; }
-      nav.main { width: 100%; order: 3; gap: 0.5rem 0.85rem; font-size: 0.88rem; }
-      .lang-toggle { margin-left: auto; }
+    /* Header: logo + two-line name stay together; nav wraps on its own row on narrow screens. */
+    @media (max-width: 900px) {
+      header.site .wrap {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "brand actions"
+          "nav nav";
+      }
+      .brand { grid-area: brand; }
+      .header-actions { grid-area: actions; }
+      nav.main { grid-area: nav; width: 100%; }
+      .brand-line { font-size: 1.05rem; }
+      .brand-line--sub { font-size: 0.95rem; }
+      .logo-mark { width: 3.25rem; height: 3.25rem; }
+    }
+    @media (max-width: 480px) {
+      .header-call-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      .header-call { padding: 0.5rem 0.75rem; font-size: 0.82rem; }
     }
   </style>
 </head>
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="brand" href={homeHref} style="display:flex;align-items:center;gap:0.6rem">
-        <img class="logo-mark" src="/logo.png" alt="" width="52" height="52" />
-        Siva Tuitions &amp; Coachings
+      <a class="brand" href={homeHref}>
+        <img class="logo-mark" src="/logo.png" alt="" width="58" height="58" />
+        <span class="brand-text">
+          <span class="brand-line">Siva Tuitions</span>
+          <span class="brand-line brand-line--sub">&amp; Coachings</span>
+        </span>
       </a>
       <nav class="main" aria-label={ui.navLabel}>
         {navItems.map((item) => (
           <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
         ))}
       </nav>
-      <a class="lang-toggle" href={langHref} lang={isTe ? 'en' : 'te'} hreflang={isTe ? 'en' : 'te'}>{langLabel}</a>
-      <a class="btn btn-call" href={`tel:${SITE.phoneHref}`} style="margin-left:auto">{ui.call} {SITE.phone}</a>
+      <div class="header-actions">
+        <a class="lang-toggle" href={langHref} lang={isTe ? 'en' : 'te'} hreflang={isTe ? 'en' : 'te'}>{langLabel}</a>
+        <a class="btn btn-call header-call" href={`tel:${SITE.phoneHref}`}>
+          <span class="header-call-text">
+            <span class="header-call-label">{ui.call}</span>
+            <span class="header-call-num">{SITE.phone}</span>
+          </span>
+        </a>
+      </div>
     </div>
   </header>
   <main>
