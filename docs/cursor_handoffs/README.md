@@ -8,6 +8,7 @@ token-heavy build/content work.
 |---|---|---|
 | `../CURSOR-HANDOFF.md` | T1–T8: locations, 20 blog guides, Telugu pages, OG images, IndexNow, TrueFoundry generator, broadcaster hardening, QA | In progress (T1 done) |
 | `02-offsite-content-pack.md` | Directory submission packs, Quora/Reddit answer bank, GBP 12-week post calendar, YouTube scripts | Ready to run |
+| `03-api-publishing-visibility.md` | Official-API publisher (Meta/X/LinkedIn/Reddit/Telegram) + automated AI-visibility measurement harness | Ready to run |
 
 Rules that apply to every handoff (repeat them if a prompt is run standalone):
 - Never fabricate facts (results, counts, years, testimonials). `TODO(owner)` marks unverified items.

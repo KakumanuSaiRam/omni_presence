@@ -574,9 +574,127 @@ export const GALLERY = [
   },
 ];
 
+/** Social & community photos — curated, not exhaustive. */
+export const SOCIAL_ACTIVITIES = {
+  title: 'Social gatherings & community',
+  intro:
+    'Community events and educational outreach beyond the Pattabhipuram coaching centre.',
+  photos: [
+    { src: '/gallery/social/activity-08.jpg', alt: 'Director Yadlapalli Naga Murali Krishna speaking at the Nestham community event in Guntur', caption: 'Speaking at the Nestham community programme, Guntur.' },
+    { src: '/gallery/social/activity-20.jpg', alt: 'Director at an Intermediate, Diploma and EAMCET awareness banner', caption: 'Educational awareness drive — Intermediate, Diploma & EAMCET.' },
+    { src: '/gallery/social/activity-15.jpg', alt: 'Director at a community event in Guntur', caption: 'Community outreach — Guntur.' },
+  ],
+};
+
+/** Institute & university visits — curated. */
+export const INSTITUTE_VISITS = {
+  title: 'Institute visits',
+  intro:
+    'The director regularly visits universities and institutes across India to keep the counselling desk current on campuses, facilities and admission practice.',
+  photos: [
+    { src: '/gallery/social/visit-ganpat-office.jpg', alt: 'Director working during a visit to Ganpat University', caption: 'Ganpat University (NAAC A) — campus visit.' },
+    { src: '/gallery/social/visit-ganpat-namc.jpg', alt: 'Director at the National Additive Manufacturing Centre, Ganpat University', caption: 'National Additive Manufacturing Centre — Ganpat University.' },
+    { src: '/gallery/social/activity-04.jpg', alt: 'Director in a university boardroom meeting', caption: 'Academic planning session — university boardroom.' },
+  ],
+};
+
+/** Homepage & marketing copy — concise, scannable. */
+export const HOME = {
+  subline: 'Academic Excellence · Competitive Coaching · Career & Counselling Guidance',
+  teluguTagline:
+    'మీ పిల్లల చదువు నుంచి ఉన్నత విద్య వరకు — ఒకే చోట పూర్తి మార్గదర్శకత్వం.',
+  servicesTitleTe: 'మా ప్రధాన సేవలు',
+};
+
+export const ACADEMIC_TUITIONS = {
+  title: 'Academic Tuitions',
+  telugu: 'రెగ్యులర్, సప్లిమెంటరీ & బెటర్‌మెంట్ ట్యూషన్లు',
+  classes: '6th to Intermediate',
+  boards10: ['CBSE', 'ICSE', 'State Board'],
+  inter: ['State Board', 'CBSE', 'MPC', 'Maths', 'Physics', 'Chemistry', 'EAPCET-oriented preparation'],
+  highlightsTe: [
+    'Regular Classes',
+    'Supplementary Preparation',
+    'Betterment Coaching',
+    'Subject-wise Coaching',
+    'Exam-oriented Preparation',
+  ],
+  illustration: '/illustrations/tuition-classroom.png',
+};
+
+export const COMPETITIVE_COACHING = {
+  title: 'Short-Term Competitive Coaching',
+  telugu: 'Summer & Short-Term Programs',
+  intro: 'Focused coaching for entrance examinations — concept revision, problem solving and exam strategy.',
+  programs: ['MPC', 'EAPCET', 'POLYCET', 'Bi.P.C', 'NEET-oriented preparation', 'Polytechnic (POLYCET)'],
+  focus: ['Concept Revision', 'Problem Solving', 'Exam Strategy', 'Previous Papers', 'Mock Tests'],
+  illustration: '/illustrations/exam-prep-students.png',
+};
+
+export const COUNSELLING_HUB = {
+  title: 'Admissions & Counselling Guidance Centre',
+  telugu: 'ప్రవేశం నుంచి అడ్మిషన్ వరకు — students & parents కి complete guidance',
+  intro:
+    'From entrance examination to final admission — rank analysis, cut-offs, college & branch selection, web options and seat allotment.',
+  objective: 'Right Rank + Right Branch + Right College = Right Career Decision',
+  entranceExams: [
+    'EAPCET',
+    'POLYCET',
+    'ICET',
+    'ECET',
+    'PGECET',
+    'PGSET',
+    'NEET',
+    'Other state-level entrances',
+  ],
+  courses: [
+    'B.Tech',
+    'M.Tech',
+    'MCA',
+    'MBA',
+    'Polytechnic',
+    'MBBS',
+    'BDS',
+    'Veterinary',
+    'Agriculture',
+    'Other professional courses',
+  ],
+  services: [
+    'Application & Registration',
+    'Certificates / Documents',
+    'Rank & Category Analysis',
+    'Previous Year Cut-offs',
+    'College & Branch Analysis',
+    'College Prediction',
+    'Web Counselling & Option Entry',
+    'Seat Allotment & Final Admission',
+  ],
+  illustration: '/illustrations/counselling-desk.svg',
+};
+
+export const WHY_CHOOSE = [
+  'Experienced Academic Guidance',
+  'Personalized Student Support',
+  'Competitive Exam Preparation',
+  'Rank & Cut-off Analysis',
+  'Complete Counselling Support',
+  'Parent & Student Guidance',
+];
+
+export const ABOUT = {
+  title: 'About Siva Tuitions & Coachings',
+  paragraphs: [
+    'Siva Tuitions & Coachings is an academic, competitive coaching and educational counselling centre dedicated to helping students achieve their academic and career goals.',
+    'We provide academic tuition from 6th Class to Intermediate — CBSE, ICSE and State Board — with specialized coaching in Mathematics, Physics and Chemistry.',
+    'Short-term programs prepare students for EAPCET, POLYCET and other competitive entrance examinations.',
+    'Our Counselling & Guidance Centre supports students and parents from application and rank analysis through cut-offs, branch selection, web options and final admission.',
+  ],
+  aim: 'The right academic support, reliable information and practical guidance at every important stage.',
+};
+
 export const BRAND = {
   tagline: 'From Class 1 to your college seat.',
-  mission: 'One trusted place in Guntur for tuitions, entrance coaching, and admission counselling.',
+  mission: HOME.subline,
   values: [
     { title: 'Small batches', body: 'Doubts cleared in class.' },
     { title: 'Coaching + counselling', body: 'Same desk from prep to web options.' },

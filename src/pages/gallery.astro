@@ -1,17 +1,47 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, GALLERY } from '../data/site.js';
+import { SITE, GALLERY, SOCIAL_ACTIVITIES, INSTITUTE_VISITS } from '../data/site.js';
 ---
 <Base
   title="Gallery — Siva Tuitions & Coachings, Guntur"
-  description="Photos of Siva Tuitions & Coachings, Pattabhipuram, Guntur."
+  description="Photos of Siva Tuitions & Coachings centre in Pattabhipuram, Guntur, and social & community activities."
 >
   <section>
     <div class="wrap">
       <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);color:var(--accent-deep)">Gallery</h1>
-      <p class="section-intro">Pattabhipuram centre — <a href={SITE.mapsUrl}>more on Google Maps</a>.</p>
+      <p class="section-intro">Pattabhipuram centre — <a href={SITE.mapsUrl}>view on Google Maps</a>.</p>
       <div class="gallery-grid">
         {GALLERY.map((item) => (
+          <figure class="gallery-item">
+            <img src={item.src} alt={item.alt} loading="lazy" width="800" height="600" />
+            <figcaption>{item.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="social" class="section-muted">
+    <div class="wrap">
+      <h2 class="section-heading">{SOCIAL_ACTIVITIES.title}</h2>
+      <p class="section-intro">{SOCIAL_ACTIVITIES.intro}</p>
+      <div class="gallery-grid">
+        {SOCIAL_ACTIVITIES.photos.map((item) => (
+          <figure class="gallery-item">
+            <img src={item.src} alt={item.alt} loading="lazy" width="800" height="600" />
+            <figcaption>{item.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="visits">
+    <div class="wrap">
+      <h2 class="section-heading">{INSTITUTE_VISITS.title}</h2>
+      <p class="section-intro">{INSTITUTE_VISITS.intro}</p>
+      <div class="gallery-grid">
+        {INSTITUTE_VISITS.photos.map((item) => (
           <figure class="gallery-item">
             <img src={item.src} alt={item.alt} loading="lazy" width="800" height="600" />
             <figcaption>{item.caption}</figcaption>
@@ -23,6 +53,7 @@ import { SITE, GALLERY } from '../data/site.js';
 </Base>
 
 <style>
+  .section-heading { font-size: 1.5rem; color: var(--accent-deep); margin-bottom: 0.5rem; }
   .gallery-grid {
     display: grid; gap: 1.25rem; margin-top: 1.25rem;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

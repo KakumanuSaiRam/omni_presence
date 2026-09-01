@@ -1,37 +1,50 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE } from '../data/site.js';
+
+const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
 ---
 <Base
   title={`Contact ${SITE.name} — Pattabhipuram, Guntur | Phone, WhatsApp, Directions`}
-  description={`Contact Siva Tuitions & Coachings: ${SITE.phone}, ${SITE.email}. Address: ${SITE.address.street}, Guntur ${SITE.address.postalCode}. Open ${SITE.hours}.`}
+  description={`Contact Siva Tuitions & Coachings: ${SITE.phone}, ${SITE.email}. ${addressLine}.`}
 >
   <section>
     <div class="wrap">
       <div class="ruled"><p class="eyebrow">Visit · Call · WhatsApp</p>
-      <h1>Contact Siva Tuitions &amp; Coachings</h1></div>
-      <div class="grid" style="margin-top:1.5rem">
+      <h1>Contact {SITE.name}</h1></div>
+
+      <div class="quick-btns" style="margin-top:1.5rem">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call Now</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--accent-deep);border-color:var(--accent)">WhatsApp Us</a>
+        <a class="btn btn-wa" href={SITE.mapsUrl} style="color:var(--accent-deep);border-color:var(--accent)">Get Directions</a>
+      </div>
+
+      <div class="grid" style="margin-top:1.75rem">
         <div class="card">
-          <h3>Address</h3>
-          <p>{SITE.address.street},<br/>{SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</p>
-          <p style="margin-top:0.6rem"><a href={SITE.mapsUrl}>Open in Google Maps →</a></p>
+          <h3>📍 Address</h3>
+          <p>{addressLine}</p>
+          <p style="margin-top:0.6rem"><a href={SITE.mapsUrl}>Google Maps →</a></p>
         </div>
         <div class="card">
-          <h3>Phone &amp; WhatsApp</h3>
+          <h3>📞 Phone & WhatsApp</h3>
           <p><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
-          <p style="margin-top:0.6rem"><a href={`https://wa.me/${SITE.whatsapp}`}>Message on WhatsApp →</a></p>
+          <p style="margin-top:0.6rem"><a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp →</a></p>
         </div>
         <div class="card">
-          <h3>Email &amp; app</h3>
+          <h3>📧 Email & website</h3>
           <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-          <p style="margin-top:0.6rem"><a href={SITE.playStoreUrl}>Android app on Google Play →</a></p>
+          <p style="margin-top:0.6rem"><a href={SITE.url}>{SITE.url.replace('https://', '')}</a></p>
+          <p style="margin-top:0.6rem"><a href={SITE.playStoreUrl}>Android app →</a></p>
         </div>
       </div>
-      <p style="margin-top:1.5rem;max-width:65ch">
-        Working hours: Monday–Saturday, 6:00 AM – 9:00 PM. During EAPCET, NEET and POLYCET counselling
-        season the counselling desk also takes phone and WhatsApp consultations from students across
-        Andhra Pradesh and Telangana.
+      <p style="margin-top:1.5rem;max-width:65ch;color:var(--ink-muted)">
+        Hours: Monday–Saturday, 6 AM – 9 PM. During EAPCET, NEET and POLYCET counselling season we also take
+        phone and WhatsApp consultations from students across Andhra Pradesh and Telangana.
       </p>
     </div>
   </section>
 </Base>
+
+<style>
+  .quick-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+</style>
