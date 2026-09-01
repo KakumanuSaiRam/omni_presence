@@ -28,24 +28,26 @@ const defaultSection = sections[0]?.id ?? '';
   </header>
 
   <div class="guides-toolbar">
-    <div class="guides-search-wrap">
-      <label class="guides-search-label" for="guides-search">Search</label>
-      <input
-        id="guides-search"
-        class="guides-search"
-        type="search"
-        placeholder="Keyword or tag — e.g. NEET, web options…"
-        autocomplete="off"
-        spellcheck="false"
-      />
-    </div>
-    <div class="guides-tags" role="group" aria-label="Filter by tag">
-      <button type="button" class="guides-tag is-active" data-tag="">All</button>
-      {tagList.map((tag) => (
-        <button type="button" class="guides-tag" data-tag={tag.toLowerCase()}>
-          {tag}
-        </button>
-      ))}
+    <div class="guides-toolbar-row">
+      <div class="guides-search-wrap">
+        <label class="guides-search-label" for="guides-search">Search</label>
+        <input
+          id="guides-search"
+          class="guides-search"
+          type="search"
+          placeholder="NEET, web options…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <div class="guides-tags" role="group" aria-label="Filter by tag">
+        <button type="button" class="guides-tag is-active" data-tag="">All</button>
+        {tagList.map((tag) => (
+          <button type="button" class="guides-tag" data-tag={tag.toLowerCase()}>
+            {tag}
+          </button>
+        ))}
+      </div>
     </div>
     <p class="guides-search-hint" id="guides-search-status" aria-live="polite">
       Pick a topic on the left, or search across all guides.
@@ -84,23 +86,25 @@ const defaultSection = sections[0]?.id ?? '';
             <h2>{section.label}</h2>
             {section.hint && <p>{section.hint}</p>}
           </div>
-          <ul class="guides-list">
-            {section.posts.map((post) => (
-              <li
-                class="guides-item"
-                data-slug={post.id}
-                data-tags={post.meta.tags.join('|').toLowerCase()}
-                data-search={`${post.data.title} ${post.data.description} ${post.meta.tags.join(' ')}`.toLowerCase()}
-              >
-                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-                <ul class="guides-item-tags" aria-label="Tags">
-                  {post.meta.tags.map((tag) => (
-                    <li><span class="guides-item-tag">{tag}</span></li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
+          <div class="guides-list-scroll" tabindex="0" aria-label={`${section.label} guides`}>
+            <ul class="guides-list">
+              {section.posts.map((post) => (
+                <li
+                  class="guides-item"
+                  data-slug={post.id}
+                  data-tags={post.meta.tags.join('|').toLowerCase()}
+                  data-search={`${post.data.title} ${post.data.description} ${post.meta.tags.join(' ')}`.toLowerCase()}
+                >
+                  <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                  <ul class="guides-item-tags" aria-label="Tags" hidden>
+                    {post.meta.tags.map((tag) => (
+                      <li><span class="guides-item-tag">{tag}</span></li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       ))}
 
@@ -139,7 +143,9 @@ const defaultSection = sections[0]?.id ?? '';
     });
     if (!filtering) {
       panels.forEach((panel) => {
-        panel.hidden = panel.getAttribute('data-section') !== id;
+        const show = panel.getAttribute('data-section') === id;
+        panel.hidden = !show;
+        if (show) panel.querySelector('.guides-list-scroll')?.scrollTo(0, 0);
       });
     }
   }
@@ -218,7 +224,7 @@ const defaultSection = sections[0]?.id ?? '';
       if (btn.disabled) return;
       setActiveSection(btn.getAttribute('data-section') ?? '');
       if (!filtering) {
-        document.getElementById(`guide-panel-${btn.getAttribute('data-section')}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById(`guide-panel-${btn.getAttribute('data-section')}`)?.querySelector('.guides-list-scroll')?.scrollTo(0, 0);
       }
     });
   });
@@ -275,13 +281,33 @@ const defaultSection = sections[0]?.id ?? '';
   }
 
   .guides-toolbar {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
   }
 
+  .guides-toolbar-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .guides-toolbar-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
   .guides-search-wrap {
-    margin-bottom: 0.75rem;
+    flex: 0 0 14rem;
+    min-width: 0;
+  }
+
+  @media (max-width: 900px) {
+    .guides-search-wrap {
+      flex: none;
+    }
   }
 
   .guides-search-label {
@@ -296,10 +322,9 @@ const defaultSection = sections[0]?.id ?? '';
 
   .guides-search {
     width: 100%;
-    max-width: 28rem;
-    padding: 0.6rem 0.85rem;
+    padding: 0.55rem 0.85rem;
     font: inherit;
-    font-size: 0.9875rem;
+    font-size: 0.9375rem;
     color: var(--ink);
     background: var(--surface-raised);
     border: 1px solid var(--border);
@@ -314,9 +339,17 @@ const defaultSection = sections[0]?.id ?? '';
 
   .guides-tags {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 0.35rem;
-    margin-bottom: 0.5rem;
+    min-width: 0;
+  }
+
+  @media (max-width: 900px) {
+    .guides-tags {
+      justify-content: flex-start;
+    }
   }
 
   .guides-tag {
@@ -344,8 +377,8 @@ const defaultSection = sections[0]?.id ?? '';
   }
 
   .guides-search-hint {
-    margin: 0;
-    font-size: 0.875rem;
+    margin: 0.5rem 0 0;
+    font-size: 0.8125rem;
     color: var(--ink-muted);
   }
 
@@ -506,21 +539,55 @@ const defaultSection = sections[0]?.id ?? '';
   }
 
   .guides-panel-head p {
-    margin: 0 0 1rem;
+    margin: 0 0 0.75rem;
     font-size: 0.9rem;
     line-height: 1.45;
     color: var(--ink-muted);
   }
 
+  /* ~10 compact rows, then scroll */
+  .guides-list-scroll {
+    --guides-row: 2.85rem;
+    max-height: calc(var(--guides-row) * 10);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-raised);
+  }
+
+  .guides-list-scroll:focus-visible {
+    outline: 2px solid var(--highlight-soft);
+    outline-offset: 1px;
+  }
+
+  .guides-list-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .guides-list-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+  }
+
+  .guides-list-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--ink-muted);
+  }
+
   .guides-list {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0.85rem;
   }
 
   .guides-item {
-    padding: 0.7rem 0;
+    display: flex;
+    align-items: center;
+    min-height: var(--guides-row);
+    padding: 0.4rem 0;
     border-bottom: 1px solid var(--border);
+    box-sizing: border-box;
   }
 
   .guides-item:last-child {
@@ -529,8 +596,8 @@ const defaultSection = sections[0]?.id ?? '';
 
   .guides-item > a {
     display: block;
-    font-size: 0.9875rem;
-    line-height: 1.45;
+    font-size: 0.9375rem;
+    line-height: 1.35;
     color: var(--ink);
     text-decoration: none;
     font-weight: 600;
@@ -546,14 +613,14 @@ const defaultSection = sections[0]?.id ?? '';
   .guides-item-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.25rem;
     list-style: none;
-    margin: 0.35rem 0 0;
+    margin: 0.2rem 0 0;
     padding: 0;
   }
 
   .guides-item-tag {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     color: var(--ink-muted);
     background: var(--surface-muted);
     padding: 0.12rem 0.45rem;
