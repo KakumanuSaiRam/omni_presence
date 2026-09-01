@@ -1,0 +1,21 @@
+---
+import Base from '../../../layouts/Base.astro';
+import GroupedCards from '../../../components/GroupedCards.astro';
+import { LISTING_TE } from '../../../data/i18n.js';
+---
+<Base
+  lang="te"
+  title="కోర్సులు & కోచింగ్ — ట్యూషన్లు, EAPCET, NEET, POLYCET | Siva Tuitions, గుంటూరు"
+  description="Siva Tuitions & Coachings, గుంటూరు: 1–10వ తరగతి ట్యూషన్లు, ఇంటర్ MPC/BiPC, EAPCET (EAMCET), NEET, POLYCET కోచింగ్."
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled" data-reveal>
+        <p class="eyebrow">కోర్సులు</p>
+        <h1>{LISTING_TE.coursesTitle}</h1>
+      </div>
+      <p class="section-intro" data-reveal>{LISTING_TE.coursesIntro}</p>
+      <GroupedCards kind="courses" lang="te" />
+    </div>
+  </section>
+</Base>

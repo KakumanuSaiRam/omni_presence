@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { SITE, COUNSELLING } from '../../data/site.js';
+import GroupedCards from '../../components/GroupedCards.astro';
+import { SITE } from '../../data/site.js';
 ---
 <Base
   title={`Admission Counselling & Web Options Guidance — Guntur, AP & Telangana | ${SITE.name}`}
@@ -8,20 +9,15 @@ import { SITE, COUNSELLING } from '../../data/site.js';
 >
   <section>
     <div class="wrap">
-      <div class="ruled"><p class="eyebrow">Counselling desk</p>
-      <h1>Admission counselling &amp; web options guidance</h1></div>
-      <p style="max-width:65ch;margin-top:1rem">
-        A rank is only half the journey. The counselling desk at Siva Tuitions &amp; Coachings turns ranks
-        into seats — for EAPCET, NEET and POLYCET — serving families across Guntur, Andhra Pradesh and Telangana.
-      </p>
-      <div class="grid" style="margin-top:1.5rem">
-        {COUNSELLING.map((c) => (
-          <a class="card" href={`/counselling/${c.slug}/`}>
-            <h3>{c.short}</h3>
-            <p>{c.metaDescription.split('.')[0]}.</p>
-          </a>
-        ))}
+      <div class="ruled" data-reveal>
+        <p class="eyebrow">Counselling desk</p>
+        <h1>Admission counselling &amp; web options guidance</h1>
       </div>
+      <p class="section-intro" data-reveal>
+        A rank is only half the journey. The counselling desk turns ranks into seats — grouped
+        below by the admission route you are on.
+      </p>
+      <GroupedCards kind="counselling" lang="en" />
     </div>
   </section>
 </Base>

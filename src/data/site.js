@@ -634,6 +634,74 @@ export const BRAND = {
   directorImage: '/brand/director.jpg',
 };
 
+/**
+ * Courses grouped the way a parent thinks about them: which stage the student
+ * is at, then which entrance the stream points to. Labels live in i18n.js.
+ */
+export const COURSE_GROUPS = [
+  { id: 'school', slugs: ['school-tuitions-guntur', 'tenth-class-tuitions-guntur'] },
+  { id: 'intermediate', slugs: ['intermediate-tuitions-guntur'] },
+  {
+    id: 'entrance',
+    slugs: [
+      'eamcet-eapcet-coaching-guntur',
+      'neet-coaching-guntur',
+      'polytechnic-polycet-coaching-guntur',
+      'short-term-crash-coaching-guntur',
+    ],
+  },
+];
+
+export const COUNSELLING_GROUPS = [
+  {
+    id: 'engineering',
+    slugs: ['eapcet-web-options-counselling', 'engineering-college-guidance-ap-interstate'],
+  },
+  { id: 'medical', slugs: ['neet-medical-admission-counselling'] },
+  { id: 'afterTenth', slugs: ['tenth-polycet-counselling'] },
+  { id: 'graduate', slugs: ['graduate-web-counselling-icet-ecet-pgcet'] },
+];
+
+/** Short badge shown on each card — the stream or board the course serves. */
+export const COURSE_BADGE = {
+  'school-tuitions-guntur': 'CBSE · ICSE · State',
+  'tenth-class-tuitions-guntur': 'SSC · CBSE · ICSE',
+  'intermediate-tuitions-guntur': 'MPC · BiPC',
+  'eamcet-eapcet-coaching-guntur': 'MPC · BiPC',
+  'neet-coaching-guntur': 'BiPC',
+  'polytechnic-polycet-coaching-guntur': 'After 10th',
+  'short-term-crash-coaching-guntur': 'All streams',
+};
+
+export const COUNSELLING_BADGE = {
+  'eapcet-web-options-counselling': 'EAPCET',
+  'engineering-college-guidance-ap-interstate': 'AP · TS · Other states',
+  'neet-medical-admission-counselling': 'NEET',
+  'tenth-polycet-counselling': 'POLYCET',
+  'graduate-web-counselling-icet-ecet-pgcet': 'ICET · ECET · PGCET',
+};
+
+/**
+ * How the enquiry widget delivers a submission. The site is a static build, so
+ * everything here runs in the browser against a third-party form relay.
+ *
+ *  'formsubmit'  — no signup. The first submission triggers a one-time
+ *                  activation email to `SITE.email`; click it once and every
+ *                  later submission is delivered. Free, unlimited.
+ *  'web3forms'   — needs a free access key from web3forms.com (the key is
+ *                  designed to be public). Better deliverability and built-in
+ *                  spam filtering; 250 submissions/month on the free plan.
+ *  'mailto'      — no network call; opens the visitor's mail client instead.
+ *
+ * Falls back to 'mailto' automatically if the chosen provider is misconfigured
+ * or the request fails, so the widget always leads somewhere.
+ */
+export const ENQUIRY_DELIVERY = {
+  provider: 'formsubmit',
+  web3formsKey: '',
+  target: 'sivatuitions@gmail.com',
+};
+
 /** Official portals — AP, Telangana & national (verify URLs each admission season). */
 export const OFFICIAL_RESOURCES = {
   title: 'Official Links & Scholarships',

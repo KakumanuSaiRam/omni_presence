@@ -1,0 +1,125 @@
+---
+import {
+  COURSES,
+  COUNSELLING,
+  COURSE_GROUPS,
+  COUNSELLING_GROUPS,
+  COURSE_BADGE,
+  COUNSELLING_BADGE,
+} from '../data/site.js';
+import { GROUP_LABELS, COURSES_TE, COUNSELLING_TE, LISTING_TE } from '../data/i18n.js';
+
+const { kind = 'courses', lang = 'en' } = Astro.props;
+const isTe = lang === 'te';
+
+const isCourses = kind === 'courses';
+const items = isCourses ? COURSES : COUNSELLING;
+const groups = isCourses ? COURSE_GROUPS : COUNSELLING_GROUPS;
+const badges = isCourses ? COURSE_BADGE : COUNSELLING_BADGE;
+const teMap = isCourses ? COURSES_TE : COUNSELLING_TE;
+const labels = GROUP_LABELS[lang][kind];
+const basePath = isCourses ? '/courses' : '/counselling';
+
+const bySlug = Object.fromEntries(items.map((item) => [item.slug, item]));
+
+const sections = groups.map((group) => ({
+  ...labels[group.id],
+  cards: group.slugs
+    .filter((slug) => bySlug[slug])
+    .map((slug) => {
+      const item = bySlug[slug];
+      const te = isTe ? (teMap[slug] ?? {}) : {};
+      return {
+        slug,
+        title: te.short ?? item.short,
+        blurb: te.blurb ?? `${item.metaDescription.split('.')[0]}.`,
+        badge: badges[slug],
+        href: isTe ? (te.href ?? `${basePath}/${slug}/`) : `${basePath}/${slug}/`,
+        englishOnly: isTe && !te.href,
+      };
+    }),
+}));
+---
+<div class="groups">
+  {sections.map((section, gi) => (
+    <section class="group" data-reveal>
+      <div class="group-head">
+        <h2>{section.title}</h2>
+        <p>{section.lead}</p>
+      </div>
+      <div class="group-grid">
+        {section.cards.map((card, ci) => (
+          <a class="g-card" href={card.href} data-reveal data-reveal-delay={String(Math.min(ci + 1, 3))}>
+            <span class="g-badge">{card.badge}</span>
+            <h3>{card.title}</h3>
+            <p>{card.blurb}</p>
+            <span class="g-more">
+              {isTe ? (card.englishOnly ? LISTING_TE.englishPageNote : 'వివరాలు') : 'Details'}
+              <span aria-hidden="true"> →</span>
+            </span>
+          </a>
+        ))}
+      </div>
+      {gi < sections.length - 1 && <hr class="group-rule" />}
+    </section>
+  ))}
+</div>
+
+<style>
+  .groups { display: grid; gap: 0.5rem; }
+  .group { padding: 0; }
+  .group-head { margin-top: 2rem; }
+  .group-head h2 {
+    font-size: 1.2rem; color: var(--accent-deep);
+    display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .group-head h2::before {
+    content: ''; width: 0.55rem; height: 0.55rem; border-radius: 50%;
+    background: var(--highlight); flex-shrink: 0;
+  }
+  .group-head p { margin-top: 0.3rem; color: var(--ink-muted); max-width: 60ch; font-size: 0.95rem; }
+
+  .group-grid {
+    margin-top: 1.1rem; display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
+  .g-card {
+    position: relative; display: grid; align-content: start; gap: 0.4rem;
+    padding: 1.25rem; border-radius: 12px; text-decoration: none;
+    color: var(--ink); background: var(--surface-raised);
+    border: 1px solid var(--border);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+  .g-card::after {
+    content: ''; position: absolute; inset: 0 auto 0 0; width: 3px;
+    border-radius: 12px 0 0 12px; background: var(--highlight);
+    transform: scaleY(0); transform-origin: top;
+    transition: transform 0.25s var(--ease);
+  }
+  .g-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-soft);
+    box-shadow: 0 12px 28px var(--shadow);
+  }
+  .g-card:hover::after { transform: scaleY(1); }
+
+  .g-badge {
+    justify-self: start;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--highlight-deep);
+    background: var(--surface-accent); border: 1px solid var(--highlight-soft);
+    padding: 0.15rem 0.5rem; border-radius: 999px;
+  }
+  .g-card h3 { font-size: 1.05rem; color: var(--accent-deep); }
+  .g-card p { color: var(--ink-muted); font-size: 0.93rem; }
+  .g-more {
+    margin-top: 0.35rem; font-size: 0.88rem; font-weight: 700; color: var(--accent);
+  }
+  .g-card:hover .g-more { color: var(--highlight-deep); }
+
+  .group-rule {
+    margin-top: 2rem; border: none;
+    height: 1px; background: var(--border);
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { FAQS_TE } from '../../data/i18n.js';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'te',
+  mainEntity: FAQS_TE.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+<Base
+  lang="te"
+  title="తరచుగా అడిగే ప్రశ్నలు — Siva Tuitions & Coachings, గుంటూరు"
+  description="గుంటూరులో ట్యూషన్లు, EAPCET/EAMCET కోచింగ్, NEET, POLYCET, వెబ్ ఆప్షన్స్ కౌన్సెలింగ్ గురించి తల్లిదండ్రులు, విద్యార్థులు అడిగే ప్రశ్నలు."
+  jsonLd={[faqSchema]}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">అన్నిటికీ సమాధానాలు</p>
+        <h1>తరచుగా అడిగే ప్రశ్నలు</h1>
+      </div>
+      <dl class="faq">
+        {FAQS_TE.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      </dl>
+      <p style="margin-top:2rem"><a href="/faq/">ఆంగ్లంలో మరిన్ని ప్రశ్నలు →</a></p>
+    </div>
+  </section>
+</Base>

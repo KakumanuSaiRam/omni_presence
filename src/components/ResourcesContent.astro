@@ -1,0 +1,79 @@
+---
+import { OFFICIAL_RESOURCES } from '../data/site.js';
+import { RESOURCES_PAGE_TE } from '../data/i18n.js';
+
+const { lang = 'en' } = Astro.props;
+const isTe = lang === 'te';
+
+const keys = ['scholarships', 'ap', 'ts', 'national'];
+const sections = keys.map((key) => ({
+  title: isTe ? RESOURCES_PAGE_TE.sectionTitles[key] : OFFICIAL_RESOURCES[key].title,
+  links: OFFICIAL_RESOURCES[key].links,
+}));
+
+const copy = isTe
+  ? {
+      eyebrow: 'ఆంధ్రప్రదేశ్ · తెలంగాణ · జాతీయ',
+      title: RESOURCES_PAGE_TE.title,
+      intro: RESOURCES_PAGE_TE.intro,
+      disclaimer: RESOURCES_PAGE_TE.disclaimer,
+      askLabel: RESOURCES_PAGE_TE.askLabel,
+      askHref: '/te/contact/#enquire',
+    }
+  : {
+      eyebrow: 'AP · Telangana · National',
+      title: OFFICIAL_RESOURCES.title,
+      intro: OFFICIAL_RESOURCES.intro,
+      disclaimer:
+        'Links open official government / university portals. Exam schedules change every year — double-check notifications on the official site.',
+      askLabel: 'Need help? Ask us',
+      askHref: '/contact/#enquire',
+    };
+---
+<section>
+  <div class="wrap">
+    <div class="ruled">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1>{copy.title}</h1>
+    </div>
+    <p class="section-intro">{copy.intro}</p>
+
+    {sections.map((section) => (
+      <div class="link-section">
+        <h2 class="section-heading">{section.title}</h2>
+        <ul class="link-list">
+          {section.links.map((link) => (
+            <li>
+              <a
+                href={link.url}
+                {...(link.internal ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+              >
+                {link.name}
+                {!link.internal && <span class="ext" aria-hidden="true"> ↗</span>}
+              </a>
+              {link.note && <p class="link-note">{link.note}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
+    <p class="disclaimer">
+      {copy.disclaimer} <a href={copy.askHref}>{copy.askLabel} →</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .section-heading { font-size: 1.2rem; color: var(--accent-deep); margin-bottom: 0.65rem; }
+  .link-section { margin-top: 2rem; }
+  .link-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+  .link-list a { font-weight: 700; text-decoration: none; color: var(--accent); display: inline-block; }
+  .link-list a:hover { text-decoration: underline; }
+  .link-note { margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--ink-muted); }
+  .ext { font-size: 0.85em; opacity: 0.7; }
+  .disclaimer {
+    margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+    color: var(--ink-muted); font-size: 0.92rem; max-width: 60ch;
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import Base from '../../../layouts/Base.astro';
+import GroupedCards from '../../../components/GroupedCards.astro';
+import { LISTING_TE } from '../../../data/i18n.js';
+---
+<Base
+  lang="te"
+  title="ప్రవేశ కౌన్సెలింగ్ & వెబ్ ఆప్షన్స్ మార్గదర్శకత్వం — గుంటూరు, ఏపీ & తెలంగాణ | Siva Tuitions"
+  description="గుంటూరులో EAPCET వెబ్ ఆప్షన్స్, NEET ప్రవేశ కౌన్సెలింగ్, 10 తర్వాత / POLYCET మార్గదర్శకత్వం — ఆంధ్రప్రదేశ్, తెలంగాణ విద్యార్థులకు."
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled" data-reveal>
+        <p class="eyebrow">కౌన్సెలింగ్ డెస్క్</p>
+        <h1>{LISTING_TE.counsellingTitle}</h1>
+      </div>
+      <p class="section-intro" data-reveal>{LISTING_TE.counsellingIntro}</p>
+      <GroupedCards kind="counselling" lang="te" />
+    </div>
+  </section>
+</Base>

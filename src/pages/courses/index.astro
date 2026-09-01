@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { SITE, COURSES } from '../../data/site.js';
+import GroupedCards from '../../components/GroupedCards.astro';
+import { SITE } from '../../data/site.js';
 ---
 <Base
   title={`Courses & Coaching in Guntur — Tuitions, EAPCET, NEET, POLYCET | ${SITE.name}`}
@@ -8,16 +9,15 @@ import { SITE, COURSES } from '../../data/site.js';
 >
   <section>
     <div class="wrap">
-      <div class="ruled"><p class="eyebrow">Courses</p>
-      <h1>Coaching &amp; tuitions at Siva Tuitions &amp; Coachings</h1></div>
-      <div class="grid" style="margin-top:1.5rem">
-        {COURSES.map((c) => (
-          <a class="card" href={`/courses/${c.slug}/`}>
-            <h3>{c.short}</h3>
-            <p>{c.metaDescription.split('.')[0]}.</p>
-          </a>
-        ))}
+      <div class="ruled" data-reveal>
+        <p class="eyebrow">Courses</p>
+        <h1>Coaching &amp; tuitions at Siva Tuitions &amp; Coachings</h1>
       </div>
+      <p class="section-intro" data-reveal>
+        Grouped by the stage your child is at — school, Intermediate, then the entrance exam
+        their stream points to.
+      </p>
+      <GroupedCards kind="courses" lang="en" />
     </div>
   </section>
 </Base>

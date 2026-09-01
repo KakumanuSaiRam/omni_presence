@@ -45,6 +45,14 @@ export function staticOgPages() {
       title: 'Admission counselling & web options',
       description: 'EAPCET, NEET and POLYCET counselling for AP and Telangana students.',
     },
+    gallery: {
+      title: 'Inside Siva Tuitions & Coachings',
+      description: 'Photos of the Pattabhipuram centre plus community and social activities.',
+    },
+    brand: {
+      title: 'About Siva Tuitions & Coachings',
+      description: 'Academic tuitions, competitive coaching and admission counselling in Guntur.',
+    },
     [`director/${DIRECTOR.slug}`]: {
       title: DIRECTOR.name,
       description: `${DIRECTOR.role}, ${SITE.name} — ${DIRECTOR.credentials.join(', ')}`,
@@ -56,6 +64,30 @@ export function staticOgPages() {
     'te/contact': {
       title: 'సంప్రదించండి — Siva Tuitions, గుంటూరు',
       description: `${SITE.address.street}, గుంటూరు ${SITE.address.postalCode} · ${SITE.phone}`,
+    },
+    'te/courses': {
+      title: 'కోర్సులు & కోచింగ్ — గుంటూరు',
+      description: '1–10వ తరగతి, ఇంటర్ ట్యూషన్లు; EAPCET, NEET, POLYCET కోచింగ్.',
+    },
+    'te/counselling': {
+      title: 'ప్రవేశ కౌన్సెలింగ్ — గుంటూరు',
+      description: 'ర్యాంక్ విశ్లేషణ, కాలేజీ ఎంపిక, వెబ్ ఆప్షన్స్ — ఏపీ, తెలంగాణ.',
+    },
+    'te/resources': {
+      title: 'అధికారిక పరీక్ష లింకులు & స్కాలర్‌షిప్‌లు',
+      description: 'EAPCET, NEET, POLYCET, ECET, జ్ఞానభూమి, ePASS — ఒకే చోట.',
+    },
+    'te/gallery': {
+      title: 'గ్యాలరీ — Siva Tuitions, గుంటూరు',
+      description: 'పట్టాభిపురం కేంద్రం ఫోటోలు, సామాజిక కార్యక్రమాలు.',
+    },
+    'te/about': {
+      title: 'మా గురించి — Siva Tuitions & Coachings',
+      description: 'అకడమిక్ ట్యూషన్లు, పోటీ పరీక్షల కోచింగ్, ప్రవేశ కౌన్సెలింగ్.',
+    },
+    'te/faq': {
+      title: 'తరచుగా అడిగే ప్రశ్నలు — Siva Tuitions',
+      description: 'ట్యూషన్లు, కోచింగ్, కౌన్సెలింగ్ గురించి తల్లిదండ్రుల ప్రశ్నలు.',
     },
     'te/courses/eamcet-eapcet-coaching-guntur': {
       title: 'గుంటూరులో EAPCET / EAMCET కోచింగ్',

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Students preparing for entrance exams">
   <rect width="480" height="320" fill="#f7f3ec" rx="12"/>
   <rect x="60" y="60" width="360" height="200" fill="#fff" stroke="#ddd6cb" stroke-width="2" rx="10"/>
-  <text x="80" y="100" font-family="monospace" font-size="16" fill="#332f2b">EAPCET · NEET · POLYCET</text>
+  <text x="80" y="100" font-family="monospace" font-size="16" fill="#332f2b">EAPCET &#183; NEET &#183; POLYCET</text>
   <rect x="80" y="120" width="140" height="8" fill="#ddd6cb" rx="4"/>
   <rect x="80" y="120" width="95" height="8" fill="#8b7355" rx="4"/>
   <text x="80" y="150" font-size="12" fill="#6b6560">Mock test progress</text>
