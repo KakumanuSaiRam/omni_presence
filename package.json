@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "broadcast": "node broadcaster/server.js",
     "broadcast:login": "node broadcaster/login.js",
-    "postdeploy:ping": "node scripts/indexnow.mjs"
+    "postdeploy:ping": "node scripts/indexnow.mjs",
+    "generate:article": "node scripts/generate-article.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
