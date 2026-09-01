@@ -669,7 +669,7 @@ export const COUNSELLING_HUB = {
     'Web Counselling & Option Entry',
     'Seat Allotment & Final Admission',
   ],
-  illustration: '/illustrations/counselling-desk.svg',
+  illustration: '/gallery/counselling-desk.jpg', // real photo; swap back to a generated scene when image quota returns
 };
 
 export const WHY_CHOOSE = [

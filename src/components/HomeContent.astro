@@ -1,0 +1,415 @@
+---
+import Illustration from './Illustration.astro';
+import EnquiryForm from './EnquiryForm.astro';
+import { SITE, DIRECTOR, BRAND, GALLERY, SOCIAL_ACTIVITIES, GLOBAL_FAQS } from '../data/site.js';
+import {
+  UI,
+  HERO,
+  TRUST,
+  SERVICES_OVERVIEW,
+  TUITIONS_SECTION,
+  COACHING_SECTION,
+  COUNSELLING_SECTION,
+  WHY_SECTION,
+  ENQUIRE_SECTION,
+  ABOUT_SECTION,
+  PROOF_SECTION,
+  RESOURCES_SECTION,
+  FAQ_SECTION,
+  CONTACT_SECTION,
+  FAQS_TE,
+} from '../data/i18n.js';
+
+const { lang = 'en' } = Astro.props;
+
+const ui = UI[lang];
+const hero = HERO[lang];
+const trust = TRUST[lang];
+const services = SERVICES_OVERVIEW[lang];
+const tuitions = TUITIONS_SECTION[lang];
+const coaching = COACHING_SECTION[lang];
+const counselling = COUNSELLING_SECTION[lang];
+const why = WHY_SECTION[lang];
+const enquire = ENQUIRE_SECTION[lang];
+const about = ABOUT_SECTION[lang];
+const proof = PROOF_SECTION[lang];
+const resources = RESOURCES_SECTION[lang];
+const faqBlock = FAQ_SECTION[lang];
+const contact = CONTACT_SECTION[lang];
+
+const homeFaqs = (lang === 'te' ? FAQS_TE : GLOBAL_FAQS).slice(0, 3);
+const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
+const waHref = `https://wa.me/${SITE.whatsapp}`;
+const telHref = `tel:${SITE.phoneHref}`;
+---
+<!-- 1 · Hero -->
+<section class="hero">
+  <div class="wrap hero-split">
+    <div>
+      <p class="eyebrow">{hero.eyebrow}</p>
+      <h1 class="hero-title">{hero.title}</h1>
+      <p class="hero-sub">{hero.subline}</p>
+      <p class="hero-lead">{hero.lead}</p>
+      <p class="hero-actions">
+        <a class="btn btn-call" href={telHref}>{ui.call} {SITE.phone}</a>
+        <a class="btn btn-wa" href={waHref}>{ui.whatsapp}</a>
+        <a class="btn btn-wa" href={SITE.mapsUrl}>{ui.directions}</a>
+      </p>
+    </div>
+    <Illustration src="/illustrations/exam-prep-students.png" alt={hero.imageAlt} class="hero-art" />
+  </div>
+</section>
+
+<!-- 2 · Credibility strip -->
+<section class="section-raised trust-band">
+  <div class="wrap">
+    <ul class="trust-list">
+      {trust.map((item) => (
+        <li>
+          <strong>{item.value}</strong>
+          <span>{item.label}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- 3 · What we do -->
+<section id="services">
+  <div class="wrap">
+    <p class="eyebrow">{services.eyebrow}</p>
+    <h2 class="section-heading">{services.title}</h2>
+    <p class="section-lead">{services.lead}</p>
+    <div class="service-grid">
+      {services.items.map((item) => (
+        <a class="service-card" href={item.href}>
+          <span class="service-icon" aria-hidden="true">{item.icon}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Academic tuitions -->
+<section id="tuitions" class="section-raised">
+  <div class="wrap split-section">
+    <div>
+      <p class="eyebrow">{tuitions.eyebrow}</p>
+      <h2 class="section-heading">{tuitions.title}</h2>
+      <p class="section-lead">{tuitions.lead}</p>
+      {tuitions.groups.map((group) => (
+        <div class="tag-group">
+          <span class="tag-label">{group.label}</span>
+          {group.items.map((item) => <span class="tag">{item}</span>)}
+        </div>
+      ))}
+      <p class="section-links">
+        {tuitions.links.map((link, i) => (
+          <>{i > 0 && ' · '}<a href={link.href}>{link.label} →</a></>
+        ))}
+      </p>
+    </div>
+    <Illustration src="/illustrations/tuition-classroom.png" alt={tuitions.imageAlt} class="section-art" />
+  </div>
+</section>
+
+<!-- 5 · Competitive coaching -->
+<section id="coaching" class="section-muted">
+  <div class="wrap split-section split-reverse">
+    <Illustration src="/illustrations/exam-prep.svg" alt={coaching.imageAlt} class="section-art" />
+    <div>
+      <p class="eyebrow">{coaching.eyebrow}</p>
+      <h2 class="section-heading">{coaching.title}</h2>
+      <p class="section-lead">{coaching.lead}</p>
+      <div class="tag-group">
+        {coaching.programs.map((program) => <span class="tag">{program}</span>)}
+      </div>
+      <p class="focus-line"><strong>{coaching.focusLabel}:</strong> {coaching.focus.join(' · ')}</p>
+      <p class="section-links">
+        {coaching.links.map((link, i) => (
+          <>{i > 0 && ' · '}<a href={link.href}>{link.label} →</a></>
+        ))}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Counselling — the differentiator -->
+<section id="counselling" class="counselling-feature">
+  <div class="wrap">
+    <div class="split-section">
+      <div>
+        <p class="eyebrow">{counselling.eyebrow}</p>
+        <h2 class="section-heading">{counselling.title}</h2>
+        <p class="section-lead">{counselling.lead}</p>
+        <p class="objective">{counselling.objective}</p>
+      </div>
+      <Illustration src="/illustrations/counselling-desk.svg" alt={counselling.imageAlt} class="section-art" />
+    </div>
+    <div class="counselling-grid">
+      {counselling.columns.map((column) => (
+        <div>
+          <h3>{column.title}</h3>
+          <ul class="chip-list">
+            {column.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <p class="section-links"><a href={counselling.linkHref}>{counselling.linkLabel} →</a></p>
+  </div>
+</section>
+
+<!-- 7 · Why choose us -->
+<section class="section-raised">
+  <div class="wrap">
+    <h2 class="section-heading">{why.title}</h2>
+    <ul class="why-grid">
+      {why.points.map((point) => (
+        <li><span class="why-mark" aria-hidden="true">✓</span>{point}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- 8 · Enquiry — conversion point -->
+<section id="enquire" class="section-muted">
+  <div class="wrap enquire-layout">
+    <div>
+      <p class="eyebrow">{enquire.eyebrow}</p>
+      <h2 class="section-heading">{enquire.title}</h2>
+      <p class="section-lead">{enquire.lead}</p>
+      <p class="section-links"><a href={enquire.linkHref}>{enquire.linkLabel} →</a></p>
+    </div>
+    <EnquiryForm compact id="home-enquiry" lang={lang} />
+  </div>
+</section>
+
+<!-- 9 · About & director -->
+<section id="about">
+  <div class="wrap about-block">
+    <img
+      src={BRAND.directorImage}
+      alt={`${DIRECTOR.name}, ${DIRECTOR.role}`}
+      width="160"
+      height="200"
+      class="about-photo"
+      loading="lazy"
+    />
+    <div>
+      <p class="eyebrow">{about.eyebrow}</p>
+      <h2 class="section-heading">{about.title}</h2>
+      <p class="about-text">{about.paragraphs[0]}</p>
+      <p class="about-text">{about.directorIntro}</p>
+      <p class="section-links">
+        <a href={about.linkHref}>{about.linkLabel} →</a>
+        · <a href={`/director/${DIRECTOR.slug}/`}>{ui.director} →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · Photo proof -->
+<section id="proof" class="section-raised">
+  <div class="wrap">
+    <p class="eyebrow">{proof.eyebrow}</p>
+    <h2 class="section-heading">{proof.title}</h2>
+
+    <h3 class="strip-label">{proof.centreLabel}</h3>
+    <div class="photo-strip">
+      {GALLERY.slice(0, 4).map((photo) => (
+        <figure class="photo-thumb">
+          <img src={photo.src} alt={photo.alt} width="200" height="140" loading="lazy" />
+        </figure>
+      ))}
+    </div>
+    <p class="section-links"><a href={proof.centreLink.href}>{proof.centreLink.label} →</a></p>
+
+    <h3 class="strip-label">{proof.socialLabel}</h3>
+    <div class="photo-strip">
+      {SOCIAL_ACTIVITIES.photos.slice(0, 4).map((photo) => (
+        <figure class="photo-thumb">
+          <img src={photo.src} alt={photo.alt} width="200" height="140" loading="lazy" />
+        </figure>
+      ))}
+    </div>
+    <p class="section-links"><a href={proof.socialLink.href}>{proof.socialLink.label} →</a></p>
+  </div>
+</section>
+
+<!-- 11 · Official links — expertise signal -->
+<section class="section-muted">
+  <div class="wrap">
+    <p class="eyebrow">{resources.eyebrow}</p>
+    <h2 class="section-heading">{resources.title}</h2>
+    <p class="section-lead">{resources.lead}</p>
+    <ul class="chip-list chip-list--wide">
+      {resources.chips.map((chip) => <li>{chip}</li>)}
+    </ul>
+    <p class="section-links"><a href={resources.linkHref}>{resources.linkLabel} →</a></p>
+  </div>
+</section>
+
+<!-- 12 · FAQ -->
+<section>
+  <div class="wrap">
+    <h2 class="section-heading">{faqBlock.title}</h2>
+    <dl class="faq faq-compact">
+      {homeFaqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+    </dl>
+    <p class="section-links"><a href={faqBlock.linkHref}>{faqBlock.linkLabel} →</a></p>
+  </div>
+</section>
+
+<!-- 13 · Closing contact -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="contact-strip">
+      <div>
+        <h2 style="font-size:1.25rem">{contact.title}</h2>
+        <p>{addressLine}</p>
+        <p style="margin-top:0.35rem;opacity:0.9">
+          <a href={telHref} style="color:inherit">{SITE.phone}</a>
+          · <a href={`mailto:${SITE.email}`} style="color:inherit">{SITE.email}</a>
+        </p>
+      </div>
+      <div class="quick-btns">
+        <a class="btn btn-call" href={telHref} style="background:#fff;color:var(--accent-deep)">{ui.callNow}</a>
+        <a class="btn btn-wa" href={waHref} style="color:#fff;border-color:rgba(255,255,255,0.6)">{ui.whatsapp}</a>
+        <a class="btn btn-wa" href={contact.askHref} style="color:#fff;border-color:rgba(255,255,255,0.6)">{contact.askLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hero */
+  .hero-split {
+    display: grid; gap: 1.5rem; align-items: center;
+    padding: 2.5rem 1.25rem; grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .hero-split { grid-template-columns: 1.05fr 0.95fr; } }
+  .hero-title {
+    font-size: clamp(1.75rem, 4.5vw, 2.6rem); color: var(--accent-deep);
+    margin: 0.35rem 0 0.5rem;
+  }
+  .hero-sub { font-weight: 600; color: var(--highlight); max-width: 44ch; font-size: 0.98rem; }
+  .hero-lead { color: var(--ink-muted); max-width: 46ch; margin-top: 0.65rem; font-size: 1.05rem; }
+  .hero-actions { margin-top: 1.25rem; display: flex; gap: 0.65rem; flex-wrap: wrap; }
+  .hero-art { max-width: 24rem; margin: 0 auto; }
+
+  /* Trust strip */
+  .trust-band { padding: 1.25rem 0; }
+  .trust-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+  .trust-list li { display: grid; gap: 0.1rem; }
+  .trust-list strong { color: var(--accent-deep); font-size: 1.02rem; line-height: 1.3; }
+  .trust-list span { color: var(--ink-muted); font-size: 0.85rem; }
+
+  /* Shared section furniture */
+  .section-heading { font-size: 1.35rem; color: var(--accent-deep); margin-bottom: 0.5rem; }
+  .section-lead { color: var(--ink-muted); max-width: 52ch; }
+  .section-links { margin-top: 1rem; font-weight: 600; }
+
+  /* What we do */
+  .service-grid {
+    margin-top: 1.5rem; display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .service-card {
+    background: var(--surface-raised); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.4rem; text-decoration: none; color: var(--ink);
+  }
+  .service-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(42, 40, 38, 0.08); }
+  .service-icon { font-size: 1.5rem; display: block; margin-bottom: 0.4rem; }
+  .service-card h3 { color: var(--accent-deep); font-size: 1.08rem; margin-bottom: 0.3rem; }
+  .service-card p { color: var(--ink-muted); font-size: 0.95rem; }
+
+  /* Split sections */
+  .split-section { display: grid; gap: 1.75rem; align-items: center; grid-template-columns: 1fr; }
+  @media (min-width: 720px) {
+    .split-section { grid-template-columns: 1fr 1fr; }
+    .split-reverse .section-art { order: -1; }
+  }
+  .section-art { max-width: 20rem; margin: 0 auto; }
+
+  /* Tags & chips */
+  .tag-group { margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+  .tag-label {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--highlight); width: 100%;
+  }
+  .tag {
+    display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px;
+    background: var(--surface-muted); border: 1px solid var(--border);
+    font-size: 0.88rem; color: var(--ink);
+  }
+  .section-raised .tag { background: var(--surface-muted); }
+  .section-muted .tag { background: var(--surface-raised); }
+  .focus-line { margin-top: 0.85rem; font-size: 0.92rem; color: var(--ink-muted); }
+  .focus-line strong { color: var(--highlight); }
+  .chip-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .chip-list li {
+    font-size: 0.85rem; padding: 0.2rem 0.55rem; border-radius: 6px;
+    background: var(--surface-raised); border: 1px solid var(--border);
+  }
+  .chip-list--wide { margin-top: 1rem; }
+
+  /* Counselling spotlight */
+  .counselling-feature {
+    background: linear-gradient(180deg, var(--surface-accent) 0%, var(--surface) 100%);
+    border-block: 1px solid var(--border);
+  }
+  .objective {
+    margin-top: 0.85rem; padding: 0.75rem 1rem; border-radius: 8px;
+    background: var(--surface-raised); border-left: 3px solid var(--highlight);
+    font-weight: 700; color: var(--accent-deep); max-width: 48ch;
+  }
+  .counselling-grid {
+    margin-top: 1.75rem; display: grid; gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+  .counselling-grid h3 { font-size: 1rem; color: var(--accent-deep); margin-bottom: 0.5rem; }
+
+  /* Why choose */
+  .why-grid {
+    list-style: none; padding: 0; margin-top: 0.75rem;
+    display: grid; gap: 0.65rem 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .why-grid li { display: flex; gap: 0.5rem; align-items: flex-start; font-weight: 600; }
+  .why-mark { color: var(--highlight); flex-shrink: 0; }
+
+  /* Enquiry */
+  .enquire-layout { display: grid; gap: 1.5rem; align-items: start; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .enquire-layout { grid-template-columns: 0.9fr 1.1fr; } }
+
+  /* About */
+  .about-block { display: grid; gap: 1.5rem; align-items: start; grid-template-columns: auto 1fr; }
+  @media (max-width: 560px) { .about-block { grid-template-columns: 1fr; } }
+  .about-photo {
+    width: 10rem; height: auto; border-radius: 10px;
+    border: 1px solid var(--border); object-fit: cover;
+  }
+  .about-text { color: var(--ink-muted); max-width: 54ch; margin-top: 0.5rem; }
+
+  /* Photo proof */
+  .strip-label {
+    font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--highlight);
+    margin: 1.5rem 0 0.6rem; font-family: 'Karla', system-ui, sans-serif;
+  }
+  .photo-strip { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
+  .photo-thumb { margin: 0; overflow: hidden; border-radius: 8px; border: 1px solid var(--border); }
+  .photo-thumb img { width: 100%; height: 7rem; object-fit: cover; display: block; }
+
+  /* FAQ + contact */
+  .faq-compact dt { margin-top: 1rem; }
+  .faq-compact dd { font-size: 0.98rem; color: var(--ink-muted); }
+  .quick-btns { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+</style>
