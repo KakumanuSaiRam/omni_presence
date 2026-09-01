@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "broadcast": "node broadcaster/server.js",
-    "broadcast:login": "node broadcaster/login.js"
+    "broadcast:login": "node broadcaster/login.js",
+    "postdeploy:ping": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

@@ -4,3 +4,9 @@ dist/
 .env
 .env.*
 .DS_Store
+drafts/*
+!drafts/.gitkeep
+broadcaster/posts/
+broadcaster/uploads/
+# IndexNow host-key file written by postdeploy:ping
+/public/*-*.txt
