@@ -85,7 +85,7 @@ UrbanPro bios are free-text; keep this under ~1,200 characters so it does not lo
 **Paste (747 chars):**
 
 ```
-Siva Tuitions & Coachings is an institute in Pattabhipuram, Guntur. We teach Classes 1–10 (CBSE, ICSE, AP State), Intermediate MPC and BiPC, and we coach for AP EAPCET (EAMCET), NEET UG and POLYCET, including short-term crash batches.
+Siva Tuitions & Coachings is an institute in Pattabhipuram, Guntur. We teach Classes 6–10 (CBSE, ICSE, AP State), Intermediate MPC and BiPC, and we coach for AP EAPCET (EAMCET), NEET UG and POLYCET, including short-term crash batches.
 
 Director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) also runs the admission-counselling desk: rank analysis, certificate checklists and web options for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA. Students from Guntur city, Guntur district, Andhra Pradesh and Telangana can visit or take a phone / WhatsApp session.
 
@@ -112,7 +112,7 @@ Experience years: `TODO(owner)` — do not copy “13 years” from unrelated �
 
 ## Services / classes offered (plain list for the “Teaches” editor)
 
-1. Class 1–5 tuition — CBSE, ICSE, State
+1. Class 6–8 tuition — CBSE, ICSE, State
 2. Class 6–8 tuition
 3. Class 9–10 / SSC tuition
 4. Intermediate 1st & 2nd year MPC

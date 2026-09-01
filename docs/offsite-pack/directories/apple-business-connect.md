@@ -58,7 +58,7 @@ Apple Support: About / automatically created About descriptions are capped at **
 ### Paste (244 characters, including spaces)
 
 ```
-Siva Tuitions & Coachings, Pattabhipuram, Guntur: Classes 1–10, Intermediate, EAPCET, NEET and POLYCET coaching, plus admission counselling. Director Yadlapalli Naga Murali Krishna. 2nd Lane, behind Jamili Dental Hospital. Call +91 88797 97777.
+Siva Tuitions & Coachings, Pattabhipuram, Guntur: Classes 6–10, Intermediate, EAPCET, NEET and POLYCET coaching, plus admission counselling. Director Yadlapalli Naga Murali Krishna. 2nd Lane, behind Jamili Dental Hospital. Call +91 88797 97777.
 ```
 
 If Apple auto-generates an About from the website, **replace it** with the 244-character version above so NAP and the phone stay controlled.
@@ -82,7 +82,7 @@ Siva Tuitions & Coachings, Pattabhipuram, Guntur: school and Intermediate tuitio
 
 ## Services / showcase (if Apple offers a services list)
 
-- Class 1–10 tuitions (CBSE, ICSE, State)
+- Class 6–10 tuitions (CBSE, ICSE, State)
 - Intermediate MPC & BiPC
 - EAPCET / EAMCET coaching
 - NEET coaching

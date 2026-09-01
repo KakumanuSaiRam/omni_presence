@@ -58,13 +58,13 @@ AskLaila cards are short. Prefer the short description; use long only if a texta
 ### Short (~400 characters) — 386 chars
 
 ```
-Siva Tuitions & Coachings, Pattabhipuram, Guntur: Classes 1–10 and Intermediate tuitions, plus AP EAPCET (EAMCET), NEET and POLYCET coaching. Admission counselling for web options and certificates. Director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA). 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. +91 88797 97777.
+Siva Tuitions & Coachings, Pattabhipuram, Guntur: Classes 6–10 and Intermediate tuitions, plus AP EAPCET (EAMCET), NEET and POLYCET coaching. Admission counselling for web options and certificates. Director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA). 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. +91 88797 97777.
 ```
 
 ### Long (if accepted) — 623 chars
 
 ```
-Siva Tuitions & Coachings is a coaching and tuition institute in Pattabhipuram, Guntur. We teach Classes 1–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, and entrance batches for AP EAPCET / EAMCET, NEET UG and POLYCET.
+Siva Tuitions & Coachings is a coaching and tuition institute in Pattabhipuram, Guntur. We teach Classes 6–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, and entrance batches for AP EAPCET / EAMCET, NEET UG and POLYCET.
 
 The counselling desk, led by director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA), guides EAPCET web options, NEET and POLYCET admissions, and graduate counselling (ICET, ECET, PG-CET, JoSAA) for students from Guntur, Andhra Pradesh and Telangana.
 
@@ -90,7 +90,7 @@ Peer listings use chips such as `Test: …` and `Other Services: …`. Paste:
 
 **Other services**
 
-- School tuitions (Classes 1–10)
+- School tuitions (Classes 6–10)
 - Intermediate tuitions (MPC & BiPC)
 - Web options / admission counselling
 - After-tenth counselling

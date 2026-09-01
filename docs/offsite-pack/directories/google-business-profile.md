@@ -79,13 +79,13 @@ Google: “From the business” / profile description, max **750 characters**. N
 This is the same text as `docs/social-drafts/gbp-description.txt` (653 chars; 97 under the 750 cap), reproduced so this file is self-contained:
 
 ```
-Siva Tuitions & Coachings, Pattabhipuram, Guntur — tuitions and entrance coaching from Class 1 to college seat. We teach Classes 1–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, and run coaching plus short-term crash batches for AP EAPCET (EAMCET), NEET, POLYCET and pharmacy entrances. What makes us different: a dedicated admission-counselling desk led by director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) — rank analysis, certificate verification and web options for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA, serving families across Guntur district, Andhra Pradesh and Telangana. Call or WhatsApp +91 88797 97777.
+Siva Tuitions & Coachings, Pattabhipuram, Guntur — tuitions and entrance coaching from Class 6 to college seat. We teach Classes 6–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, and run coaching plus short-term crash batches for AP EAPCET (EAMCET), NEET, POLYCET and pharmacy entrances. What makes us different: a dedicated admission-counselling desk led by director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) — rank analysis, certificate verification and web options for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA, serving families across Guntur district, Andhra Pradesh and Telangana. Call or WhatsApp +91 88797 97777.
 ```
 
 First ~250 characters (what many Maps users see before “More”):
 
 ```
-Siva Tuitions & Coachings, Pattabhipuram, Guntur — tuitions and entrance coaching from Class 1 to college seat. We teach Classes 1–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, and run coaching plus short-term crash batches for AP EAPCET (EAMCET),
+Siva Tuitions & Coachings, Pattabhipuram, Guntur — tuitions and entrance coaching from Class 6 to college seat. We teach Classes 6–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, and run coaching plus short-term crash batches for AP EAPCET (EAMCET),
 ```
 
 That opening is acceptable. Do not insert a URL to “use the leftover characters”.
@@ -102,7 +102,7 @@ Add as individual services with the short description:
 | NEET coaching | NEET UG Biology, Physics, Chemistry for BiPC students. |
 | POLYCET coaching | Class 10 POLYCET maths, physics, chemistry and polytechnic guidance. |
 | Intermediate tuitions | MPC and BiPC subject tuitions aligned with IPE and entrances. |
-| Class 1–10 tuitions | CBSE, ICSE and AP State, all core subjects. |
+| Class 6–10 tuitions | CBSE, ICSE and AP State, all core subjects. |
 | Crash coaching | Short-term EAPCET, POLYCET and pharmacy-stream batches. |
 | EAPCET web options counselling | Rank analysis, certificates, ordered option lists. |
 | NEET admission counselling | AP/TS state quota and AIQ document guidance. |

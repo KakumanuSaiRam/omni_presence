@@ -77,7 +77,7 @@ Siva Tuitions & Coachings is a Pattabhipuram, Guntur institute for school tuitio
 ### Long (profile About) — 855 chars
 
 ```
-Siva Tuitions & Coachings teaches Classes 1–10 (CBSE, ICSE, AP State board), Intermediate MPC and BiPC, and coaches students for AP EAPCET / EAMCET, NEET UG and POLYCET, including short-term crash batches before the exam.
+Siva Tuitions & Coachings teaches Classes 6–10 (CBSE, ICSE, AP State board), Intermediate MPC and BiPC, and coaches students for AP EAPCET / EAMCET, NEET UG and POLYCET, including short-term crash batches before the exam.
 
 The same desk that coaches also guides admissions: EAPCET and TS EAMCET web options, NEET state-quota and AIQ paperwork, POLYCET college lists (including government polytechnics for women), plus ICET, ECET, PG-CET and JoSAA for graduates. Counselling is available in person at Pattabhipuram and over phone or WhatsApp for families who cannot travel.
 
@@ -95,7 +95,7 @@ Do not paste the existing Sulekha boilerplate (“proven track record”, “gro
 
 ## Services list (Sulekha “Education & Exam Support”)
 
-- School tuitions — Classes 1–10, CBSE / ICSE / State
+- School tuitions — Classes 6–10, CBSE / ICSE / State
 - Intermediate tuitions — MPC and BiPC
 - Engineering EAMCET / EAPCET coaching
 - Medical EAMCET / pharmacy-stream EAPCET coaching

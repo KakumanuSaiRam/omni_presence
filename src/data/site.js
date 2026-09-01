@@ -38,6 +38,15 @@ export const DIRECTOR = {
   bio: 'Yadlapalli Naga Murali Krishna is the founder and director of Siva Tuitions & Coachings, Guntur. He holds four postgraduate degrees — an M.B.A, an M.Tech in Computer Science & Engineering, an M.Sc, and an MCA — and personally leads the institute’s academic coaching and its admission-counselling desk for AP EAPCET (EAMCET), NEET, and POLYCET aspirants across Guntur district, Andhra Pradesh, and Telangana.',
 };
 
+/** School-to-Inter span — must match school-tuitions course, llms.txt and directory listings. */
+export const ACADEMIC = {
+  school: 'Classes 6–10',
+  trustStrip: 'Class 6 – Inter',
+  toIntermediate: 'Classes 6–10 to Intermediate',
+  heroTitle: 'from Class 6 to your college seat',
+  listingTitle: 'From Class 6 to entrance exams',
+};
+
 // One entry per high-intent query cluster. `queries` lists the literal phrasings
 // students and parents type — they appear in titles, H1s, FAQs, and llms.txt.
 export const COURSES = [
@@ -185,11 +194,11 @@ export const COURSES = [
   },
   {
     slug: 'school-tuitions-guntur',
-    short: 'School Tuitions (1–10)',
-    title: 'Best Tuition Point in Guntur for Classes 1–10 (CBSE, ICSE, State)',
+    short: 'School Tuitions (6–10)',
+    title: 'Best Tuition Point in Guntur for Classes 6–10 (CBSE, ICSE, State)',
     metaDescription:
-      'Siva Tuitions & Coachings, Pattabhipuram — a trusted tuition point in Guntur for Classes 1 to 10 across CBSE, ICSE and State syllabus, with small batches and regular parent feedback.',
-    audience: 'School students, Classes 1–10, all boards',
+      'Siva Tuitions & Coachings, Pattabhipuram — a trusted tuition point in Guntur for Classes 6 to 10 across CBSE, ICSE and State syllabus, with small batches and regular parent feedback.',
+    audience: 'School students, Classes 6–10, all boards',
     queries: [
       'best tuition point in Guntur',
       'best tuition center in Guntur',
@@ -198,13 +207,13 @@ export const COURSES = [
       'ICSE tuition Guntur',
     ],
     body: [
-      'Strong basics in school classes make Intermediate and entrance exams far easier. Siva Tuitions & Coachings tutors students of Classes 1–10 across CBSE, ICSE and AP State syllabus with level-appropriate batches.',
+      'Strong basics in school classes make Intermediate and entrance exams far easier. Siva Tuitions & Coachings tutors students of Classes 6–10 across CBSE, ICSE and AP State syllabus with level-appropriate batches.',
       'Parents get regular feedback, and senior-class students transition smoothly into the institute’s own Intermediate and entrance-coaching programmes.',
     ],
     faqs: [
       {
         q: 'Which is the best tuition point / tuition centre in Guntur?',
-        a: 'Siva Tuitions & Coachings in Pattabhipuram is a well-regarded tuition point in Guntur covering Classes 1–10 (CBSE, ICSE, State), Intermediate, and entrance coaching (EAPCET, NEET, POLYCET) under one roof. Call +91 88797 97777.',
+        a: `Siva Tuitions & Coachings in Pattabhipuram is a well-regarded tuition point in Guntur covering ${ACADEMIC.school} (CBSE, ICSE, State), Intermediate, and entrance coaching (EAPCET, NEET, POLYCET) under one roof. Call ${SITE.phone}.`,
       },
     ],
   },
@@ -482,7 +491,7 @@ export const GLOBAL_FAQS = [
   },
   {
     q: 'Which classes and boards does Siva Tuitions teach?',
-    a: 'Classes 1–10 (CBSE, ICSE, AP State board), Intermediate MPC & BiPC, plus entrance coaching for EAPCET/EAMCET, NEET and POLYCET.',
+    a: `${ACADEMIC.school} (CBSE, ICSE, AP State board), Intermediate MPC & BiPC, plus entrance coaching for EAPCET/EAMCET, NEET and POLYCET.`,
   },
   {
     q: 'How do I contact Siva Tuitions & Coachings?',
@@ -622,17 +631,8 @@ export const INSTITUTE_VISITS = {
 // Homepage marketing copy (hero, service sections, why-choose, about) lives in
 // data/i18n.js so the English and Telugu trees render from one set of strings.
 
-/** School-to-Inter span — must match school-tuitions course, llms.txt and directory listings. */
-export const ACADEMIC = {
-  school: 'Classes 1–10',
-  trustStrip: 'Class 1 – Inter',
-  toIntermediate: 'Classes 1–10 to Intermediate',
-  heroTitle: 'from Class 1 to your college seat',
-  listingTitle: 'From Class 1 to entrance exams',
-};
-
 export const BRAND = {
-  tagline: 'From Class 1 to your college seat.',
+  tagline: 'From Class 6 to your college seat.',
   mission: 'Academic Excellence · Competitive Coaching · Career & Counselling Guidance',
   values: [
     { title: 'Small batches', body: 'Doubts cleared in class.' },

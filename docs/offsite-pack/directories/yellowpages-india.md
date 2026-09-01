@@ -68,7 +68,7 @@ India Yellow Pages Online labelled field: **“Describe Your Products / Activity
 ### Brief (for “activity in brief” boxes) — 469 chars
 
 ```
-Coaching and tuitions in Pattabhipuram, Guntur: Classes 1–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, AP EAPCET (EAMCET), NEET UG and POLYCET, plus admission counselling (web options, certificates) for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA. Director: Yadlapalli Naga Murali Krishna, M.B.A, M.Tech (CSE), M.Sc, MCA. Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. Phone: +91 88797 97777.
+Coaching and tuitions in Pattabhipuram, Guntur: Classes 6–10 (CBSE, ICSE, AP State), Intermediate MPC & BiPC, AP EAPCET (EAMCET), NEET UG and POLYCET, plus admission counselling (web options, certificates) for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA. Director: Yadlapalli Naga Murali Krishna, M.B.A, M.Tech (CSE), M.Sc, MCA. Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. Phone: +91 88797 97777.
 ```
 
 ### Full About — 787 chars
@@ -76,7 +76,7 @@ Coaching and tuitions in Pattabhipuram, Guntur: Classes 1–10 (CBSE, ICSE, AP S
 ```
 Siva Tuitions & Coachings is a Guntur institute offering school and Intermediate tuitions together with entrance coaching and a counselling desk.
 
-Tuitions: Classes 1–10 (CBSE, ICSE, AP State) and Intermediate MPC & BiPC.
+Tuitions: Classes 6–10 (CBSE, ICSE, AP State) and Intermediate MPC & BiPC.
 Entrance coaching: AP EAPCET / EAMCET (engineering and pharmacy streams), NEET UG, POLYCET, and short-term crash batches.
 Counselling: rank analysis, certificate verification and web options for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA, for students from Guntur district, Andhra Pradesh and Telangana.
 
@@ -90,7 +90,7 @@ Director Yadlapalli Naga Murali Krishna holds an M.B.A, M.Tech (CSE), M.Sc and M
 
 ## Services list
 
-- Class 1–10 tuitions
+- Class 6–10 tuitions
 - Intermediate MPC & BiPC tuitions
 - EAPCET / EAMCET coaching
 - NEET coaching

@@ -43,7 +43,7 @@ export function staticOgPages() {
     },
     courses: {
       title: 'Courses & coaching in Guntur',
-      description: 'Classes 1–10, Intermediate, EAPCET, NEET and POLYCET at Pattabhipuram.',
+      description: 'Classes 6–10, Intermediate, EAPCET, NEET and POLYCET at Pattabhipuram.',
     },
     counselling: {
       title: 'Admission counselling & web options',
@@ -71,7 +71,7 @@ export function staticOgPages() {
     },
     'te/courses': {
       title: 'కోర్సులు & కోచింగ్ — గుంటూరు',
-      description: '1–10వ తరగతి, ఇంటర్ ట్యూషన్లు; EAPCET, NEET, POLYCET కోచింగ్.',
+      description: '6–10వ తరగతి, ఇంటర్ ట్యూషన్లు; EAPCET, NEET, POLYCET కోచింగ్.',
     },
     'te/counselling': {
       title: 'ప్రవేశ కౌన్సెలింగ్ — గుంటూరు',

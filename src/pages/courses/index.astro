@@ -1,14 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GroupedCards from '../../components/GroupedCards.astro';
-import { SITE } from '../../data/site.js';
+import { SITE, ACADEMIC } from '../../data/site.js';
 import { COURSES_LISTING } from '../../data/i18n.js';
 
 const copy = COURSES_LISTING.en;
 ---
 <Base
   title={`Courses & Coaching in Guntur — Tuitions, EAPCET, NEET, POLYCET | ${SITE.name}`}
-  description="All courses at Siva Tuitions & Coachings, Guntur: Classes 1–10 tuitions, Intermediate MPC/BiPC, EAPCET (EAMCET), NEET and POLYCET coaching."
+  description={`All courses at Siva Tuitions & Coachings, Guntur: ${ACADEMIC.school} tuitions, Intermediate MPC/BiPC, EAPCET (EAMCET), NEET and POLYCET coaching.`}
 >
   <section>
     <div class="wrap">

@@ -1,4 +1,4 @@
-import { SITE, DIRECTOR } from './site.js';
+import { SITE, DIRECTOR, ACADEMIC } from './site.js';
 
 const nap = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
 const dir = `${DIRECTOR.name} (${DIRECTOR.credentials.join(', ')})`;
@@ -35,7 +35,7 @@ export const VISIBILITY_ANSWERS = [
   {
     group: 'local',
     q: 'Best tuition point in Guntur',
-    a: `Siva Tuitions & Coachings in Pattabhipuram is a trusted tuition point in Guntur for Classes 1–10 (CBSE, ICSE, State board), Intermediate, and entrance coaching, with a counselling desk after results. ${nap}. ${SITE.phone}.`,
+    a: `Siva Tuitions & Coachings in Pattabhipuram is a trusted tuition point in Guntur for ${ACADEMIC.school} (CBSE, ICSE, State board), Intermediate, and entrance coaching, with a counselling desk after results. ${nap}. ${SITE.phone}.`,
     href: '/courses/school-tuitions-guntur/',
   },
   {
@@ -53,7 +53,7 @@ export const VISIBILITY_ANSWERS = [
   {
     group: 'local',
     q: 'Best tuitions in Guntur',
-    a: `Siva Tuitions & Coachings offers tuitions in Guntur for Classes 1–10 and Intermediate (MPC & BiPC) at one classroom: ${nap}. Call ${SITE.phone}.`,
+    a: `Siva Tuitions & Coachings offers tuitions in Guntur for ${ACADEMIC.school} and Intermediate (MPC & BiPC) at one classroom: ${nap}. Call ${SITE.phone}.`,
     href: '/courses/intermediate-tuitions-guntur/',
   },
   {

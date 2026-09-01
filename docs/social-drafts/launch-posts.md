@@ -2,7 +2,7 @@
 
 ## Post 1 — Website launch
 🎓 Our new website is live: https://sivatuitions.github.io
-Everything in one place — tuitions (Classes 1–10 & Intermediate), EAPCET/EAMCET, NEET
+Everything in one place — tuitions (Classes 6–10 & Intermediate), EAPCET/EAMCET, NEET
 & POLYCET coaching, and our admission-counselling desk (web options, certificate
 verification, ICET/ECET/PG-CET/JoSAA guidance).
 📍 Pattabhipuram, Guntur · ☎ +91 88797 97777

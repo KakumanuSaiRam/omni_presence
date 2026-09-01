@@ -14,7 +14,7 @@ Post 2–3 times in week 1, then twice a week, or once a week plus one extra in 
 
 Siva Tuitions & Coachings WhatsApp Channel start ayindi.
 
-Classes 1–10, Intermediate, EAPCET/NEET/POLYCET coaching, web options counselling — anni ikkade.
+Classes 6–10, Intermediate, EAPCET/NEET/POLYCET coaching, web options counselling — anni ikkade.
 
 Classroom okkate: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur 522006.
 

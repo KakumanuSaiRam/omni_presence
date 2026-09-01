@@ -78,13 +78,13 @@ Justdial does not publish a hard character limit. Paste the **long** version int
 ### Short (400 characters max) — 354 chars
 
 ```
-Siva Tuitions & Coachings, Pattabhipuram, Guntur — tuitions for Classes 1–10 (CBSE, ICSE, AP State) and Intermediate MPC & BiPC, plus coaching for AP EAPCET (EAMCET), NEET and POLYCET. Admission counselling covers web options, certificates and college choice. Director: Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA). Call +91 88797 97777.
+Siva Tuitions & Coachings, Pattabhipuram, Guntur — tuitions for Classes 6–10 (CBSE, ICSE, AP State) and Intermediate MPC & BiPC, plus coaching for AP EAPCET (EAMCET), NEET and POLYCET. Admission counselling covers web options, certificates and college choice. Director: Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA). Call +91 88797 97777.
 ```
 
 ### Long (about 1,000 characters) — 958 chars
 
 ```
-Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur. We teach Classes 1–10 across CBSE, ICSE and AP State syllabus, Intermediate MPC and BiPC, and run regular plus short-term crash batches for AP EAPCET (EAMCET), NEET UG, POLYCET and pharmacy-stream entrances.
+Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur. We teach Classes 6–10 across CBSE, ICSE and AP State syllabus, Intermediate MPC and BiPC, and run regular plus short-term crash batches for AP EAPCET (EAMCET), NEET UG, POLYCET and pharmacy-stream entrances.
 
 What students and parents usually need after the exam is as important as the coaching itself. Our admission-counselling desk — led by director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) — handles rank analysis, certificate-verification checklists and web-options entry for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA. Families from Guntur city, Guntur district, Andhra Pradesh and Telangana can visit in person or take a phone / WhatsApp session.
 
@@ -95,7 +95,7 @@ Address: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Gu
 
 ## Services list (add as separate JD services)
 
-1. Class 1–10 tuitions (CBSE, ICSE, AP State)
+1. Class 6–10 tuitions (CBSE, ICSE, AP State)
 2. Intermediate MPC tuitions (Maths, Physics, Chemistry)
 3. Intermediate BiPC tuitions (Botany, Zoology, Physics, Chemistry)
 4. AP EAPCET / EAMCET coaching (MPC engineering stream)

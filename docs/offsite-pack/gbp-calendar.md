@@ -21,7 +21,7 @@ Character counts below are of the paste block only (not the metadata).
 ```
 Our website is live: https://sivatuitions.github.io
 
-Tuitions for Classes 1–10 (CBSE, ICSE, AP State) and Intermediate MPC & BiPC, plus coaching for AP EAPCET (EAMCET), NEET and POLYCET. The same desk guides web options and certificates after results — EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA.
+Tuitions for Classes 6–10 (CBSE, ICSE, AP State) and Intermediate MPC & BiPC, plus coaching for AP EAPCET (EAMCET), NEET and POLYCET. The same desk guides web options and certificates after results — EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA.
 
 We teach at one classroom: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. Old listings that show SVN Colony or Gujjanagundla are leftover addresses, not extra branches.
 
@@ -216,7 +216,7 @@ https://sivatuitions.github.io/blog/web-options-mistakes-to-avoid/
 
 ---
 
-## Week 11 — Course spotlight: crash batches + school 1–10
+## Week 11 — Course spotlight: crash batches + school 6–10
 
 **Type:** What’s new  
 **CTA button:** Call now  
@@ -227,7 +227,7 @@ Two reminders from the same building.
 
 Short-term crash batches for EAPCET, POLYCET and pharmacy-stream papers: daily mock, error analysis, targeted re-teaching. Useful if you joined late or switched centres — we start with a gap assessment, not a generic booklet.
 
-Classes 1–10 tuitions continue (CBSE, ICSE, State) so the next Intermediate year is not a shock.
+Classes 6–10 tuitions continue (CBSE, ICSE, State) so the next Intermediate year is not a shock.
 
 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 

@@ -6,7 +6,7 @@ Use the canonical NAP from GEO-PLAYBOOK.md everywhere. Handle preference order:
 ## LinkedIn — Company page
 - Name: Siva Tuitions & Coachings
 - Tagline: Tuitions, entrance coaching & admission counselling — Guntur, Andhra Pradesh
-- About: Siva Tuitions & Coachings is a Guntur-based institute teaching Classes 1–10
+- About: Siva Tuitions & Coachings is a Guntur-based institute teaching Classes 6–10
   (CBSE, ICSE, AP State), Intermediate MPC & BiPC, with entrance coaching for AP EAPCET
   (EAMCET), NEET, POLYCET and pharmacy streams. Our admission-counselling desk guides
   students through web options and admissions for EAPCET, NEET, POLYCET, ICET, ECET,
@@ -30,7 +30,7 @@ Use the canonical NAP from GEO-PLAYBOOK.md everywhere. Handle preference order:
 
 ## X (Twitter)
 - Name: Siva Tuitions & Coachings
-- Bio: Tuitions (1–10, Inter) · EAPCET/EAMCET · NEET · POLYCET coaching & web options
+- Bio: Tuitions (6–10, Inter) · EAPCET/EAMCET · NEET · POLYCET coaching & web options
   counselling · Guntur, AP · ☎ +91 88797 97777
 - Location: Guntur, India · Website: https://sivatuitions.github.io
 

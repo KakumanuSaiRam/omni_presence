@@ -76,7 +76,7 @@ Bing publishes no official description character limit. Whitespark and Bing Plac
 ## Description (paste)
 
 ```
-Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur, Andhra Pradesh, India. The centre teaches Classes 1–10 across CBSE, ICSE and AP State syllabus, and Intermediate MPC and BiPC, alongside entrance coaching for AP EAPCET (EAMCET), NEET UG and POLYCET. Short-term crash batches run in the weeks before those exams.
+Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur, Andhra Pradesh, India. The centre teaches Classes 6–10 across CBSE, ICSE and AP State syllabus, and Intermediate MPC and BiPC, alongside entrance coaching for AP EAPCET (EAMCET), NEET UG and POLYCET. Short-term crash batches run in the weeks before those exams.
 
 The institute also operates an admission-counselling desk. Director Yadlapalli Naga Murali Krishna — M.B.A, M.Tech (CSE), M.Sc, MCA — reviews rank, category and local-area status, then guides certificate verification and web-options entry for AP EAPCET, TS EAMCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA. The desk serves families in Guntur city, Guntur district, elsewhere in Andhra Pradesh, and Telangana, in person or by phone and WhatsApp.
 
@@ -90,7 +90,7 @@ Hours: Monday to Saturday 06:00–21:00; Sunday 10:00–14:00.
 Character count of the block above: **1,054** (spaces included). First ~200 characters (what Bing Announcements / some SERP snippets keep):
 
 ```
-Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur, Andhra Pradesh, India. The centre teaches Classes 1–10 across CBSE, ICSE and AP State syllabus, and Interme
+Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur, Andhra Pradesh, India. The centre teaches Classes 6–10 across CBSE, ICSE and AP State syllabus, and Interme
 ```
 
 Lead is already NAP-relevant; no rewrite needed.
@@ -101,7 +101,7 @@ Lead is already NAP-relevant; no rewrite needed.
 
 If Bing shows a Services field, add:
 
-- Class 1–10 tuitions (CBSE, ICSE, State)
+- Class 6–10 tuitions (CBSE, ICSE, State)
 - Intermediate MPC & BiPC tuitions
 - AP EAPCET / EAMCET coaching
 - NEET UG coaching

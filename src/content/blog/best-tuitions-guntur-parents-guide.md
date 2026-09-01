@@ -1,10 +1,10 @@
 ---
-title: "A Parent's Guide to Finding the Best Tuitions in Guntur (Classes 1–10)"
+title: "A Parent's Guide to Finding the Best Tuitions in Guntur (Classes 6–10)"
 description: "How Guntur parents can evaluate tuition centres for school children — boards covered, batch sizes, feedback systems, and the questions to ask before joining."
 date: 2026-01-15
 ---
 
-"Best tuition near me" returns a wall of ads. Here is a calmer way to decide, from a centre that has watched Guntur students grow from Class 1 to college seats.
+"Best tuition near me" returns a wall of ads. Here is a calmer way to decide, from a centre that has watched Guntur students grow from Class 6 to college seats.
 
 ## Match the centre to the board first
 
@@ -32,4 +32,4 @@ A child who changes tuition centres every year loses months to re-adjustment. Ce
 
 ## Visit us with this list
 
-**Siva Tuitions & Coachings, 2nd Lane, behind Jamili Dental Hospital, Pattabhipuram, Guntur 522006** teaches Classes 1–10 across CBSE, ICSE and State syllabus, under director **Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA)**. Ask us all five questions: **+91 88797 97777**.
+**Siva Tuitions & Coachings, 2nd Lane, behind Jamili Dental Hospital, Pattabhipuram, Guntur 522006** teaches Classes 6–10 across CBSE, ICSE and State syllabus, under director **Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA)**. Ask us all five questions: **+91 88797 97777**.

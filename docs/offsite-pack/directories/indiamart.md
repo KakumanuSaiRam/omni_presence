@@ -64,7 +64,7 @@ IndiaMART company About is typically a long text field. Product **descriptions m
 ### Company About (876 chars)
 
 ```
-Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur, Andhra Pradesh. The institute teaches Classes 1–10 (CBSE, ICSE and AP State syllabus), Intermediate MPC and BiPC, and prepares students for AP EAPCET (EAMCET), NEET UG and POLYCET, including short-term crash batches.
+Siva Tuitions & Coachings is a tuition and entrance-coaching institute in Pattabhipuram, Guntur, Andhra Pradesh. The institute teaches Classes 6–10 (CBSE, ICSE and AP State syllabus), Intermediate MPC and BiPC, and prepares students for AP EAPCET (EAMCET), NEET UG and POLYCET, including short-term crash batches.
 
 Director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA) leads academic coaching and a dedicated admission-counselling desk. The desk guides rank analysis, certificate verification and web-options entry for EAPCET, NEET, POLYCET, ICET, ECET, PG-CET and JoSAA, for families in Guntur district, Andhra Pradesh and Telangana.
 
@@ -112,12 +112,12 @@ Description:
 Subject-wise Intermediate tuitions for MPC (Mathematics, Physics, Chemistry) and BiPC (Botany, Zoology, Physics, Chemistry) aligned with IPE board exams and entrance preparation, for AP and Telangana boards as well as CBSE.
 ```
 
-### 5. Title: Class 1 to 10 Tuitions (CBSE, ICSE, State)
+### 5. Title: Class 6 to 10 Tuitions (CBSE, ICSE, State)
 Category: Tuition Centers  
 Description:
 
 ```
-All-subject tuitions for Classes 1–10 across CBSE, ICSE and AP State syllabus, with weekly tests and parent updates. After Class 10, counselling on Intermediate group choice versus POLYCET.
+All-subject tuitions for Classes 6–10 across CBSE, ICSE and AP State syllabus, with weekly tests and parent updates. After Class 10, counselling on Intermediate group choice versus POLYCET.
 ```
 
 ### 6. Title: EAPCET Web Options and Admission Counselling
