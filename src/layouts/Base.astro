@@ -340,6 +340,38 @@ const FONT_TOGGLE =
     footer.site strong { color: #fff; }
     footer.site a { color: var(--highlight-soft); }
     footer.site .footer-maps { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .footer-layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem 2rem;
+      align-items: center;
+    }
+    .footer-brand {
+      flex-shrink: 0;
+      text-decoration: none;
+      line-height: 0;
+    }
+    .footer-logo {
+      display: block;
+      /* Match the four-line footer block height at 0.95rem. */
+      height: 5.5rem;
+      width: auto;
+      max-width: 5.5rem;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 10px;
+      padding: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s var(--ease);
+    }
+    .footer-brand:hover .footer-logo { transform: scale(1.03); }
+    .footer-body p { margin: 0; line-height: 1.55; }
+    .footer-body p + p { margin-top: 0.65rem; }
+    @media (max-width: 640px) {
+      .footer-layout { gap: 1rem 1.25rem; align-items: start; }
+      .footer-logo { height: 4.5rem; max-width: 4.5rem; }
+    }
     .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
     .card {
       background: var(--surface-raised); border: 1px solid var(--border); border-radius: 12px;
@@ -507,24 +539,29 @@ const FONT_TOGGLE =
     <slot />
   </main>
   <footer class="site">
-    <div class="wrap">
-      <p><strong>{SITE.name}</strong> — <a href={SITE.mapsDirectionsUrl}>{SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</a></p>
-      <p>
-        {ui.phoneWhatsapp}: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
-        · {ui.email}: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-        · <a href={SITE.mapsDirectionsUrl} class="footer-maps"><MapsIcon size={14} />{ui.maps}</a>
-        · <a href={SITE.mapsUrl}>{ui.maps}</a>
-      </p>
-      <p>
-        <a href={galleryHref}>{ui.gallery}</a>
-        · <a href={socialHref}>{ui.social}</a>
-        · <a href={resourcesHref}>{ui.links}</a>
-        · <a href={faqHref}>{ui.faq}</a>
-        · <a href="/answers/">Answers</a>
-        · <a href={askHref}>{ui.ask}</a>
-        · <a href={aboutHref}>{ui.about}</a>
-      </p>
-      <p>{ui.director}: <a href={`/director/${DIRECTOR.slug}/`}>{DIRECTOR.name}</a></p>
+    <div class="wrap footer-layout">
+      <a class="footer-brand" href={homeHref} aria-label={SITE.name}>
+        <img class="footer-logo" src="/logo.png" alt="" width="88" height="88" />
+      </a>
+      <div class="footer-body">
+        <p><a href={SITE.mapsDirectionsUrl}>{SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</a></p>
+        <p>
+          {ui.phoneWhatsapp}: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
+          · {ui.email}: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          · <a href={SITE.mapsDirectionsUrl} class="footer-maps"><MapsIcon size={14} />{ui.maps}</a>
+          · <a href={SITE.mapsUrl}>{ui.maps}</a>
+        </p>
+        <p>
+          <a href={galleryHref}>{ui.gallery}</a>
+          · <a href={socialHref}>{ui.social}</a>
+          · <a href={resourcesHref}>{ui.links}</a>
+          · <a href={faqHref}>{ui.faq}</a>
+          · <a href="/answers/">Answers</a>
+          · <a href={askHref}>{ui.ask}</a>
+          · <a href={aboutHref}>{ui.about}</a>
+        </p>
+        <p>{ui.director}: <a href={`/director/${DIRECTOR.slug}/`}>{DIRECTOR.name}</a></p>
+      </div>
     </div>
   </footer>
 
