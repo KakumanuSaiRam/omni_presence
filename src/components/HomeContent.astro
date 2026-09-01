@@ -1,5 +1,6 @@
 ---
 import Illustration from './Illustration.astro';
+import SectionPhoto from './SectionPhoto.astro';
 import EnquiryForm from './EnquiryForm.astro';
 import BranchShowcase from './BranchShowcase.astro';
 import { SITE, DIRECTOR, BRAND, GALLERY, SOCIAL_ACTIVITIES, GLOBAL_FAQS } from '../data/site.js';
@@ -129,7 +130,12 @@ const telHref = `tel:${SITE.phoneHref}`;
 <section id="coaching" class="section-muted">
   <div class="wrap split-section split-reverse">
     <div class="section-art-wrap" data-reveal data-reveal-delay="1">
-      <Illustration src="/illustrations/exam-prep.svg" alt={coaching.imageAlt} class="section-art" />
+      <SectionPhoto
+        src={coaching.photoSrc}
+        alt={coaching.imageAlt}
+        caption={coaching.photoCaption}
+        class="section-art"
+      />
     </div>
     <div data-reveal>
       <p class="eyebrow">{coaching.eyebrow}</p>
@@ -159,7 +165,12 @@ const telHref = `tel:${SITE.phoneHref}`;
         <p class="objective">{counselling.objective}</p>
       </div>
       <div data-reveal data-reveal-delay="1">
-        <Illustration src="/illustrations/counselling-desk.svg" alt={counselling.imageAlt} class="section-art" />
+        <SectionPhoto
+          src={counselling.photoSrc}
+          alt={counselling.imageAlt}
+          caption={counselling.photoCaption}
+          class="section-art"
+        />
       </div>
     </div>
     <div class="counselling-grid">
@@ -408,7 +419,8 @@ const telHref = `tel:${SITE.phoneHref}`;
     .split-section { grid-template-columns: 1fr 1fr; }
     .split-reverse .section-art-wrap { order: -1; }
   }
-  .section-art { max-width: 20rem; margin: 0 auto; }
+  .section-art { max-width: 22rem; margin: 0 auto; }
+  .section-photo.section-art { max-width: 28rem; }
 
   /* Tags & chips */
   .tag-group { margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }

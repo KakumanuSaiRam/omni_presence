@@ -213,7 +213,9 @@ export const COACHING_SECTION = {
       { label: 'POLYCET', href: '/courses/polytechnic-polycet-coaching-guntur/' },
       { label: 'Crash batches', href: '/courses/short-term-crash-coaching-guntur/' },
     ],
-    imageAlt: 'Entrance exam preparation with mock tests and progress tracking',
+    imageAlt: 'Siva Tuitions faculty with EAMCET short-term coaching banner at Pattabhipuram centre',
+    photoSrc: '/gallery/eamcet-team.jpg',
+    photoCaption: 'EAMCET short-term coaching — daily tests and revision batches at our centre.',
   },
   te: {
     eyebrow: 'సమ్మర్ & షార్ట్-టర్మ్ ప్రోగ్రామ్‌లు',
@@ -228,7 +230,9 @@ export const COACHING_SECTION = {
       { label: 'POLYCET', href: '/te/courses/polytechnic-polycet-coaching-guntur/' },
       { label: 'క్రాష్ బ్యాచ్‌లు', href: '/courses/short-term-crash-coaching-guntur/' },
     ],
-    imageAlt: 'మాక్ టెస్టులతో ప్రవేశ పరీక్షల సిద్ధత',
+    imageAlt: 'Siva Tuitions వద్ద EAMCET షార్ట్-టర్మ్ కోచింగ్ బ్యానర్',
+    photoSrc: '/gallery/eamcet-team.jpg',
+    photoCaption: 'EAMCET షార్ట్-టర్మ్ కోచింగ్ — రోజువారీ టెస్టులు, రివిజన్ బ్యాచ్‌లు.',
   },
 };
 
@@ -246,7 +250,9 @@ export const COUNSELLING_SECTION = {
     ],
     linkLabel: 'All counselling services',
     linkHref: '/counselling/',
-    imageAlt: 'Admission counselling and web options guidance desk',
+    imageAlt: 'Admission counselling and web options guidance at Siva Tuitions, Guntur',
+    photoSrc: '/gallery/counselling-desk.jpg',
+    photoCaption: 'Web options and admission guidance for AP and Telangana — at the counselling desk.',
   },
   te: {
     eyebrow: 'మా ప్రత్యేకత',
@@ -260,7 +266,9 @@ export const COUNSELLING_SECTION = {
     ],
     linkLabel: 'అన్ని కౌన్సెలింగ్ సేవలు',
     linkHref: '/te/counselling/',
-    imageAlt: 'ప్రవేశ కౌన్సెలింగ్, వెబ్ ఆప్షన్స్ మార్గదర్శక డెస్క్',
+    imageAlt: 'Siva Tuitions, గుంటూరులో ప్రవేశ కౌన్సెలింగ్, వెబ్ ఆప్షన్స్ మార్గదర్శకత్వం',
+    photoSrc: '/gallery/counselling-desk.jpg',
+    photoCaption: 'ఆంధ్రప్రదేశ్, తెలంగాణకు వెబ్ ఆప్షన్స్, ప్రవేశ మార్గదర్శకత్వం — కౌన్సెలింగ్ డెస్క్ వద్ద.',
   },
 };
 

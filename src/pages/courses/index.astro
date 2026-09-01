@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GroupedCards from '../../components/GroupedCards.astro';
-import Illustration from '../../components/Illustration.astro';
+import SectionPhoto from '../../components/SectionPhoto.astro';
 import { SITE } from '../../data/site.js';
 ---
 <Base
@@ -19,7 +19,12 @@ import { SITE } from '../../data/site.js';
         </p>
       </div>
       <div data-reveal data-reveal-delay="1">
-        <Illustration src="/illustrations/exam-prep.svg" alt="Students preparing for entrance exams" class="hero-art" />
+        <SectionPhoto
+          src="/gallery/eamcet-team.jpg"
+          alt="Siva Tuitions faculty with EAMCET short-term coaching banner"
+          caption="EAPCET, NEET and POLYCET batches — Pattabhipuram centre."
+          class="hero-art"
+        />
       </div>
     </div>
   </section>
