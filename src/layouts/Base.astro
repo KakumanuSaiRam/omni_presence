@@ -1,9 +1,11 @@
 ---
 import { SITE, DIRECTOR, TE_ALTERNATES, normalizePath } from '../data/site.js';
+import { ogImagePath } from '../data/og-pages.js';
 
 const { title, description, jsonLd = [], noOrgSchema = false, lang = 'en' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const path = normalizePath(Astro.url.pathname);
+const ogImage = new URL(ogImagePath(path), SITE.url).href;
 const isTe = path === '/te/' || path.startsWith('/te/');
 const enPath = isTe ? (path === '/te/' ? '/' : path.slice(3)) : path;
 const tePath = TE_ALTERNATES[enPath] || '/te/';
@@ -66,7 +68,11 @@ const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content={SITE.name} />
-  <meta property="og:image" content={`${SITE.url}/logo.png`} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={ogImage} />
   <meta name="geo.region" content="IN-AP" />
   <meta name="geo.placename" content="Guntur" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
