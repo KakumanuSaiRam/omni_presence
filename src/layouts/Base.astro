@@ -46,6 +46,13 @@ const orgSchema = {
 };
 
 const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
+
+const FONT_LATIN =
+  'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&display=swap';
+const FONT_TE =
+  'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&family=Noto+Sans+Telugu:wght@400;500;700&display=swap';
+const FONT_TOGGLE =
+  'https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@700&text=%E0%B0%A4%E0%B1%86%E0%B0%B2%E0%B1%81%E0%B0%97%E0%B1%81&display=swap';
 ---
 <html lang={lang}>
 <head>
@@ -77,7 +84,17 @@ const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
   <meta name="geo.placename" content="Guntur" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&family=Noto+Sans+Telugu:wght@400;500;700&display=swap" rel="stylesheet" />
+  {isTe ? (
+    <link rel="stylesheet" href={FONT_TE} media="print" onload="this.media='all'" />
+  ) : (
+    <>
+      <link rel="stylesheet" href={FONT_LATIN} media="print" onload="this.media='all'" />
+      <link rel="stylesheet" href={FONT_TOGGLE} media="print" onload="this.media='all'" />
+    </>
+  )}
+  <noscript>
+    <link rel="stylesheet" href={isTe ? FONT_TE : FONT_LATIN} />
+  </noscript>
   {schemas.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
@@ -99,7 +116,8 @@ const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
       --max: 68rem;
     }
     * { box-sizing: border-box; margin: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    img, svg, video { max-width: 100%; height: auto; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     body {
       font-family: 'Karla', system-ui, sans-serif;
@@ -240,9 +258,8 @@ const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
   <footer class="site">
     <div class="wrap">
       <p><strong>{SITE.name}</strong> — {SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</p>
-      <p>Phone / WhatsApp: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a> · Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> · <a href={SITE.mapsUrl}>Google Maps</a> · <a href={SITE.playStoreUrl}>Android app</a></p>
-      <p>Director: <a href="/director/yadlapalli-naga-murali-krishna/">{DIRECTOR.name}</a>, {DIRECTOR.credentials.join(', ')}</p>
-      <p>Serving Guntur city, Guntur district, Andhra Pradesh and Telangana — tuitions (Classes 1–10, Intermediate), EAPCET/EAMCET, NEET &amp; POLYCET coaching, and admission counselling.</p>
+      <p>Phone / WhatsApp: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a> · Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> · <a href={SITE.mapsUrl}>Maps</a> · <a href="/gallery/">Gallery</a> · <a href="/brand/">About</a></p>
+      <p>Director: <a href="/director/yadlapalli-naga-murali-krishna/">{DIRECTOR.name}</a></p>
     </div>
   </footer>
 </body>
