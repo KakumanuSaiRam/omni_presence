@@ -23,6 +23,7 @@ export const SITE = {
   geo: { lat: 16.3145, lng: 80.4365 },
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Siva+Tuitions+and+Coachings+Pattabhipuram+Guntur',
+  mapsDirectionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=16.3145,80.4365',
   playStoreUrl:
     'https://play.google.com/store/apps/details?id=com.hallmark.learninglabs.sivatuitions',
   hours: ['Mo-Sa 06:00-21:00', 'Su 10:00-14:00'],

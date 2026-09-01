@@ -22,7 +22,7 @@ const waHref = `https://wa.me/${SITE.whatsapp}`;
       <p class="quick-btns">
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>ఇప్పుడే కాల్ చేయండి</a>
         <a class="btn btn-ghost" href={waHref}>వాట్సాప్</a>
-        <a class="btn btn-ghost" href={SITE.mapsUrl}>దారి చూపించండి</a>
+        <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>దారి చూపించండి</a>
       </p>
     </div>
   </section>
@@ -39,7 +39,7 @@ const waHref = `https://wa.me/${SITE.whatsapp}`;
         <dl class="detail-list">
           <div>
             <dt>చిరునామా</dt>
-            <dd>{addressLine}<br /><a href={SITE.mapsUrl}>గూగుల్ మ్యాప్స్ &rarr;</a></dd>
+            <dd><a href={SITE.mapsDirectionsUrl}>{addressLine}</a><br /><a href={SITE.mapsUrl}>గూగుల్ మ్యాప్స్ &rarr;</a></dd>
           </div>
           <div>
             <dt>ఫోన్</dt>

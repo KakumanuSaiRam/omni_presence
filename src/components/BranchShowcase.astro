@@ -22,7 +22,7 @@ const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.ad
       <dl class="branch-details">
         <div>
           <dt>{copy.addressLabel}</dt>
-          <dd>{addressLine}</dd>
+          <dd><a href={SITE.mapsDirectionsUrl}>{addressLine}</a></dd>
         </div>
         <div>
           <dt>{copy.hoursLabel}</dt>
@@ -36,7 +36,7 @@ const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.ad
       </ul>
       <p class="branch-actions">
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>{ui.call} {SITE.phone}</a>
-        <a class="btn btn-ghost" href={SITE.mapsUrl}>{copy.mapsLabel}</a>
+        <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>{copy.mapsLabel}</a>
         <a class="btn btn-ghost" href={galleryHref}>{copy.galleryLabel}</a>
       </p>
     </div>

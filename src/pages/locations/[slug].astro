@@ -23,12 +23,13 @@ const jsonLd = [{
       <h1 style="font-size:clamp(1.7rem,4vw,2.6rem)">{loc.title}</h1></div>
       <p style="max-width:68ch;margin-top:1.1rem">{loc.blurb}</p>
       <p style="max-width:68ch;margin-top:1.1rem">
-        Centre: {SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}.
+        Centre: <a href={SITE.mapsDirectionsUrl}>{SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</a>.
         Phone/WhatsApp counselling available for students who cannot visit in person.
       </p>
       <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
         <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp us</a>
+        <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>Get directions</a>
       </p>
     </div>
   </section>

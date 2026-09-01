@@ -23,7 +23,7 @@ const centrePhoto = GALLERY[1];
         <p class="quick-btns">
           <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call Now</a>
           <a class="btn btn-ghost" href={waHref}>WhatsApp Us</a>
-          <a class="btn btn-ghost" href={SITE.mapsUrl}>Get Directions</a>
+          <a class="btn btn-ghost" href={SITE.mapsDirectionsUrl}>Get Directions</a>
         </p>
       </div>
       <figure class="hero-photo" data-reveal>
@@ -45,7 +45,7 @@ const centrePhoto = GALLERY[1];
         <dl class="detail-list">
           <div>
             <dt>Address</dt>
-            <dd>{addressLine}<br /><a href={SITE.mapsUrl}>Google Maps &rarr;</a></dd>
+            <dd><a href={SITE.mapsDirectionsUrl}>{addressLine}</a><br /><a href={SITE.mapsUrl}>Google Maps &rarr;</a></dd>
           </div>
           <div>
             <dt>Phone</dt>

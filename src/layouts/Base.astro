@@ -58,6 +58,7 @@ const orgSchema = {
   sameAs: [
     SITE.playStoreUrl,
     SITE.mapsUrl,
+    SITE.mapsDirectionsUrl,
     'https://www.urbanpro.com/guntur/siva-tuitions-gujjanagundla/31503988',
     'https://www.sulekha.com/profile/siva-tuitions-at-agraharam-guntur',
   ],
@@ -427,10 +428,11 @@ const FONT_TOGGLE =
   </main>
   <footer class="site">
     <div class="wrap">
-      <p><strong>{SITE.name}</strong> — {SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</p>
+      <p><strong>{SITE.name}</strong> — <a href={SITE.mapsDirectionsUrl}>{SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</a></p>
       <p>
         {ui.phoneWhatsapp}: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
         · {ui.email}: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        · <a href={SITE.mapsDirectionsUrl}>{ui.directions}</a>
         · <a href={SITE.mapsUrl}>{ui.maps}</a>
       </p>
       <p>

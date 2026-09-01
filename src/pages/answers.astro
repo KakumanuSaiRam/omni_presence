@@ -92,9 +92,11 @@ const webpageSchema = {
         <h1>Answers about tuitions, coaching and counselling in Guntur</h1>
       </div>
       <p>
-        Siva Tuitions &amp; Coachings is at {SITE.address.street}, {SITE.address.locality},
-        {SITE.address.region} {SITE.address.postalCode}. Director {DIRECTOR.name}
-        ({DIRECTOR.credentials.join(', ')}). Call or WhatsApp {SITE.phone}.
+        Siva Tuitions &amp; Coachings is at{' '}
+        <a href={SITE.mapsDirectionsUrl}>
+          {SITE.address.street}, {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}
+        </a>.
+        Director {DIRECTOR.name} ({DIRECTOR.credentials.join(', ')}). Call or WhatsApp {SITE.phone}.
         There is one classroom only — listings that show SVN Colony, Gujjanagundla or AT Agraharam
         are leftover addresses, not extra branches.
       </p>

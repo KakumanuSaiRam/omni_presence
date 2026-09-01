@@ -54,7 +54,7 @@ const telHref = `tel:${SITE.phoneHref}`;
       <p class="hero-actions">
         <a class="btn btn-call" href={telHref}>{ui.call} {SITE.phone}</a>
         <a class="btn btn-wa" href={waHref}>{ui.whatsapp}</a>
-        <a class="btn btn-wa" href={SITE.mapsUrl}>{ui.directions}</a>
+        <a class="btn btn-wa" href={SITE.mapsDirectionsUrl}>{ui.directions}</a>
       </p>
     </div>
     <div class="hero-media">
@@ -291,15 +291,17 @@ const telHref = `tel:${SITE.phoneHref}`;
     <div class="contact-strip" data-reveal>
       <div>
         <h2 style="font-size:1.25rem">{contact.title}</h2>
-        <p>{addressLine}</p>
+        <p><a href={SITE.mapsDirectionsUrl} style="color:inherit">{addressLine}</a></p>
         <p style="margin-top:0.35rem;opacity:0.9">
           <a href={telHref} style="color:inherit">{SITE.phone}</a>
           · <a href={`mailto:${SITE.email}`} style="color:inherit">{SITE.email}</a>
+          · <a href={SITE.mapsDirectionsUrl} style="color:inherit">{ui.directions}</a>
         </p>
       </div>
       <div class="quick-btns">
         <a class="btn btn-call" href={telHref} style="background:#fff;color:var(--accent-deep)">{ui.callNow}</a>
         <a class="btn btn-wa" href={waHref} style="color:#fff;border-color:rgba(255,255,255,0.6)">{ui.whatsapp}</a>
+        <a class="btn btn-wa" href={SITE.mapsDirectionsUrl} style="color:#fff;border-color:rgba(255,255,255,0.6)">{ui.directions}</a>
         <a class="btn btn-wa" href={contact.askHref} style="color:#fff;border-color:rgba(255,255,255,0.6)">{contact.askLabel}</a>
       </div>
     </div>
