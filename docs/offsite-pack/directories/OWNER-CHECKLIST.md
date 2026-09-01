@@ -13,6 +13,30 @@ Paste-ready name, address, phone, hours, categories, and descriptions already li
 
 ---
 
+## Indexing (Search Console + Bing) — done 1–2 Sept 2026
+
+Do **not** repeat these unless the site moves to `sivatuitions.com`.
+
+**Google Search Console** — property `https://sivatuitions.github.io/` (URL prefix)
+
+- Verified with HTML file `public/google153a9d0f9503a2de.html` (keep that file on the site).
+- Sitemap `sitemap-index.xml` submitted; GSC may show **Couldn't fetch** for a day on a new github.io site. That is OK.
+- **Request indexing** already sent for:
+  - `https://sivatuitions.github.io/`
+  - `https://sivatuitions.github.io/answers/`
+  - `https://sivatuitions.github.io/director/yadlapalli-naga-murali-krishna/`
+  - `https://sivatuitions.github.io/counselling/eapcet-web-options-counselling/`
+- Recheck **Pages** / URL inspection in 2–3 days. Do not request the same URLs again the same night.
+
+**Bing Webmaster Tools** — property `https://sivatuitions.github.io/`
+
+- Verified with `public/BingSiteAuth.xml` (keep that file on the site).
+- Sitemap `https://sivatuitions.github.io/sitemap-0.xml` submitted (status: Processing is normal).
+- **URL Submission** already sent for the same four URLs as Google.
+- IndexNow was also pinged from the repo (`npm run postdeploy:ping`).
+
+---
+
 ## What you need before you start (once)
 
 Have these on your phone before opening any portal:
@@ -195,6 +219,8 @@ Yellow Pages India and AskLaila are optional extras in this folder; same NAP, sa
 
 After you save each listing, tick it here:
 
+- [x] Google Search Console — github.io verified + 4 URLs requested (1 Sept 2026)
+- [x] Bing Webmaster Tools — github.io verified + sitemap + 4 URLs submitted (1 Sept 2026)
 - [ ] Justdial — existing listing updated (NAP + Sunday hours + github.io)
 - [ ] Sulekha — AT Agraharam claimed and rewritten
 - [ ] UrbanPro — Gujjanagundla profile updated in place
