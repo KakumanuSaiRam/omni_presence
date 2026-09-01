@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
 import { SITE } from '../data/site.js';
 
 const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
@@ -8,12 +9,26 @@ const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.ad
   title={`Contact ${SITE.name} — Pattabhipuram, Guntur | Phone, WhatsApp, Directions`}
   description={`Contact Siva Tuitions & Coachings: ${SITE.phone}, ${SITE.email}. ${addressLine}.`}
 >
-  <section>
+  <section id="enquire">
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">Parents & students</p>
+        <h1>Ask a question</h1>
+      </div>
+      <p class="section-intro" style="max-width:48ch">
+        Share your question — with a mobile number it opens WhatsApp to {SITE.phone} instantly.
+        Prefer email? That works too, though replies take a little longer.
+      </p>
+      <EnquiryForm id="contact-enquiry" />
+    </div>
+  </section>
+
+  <section class="section-muted">
     <div class="wrap">
       <div class="ruled"><p class="eyebrow">Visit · Call · WhatsApp</p>
-      <h1>Contact {SITE.name}</h1></div>
+      <h2>Contact {SITE.name}</h2></div>
 
-      <div class="quick-btns" style="margin-top:1.5rem">
+      <div class="quick-btns" style="margin-top:1.25rem">
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call Now</a>
         <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--accent-deep);border-color:var(--accent)">WhatsApp Us</a>
         <a class="btn btn-wa" href={SITE.mapsUrl} style="color:var(--accent-deep);border-color:var(--accent)">Get Directions</a>
@@ -34,7 +49,7 @@ const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.ad
           <h3>📧 Email & website</h3>
           <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
           <p style="margin-top:0.6rem"><a href={SITE.url}>{SITE.url.replace('https://', '')}</a></p>
-          <p style="margin-top:0.6rem"><a href={SITE.playStoreUrl}>Android app →</a></p>
+          <p style="margin-top:0.6rem"><a href="/resources/">Official exam links →</a></p>
         </div>
       </div>
       <p style="margin-top:1.5rem;max-width:65ch;color:var(--ink-muted)">

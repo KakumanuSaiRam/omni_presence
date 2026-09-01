@@ -25,6 +25,10 @@ export function staticOgPages() {
       title: `Contact ${SITE.name}`,
       description: `${SITE.address.street}, Guntur ${SITE.address.postalCode} · ${SITE.phone}`,
     },
+    resources: {
+      title: 'Official exam links & scholarships',
+      description: 'AP EAPCET, TS EAMCET, NEET, POLYCET, ECET, JoSAA and scholarship portals for AP & Telangana.',
+    },
     faq: {
       title: 'FAQ — Tuitions, EAPCET, NEET & POLYCET in Guntur',
       description: 'Answers for parents and students at Siva Tuitions & Coachings, Pattabhipuram.',

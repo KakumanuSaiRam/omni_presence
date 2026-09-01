@@ -703,3 +703,82 @@ export const BRAND = {
   ],
   directorImage: '/brand/director.jpg',
 };
+
+/** Parent enquiry form — categories for WhatsApp / email routing. */
+export const ENQUIRY_CATEGORIES = [
+  'Academic Tuitions (Classes 6–10 / Intermediate)',
+  'EAPCET / EAMCET Coaching',
+  'NEET Coaching',
+  'POLYCET / Polytechnic',
+  'Admission Counselling',
+  'Web Options Guidance',
+  'After 10th — group & course choice',
+  'Scholarships & fee reimbursement',
+  'Other',
+];
+
+/** Official portals — AP, Telangana & national (verify URLs each admission season). */
+export const OFFICIAL_RESOURCES = {
+  title: 'Official Links & Scholarships',
+  intro:
+    'Quick links to official entrance-exam and scholarship portals for Andhra Pradesh and Telangana. Always confirm dates on the official site.',
+  scholarships: {
+    title: 'Scholarships & fee support',
+    links: [
+      {
+        name: 'AP Jnanabhumi — Vidya Deevena & fee reimbursement',
+        url: 'https://jnanabhumi.ap.gov.in/',
+        note: 'Andhra Pradesh post-matric scholarships and fee reimbursement.',
+      },
+      {
+        name: 'Telangana ePASS',
+        url: 'https://telanganaepass.cgg.gov.in/',
+        note: 'Telangana pre-matric and post-matric scholarships.',
+      },
+      {
+        name: 'National Scholarship Portal',
+        url: 'https://scholarships.gov.in/',
+        note: 'Central government schemes — SC/ST/OBC/merit scholarships.',
+      },
+      {
+        name: 'AP Fee Reimbursement (our guide)',
+        url: '/blog/ap-scholarships-fee-reimbursement-vidya-deevena/',
+        note: 'How Vidya Deevena works — explained by Siva Tuitions.',
+        internal: true,
+      },
+    ],
+  },
+  ap: {
+    title: 'Andhra Pradesh — entrance exams',
+    links: [
+      { name: 'APSCHE — all AP CETs (hub)', url: 'https://cets.apsche.ap.gov.in/' },
+      { name: 'AP EAPCET (engineering, agriculture, pharmacy)', url: 'https://cets.apsche.ap.gov.in/eapcet/Eapcet/EAPCET_HomePage.aspx' },
+      { name: 'AP ECET (diploma lateral entry to B.Tech)', url: 'https://cets.apsche.ap.gov.in/ECET/ECET/ECET_HomePage' },
+      { name: 'AP ICET (MBA / MCA)', url: 'https://cets.apsche.ap.gov.in/ICET/ICET/ICET_HomePage.aspx' },
+      { name: 'AP PGECET (M.Tech / M.Pharm)', url: 'https://cets.apsche.ap.gov.in/PGECET/PGECET/PGECET_HomePage.aspx' },
+      { name: 'AP PGCET (M.Sc / other PG)', url: 'https://cets.apsche.ap.gov.in/PGCET/PGCET/PGCET_HomePage.aspx' },
+      { name: 'AP POLYCET (polytechnic diploma)', url: 'https://polycetap.nic.in/' },
+      { name: 'AP EAPCET admissions & counselling', url: 'https://cets.apsche.ap.gov.in/', note: 'Open the current-year EAPCET admissions link from the APSCHE hub.' },
+    ],
+  },
+  ts: {
+    title: 'Telangana — entrance exams',
+    links: [
+      { name: 'TG EAPCET / TS EAMCET', url: 'https://eapcet.tgche.ac.in/' },
+      { name: 'TS POLYCET', url: 'https://polycet.tsche.ac.in/' },
+      { name: 'TS ECET (lateral entry)', url: 'https://ecet.tsche.ac.in/' },
+      { name: 'TS ICET (MBA / MCA)', url: 'https://icet.tsche.ac.in/' },
+      { name: 'TGCHE — Telangana higher education', url: 'https://www.tsche.ac.in/' },
+    ],
+  },
+  national: {
+    title: 'National — medical & engineering',
+    links: [
+      { name: 'NEET UG (NTA)', url: 'https://neet.nta.nic.in/' },
+      { name: 'JEE Main (NTA)', url: 'https://jeemain.nta.nic.in/' },
+      { name: 'JoSAA counselling (IIT / NIT / IIIT)', url: 'https://josaa.nic.in/' },
+      { name: 'CSAB (special rounds)', url: 'https://csab.nic.in/' },
+      { name: 'MCC — NEET UG medical counselling', url: 'https://mcc.nic.in/' },
+    ],
+  },
+};

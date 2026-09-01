@@ -1,0 +1,182 @@
+---
+import { SITE, ENQUIRY_CATEGORIES } from '../data/site.js';
+
+const { compact = false, id = 'enquiry-form' } = Astro.props;
+---
+<form class:list={['enquiry-form', { compact }]} id={id} novalidate>
+  <div class="field-row">
+    <label class="field">
+      <span>Category</span>
+      <select name="category" required>
+        <option value="">Choose a topic…</option>
+        {ENQUIRY_CATEGORIES.map((cat) => (
+          <option value={cat}>{cat}</option>
+        ))}
+      </select>
+    </label>
+    <label class="field">
+      <span>Your name</span>
+      <input type="text" name="name" required autocomplete="name" placeholder="Parent / student name" />
+    </label>
+  </div>
+
+  <div class="field-row">
+    <label class="field field-phone">
+      <span>Mobile number <em class="hint">recommended</em></span>
+      <input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile" maxlength="14" />
+      <small class="phone-nudge">Leave your number — we usually call back the same day on WhatsApp.</small>
+    </label>
+    <label class="field">
+      <span>Email <em class="hint optional">optional</em></span>
+      <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+    </label>
+  </div>
+
+  <label class="field">
+    <span>Your question</span>
+    <textarea name="question" rows={compact ? 3 : 4} required placeholder="Ask about tuitions, coaching, counselling, admissions…"></textarea>
+  </label>
+
+  <p class="email-note" id={`${id}-email-note`} hidden>
+    Without a mobile number, email is slower — replies may take 1–2 working days.
+  </p>
+
+  <div class="actions">
+    <button type="button" class="btn btn-wa btn-submit-wa" id={`${id}-wa`}>
+      Send on WhatsApp
+    </button>
+    <button type="button" class="btn btn-email" id={`${id}-email`}>
+      Send by email
+    </button>
+  </div>
+</form>
+
+<script define:vars={{ formId: id, whatsapp: SITE.whatsapp, email: SITE.email, institute: SITE.name }}>
+  const form = document.getElementById(formId);
+  const waBtn = document.getElementById(`${formId}-wa`);
+  const emailBtn = document.getElementById(`${formId}-email`);
+  const emailNote = document.getElementById(`${formId}-email-note`);
+  const phoneInput = form.querySelector('[name="phone"]');
+
+  function digits(v) {
+    return (v || '').replace(/\D/g, '');
+  }
+
+  function hasPhone() {
+    const d = digits(phoneInput.value);
+    return d.length >= 10;
+  }
+
+  function buildMessage(data) {
+    const phone = digits(data.phone);
+    const lines = [
+      `Hello ${institute},`,
+      '',
+      'I have a question:',
+      '',
+      `Category: ${data.category}`,
+      `Name: ${data.name}`,
+    ];
+    if (phone.length >= 10) {
+      const mobile = phone.length === 10 ? phone : phone.slice(-10);
+      lines.push(`Mobile: +91 ${mobile}`);
+    }
+    if (data.email) lines.push(`Email: ${data.email}`);
+    lines.push('', 'Question:', data.question);
+    return lines.join('\n');
+  }
+
+  function getData() {
+    const fd = new FormData(form);
+    return {
+      category: (fd.get('category') || '').toString().trim(),
+      name: (fd.get('name') || '').toString().trim(),
+      phone: (fd.get('phone') || '').toString().trim(),
+      email: (fd.get('email') || '').toString().trim(),
+      question: (fd.get('question') || '').toString().trim(),
+    };
+  }
+
+  function validate(data) {
+    if (!data.category || !data.name || !data.question) {
+      form.reportValidity();
+      return false;
+    }
+    return true;
+  }
+
+  function updateUi() {
+    const withPhone = hasPhone();
+    emailNote.hidden = withPhone;
+    waBtn.classList.toggle('btn-primary', withPhone);
+    emailBtn.classList.toggle('btn-muted', withPhone);
+  }
+
+  phoneInput.addEventListener('input', updateUi);
+  updateUi();
+
+  waBtn.addEventListener('click', () => {
+    const data = getData();
+    if (!validate(data)) return;
+    if (!hasPhone()) {
+      phoneInput.focus();
+      emailNote.hidden = false;
+      return;
+    }
+    const text = encodeURIComponent(buildMessage(data));
+    window.open(`https://wa.me/${whatsapp}?text=${text}`, '_blank', 'noopener');
+  });
+
+  emailBtn.addEventListener('click', () => {
+    const data = getData();
+    if (!validate(data)) return;
+    const subject = encodeURIComponent(`Parent enquiry — ${data.category}`);
+    const body = encodeURIComponent(buildMessage(data));
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  });
+</script>
+
+<style>
+  .enquiry-form { display: grid; gap: 1rem; max-width: 40rem; }
+  .field-row {
+    display: grid; gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) {
+    .field-row { grid-template-columns: 1fr 1fr; }
+    .compact .field-row { grid-template-columns: 1fr; }
+  }
+  .field { display: grid; gap: 0.35rem; }
+  .field span { font-weight: 600; font-size: 0.92rem; color: var(--accent-deep); }
+  .hint { font-weight: 500; font-style: normal; color: var(--highlight); font-size: 0.85rem; }
+  .hint.optional { color: var(--ink-muted); }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 0.65rem 0.75rem; border-radius: 6px;
+    border: 1px solid var(--border); background: var(--surface-raised);
+    font: inherit; color: var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: 2px solid var(--accent-soft); border-color: var(--accent);
+  }
+  .phone-nudge { color: var(--ink-muted); font-size: 0.85rem; line-height: 1.4; }
+  .email-note {
+    margin: 0; padding: 0.65rem 0.85rem; border-radius: 6px;
+    background: var(--surface-accent); border: 1px solid var(--border);
+    font-size: 0.9rem; color: var(--ink-muted);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+  .btn-submit-wa {
+    background: #25a244; color: #fff; border: 2px solid #25a244;
+    font-weight: 700; padding: 0.7rem 1.3rem; border-radius: 6px; cursor: pointer;
+    font-size: 1rem;
+  }
+  .btn-submit-wa.btn-primary { box-shadow: 0 2px 8px rgba(37, 162, 68, 0.25); }
+  .btn-email {
+    background: transparent; color: var(--accent-deep);
+    border: 2px solid var(--border); font-weight: 600;
+    padding: 0.7rem 1.3rem; border-radius: 6px; cursor: pointer; font-size: 1rem;
+  }
+  .btn-email.btn-muted { opacity: 0.85; }
+  .btn-submit-wa:hover { filter: brightness(1.05); }
+  .btn-email:hover { border-color: var(--accent); }
+</style>

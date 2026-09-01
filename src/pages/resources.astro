@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import { OFFICIAL_RESOURCES } from '../data/site.js';
+
+const sections = [
+  OFFICIAL_RESOURCES.scholarships,
+  OFFICIAL_RESOURCES.ap,
+  OFFICIAL_RESOURCES.ts,
+  OFFICIAL_RESOURCES.national,
+];
+---
+<Base
+  title="Official Exam Links & Scholarships — AP & Telangana | Siva Tuitions, Guntur"
+  description="Official links for AP EAPCET, TS EAMCET, NEET, POLYCET, ECET, ICET, JoSAA, and AP/Telangana scholarships — curated for students and parents."
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">AP · Telangana · National</p>
+        <h1>{OFFICIAL_RESOURCES.title}</h1>
+      </div>
+      <p class="section-intro">{OFFICIAL_RESOURCES.intro}</p>
+
+      {sections.map((section) => (
+        <div class="link-section">
+          <h2 class="section-heading">{section.title}</h2>
+          <ul class="link-list">
+            {section.links.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  {...(link.internal ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+                >
+                  {link.name}
+                  {!link.internal && <span class="ext" aria-hidden="true"> ↗</span>}
+                </a>
+                {link.note && <p class="link-note">{link.note}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <p class="disclaimer">
+        Links open official government / university portals. Exam schedules change every year —
+        double-check notifications on the official site. Need help? <a href="/contact/#enquire">Ask us →</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .section-heading {
+    font-size: 1.2rem; color: var(--accent-deep); margin-bottom: 0.65rem;
+  }
+  .link-section { margin-top: 2rem; }
+  .link-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 0.75rem;
+  }
+  .link-list a {
+    font-weight: 700; text-decoration: none; color: var(--accent);
+    display: inline-block;
+  }
+  .link-list a:hover { text-decoration: underline; }
+  .link-note { margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--ink-muted); }
+  .ext { font-size: 0.85em; opacity: 0.7; }
+  .disclaimer {
+    margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+    color: var(--ink-muted); font-size: 0.92rem; max-width: 58ch;
+  }
+</style>
