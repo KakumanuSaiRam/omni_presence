@@ -4,7 +4,6 @@ import { REVIEWS_SECTION } from '../data/i18n.js';
 
 const { lang = 'en' } = Astro.props;
 const copy = REVIEWS_SECTION[lang];
-const track = [...GOOGLE_REVIEWS, ...GOOGLE_REVIEWS];
 const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toLocaleString('en-IN'));
 ---
 
@@ -26,19 +25,23 @@ const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toL
 
   <div class="review-viewport" data-review-marquee>
     <div class="review-track">
-      {track.map((review, i) => (
-        <article class="review-card" aria-hidden={i >= GOOGLE_REVIEWS.length}>
-          <p class="review-topics">
-            {review.topics.map((topic) => (
-              <span>{copy.topics[topic]}</span>
-            ))}
-          </p>
-          <p class="review-quote">“{review.quote}”</p>
-          <footer class="review-by">
-            <span class="review-author">{review.author}</span>
-            <span class="review-src">{copy.source}</span>
-          </footer>
-        </article>
+      {[0, 1].map((copyIndex) => (
+        <div class="review-group" aria-hidden={copyIndex === 1 ? 'true' : undefined}>
+          {GOOGLE_REVIEWS.map((review) => (
+            <article class="review-card">
+              <p class="review-topics">
+                {review.topics.map((topic) => (
+                  <span>{copy.topics[topic]}</span>
+                ))}
+              </p>
+              <p class="review-quote">“{review.quote}”</p>
+              <footer class="review-by">
+                <span class="review-author">{review.author}</span>
+                <span class="review-src">{copy.source}</span>
+              </footer>
+            </article>
+          ))}
+        </div>
       ))}
     </div>
   </div>
@@ -85,13 +88,19 @@ const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toL
     contain: layout paint;
     mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   }
+  /* Two identical groups make the halfway point exactly one full list, so the
+     wrap is seamless. Any padding or gap on the track itself would break that. */
   .review-track {
     display: flex;
-    gap: 1rem;
     width: max-content;
-    padding: 0.35rem 1.25rem 0.6rem;
-    animation: review-ltr 120s linear infinite;
+    padding-block: 0.35rem 0.6rem;
+    animation: review-ltr 150s linear infinite;
     will-change: transform;
+  }
+  .review-group {
+    display: flex;
+    gap: 1rem;
+    padding-right: 1rem;
   }
   .review-viewport:hover .review-track,
   .review-viewport:focus-within .review-track {
@@ -151,8 +160,8 @@ const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toL
   .review-src { color: var(--ink-muted); font-weight: 600; }
 
   @keyframes review-ltr {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -161,10 +170,7 @@ const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toL
       mask-image: none;
       padding: 0 1.25rem;
     }
-    .review-track {
-      animation: none;
-      padding-left: 0;
-    }
-    .review-card[aria-hidden='true'] { display: none; }
+    .review-track { animation: none; }
+    .review-group[aria-hidden='true'] { display: none; }
   }
 </style>
