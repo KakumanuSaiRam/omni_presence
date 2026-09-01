@@ -3,36 +3,34 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { SITE } from '../../data/site.js';
 
-const posts = (await getCollection('blog')).sort((a, b) => b.data.date - a.data.date);
+const posts = (await getCollection('blog')).sort((a, b) => a.data.title.localeCompare(b.data.title));
 
-/** Group guides by topic so the index scans in sections, not a wall of boxes. */
 const TOPICS = [
-  { label: 'After 10th & Intermediate', test: /10th|intermediate|mpc|bipc|hostel|ssc|polycet|polytechnic|iti/i },
-  { label: 'EAPCET & engineering', test: /eapcet|eamcet|engineering|jee|normalization|branch selection|rank band|cbse|state board/i },
-  { label: 'Counselling & web options', test: /web option|counselling|documents checklist|mistake|josaa|ts eamcet/i },
-  { label: 'NEET & pharmacy', test: /neet|pharmacy|pharm\.?d|b\.pharm/i },
-  { label: 'Graduate admissions', test: /icet|ecet|pg-cet|b\.sc|mba|mca|lateral entry/i },
-  { label: 'Parents & student life', test: /parent|tuition|coaching|scholarship|stress|vidya deevena|visit/i },
+  { id: 'after-10th', label: 'After 10th & Intermediate', test: /10th|intermediate|mpc|bipc|hostel|ssc|polycet|polytechnic|iti/i },
+  { id: 'eapcet', label: 'EAPCET & engineering', test: /eapcet|eamcet|engineering|jee|normalization|branch selection|rank band|cbse|state board/i },
+  { id: 'counselling', label: 'Counselling & web options', test: /web option|counselling|documents checklist|mistake|josaa|ts eamcet/i },
+  { id: 'neet', label: 'NEET & pharmacy', test: /neet|pharmacy|pharm\.?d|b\.pharm/i },
+  { id: 'graduate', label: 'Graduate admissions', test: /icet|ecet|pg-cet|b\.sc|mba|mca|lateral entry/i },
+  { id: 'parents', label: 'Parents & student life', test: /parent|tuition|coaching|scholarship|stress|vidya deevena|visit/i },
 ];
 
-function topicLabel(post) {
+function topicFor(post) {
   const text = `${post.data.title} ${post.data.description}`;
   for (const topic of TOPICS) {
-    if (topic.test.test(text)) return topic.label;
+    if (topic.test.test(text)) return topic;
   }
-  return 'More guides';
+  return { id: 'more', label: 'More guides' };
 }
 
 const grouped = new Map();
 for (const post of posts) {
-  const label = topicLabel(post);
-  if (!grouped.has(label)) grouped.set(label, []);
-  grouped.get(label).push(post);
+  const topic = topicFor(post);
+  if (!grouped.has(topic.id)) grouped.set(topic.id, { ...topic, posts: [] });
+  grouped.get(topic.id).posts.push(post);
 }
 
-const sectionOrder = [...TOPICS.map((t) => t.label), 'More guides'].filter(
-  (label) => grouped.has(label),
-);
+const sectionOrder = [...TOPICS.map((t) => t.id), 'more'].filter((id) => grouped.has(id));
+const sections = sectionOrder.map((id) => grouped.get(id));
 ---
 
 <Base
@@ -42,28 +40,35 @@ const sectionOrder = [...TOPICS.map((t) => t.label), 'More guides'].filter(
   <section class="guides-page">
     <div class="wrap guides-wrap">
       <header class="guides-header">
-        <p class="eyebrow">Guides for students &amp; parents</p>
-        <h1>Admission &amp; exam guides</h1>
+        <h1>Guides</h1>
         <p class="guides-lede">
-          Plain-language articles on exams, counselling and admissions in Andhra Pradesh and Telangana —
-          written from the desk at {SITE.name}, Guntur.
+          {posts.length} articles on exams, counselling and admissions — from {SITE.name}, Guntur.
         </p>
       </header>
 
-      {sectionOrder.map((label) => (
-        <div class="guides-section">
-          <h2 class="guides-section-title">{label}</h2>
+      <nav class="guides-toc" aria-label="Guide topics">
+        <p class="guides-toc-label">Jump to</p>
+        <ul>
+          {sections.map((section) => (
+            <li>
+              <a href={`#${section.id}`}>{section.label}</a>
+              <span class="guides-toc-count">{section.posts.length}</span>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {sections.map((section) => (
+        <section class="guides-section" id={section.id}>
+          <h2>{section.label}</h2>
           <ul class="guides-list">
-            {grouped.get(label).map((post) => (
+            {section.posts.map((post) => (
               <li>
-                <a class="guides-link" href={`/blog/${post.id}/`}>
-                  <span class="guides-link-title">{post.data.title}</span>
-                  <span class="guides-link-desc">{post.data.description}</span>
-                </a>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
               </li>
             ))}
           </ul>
-        </div>
+        </section>
       ))}
     </div>
   </section>
@@ -71,46 +76,102 @@ const sectionOrder = [...TOPICS.map((t) => t.label), 'More guides'].filter(
 
 <style>
   .guides-page {
-    padding-block: 2.5rem 3.5rem;
+    padding-block: 2.75rem 4rem;
   }
 
   .guides-wrap {
-    max-width: 40rem;
+    max-width: 36rem;
   }
 
   .guides-header {
-    margin-bottom: 2.25rem;
-    padding-bottom: 1.75rem;
-    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
   }
 
   .guides-header h1 {
     color: var(--accent-deep);
-    font-size: clamp(1.65rem, 4vw, 2.1rem);
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
   }
 
   .guides-lede {
-    max-width: 38ch;
     color: var(--ink-muted);
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
     margin: 0;
   }
 
-  .guides-section + .guides-section {
-    margin-top: 2rem;
+  .guides-toc {
+    margin-bottom: 2.5rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-muted);
   }
 
-  .guides-section-title {
-    font-family: 'Karla', system-ui, sans-serif;
-    font-size: 0.8125rem;
+  .guides-toc-label {
+    margin: 0 0 0.65rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-muted);
-    margin: 0 0 0.5rem;
+  }
+
+  .guides-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .guides-toc li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .guides-toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .guides-toc a:hover,
+  .guides-toc a:focus-visible {
+    color: var(--highlight-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .guides-toc-count {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .guides-section {
+    scroll-margin-top: 5rem;
+  }
+
+  .guides-section + .guides-section {
+    margin-top: 2.25rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .guides-section h2 {
+    font-family: 'Karla', system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 0.75rem;
   }
 
   .guides-list {
@@ -119,45 +180,28 @@ const sectionOrder = [...TOPICS.map((t) => t.label), 'More guides'].filter(
     padding: 0;
   }
 
-  .guides-link {
+  .guides-list li + li {
+    margin-top: 0.15rem;
+  }
+
+  .guides-list a {
     display: block;
-    padding: 0.95rem 0;
+    padding: 0.55rem 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--ink);
     text-decoration: none;
-    color: inherit;
     border-bottom: 1px solid var(--border);
   }
 
-  .guides-list li:first-child .guides-link {
-    padding-top: 0.35rem;
+  .guides-list li:last-child a {
+    border-bottom: none;
   }
 
-  .guides-link-title {
-    display: block;
-    font-family: 'Karla', system-ui, sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.45;
-    color: var(--ink);
-  }
-
-  .guides-link-desc {
-    display: block;
-    margin-top: 0.3rem;
-    font-size: 0.9375rem;
-    line-height: 1.55;
-    color: var(--ink-muted);
-  }
-
-  .guides-link:hover .guides-link-title,
-  .guides-link:focus-visible .guides-link-title {
+  .guides-list a:hover,
+  .guides-list a:focus-visible {
     color: var(--highlight-deep);
     text-decoration: underline;
     text-underline-offset: 2px;
-  }
-
-  .guides-link:focus-visible {
-    outline: 2px solid var(--highlight-soft);
-    outline-offset: 2px;
-    border-radius: 2px;
   }
 </style>
