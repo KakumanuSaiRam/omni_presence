@@ -7,6 +7,8 @@ Use the national directory that actually indexes Guntur education listings. Pref
 
 If a sales PDF cites a different “Yellow Pages India” domain, still paste the **same NAP**. The citation value is consistency, not which clone ranks this month.
 
+**Location (locked):** 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. Claim and rewrite any SVN Colony / AT Agraharam row; those are not branches.
+
 ---
 
 ## Canonical NAP (paste character-for-character)
@@ -132,5 +134,5 @@ Many Yellow Pages clones ignore photos; still upload so aggregators that scrape 
 
 - There are several “Yellow Pages India” domains. Submit **once** on the property you can log into, and use this same NAP if a data aggregator (Foursquare, Bing) later asks you to confirm a Yellow Pages-sourced listing.
 - Do not pay for “top 10 listing with logo” until the free NAP is live and correct. Paid upgrades do not fix a wrong address.
-- If an existing Yellow Pages row shows **SVN Colony** or **AT Agraharam**, claim and correct it. `TODO(owner: branch vs correction)` — same decision as Sulekha / AnyJankari.
+- If an existing Yellow Pages row shows **SVN Colony** or **AT Agraharam**, claim it and rewrite the address to **2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006**. Those old localities are not branches.
 - Never paste competitor names into the description.

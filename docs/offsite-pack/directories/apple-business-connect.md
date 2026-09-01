@@ -3,7 +3,9 @@
 Portal: https://businessconnect.apple.com  
 This feeds Apple Maps, Siri, Spotlight and Wallet. Required for iPhone parents in Guntur.
 
-Create a **Brand** (Siva Tuitions & Coachings) and one **Location** (Pattabhipuram). Do not add Tenali / Mangalagiri / Hyderabad as locations — those are not branches.
+Create a **Brand** (Siva Tuitions & Coachings) and **one Location**: Pattabhipuram 2nd Lane. Do not add Tenali / Mangalagiri / Hyderabad / SVN Colony / Gujjanagundla as locations — those are not branches. The classroom is only at Pattabhipuram.
+
+**Location (locked):** 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 
 ---
 
@@ -126,8 +128,8 @@ Enable only what is true:
 ## Gotchas
 
 - 250-character About is easy to overshoot. Count before paste. The primary version above is 244.
-- **One location only** unless a second classroom is real. Apple will happily publish a wrong SVN Colony POI if Maps already has one — claim and correct rather than adding Pattabhipuram as a second pin.
-- AnyJankari and other scrapers still show **SVN Colony 5th Ln, behind RVR&JC hostel**. If that pin is in Apple Maps already, it is the same `TODO(owner: branch vs correction)` as GBP.
+- **One location only:** 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. Apple will happily publish a wrong SVN Colony POI if Maps already has one — claim that pin and **move it** to Pattabhipuram; do not add a second location.
+- AnyJankari and other scrapers still show **SVN Colony 5th Ln, behind RVR&JC hostel**. Treat that as a stale pin. Correct it to the Pattabhipuram NAP. It is not a branch.
 - Brand name and location name should both be `Siva Tuitions & Coachings` (ampersand), not “Siva Tuitions and Coachings”, except where a legal-name field exists — then use **Siva Tuitions and Coachings**.
 - Siri reads the About. Keep it spoken-English, not keyword soup.
 - Verification is via Apple ID. Use the owner’s Apple ID; a student’s ID will lock you out later.

@@ -2,6 +2,8 @@
 
 Add / claim: https://www.asklaila.com (Add a Business / Claim Ownership on an existing card).
 
+**Location (locked):** one classroom only — 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. If a crowdsourced card already shows SVN Colony or another Guntur locality, claim it and move it here. Do not add a second AskLaila listing.
+
 AskLaila Guntur education listings sit under **Educational Institutions → Training**. Live category labels from AskLaila Guntur pages:
 
 - Entrance Exam Training Institutes  
@@ -119,7 +121,7 @@ AskLaila listings are often photo-poor; even 3 images help.
 
 ## Gotchas
 
-- Search AskLaila for “Siva Tuitions Guntur” before adding. Crowdsourced cards sometimes already exist with a stale locality.
+- Search AskLaila for “Siva Tuitions Guntur” before adding. Crowdsourced cards sometimes already exist with a stale locality (SVN Colony, AT Agraharam, Arundelpet). Claim and move them to **Pattabhipuram** — 2nd Lane, behind Jamili Dental Hospital. Do not keep extra cards.
 - Locality must be **Pattabhipuram**, not Arundelpet / Brodipet (those are just popular AskLaila education hubs).
 - AskLaila displays a “100%” rate-now widget that is not a real rating. Do not screenshot it as social proof.
 - Phone format: include `+91 88797 97777` so it matches GBP. If the form strips `+91`, enter `8879797777` and confirm the public page still shows the canonical spacing where possible.

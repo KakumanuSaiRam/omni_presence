@@ -5,7 +5,9 @@ Existing institute profile (update this; do not spawn a duplicate):
 https://www.urbanpro.com/guntur/siva-tuitions-gujjanagundla/31503988
 
 Current address on that page: **Beside HDFC Bank, Stambhalagaruvu, Gujjanagundla, Guntur, India - 522006**.  
-Canonical centre is Pattabhipuram. Decide branch vs correction before touching anything else.
+That locality is stale. The institute is **only** at Pattabhipuram 2nd Lane — update this profile in place; do not add a second UrbanPro institute.
+
+**Location (locked):** 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. Gujjanagundla is not a branch.
 
 ---
 
@@ -68,7 +70,7 @@ Class location defaults: **At the Institute**. Online via Zoom: `TODO(owner: the
 Tuitions, EAPCET/NEET/POLYCET coaching & web-options counselling — Pattabhipuram, Guntur
 ```
 
-(118 characters. If the field caps near 80, use:)
+(88 characters. If the field caps near 80, use:)
 
 ```
 EAPCET, NEET, POLYCET coaching & tuitions — Pattabhipuram, Guntur
@@ -135,7 +137,7 @@ UrbanPro requires a profile photo for Tutor Partner eligibility.
 
 - [ ] Institute logo or director headshot (clear, no collage)
 - [ ] Classroom
-- [ ] Exterior at **Pattabhipuram** (not the Gujjanagundla HDFC landmark unless that site is still real)
+- [ ] Exterior at **Pattabhipuram 2nd Lane** (not the old Gujjanagundla HDFC landmark)
 - [ ] ID proof for verification (director)
 
 ---
@@ -148,10 +150,7 @@ Leave blank or `TODO(owner: publish only real batch fees)`. UrbanPro leads often
 
 ## Gotchas
 
-- **Update https://www.urbanpro.com/guntur/siva-tuitions-gujjanagundla/31503988.** Creating a second Guntur institute with the same phone will look like a duplicate and split reviews (there are currently none — good time to fix NAP).
-- `TODO(owner: branch vs correction)`  
-  - If Gujjanagundla / Stambhalagaruvu (Beside HDFC Bank) is **not** a current classroom → change locality to Pattabhipuram and paste the canonical street address.  
-  - If it **is** a branch → UrbanPro allows one locality per profile; either keep Gujjanagundla as that branch’s listing and add a **new** institute profile for Pattabhipuram with the canonical NAP, or close Gujjanagundla if that room no longer exists.
+- **Update https://www.urbanpro.com/guntur/siva-tuitions-gujjanagundla/31503988 in place.** Change locality from Gujjanagundla / Stambhalagaruvu to **Pattabhipuram** and paste the canonical street address (2nd Lane, behind Jamili Dental Hospital, Gang Colony). Creating a second Guntur institute with the same phone will look like a duplicate. There are currently no reviews — good time to fix NAP. Gujjanagundla is **not** a branch.
 - Untick ITIL V3. That category puts you in “Software Training Institutes” carousels, which is how this profile currently appears next to IT institutes — wrong audience.
 - Do not buy UrbanPro “Certified” or fake reviews. Certified is awarded from student feedback.
 - Disclose paid UrbanPro membership only if you need demo-booking; a corrected free profile is still a useful citation.

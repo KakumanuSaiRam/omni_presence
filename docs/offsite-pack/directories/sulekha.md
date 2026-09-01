@@ -5,7 +5,9 @@ Existing listing to claim first:
 
 https://www.sulekha.com/profile/siva-tuitions-at-agraharam-guntur
 
-That page currently shows a **different address** (SVN Colony / AT Agraharam). Do not create a second profile until the owner decides branch vs correction.
+That page currently shows a **stale address** (SVN Colony / AT Agraharam). The institute has **one** classroom: Pattabhipuram 2nd Lane. Claim this profile and rewrite the address — do not create a second listing and do not keep AT Agraharam as a branch.
+
+**Location (locked):** 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. SVN Colony / AT Agraharam are not branches.
 
 ---
 
@@ -139,9 +141,6 @@ Sulekha states photos can lift profile completeness ~25%.
 
 ## Gotchas
 
-- **Claim https://www.sulekha.com/profile/siva-tuitions-at-agraharam-guntur first.** It currently lists: “BEHIND RVR & JC WOMEN'S HOSTEL … 5th LANE, SVN COLONY, AT Agraharam, Guntur - 522006”. That is **not** the canonical NAP.
-- `TODO(owner: branch vs correction)`  
-  - If SVN Colony / AT Agraharam was an old centre or a geocoder error → edit that listing to the Pattabhipuram NAP and rename to **Siva Tuitions & Coachings**.  
-  - If it is a real second classroom → keep it as a **branch** listing with its own real address, and create/claim a **separate** Pattabhipuram listing with the canonical NAP. Never run two listings with the same phone and two different addresses unless both places are real.
+- **Claim https://www.sulekha.com/profile/siva-tuitions-at-agraharam-guntur first.** It currently lists: “BEHIND RVR & JC WOMEN'S HOSTEL … 5th LANE, SVN COLONY, AT Agraharam, Guntur - 522006”. That is stale. The only location is **2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006**. Edit that listing to the canonical NAP, rename to **Siva Tuitions & Coachings**, and change locality from AT Agraharam / SVN Colony to **Pattabhipuram**. Do not open a second Sulekha profile.
 - Sulekha’s current About text claims a “proven track record” with no numbers. Replace it with the copy above. Do not invent student counts to fill the gap.
 - Ignore Sulekha’s “Distance Education” and “IT training” ticks unless they are real services.

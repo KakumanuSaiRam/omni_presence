@@ -5,6 +5,8 @@ This is the strongest local signal for Gemini and Google AI Overviews (GEO Playb
 
 Claim the Maps listing first (search the canonical name + Pattabhipuram). Do not create a second profile.
 
+**Location (locked):** the institute is at 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. SVN Colony and Gujjanagundla pins are stale — merge or close them. No branches.
+
 ---
 
 ## Canonical NAP (paste character-for-character)
@@ -175,7 +177,7 @@ Never buy reviews. Reply to every review as the owner, using the canonical name 
 
 - `TODO(owner: verify +91 88797 97777 before the listing is public.)`
 - Hours in site.js are still a TODO — wrong hours are a Trustpilot-level trust killer on Maps.
-- Duplicate listings: scrapers placed this business at **SVN Colony 5th Lane, behind RVR & JC hostel** (AnyJankari, BizPry) and **Gujjanagundla / Stambhalagaruvu** (UrbanPro). If Google Maps already has those pins, use “Suggest an edit” / support chat to **merge or mark closed**, then keep one canonical Pattabhipuram profile. `TODO(owner: branch vs correction)` — only keep extra pins if those rooms still operate.
+- Duplicate listings: scrapers placed this business at **SVN Colony 5th Lane, behind RVR & JC hostel** (AnyJankari, BizPry) and **Gujjanagundla / Stambhalagaruvu** (UrbanPro). Those rooms are **not** branches. If Google Maps already has those pins, use “Suggest an edit” / support chat to **merge or mark closed**, and keep **one** listing at 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006.
 - Founding year 2005 is unverified. Do not add it to GBP attributes until confirmed.
 - UPI / payments attributes: `TODO(owner)`.
 - After GBP is live, import it into Bing Places (`bing-places.md`) so ChatGPT sees the same NAP.

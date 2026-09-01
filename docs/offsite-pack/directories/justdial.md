@@ -5,6 +5,8 @@ Manage afterwards in the JD Business app / Edit Listing.
 
 Search first for existing Guntur listings under “Siva Tuitions” before creating a duplicate.
 
+**Location (locked):** one classroom only — 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram, Guntur, Andhra Pradesh 522006. SVN Colony / AT Agraharam rows on the web are stale; rewrite them to this address. Do not add a branch listing.
+
 ---
 
 ## Canonical NAP (paste character-for-character)
@@ -145,7 +147,7 @@ Do not paste these into the **business name**.
 
 ## Gotchas
 
-- Search Justdial for “Siva Tuitions Guntur” **before** creating. Duplicate listings with SVN Colony or AT Agraharam addresses already exist on other directories; JD may have a scraped copy. Claim the existing one and correct NAP rather than opening a second listing.
+- Search Justdial for “Siva Tuitions Guntur” **before** creating. Duplicate listings with SVN Colony or AT Agraharam addresses already exist on other directories; JD may have a scraped copy. Claim the existing one and rewrite NAP to **2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram**. Do not keep SVN Colony or AT Agraharam as a second Justdial listing — the institute is only at Pattabhipuram 2nd Lane.
 - Do not put “Best” or “No.1” in the name. That is a common JD/Google suspension pattern.
 - Category `Tutorials` is the parent bucket Guntur parents actually search. Entrance categories are extra visibility, not a replacement.
 - Phone must stay +91 88797 97777. `TODO(owner: verify this number before first publish — site.js still flags it.)`

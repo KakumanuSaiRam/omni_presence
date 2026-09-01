@@ -7,6 +7,8 @@ ChatGPT and Copilot retrieve local businesses heavily from **Bing**. This listin
 
 Fastest path: **Import from Google** after GBP is verified, then **re-check every field** against this pack. Bing categories do not map 1:1 from Google.
 
+**Location (locked):** 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram. If Bing imported an SVN Colony or Gujjanagundla pin, move it. One listing only.
+
 ---
 
 ## Canonical NAP (paste character-for-character)
@@ -155,5 +157,5 @@ Reuse GBP weekly posts; trim to 200 characters + link https://sivatuitions.com
 - Verification can take 7–14 days after publish. Do not create a second Places listing while waiting.
 - Social links: add Facebook / Instagram / X only if those profiles already show the same NAP.
 - Phone: use the same `+91 88797 97777` string as GBP. `TODO(owner: verify number before first Bing publish.)`
-- If Bing Maps already dropped a pin on **SVN Colony** or **Gujjanagundla**, claim that place and **move** it. Two Bing pins with one phone number split ChatGPT citations.
+- If Bing Maps already dropped a pin on **SVN Colony** or **Gujjanagundla**, claim that place and **move** it to Pattabhipuram 2nd Lane. Those are stale pins, not branches. Two Bing pins with one phone number split ChatGPT citations.
 - Do not mark Sunday open unless the owner confirms.

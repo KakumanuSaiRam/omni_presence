@@ -67,9 +67,11 @@ The GBP is the strongest single local signal for Gemini and Google AI Overviews.
 
 Fix or create listings with the canonical NAP (currently inconsistent across the web):
 
-- Justdial, Sulekha, UrbanPro (update Gujjanagundla listing or mark as branch),
+- Justdial, Sulekha, UrbanPro (the Gujjanagundla UrbanPro profile is stale — update it
+  in place to Pattabhipuram 2nd Lane; it is not a branch),
   IndiaMART, AskLaila, Yellow Pages India, LocalVyaparHub (verify existing data),
-  AnyJankari (update SVN Colony listing if that branch is real — else request correction).
+  AnyJankari (SVN Colony listing is stale — request correction to Pattabhipuram 2nd Lane).
+  One classroom only: 2nd Lane, behind Jamili Dental Hospital, Gang Colony, Pattabhipuram.
 - Bing Places for Business (mirror of GBP — almost nobody does this; do it).
 - Apple Business Connect (Siri/Apple Maps).
 

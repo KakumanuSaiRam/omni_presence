@@ -3,6 +3,8 @@
 Seller signup: https://seller.indiamart.com  
 IndiaMART is a B2B catalogue. Treat courses as **services / products**, not a Google-style local pack. Still use the canonical NAP on the company profile — crawlers read it.
 
+**Location (locked):** company address is Pattabhipuram 2nd Lane only. Rewrite any SVN Colony scrape; do not register a second seller location.
+
 ---
 
 ## Canonical NAP (company profile — character-for-character)
@@ -170,4 +172,4 @@ IndiaMART wants one image per product plus a company logo.
 - IndiaMART sales will call to upsell catalog packages. A free company profile + 5–7 services is enough for NAP consistency. You do not need paid leads for GEO.
 - **Never put the phone number inside a product description.** Their reviewers strip or reject those.
 - Do not tick Manufacturer. You provide coaching services.
-- If an old IndiaMART scrape exists under SVN Colony, claim it and fix NAP rather than opening a second company with the same mobile number.
+- If an old IndiaMART scrape exists under SVN Colony, claim it and rewrite the company address to Pattabhipuram 2nd Lane. Do not open a second company with the same mobile number. SVN Colony is not a branch.
