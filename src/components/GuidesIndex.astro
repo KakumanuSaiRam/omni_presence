@@ -80,18 +80,14 @@ const defaultSection = sections[0]?.id ?? '';
           class="guides-panel"
           id={`guide-panel-${section.id}`}
           data-section={section.id}
+          aria-label={section.label}
           hidden={i !== 0}
         >
-          <header class="guides-panel-head">
-            <h2>{section.label}</h2>
-            {section.hint && <p class="guides-panel-lede">{section.hint}</p>}
-          </header>
           <div
             class="guides-list-scroll"
             class:list={{ 'has-scroll': section.posts.length > 10 }}
             data-count={section.posts.length}
             tabindex="0"
-            aria-label={`${section.label} guides`}
           >
             <ul class="guides-list">
               {section.posts.map((post) => (
@@ -101,7 +97,10 @@ const defaultSection = sections[0]?.id ?? '';
                   data-tags={post.meta.tags.join('|').toLowerCase()}
                   data-search={`${post.data.title} ${post.data.description} ${post.meta.tags.join(' ')}`.toLowerCase()}
                 >
-                  <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                  <a class="guides-item-link" href={`/blog/${post.id}/`}>
+                    <span class="guides-item-title">{post.data.title}</span>
+                    <span class="guides-item-desc">{post.data.description}</span>
+                  </a>
                   <ul class="guides-item-tags" aria-label="Tags" hidden>
                     {post.meta.tags.map((tag) => (
                       <li><span class="guides-item-tag">{tag}</span></li>
@@ -278,7 +277,7 @@ const defaultSection = sections[0]?.id ?? '';
 <style>
   .guides-index {
     max-width: 56rem;
-    --guides-row: 2.85rem;
+    --guides-row: 4.1rem;
     --guides-visible: 10;
   }
 
@@ -538,8 +537,7 @@ const defaultSection = sections[0]?.id ?? '';
 
   .guides-main {
     min-width: 0;
-    /* Fixed block height: header + 10 list rows — keeps footer position stable */
-    min-height: calc(5.5rem + var(--guides-row) * var(--guides-visible));
+    min-height: calc(var(--guides-row) * var(--guides-visible));
   }
 
   .guides-panel {
@@ -547,43 +545,18 @@ const defaultSection = sections[0]?.id ?? '';
   }
 
   .guides-panel + .guides-panel:not([hidden]) {
-    margin-top: 2rem;
-    padding-top: 2rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--border);
   }
 
-  .guides-panel-head {
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.85rem;
-    border-bottom: 2px solid var(--accent-deep);
-  }
-
-  .guides-panel-head h2 {
-    font-family: 'Karla', system-ui, sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--accent-deep);
-    margin: 0;
-    line-height: 1.25;
-  }
-
-  .guides-panel-lede {
-    margin: 0.45rem 0 0;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    color: var(--ink-muted);
-    max-width: 42ch;
-  }
-
-  /* Always reserve space for 10 rows; scroll only when section has more */
   .guides-list-scroll {
     height: calc(var(--guides-row) * var(--guides-visible));
     overflow-y: hidden;
     overflow-x: hidden;
     padding-right: 0.35rem;
     border: 1px solid var(--border);
-    border-top: 3px solid var(--accent-deep);
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px;
     background: var(--surface-raised);
   }
 
@@ -616,10 +589,8 @@ const defaultSection = sections[0]?.id ?? '';
   }
 
   .guides-item {
-    display: flex;
-    align-items: center;
     min-height: var(--guides-row);
-    padding: 0.4rem 0;
+    padding: 0.55rem 0;
     border-bottom: 1px solid var(--border);
     box-sizing: border-box;
   }
@@ -628,20 +599,36 @@ const defaultSection = sections[0]?.id ?? '';
     border-bottom: none;
   }
 
-  .guides-item > a {
+  .guides-item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .guides-item-link:hover .guides-item-title,
+  .guides-item-link:focus-visible .guides-item-title {
+    color: var(--highlight-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .guides-item-title {
     display: block;
     font-size: 0.9375rem;
     line-height: 1.35;
     color: var(--ink);
-    text-decoration: none;
     font-weight: 600;
   }
 
-  .guides-item > a:hover,
-  .guides-item > a:focus-visible {
-    color: var(--highlight-deep);
-    text-decoration: underline;
-    text-underline-offset: 2px;
+  .guides-item-desc {
+    margin-top: 0.2rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--ink-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .guides-item-tags {
