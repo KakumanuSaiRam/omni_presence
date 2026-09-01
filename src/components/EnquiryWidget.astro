@@ -139,14 +139,6 @@ const t = ENQUIRY_WIDGET[lang] ?? ENQUIRY_WIDGET.en;
 
   fab.addEventListener('click', openDialog);
 
-  // Any link pointing at #enquire opens the widget instead of jumping.
-  document.querySelectorAll('a[href$="#enquire"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      openDialog();
-    });
-  });
-
   cbToggle.addEventListener('change', () => {
     cbFields.hidden = !cbToggle.checked;
     if (cbToggle.checked) cbFields.querySelector('[name="phone"]').focus();
@@ -267,9 +259,22 @@ const t = ENQUIRY_WIDGET[lang] ?? ENQUIRY_WIDGET.en;
       const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(cfg.target)}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ _subject: payload.subject, _template: 'table', ...payload }),
+        body: JSON.stringify({
+          ...payload,
+          _subject: payload.subject,
+          _template: 'table',
+          _captcha: 'false',
+          _honey: '', // FormSubmit's own honeypot field name
+        }),
       });
       if (!res.ok) throw new Error(`formsubmit ${res.status}`);
+      const json = await res.json().catch(() => ({}));
+      // Pre-activation FormSubmit answers 200 with success:"false" and a
+      // "confirm your email" message — surface that as a failure so the
+      // visitor still gets the email/WhatsApp fallback.
+      if (json.success === 'false' || json.success === false) {
+        throw new Error(json.message || 'formsubmit not activated');
+      }
       return;
     }
 
@@ -370,16 +375,23 @@ const t = ENQUIRY_WIDGET[lang] ?? ENQUIRY_WIDGET.en;
     .fab { padding: 0.95rem; }
   }
 
-  dialog {
+  /* Centre explicitly rather than relying on UA defaults, which vary once the
+     dialog is given its own `display`. */
+  dialog[open] {
+    position: fixed;
+    inset: 0;
+    margin: auto;
     width: min(38rem, calc(100vw - 1.5rem));
-    max-height: min(92dvh, 46rem);
-    margin: auto; /* centre in the viewport */
+    max-height: min(92svh, 46rem);
+    /* Head stays put, body scrolls when the form is taller than the screen. */
+    display: flex;
+    flex-direction: column;
+  }
+  dialog {
     padding: 0; border: none; border-radius: 16px;
     background: var(--surface-raised); color: var(--ink);
     box-shadow: 0 30px 70px rgba(21, 26, 77, 0.32);
     overflow: hidden;
-    /* Head stays put, body scrolls when the form is taller than the screen. */
-    display: flex; flex-direction: column;
   }
   dialog:not([open]) { display: none; }
   #enquiry-widget-form, .dialog-result { overflow-y: auto; }

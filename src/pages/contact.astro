@@ -1,65 +1,112 @@
 ---
 import Base from '../layouts/Base.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
-import { SITE } from '../data/site.js';
+import { SITE, GALLERY } from '../data/site.js';
 
 const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
+const waHref = `https://wa.me/${SITE.whatsapp}`;
+const centrePhoto = GALLERY[1];
 ---
 <Base
   title={`Contact ${SITE.name} — Pattabhipuram, Guntur | Phone, WhatsApp, Directions`}
   description={`Contact Siva Tuitions & Coachings: ${SITE.phone}, ${SITE.email}. ${addressLine}.`}
 >
-  <section id="enquire">
-    <div class="wrap">
-      <div class="ruled">
-        <p class="eyebrow">Parents & students</p>
+  <section class="hero-band">
+    <div class="wrap hero-split">
+      <div>
+        <p class="eyebrow">Parents &amp; students</p>
         <h1>Ask a question</h1>
+        <p class="hero-sub">
+          Share your question — with a mobile number it opens WhatsApp to {SITE.phone} instantly.
+          Prefer email? That works too, though replies take a little longer.
+        </p>
+        <p class="quick-btns">
+          <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call Now</a>
+          <a class="btn btn-ghost" href={waHref}>WhatsApp Us</a>
+          <a class="btn btn-ghost" href={SITE.mapsUrl}>Get Directions</a>
+        </p>
       </div>
-      <p class="section-intro" style="max-width:48ch">
-        Share your question — with a mobile number it opens WhatsApp to {SITE.phone} instantly.
-        Prefer email? That works too, though replies take a little longer.
-      </p>
-      <EnquiryForm id="contact-enquiry" />
+      <figure class="hero-photo" data-reveal>
+        <img src={centrePhoto.src} alt={centrePhoto.alt} width="480" height="320" loading="eager" />
+        <figcaption>Pattabhipuram centre</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section-muted">
-    <div class="wrap">
-      <div class="ruled"><p class="eyebrow">Visit · Call · WhatsApp</p>
-      <h2>Contact {SITE.name}</h2></div>
-
-      <div class="quick-btns" style="margin-top:1.25rem">
-        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call Now</a>
-        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--accent-deep);border-color:var(--accent)">WhatsApp Us</a>
-        <a class="btn btn-wa" href={SITE.mapsUrl} style="color:var(--accent-deep);border-color:var(--accent)">Get Directions</a>
+  <section id="enquire">
+    <div class="wrap contact-layout">
+      <div data-reveal>
+        <h2 class="lbl">Send us the details</h2>
+        <EnquiryForm id="contact-enquiry" />
       </div>
 
-      <div class="grid" style="margin-top:1.75rem">
-        <div class="card">
-          <h3>📍 Address</h3>
-          <p>{addressLine}</p>
-          <p style="margin-top:0.6rem"><a href={SITE.mapsUrl}>Google Maps →</a></p>
+      <aside data-reveal data-reveal-delay="1">
+        <h2 class="lbl">Reach us directly</h2>
+        <dl class="detail-list">
+          <div>
+            <dt>Address</dt>
+            <dd>{addressLine}<br /><a href={SITE.mapsUrl}>Google Maps &rarr;</a></dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a> · <a href={waHref}>WhatsApp &rarr;</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+          </div>
+          <div>
+            <dt>Website</dt>
+            <dd><a href={SITE.url}>{SITE.url.replace('https://', '')}</a></dd>
+          </div>
+          <div>
+            <dt>Hours</dt>
+            <dd>{SITE.hoursLabel}</dd>
+          </div>
+        </dl>
+
+        <div class="panel" style="margin-top:1.5rem">
+          <p class="panel-label">Counselling season</p>
+          <p style="color:var(--ink-muted);margin-top:0.3rem">
+            During EAPCET, NEET and POLYCET counselling we also take phone and WhatsApp
+            consultations from students across Andhra Pradesh and Telangana.
+          </p>
+          <p style="margin-top:0.6rem"><a href="/resources/">Official exam links &rarr;</a></p>
         </div>
-        <div class="card">
-          <h3>📞 Phone & WhatsApp</h3>
-          <p><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
-          <p style="margin-top:0.6rem"><a href={`https://wa.me/${SITE.whatsapp}`}>WhatsApp →</a></p>
-        </div>
-        <div class="card">
-          <h3>📧 Email & website</h3>
-          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-          <p style="margin-top:0.6rem"><a href={SITE.url}>{SITE.url.replace('https://', '')}</a></p>
-          <p style="margin-top:0.6rem"><a href="/resources/">Official exam links →</a></p>
-        </div>
-      </div>
-      <p style="margin-top:1.5rem;max-width:65ch;color:var(--ink-muted)">
-        Hours: {SITE.hoursLabel}. During EAPCET, NEET and POLYCET counselling season we also take
-        phone and WhatsApp consultations from students across Andhra Pradesh and Telangana.
-      </p>
+      </aside>
     </div>
   </section>
 </Base>
 
 <style>
-  .quick-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero-band {
+    background: linear-gradient(180deg, var(--surface-muted), var(--surface));
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 0 2rem;
+  }
+  .hero-split {
+    display: grid; gap: 1.5rem; align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 760px) { .hero-split { grid-template-columns: 1fr 1fr; } }
+  .hero-band h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--accent-deep); margin-top: 0.3rem; }
+  .hero-sub { margin-top: 0.7rem; color: var(--ink-muted); max-width: 52ch; }
+  .quick-btns { margin-top: 1.25rem; display: flex; gap: 0.65rem; flex-wrap: wrap; }
+  .hero-photo {
+    margin: 0; overflow: hidden; border-radius: 14px;
+    border: 1px solid var(--border); box-shadow: 0 14px 32px var(--shadow);
+  }
+  .hero-photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .hero-photo figcaption {
+    padding: 0.6rem 0.9rem; font-size: 0.85rem; font-weight: 600;
+    color: var(--highlight-deep); background: var(--surface-raised);
+  }
+
+  .lbl {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--highlight-deep);
+    margin-bottom: 0.9rem;
+  }
+  .contact-layout { display: grid; gap: 2.5rem; align-items: start; grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .contact-layout { grid-template-columns: 1.1fr 0.9fr; gap: 3rem; } }
 </style>

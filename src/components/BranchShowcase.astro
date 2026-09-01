@@ -1,0 +1,94 @@
+---
+import { SITE, GALLERY } from '../data/site.js';
+import { BRANCH_SECTION, UI } from '../data/i18n.js';
+
+const { lang = 'en' } = Astro.props;
+const copy = BRANCH_SECTION[lang];
+const ui = UI[lang];
+const galleryHref = lang === 'te' ? '/te/gallery/' : '/gallery/';
+const featured = GALLERY[0];
+const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
+---
+<section id="centre" class="section-muted branch-section">
+  <div class="wrap branch-layout">
+    <figure class="branch-photo" data-reveal>
+      <img src={featured.src} alt={copy.featuredAlt} width="640" height="420" loading="lazy" />
+      <figcaption class="branch-badge">{SITE.address.locality}, {SITE.address.region}</figcaption>
+    </figure>
+    <div class="branch-body" data-reveal data-reveal-delay="1">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 class="section-heading">{copy.title}</h2>
+      <p class="section-lead">{copy.lead}</p>
+      <dl class="branch-details">
+        <div>
+          <dt>{copy.addressLabel}</dt>
+          <dd>{addressLine}</dd>
+        </div>
+        <div>
+          <dt>{copy.hoursLabel}</dt>
+          <dd>{SITE.hoursLabel}</dd>
+        </div>
+      </dl>
+      <ul class="branch-features">
+        {copy.features.map((item) => (
+          <li><span aria-hidden="true">{item.icon}</span>{item.text}</li>
+        ))}
+      </ul>
+      <p class="branch-actions">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>{ui.call} {SITE.phone}</a>
+        <a class="btn btn-ghost" href={SITE.mapsUrl}>{copy.mapsLabel}</a>
+        <a class="btn btn-ghost" href={galleryHref}>{copy.galleryLabel}</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .branch-layout {
+    display: grid; gap: 1.75rem; align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) { .branch-layout { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+
+  .branch-photo {
+    margin: 0; position: relative; overflow: hidden;
+    border-radius: 14px; border: 1px solid var(--border);
+    box-shadow: 0 16px 36px var(--shadow);
+  }
+  .branch-photo img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+    transition: transform 0.5s var(--ease);
+  }
+  .branch-photo:hover img { transform: scale(1.03); }
+  .branch-badge {
+    position: absolute; bottom: 0.85rem; left: 0.85rem;
+    padding: 0.35rem 0.75rem; border-radius: 999px;
+    background: rgba(21, 26, 77, 0.88); color: #fff;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+  }
+
+  .branch-details {
+    margin-top: 1.25rem; display: grid; gap: 0.75rem;
+  }
+  .branch-details div {
+    padding: 0.75rem 0; border-top: 1px solid var(--border);
+  }
+  .branch-details div:last-child { border-bottom: 1px solid var(--border); }
+  .branch-details dt {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--highlight-deep);
+  }
+  .branch-details dd { margin: 0.2rem 0 0; color: var(--ink); }
+
+  .branch-features {
+    list-style: none; padding: 0; margin: 1.1rem 0 0;
+    display: grid; gap: 0.5rem;
+  }
+  .branch-features li {
+    display: flex; gap: 0.55rem; align-items: center;
+    font-weight: 600; font-size: 0.95rem;
+  }
+  .branch-actions {
+    margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.6rem;
+  }
+</style>

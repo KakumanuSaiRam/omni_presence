@@ -1,86 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, DIRECTOR, BRAND } from '../data/site.js';
-import { ABOUT_SECTION, WHY_SECTION, HERO } from '../data/i18n.js';
+import AboutContent from '../components/AboutContent.astro';
+import { ABOUT_SECTION } from '../data/i18n.js';
 
 const about = ABOUT_SECTION.en;
-const why = WHY_SECTION.en;
 ---
 <Base
   title="About — Siva Tuitions & Coachings, Guntur"
   description={`${about.title}. Tuitions, EAPCET/NEET/POLYCET coaching and admission counselling in Pattabhipuram, Guntur.`}
 >
-  <section>
-    <div class="wrap brand-layout">
-      <div>
-        <p class="eyebrow">Since {SITE.foundingYear}</p>
-        <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);color:var(--accent-deep);max-width:28ch">{about.title}</h1>
-        <p style="margin-top:0.75rem;color:var(--highlight);font-weight:600">{HERO.en.subline}</p>
-      </div>
-      <img
-        src={BRAND.directorImage}
-        alt={`${DIRECTOR.name}, ${DIRECTOR.role}`}
-        width="320"
-        height="400"
-        class="director-portrait"
-      />
-    </div>
-  </section>
-
-  <section class="section-muted">
-    <div class="wrap about-copy">
-      {about.paragraphs.map((p) => <p>{p}</p>)}
-      <p class="aim"><strong>{about.aimLabel}:</strong> {about.aim}</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2 class="section-heading">{why.title}</h2>
-      <ul class="why-list">
-        {why.points.map((point) => <li>{point}</li>)}
-      </ul>
-    </div>
-  </section>
-
-  <section class="section-muted">
-    <div class="wrap">
-      <h2 class="section-heading">{DIRECTOR.name}</h2>
-      <p style="color:var(--ink-muted);max-width:54ch">{about.directorIntro}</p>
-      <p style="margin-top:0.75rem"><a href={`/director/${DIRECTOR.slug}/`}>Full profile →</a></p>
-      <ul class="values-list">
-        {BRAND.values.map((value) => (
-          <li><strong>{value.title}</strong> — {value.body}</li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="wrap">
-      <p>
-        <a href="/gallery/">Centre photos →</a>
-        · <a href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
-        · <a href="/contact/#enquire">Ask a question →</a>
-      </p>
-    </div>
-  </section>
+  <AboutContent lang="en" />
 </Base>
-
-<style>
-  .brand-layout { display: grid; gap: 2rem; align-items: start; grid-template-columns: 1fr; }
-  @media (min-width: 720px) { .brand-layout { grid-template-columns: 1fr minmax(12rem, 16rem); } }
-  .director-portrait {
-    width: 100%; max-width: 16rem; height: auto; border-radius: 10px;
-    border: 1px solid var(--border); object-fit: cover;
-  }
-  .section-heading { font-size: 1.35rem; color: var(--accent-deep); margin-bottom: 0.5rem; }
-  .about-copy { max-width: 60ch; display: grid; gap: 0.85rem; color: var(--ink-muted); }
-  .about-copy .aim { color: var(--ink); margin-top: 0.5rem; }
-  .why-list { margin-top: 0.75rem; padding-left: 1.1rem; max-width: 54ch; display: grid; gap: 0.5rem; }
-  .values-list {
-    margin-top: 1.5rem; padding-left: 1.1rem; max-width: 54ch;
-    display: grid; gap: 0.65rem; color: var(--ink-muted);
-  }
-  .values-list strong { color: var(--ink); }
-</style>

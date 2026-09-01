@@ -1,23 +1,45 @@
 ---
 import Base from '../../layouts/Base.astro';
 import GroupedCards from '../../components/GroupedCards.astro';
+import Illustration from '../../components/Illustration.astro';
 import { SITE } from '../../data/site.js';
 ---
 <Base
   title={`Courses & Coaching in Guntur — Tuitions, EAPCET, NEET, POLYCET | ${SITE.name}`}
   description="All courses at Siva Tuitions & Coachings, Guntur: Classes 1–10 tuitions, Intermediate MPC/BiPC, EAPCET (EAMCET), NEET and POLYCET coaching."
 >
-  <section>
-    <div class="wrap">
+  <section class="page-hero">
+    <div class="wrap hero-row">
       <div class="ruled" data-reveal>
         <p class="eyebrow">Courses</p>
         <h1>Coaching &amp; tuitions at Siva Tuitions &amp; Coachings</h1>
+        <p class="section-intro">
+          Grouped by the stage your child is at — school, Intermediate, then the entrance exam
+          their stream points to.
+        </p>
       </div>
-      <p class="section-intro" data-reveal>
-        Grouped by the stage your child is at — school, Intermediate, then the entrance exam
-        their stream points to.
-      </p>
+      <div data-reveal data-reveal-delay="1">
+        <Illustration src="/illustrations/exam-prep.svg" alt="Students preparing for entrance exams" class="hero-art" />
+      </div>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap">
       <GroupedCards kind="courses" lang="en" />
     </div>
   </section>
 </Base>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--surface-muted), var(--surface));
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 0 1.5rem;
+  }
+  .hero-row {
+    display: grid; gap: 1.5rem; align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 760px) { .hero-row { grid-template-columns: 1.2fr 0.8fr; } }
+  .hero-art { max-width: 16rem; margin: 0 auto; }
+</style>

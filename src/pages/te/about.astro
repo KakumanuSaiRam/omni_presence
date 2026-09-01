@@ -1,79 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { SITE, DIRECTOR, BRAND } from '../../data/site.js';
-import { ABOUT_SECTION, WHY_SECTION } from '../../data/i18n.js';
-
-const about = ABOUT_SECTION.te;
-const why = WHY_SECTION.te;
+import AboutContent from '../../components/AboutContent.astro';
 ---
 <Base
   lang="te"
   title="మా గురించి — Siva Tuitions & Coachings, గుంటూరు"
   description="Siva Tuitions & Coachings, పట్టాభిపురం, గుంటూరు — అకడమిక్ ట్యూషన్లు, పోటీ పరీక్షల కోచింగ్, ప్రవేశ కౌన్సెలింగ్. డైరెక్టర్: యడ్లపల్లి నాగ మురళీ కృష్ణ."
 >
-  <section>
-    <div class="wrap brand-layout">
-      <div>
-        <p class="eyebrow">{SITE.foundingYear} నుంచి</p>
-        <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);color:var(--accent-deep);max-width:28ch">{about.title}</h1>
-        <p style="margin-top:0.75rem;color:var(--highlight);font-weight:600">
-          అకడమిక్ ఎక్సలెన్స్ · పోటీ పరీక్షల కోచింగ్ · కెరీర్ & కౌన్సెలింగ్ మార్గదర్శకత్వం
-        </p>
-      </div>
-      <img
-        src={BRAND.directorImage}
-        alt={`${DIRECTOR.name}, ${DIRECTOR.role}`}
-        width="320"
-        height="400"
-        class="director-portrait"
-      />
-    </div>
-  </section>
-
-  <section class="section-muted">
-    <div class="wrap about-copy">
-      {about.paragraphs.map((p) => <p>{p}</p>)}
-      <p class="aim"><strong>{about.aimLabel}:</strong> {about.aim}</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2 class="section-heading">{why.title}</h2>
-      <ul class="why-list">
-        {why.points.map((point) => <li>{point}</li>)}
-      </ul>
-    </div>
-  </section>
-
-  <section class="section-muted">
-    <div class="wrap">
-      <h2 class="section-heading">{DIRECTOR.name}</h2>
-      <p style="color:var(--ink-muted);max-width:54ch">{about.directorIntro}</p>
-      <p style="margin-top:0.75rem"><a href={`/director/${DIRECTOR.slug}/`}>పూర్తి ప్రొఫైల్ →</a></p>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="wrap">
-      <p>
-        <a href="/te/gallery/">కేంద్రం ఫోటోలు →</a>
-        · <a href={`tel:${SITE.phoneHref}`}>కాల్ {SITE.phone}</a>
-        · <a href="/te/contact/#enquire">ప్రశ్న అడగండి →</a>
-      </p>
-    </div>
-  </section>
+  <AboutContent lang="te" />
 </Base>
-
-<style>
-  .brand-layout { display: grid; gap: 2rem; align-items: start; grid-template-columns: 1fr; }
-  @media (min-width: 720px) { .brand-layout { grid-template-columns: 1fr minmax(12rem, 16rem); } }
-  .director-portrait {
-    width: 100%; max-width: 16rem; height: auto; border-radius: 10px;
-    border: 1px solid var(--border); object-fit: cover;
-  }
-  .section-heading { font-size: 1.35rem; color: var(--accent-deep); margin-bottom: 0.5rem; }
-  .about-copy { max-width: 60ch; display: grid; gap: 0.85rem; color: var(--ink-muted); }
-  .about-copy .aim { color: var(--ink); margin-top: 0.5rem; }
-  .why-list { margin-top: 0.75rem; padding-left: 1.1rem; max-width: 54ch; display: grid; gap: 0.5rem; }
-</style>

@@ -1,6 +1,7 @@
 ---
 import Illustration from './Illustration.astro';
 import EnquiryForm from './EnquiryForm.astro';
+import BranchShowcase from './BranchShowcase.astro';
 import { SITE, DIRECTOR, BRAND, GALLERY, SOCIAL_ACTIVITIES, GLOBAL_FAQS } from '../data/site.js';
 import {
   UI,
@@ -57,7 +58,7 @@ const telHref = `tel:${SITE.phoneHref}`;
       </p>
     </div>
     <div class="hero-media">
-      <Illustration src="/illustrations/exam-prep-students.webp" alt={hero.imageAlt} class="hero-art" eager />
+      <Illustration src="/illustrations/students-classroom.svg" alt={hero.imageAlt} class="hero-art" eager />
     </div>
   </div>
 </section>
@@ -75,6 +76,9 @@ const telHref = `tel:${SITE.phoneHref}`;
     </ul>
   </div>
 </section>
+
+<!-- 2b · Branch showcase -->
+<BranchShowcase lang={lang} />
 
 <!-- 3 · What we do -->
 <section id="services">
@@ -116,7 +120,7 @@ const telHref = `tel:${SITE.phoneHref}`;
       </p>
     </div>
     <div data-reveal data-reveal-delay="1">
-      <Illustration src="/illustrations/tuition-classroom.webp" alt={tuitions.imageAlt} class="section-art" />
+      <Illustration src="/illustrations/tutor-guidance.svg" alt={tuitions.imageAlt} class="section-art" />
     </div>
   </div>
 </section>
@@ -176,10 +180,11 @@ const telHref = `tel:${SITE.phoneHref}`;
 <section class="section-raised">
   <div class="wrap">
     <h2 class="section-heading" data-reveal>{why.title}</h2>
-    <ul class="why-grid">
+    <ul class="why-grid why-cards">
       {why.points.map((point, i) => (
         <li data-reveal data-reveal-delay={String(Math.min((i % 3) + 1, 3))}>
-          <span class="why-mark" aria-hidden="true">✓</span>{point}
+          <span class="why-mark" aria-hidden="true">{point.icon}</span>
+          <span>{point.text}</span>
         </li>
       ))}
     </ul>
@@ -203,25 +208,32 @@ const telHref = `tel:${SITE.phoneHref}`;
 
 <!-- 9 · About & director -->
 <section id="about">
-  <div class="wrap about-block" data-reveal>
-    <img
-      src={BRAND.directorImage}
-      alt={`${DIRECTOR.name}, ${DIRECTOR.role}`}
-      width="160"
-      height="200"
-      class="about-photo"
-      loading="lazy"
-    />
-    <div>
+  <div class="wrap">
+    <div data-reveal>
       <p class="eyebrow">{about.eyebrow}</p>
       <h2 class="section-heading">{about.title}</h2>
-      <p class="about-text">{about.paragraphs[0]}</p>
-      <p class="about-text">{about.directorIntro}</p>
-      <p class="section-links">
-        <a href={about.linkHref}>{about.linkLabel} →</a>
-        · <a href={`/director/${DIRECTOR.slug}/`}>{ui.director} →</a>
-      </p>
+      <p class="section-lead">{about.paragraphs[0]}</p>
     </div>
+    <!-- Portrait, name and credentials stay in one unit. -->
+    <figure class="director-brief" data-reveal data-reveal-delay="1">
+      <img
+        src={BRAND.directorImage}
+        alt={`${DIRECTOR.name}, ${DIRECTOR.role}`}
+        width="160"
+        height="200"
+        loading="lazy"
+      />
+      <figcaption>
+        <p class="db-role">{lang === 'te' ? 'వ్యవస్థాపకులు & డైరెక్టర్' : DIRECTOR.role}</p>
+        <p class="db-name">{DIRECTOR.honorific} {DIRECTOR.name}</p>
+        <p class="db-creds">{DIRECTOR.credentials.join(' · ')}</p>
+        <p class="db-bio">{about.directorIntro}</p>
+        <p class="section-links">
+          <a href={about.linkHref}>{about.linkLabel} →</a>
+          · <a href={`/director/${DIRECTOR.slug}/`}>{ui.director} →</a>
+        </p>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -272,9 +284,14 @@ const telHref = `tel:${SITE.phoneHref}`;
 <section>
   <div class="wrap" data-reveal>
     <h2 class="section-heading">{faqBlock.title}</h2>
-    <dl class="faq faq-compact">
-      {homeFaqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
-    </dl>
+    <div class="faq-accordion">
+      {homeFaqs.map(({ q, a }) => (
+        <details class="faq-item" data-reveal>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
     <p class="section-links"><a href={faqBlock.linkHref}>{faqBlock.linkLabel} →</a></p>
   </div>
 </section>
@@ -439,24 +456,73 @@ const telHref = `tel:${SITE.phoneHref}`;
   /* Why choose */
   .why-grid {
     list-style: none; padding: 0; margin-top: 0.75rem;
-    display: grid; gap: 0.65rem 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    display: grid; gap: 0.85rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   }
-  .why-grid li { display: flex; gap: 0.5rem; align-items: flex-start; font-weight: 600; }
-  .why-mark { color: var(--highlight); flex-shrink: 0; }
+  .why-cards li {
+    display: grid; grid-template-columns: auto 1fr; gap: 0.65rem;
+    align-items: start; font-weight: 600;
+    background: var(--surface-raised); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.85rem 1rem;
+  }
+  .why-mark { font-size: 1.15rem; line-height: 1.3; }
+
+  /* FAQ accordion */
+  .faq-accordion { margin-top: 0.75rem; display: grid; gap: 0.5rem; max-width: 58ch; }
+  .faq-item {
+    border: 1px solid var(--border); border-radius: 10px;
+    background: var(--surface-raised); overflow: hidden;
+  }
+  .faq-item summary {
+    cursor: pointer; padding: 0.95rem 1.1rem;
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    color: var(--accent-deep); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+'; color: var(--highlight); font-size: 1.2rem; font-weight: 700;
+    transition: transform 0.2s var(--ease);
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p {
+    padding: 0 1.1rem 1rem; margin: 0;
+    color: var(--ink-muted); font-size: 0.98rem;
+  }
 
   /* Enquiry */
   .enquire-layout { display: grid; gap: 1.5rem; align-items: start; grid-template-columns: 1fr; }
   @media (min-width: 720px) { .enquire-layout { grid-template-columns: 0.9fr 1.1fr; } }
 
-  /* About */
-  .about-block { display: grid; gap: 1.5rem; align-items: start; grid-template-columns: auto 1fr; }
-  @media (max-width: 560px) { .about-block { grid-template-columns: 1fr; } }
-  .about-photo {
-    width: 10rem; height: auto; border-radius: 10px;
-    border: 1px solid var(--border); object-fit: cover;
+  /* About + director brief */
+  .director-brief {
+    margin: 1.5rem 0 0; display: grid; gap: 1.25rem;
+    align-items: start; grid-template-columns: 1fr;
+    padding: 1.25rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 10px 26px var(--shadow);
   }
-  .about-text { color: var(--ink-muted); max-width: 54ch; margin-top: 0.5rem; }
+  @media (min-width: 620px) {
+    .director-brief { grid-template-columns: 10rem 1fr; gap: 1.75rem; padding: 1.5rem; }
+  }
+  .director-brief img {
+    width: 100%; max-width: 10rem; height: auto; border-radius: 10px;
+    border: 1px solid var(--border); object-fit: cover; background: var(--surface-muted);
+  }
+  .db-role {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--highlight-deep);
+  }
+  .db-name {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: 1.25rem; color: var(--accent-deep); margin-top: 0.15rem;
+  }
+  .db-creds {
+    margin-top: 0.35rem; font-size: 0.88rem; font-weight: 600; color: var(--accent);
+  }
+  .db-bio { margin-top: 0.8rem; color: var(--ink-muted); max-width: 56ch; }
 
   /* Photo proof */
   .strip-label {
@@ -477,7 +543,5 @@ const telHref = `tel:${SITE.phoneHref}`;
   .photo-thumb:hover img { transform: scale(1.06); }
 
   /* FAQ + contact */
-  .faq-compact dt { margin-top: 1rem; }
-  .faq-compact dd { font-size: 0.98rem; color: var(--ink-muted); }
   .quick-btns { display: flex; gap: 0.65rem; flex-wrap: wrap; }
 </style>

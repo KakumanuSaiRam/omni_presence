@@ -4,67 +4,88 @@ import EnquiryForm from '../../components/EnquiryForm.astro';
 import { SITE } from '../../data/site.js';
 
 const addressLine = `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region} ${SITE.address.postalCode}`;
+const waHref = `https://wa.me/${SITE.whatsapp}`;
 ---
 <Base
   lang="te"
   title={`సంప్రదించండి ${SITE.name} — పట్టాభిపురం, గుంటూరు | ఫోన్, వాట్సాప్, దారి`}
   description={`Siva Tuitions & Coachings: ${SITE.phone}, ${SITE.email}. చిరునామా: ${SITE.address.street}, గుంటూరు ${SITE.address.postalCode}.`}
 >
-  <section id="enquire">
+  <section class="hero-band">
     <div class="wrap">
-      <div class="ruled">
-        <p class="eyebrow">తల్లిదండ్రులు & విద్యార్థులు</p>
-        <h1>మీ ప్రశ్న అడగండి</h1>
-      </div>
-      <p class="section-intro" style="max-width:50ch">
+      <p class="eyebrow">తల్లిదండ్రులు &amp; విద్యార్థులు</p>
+      <h1>మీ ప్రశ్న అడగండి</h1>
+      <p class="hero-sub">
         మీ ప్రశ్న రాయండి — మొబైల్ నంబర్ ఇస్తే నేరుగా {SITE.phone} వాట్సాప్‌కు వెళ్తుంది.
         ఈమెయిల్ కూడా పంపవచ్చు, కానీ సమాధానం కొంచెం ఆలస్యం అవుతుంది.
       </p>
-      <EnquiryForm id="contact-enquiry" lang="te" />
+      <p class="quick-btns">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>ఇప్పుడే కాల్ చేయండి</a>
+        <a class="btn btn-ghost" href={waHref}>వాట్సాప్</a>
+        <a class="btn btn-ghost" href={SITE.mapsUrl}>దారి చూపించండి</a>
+      </p>
     </div>
   </section>
 
-  <section class="section-muted">
-    <div class="wrap">
-      <div class="ruled">
-        <p class="eyebrow">రండి · కాల్ · వాట్సాప్</p>
-        <h2>Siva Tuitions &amp; Coachingsను సంప్రదించండి</h2>
+  <section id="enquire">
+    <div class="wrap contact-layout">
+      <div data-reveal>
+        <h2 class="lbl">వివరాలు పంపండి</h2>
+        <EnquiryForm id="contact-enquiry" lang="te" />
       </div>
 
-      <div class="quick-btns" style="margin-top:1.25rem">
-        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>ఇప్పుడే కాల్ చేయండి</a>
-        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--accent-deep);border-color:var(--accent)">వాట్సాప్</a>
-        <a class="btn btn-wa" href={SITE.mapsUrl} style="color:var(--accent-deep);border-color:var(--accent)">దారి చూపించండి</a>
-      </div>
+      <aside data-reveal data-reveal-delay="1">
+        <h2 class="lbl">నేరుగా సంప్రదించండి</h2>
+        <dl class="detail-list">
+          <div>
+            <dt>చిరునామా</dt>
+            <dd>{addressLine}<br /><a href={SITE.mapsUrl}>గూగుల్ మ్యాప్స్ &rarr;</a></dd>
+          </div>
+          <div>
+            <dt>ఫోన్</dt>
+            <dd><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a> · <a href={waHref}>వాట్సాప్ &rarr;</a></dd>
+          </div>
+          <div>
+            <dt>ఈమెయిల్</dt>
+            <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+          </div>
+          <div>
+            <dt>యాప్</dt>
+            <dd><a href={SITE.playStoreUrl}>ఆండ్రాయిడ్ యాప్ &rarr;</a></dd>
+          </div>
+          <div>
+            <dt>పని వేళలు</dt>
+            <dd>సోమవారం–శనివారం, ఉదయం 6:00 – రాత్రి 9:00; ఆదివారం, ఉదయం 10:00 – మధ్యాహ్నం 2:00.</dd>
+          </div>
+        </dl>
 
-      <div class="grid" style="margin-top:1.75rem">
-        <div class="card">
-          <h3>📍 చిరునామా</h3>
-          <p>{addressLine}</p>
-          <p style="margin-top:0.6rem"><a href={SITE.mapsUrl}>గూగుల్ మ్యాప్స్ →</a></p>
+        <div class="panel" style="margin-top:1.5rem">
+          <p class="panel-label">కౌన్సెలింగ్ సీజన్</p>
+          <p style="color:var(--ink-muted);margin-top:0.3rem">
+            EAPCET, NEET, POLYCET కౌన్సెలింగ్ సీజన్‌లో ఆంధ్రప్రదేశ్, తెలంగాణ విద్యార్థులకు ఫోన్, వాట్సాప్
+            కౌన్సెలింగ్ కూడా ఉంటుంది. హైదరాబాద్ లేదా విజయవాడలో శాఖ లేదు — కేంద్రం పట్టాభిపురం, గుంటూరు మాత్రమే.
+          </p>
+          <p style="margin-top:0.6rem"><a href="/te/resources/">అధికారిక పరీక్ష లింకులు &rarr;</a></p>
         </div>
-        <div class="card">
-          <h3>📞 ఫోన్, వాట్సాప్</h3>
-          <p><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
-          <p style="margin-top:0.6rem"><a href={`https://wa.me/${SITE.whatsapp}`}>వాట్సాప్ సందేశం →</a></p>
-        </div>
-        <div class="card">
-          <h3>📧 ఈమెయిల్, యాప్</h3>
-          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-          <p style="margin-top:0.6rem"><a href={SITE.playStoreUrl}>ఆండ్రాయిడ్ యాప్ →</a></p>
-          <p style="margin-top:0.6rem"><a href="/te/resources/">అధికారిక పరీక్ష లింకులు →</a></p>
-        </div>
-      </div>
-
-      <p style="margin-top:1.5rem;max-width:65ch;color:var(--ink-muted)">
-        పని వేళలు: సోమవారం–శనివారం, ఉదయం 6:00 – రాత్రి 9:00; ఆదివారం, ఉదయం 10:00 – మధ్యాహ్నం 2:00. EAPCET, NEET, POLYCET కౌన్సెలింగ్ సీజన్‌లో
-        ఆంధ్రప్రదేశ్, తెలంగాణ విద్యార్థులకు ఫోన్, వాట్సాప్ కౌన్సెలింగ్ కూడా ఉంటుంది. హైదరాబాద్ లేదా విజయవాడలో శాఖ లేదు —
-        కేంద్రం పట్టాభిపురం, గుంటూరు మాత్రమే.
-      </p>
+      </aside>
     </div>
   </section>
 </Base>
 
 <style>
-  .quick-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero-band {
+    background: linear-gradient(180deg, var(--surface-muted), var(--surface));
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-band h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--accent-deep); margin-top: 0.3rem; }
+  .hero-sub { margin-top: 0.7rem; color: var(--ink-muted); max-width: 52ch; }
+  .quick-btns { margin-top: 1.25rem; display: flex; gap: 0.65rem; flex-wrap: wrap; }
+
+  .lbl {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--highlight-deep);
+    margin-bottom: 0.9rem;
+  }
+  .contact-layout { display: grid; gap: 2.5rem; align-items: start; grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .contact-layout { grid-template-columns: 1.1fr 0.9fr; gap: 3rem; } }
 </style>

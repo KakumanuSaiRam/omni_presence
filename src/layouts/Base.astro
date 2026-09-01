@@ -261,6 +261,11 @@ const FONT_TOGGLE =
       color: #fff; box-shadow: 0 3px 12px rgba(232, 130, 26, 0.3);
     }
     .btn-wa { background: transparent; color: inherit; border: 2px solid currentColor; }
+    .btn-ghost {
+      background: var(--surface-raised); color: var(--accent-deep);
+      border: 1px solid var(--accent-soft);
+    }
+    .btn-ghost:hover { border-color: var(--highlight); color: var(--highlight-deep); }
     .btn:hover { transform: translateY(-2px); }
     .btn-call:hover { box-shadow: 0 6px 18px rgba(232, 130, 26, 0.38); }
     .btn:active { transform: translateY(0); }
@@ -286,6 +291,75 @@ const FONT_TOGGLE =
       transform: translateY(-3px);
     }
     .card h3 { color: var(--accent-deep); margin-bottom: 0.4rem; }
+
+    /* ---- Shared layout primitives -------------------------------------
+       Used instead of stacking more card grids, so pages differ in rhythm
+       while still reading as one design language. */
+
+    /* Prose column for body copy. */
+    .prose { max-width: 62ch; display: grid; gap: 0.9rem; color: var(--ink-muted); }
+    .prose strong { color: var(--ink); }
+    .prose .lede { font-size: 1.1rem; color: var(--ink); }
+
+    /* Soft panel with an orange edge — for a single highlighted statement. */
+    .panel {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--highlight);
+      border-radius: 0 12px 12px 0;
+      padding: 1.1rem 1.35rem;
+    }
+    .panel-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--highlight-deep);
+    }
+
+    /* Numbered rows — a sequence, not a grid of boxes. */
+    .steps { list-style: none; padding: 0; display: grid; gap: 0.1rem; counter-reset: step; }
+    .steps li {
+      counter-increment: step;
+      display: grid; grid-template-columns: auto 1fr; gap: 0.9rem;
+      align-items: baseline;
+      padding: 0.85rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .steps li:last-child { border-bottom: 1px solid var(--border); }
+    .steps li::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: 'Fraunces', Georgia, serif; font-weight: 700;
+      font-size: 0.95rem; color: var(--highlight);
+      font-variant-numeric: tabular-nums;
+    }
+    .steps b { color: var(--accent-deep); font-weight: 700; }
+    .steps span { color: var(--ink-muted); }
+
+    /* Icon/text rows for short benefit lists. */
+    .features { list-style: none; padding: 0; display: grid; gap: 0.85rem 2rem; }
+    @media (min-width: 640px) { .features { grid-template-columns: 1fr 1fr; } }
+    .features li { display: grid; grid-template-columns: auto 1fr; gap: 0.7rem; align-items: start; }
+    .features .tick {
+      width: 1.35rem; height: 1.35rem; border-radius: 50%; flex-shrink: 0;
+      display: grid; place-items: center; margin-top: 0.15rem;
+      background: var(--surface-accent); border: 1px solid var(--highlight-soft);
+      color: var(--highlight-deep); font-size: 0.72rem; font-weight: 700;
+    }
+    .features b { display: block; color: var(--accent-deep); }
+    .features span { color: var(--ink-muted); font-size: 0.95rem; }
+
+    /* Key/value strip for contact-style details. */
+    .detail-list { display: grid; gap: 0.1rem; }
+    .detail-list > div {
+      display: grid; gap: 0.15rem 1rem; padding: 0.8rem 0;
+      border-top: 1px solid var(--border);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 560px) { .detail-list > div { grid-template-columns: 9rem 1fr; } }
+    .detail-list > div:last-child { border-bottom: 1px solid var(--border); }
+    .detail-list dt {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--highlight-deep);
+    }
+    .detail-list dd { margin: 0; color: var(--ink); }
     dl.faq dt {
       font-weight: 700; font-family: 'Fraunces', serif; font-size: 1.1rem;
       margin-top: 1.4rem; color: var(--accent-deep);
@@ -318,6 +392,14 @@ const FONT_TOGGLE =
       transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
     }
     .lang-toggle:hover { background: var(--surface-accent); border-color: var(--highlight); }
+
+    /* Header: compact on phones — logo + call stay visible; nav wraps cleanly. */
+    @media (max-width: 720px) {
+      header.site .brand { font-size: 1rem; max-width: 12rem; line-height: 1.2; }
+      header.site .btn-call { padding: 0.55rem 0.85rem; font-size: 0.88rem; margin-left: 0 !important; }
+      nav.main { width: 100%; order: 3; gap: 0.5rem 0.85rem; font-size: 0.88rem; }
+      .lang-toggle { margin-left: auto; }
+    }
   </style>
 </head>
 <body>

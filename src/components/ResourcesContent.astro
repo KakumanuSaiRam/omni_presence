@@ -30,28 +30,32 @@ const copy = isTe
       askHref: '/contact/#enquire',
     };
 ---
-<section>
+<section class="hero-band">
   <div class="wrap">
-    <div class="ruled">
-      <p class="eyebrow">{copy.eyebrow}</p>
-      <h1>{copy.title}</h1>
-    </div>
-    <p class="section-intro">{copy.intro}</p>
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h1>{copy.title}</h1>
+    <p class="hero-sub">{copy.intro}</p>
+  </div>
+</section>
 
+<section>
+  <div class="wrap groups">
     {sections.map((section) => (
-      <div class="link-section">
-        <h2 class="section-heading">{section.title}</h2>
-        <ul class="link-list">
+      <div class="group" data-reveal>
+        <div class="group-head"><h2>{section.title}</h2></div>
+        <ul class="entries">
           {section.links.map((link) => (
             <li>
               <a
                 href={link.url}
                 {...(link.internal ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               >
-                {link.name}
-                {!link.internal && <span class="ext" aria-hidden="true"> ↗</span>}
+                <span class="e-main">
+                  <span class="e-title">{link.name}</span>
+                  {link.note && <span class="e-blurb">{link.note}</span>}
+                </span>
+                <span class="e-arrow" aria-hidden="true">{link.internal ? '\u2192' : '\u2197'}</span>
               </a>
-              {link.note && <p class="link-note">{link.note}</p>}
             </li>
           ))}
         </ul>
@@ -59,21 +63,54 @@ const copy = isTe
     ))}
 
     <p class="disclaimer">
-      {copy.disclaimer} <a href={copy.askHref}>{copy.askLabel} →</a>
+      {copy.disclaimer} <a href={copy.askHref}>{copy.askLabel} &rarr;</a>
     </p>
   </div>
 </section>
 
 <style>
-  .section-heading { font-size: 1.2rem; color: var(--accent-deep); margin-bottom: 0.65rem; }
-  .link-section { margin-top: 2rem; }
-  .link-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
-  .link-list a { font-weight: 700; text-decoration: none; color: var(--accent); display: inline-block; }
-  .link-list a:hover { text-decoration: underline; }
-  .link-note { margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--ink-muted); }
-  .ext { font-size: 0.85em; opacity: 0.7; }
+  .hero-band {
+    background: linear-gradient(180deg, var(--surface-muted), var(--surface));
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-band h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--accent-deep); margin-top: 0.3rem; }
+  .hero-sub { margin-top: 0.7rem; color: var(--ink-muted); max-width: 58ch; }
+
+  .groups { display: grid; gap: 2.75rem; }
+  .group { display: grid; gap: 1rem; align-items: start; grid-template-columns: 1fr; }
+  @media (min-width: 880px) {
+    .group { grid-template-columns: 15rem 1fr; gap: 2.5rem; }
+    .group-head { position: sticky; top: 5.5rem; }
+  }
+  .group-head h2 { font-size: 1.15rem; color: var(--accent-deep); line-height: 1.3; }
+  .group-head h2::after {
+    content: ''; display: block; margin-top: 0.5rem;
+    width: 2rem; height: 3px; border-radius: 999px;
+    background: linear-gradient(90deg, var(--highlight), var(--highlight-soft));
+  }
+
+  .entries { list-style: none; padding: 0; margin: 0; display: grid; }
+  .entries li { border-top: 1px solid var(--border); }
+  .entries li:last-child { border-bottom: 1px solid var(--border); }
+  .entries a {
+    display: grid; grid-template-columns: 1fr auto; gap: 1rem;
+    align-items: center; padding: 0.9rem 0.85rem;
+    text-decoration: none; color: var(--ink); border-radius: 8px;
+    transition: background 0.2s var(--ease), padding-left 0.2s var(--ease);
+  }
+  .entries a:hover, .entries a:focus-visible {
+    background: var(--surface-raised);
+    padding-left: 1.25rem;
+    box-shadow: inset 3px 0 0 var(--highlight);
+  }
+  .e-main { display: grid; gap: 0.2rem; }
+  .e-title { font-weight: 700; color: var(--accent-deep); }
+  .e-blurb { color: var(--ink-muted); font-size: 0.9rem; max-width: 58ch; }
+  .e-arrow { color: var(--highlight); transition: transform 0.2s var(--ease); }
+  .entries a:hover .e-arrow { transform: translateX(4px); }
+
   .disclaimer {
-    margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
-    color: var(--ink-muted); font-size: 0.92rem; max-width: 60ch;
+    padding-top: 1.25rem; border-top: 1px solid var(--border);
+    color: var(--ink-muted); font-size: 0.92rem; max-width: 62ch;
   }
 </style>

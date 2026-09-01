@@ -74,17 +74,51 @@ export const UI = {
 export const HERO = {
   en: {
     eyebrow: `Pattabhipuram · Guntur · Since ${SITE.foundingYear}`,
-    title: SITE.name,
+    title: 'Guntur\'s trusted tuition point — from Class 6 to your college seat.',
     subline: 'Academic Excellence · Competitive Coaching · Career & Counselling Guidance',
-    lead: 'Complete guidance in one place — from your child’s school lessons to a confirmed college seat.',
+    lead: 'Tuitions, EAPCET/NEET/POLYCET coaching, and admission counselling — one centre, one desk.',
     imageAlt: 'Students preparing happily for a competitive entrance exam',
   },
   te: {
     eyebrow: `పట్టాభిపురం · గుంటూరు · ${SITE.foundingYear} నుంచి`,
-    title: SITE.name,
+    title: 'గుంటూరులో నమ్మకమైన ట్యూషన్ పాయింట్ — 6వ తరగతి నుంచి కాలేజీ సీట్ వరకు.',
     subline: 'అకడమిక్ ఎక్సలెన్స్ · పోటీ పరీక్షల కోచింగ్ · కెరీర్ & కౌన్సెలింగ్ మార్గదర్శకత్వం',
-    lead: 'మీ పిల్లల చదువు నుంచి ఉన్నత విద్య వరకు — ఒకే చోట పూర్తి మార్గదర్శకత్వం.',
+    lead: 'ట్యూషన్లు, EAPCET/NEET/POLYCET కోచింగ్, ప్రవేశ కౌన్సెలింగ్ — ఒకే కేంద్రం, ఒకే డెస్క్.',
     imageAlt: 'పోటీ పరీక్షలకు సంతోషంగా సిద్ధమవుతున్న విద్యార్థులు',
+  },
+};
+
+/** Branch showcase — physical centre in Pattabhipuram. */
+export const BRANCH_SECTION = {
+  en: {
+    eyebrow: 'Our centre',
+    title: 'Visit us in Pattabhipuram, Guntur',
+    lead: 'A real coaching centre families can walk into — not a call centre or a franchise chain.',
+    addressLabel: 'Address',
+    hoursLabel: 'Hours',
+    mapsLabel: 'Open in Google Maps',
+    galleryLabel: 'Centre photos',
+    featuredAlt: 'Siva Tuitions & Coachings centre, Pattabhipuram, Guntur',
+    features: [
+      { icon: '🏫', text: 'Classroom coaching on-site' },
+      { icon: '📋', text: 'Counselling desk after results' },
+      { icon: '📞', text: 'Phone guidance across AP & Telangana' },
+    ],
+  },
+  te: {
+    eyebrow: 'మా కేంద్రం',
+    title: 'పట్టాభిపురం, గుంటూరులో మమ్మల్ని కలవండి',
+    lead: 'విద్యార్థులు, తల్లిదండ్రులు నేరుగా రాగలిగే నిజమైన కోచింగ్ కేంద్రం.',
+    addressLabel: 'చిరునామా',
+    hoursLabel: 'పని వేళలు',
+    mapsLabel: 'Google Maps లో తెరవండి',
+    galleryLabel: 'కేంద్రం ఫోటోలు',
+    featuredAlt: 'Siva Tuitions & Coachings కేంద్రం, పట్టాభిపురం, గుంటూరు',
+    features: [
+      { icon: '🏫', text: 'తరగతి కోచింగ్ కేంద్రంలో' },
+      { icon: '📋', text: 'ఫలితాల తర్వాత కౌన్సెలింగ్ డెస్క్' },
+      { icon: '📞', text: 'ఏపీ, తెలంగాణకు ఫోన్ మార్గదర్శకత్వం' },
+    ],
   },
 };
 
@@ -235,23 +269,23 @@ export const WHY_SECTION = {
   en: {
     title: 'Why choose Siva Tuitions & Coachings?',
     points: [
-      'Experienced Academic Guidance',
-      'Personalized Student Support',
-      'Competitive Exam Preparation',
-      'Rank & Cut-off Analysis',
-      'Complete Counselling Support',
-      'Parent & Student Guidance',
+      { icon: '📖', text: 'Experienced Academic Guidance' },
+      { icon: '🤝', text: 'Personalized Student Support' },
+      { icon: '🎯', text: 'Competitive Exam Preparation' },
+      { icon: '📊', text: 'Rank & Cut-off Analysis' },
+      { icon: '🎓', text: 'Complete Counselling Support' },
+      { icon: '👨‍👩‍👧', text: 'Parent & Student Guidance' },
     ],
   },
   te: {
     title: 'Siva Tuitions & Coachingsను ఎందుకు ఎంచుకోవాలి?',
     points: [
-      'అనుభవజ్ఞుల అకడమిక్ మార్గదర్శకత్వం',
-      'ప్రతి విద్యార్థికి ప్రత్యేక శ్రద్ధ',
-      'పోటీ పరీక్షలకు పూర్తి సిద్ధత',
-      'ర్యాంక్ & కట్-ఆఫ్ విశ్లేషణ',
-      'పూర్తి కౌన్సెలింగ్ సహాయం',
-      'తల్లిదండ్రులు, విద్యార్థులకు మార్గదర్శకత్వం',
+      { icon: '📖', text: 'అనుభవజ్ఞుల అకడమిక్ మార్గదర్శకత్వం' },
+      { icon: '🤝', text: 'ప్రతి విద్యార్థికి ప్రత్యేక శ్రద్ధ' },
+      { icon: '🎯', text: 'పోటీ పరీక్షలకు పూర్తి సిద్ధత' },
+      { icon: '📊', text: 'ర్యాంక్ & కట్-ఆఫ్ విశ్లేషణ' },
+      { icon: '🎓', text: 'పూర్తి కౌన్సెలింగ్ సహాయం' },
+      { icon: '👨‍👩‍👧', text: 'తల్లిదండ్రులు, విద్యార్థులకు మార్గదర్శకత్వం' },
     ],
   },
 };
@@ -498,6 +532,100 @@ export const ABOUT_SECTION = {
   },
 };
 
+/** About page — copy that only appears on /brand/ and /te/about/. */
+export const ABOUT_PAGE = {
+  en: {
+    eyebrow: `Since ${SITE.foundingYear} · Pattabhipuram, Guntur`,
+    heroImageAlt: 'Students celebrating an admission offer',
+    storyLabel: 'Our story',
+    storyLead:
+      'Siva Tuitions & Coachings is a Guntur coaching centre — school tuitions, entrance exam prep, and admission counselling under one roof since 2005.',
+    storyImageAlt: 'Students studying together in a classroom',
+    pillarsLabel: 'Three services, one desk',
+    pillars: [
+      {
+        icon: '📚',
+        title: 'Academic tuitions',
+        body: 'Class 6 to Intermediate — CBSE, ICSE and State Board, with Maths, Physics and Chemistry.',
+        href: '/courses/school-tuitions-guntur/',
+      },
+      {
+        icon: '🎯',
+        title: 'Entrance coaching',
+        body: 'Short-term batches for EAPCET, NEET, POLYCET and other competitive exams.',
+        href: '/courses/eamcet-eapcet-coaching-guntur/',
+      },
+      {
+        icon: '🎓',
+        title: 'Admission counselling',
+        body: 'Rank analysis, cut-offs, branch choice, web options and final admission.',
+        href: '/counselling/eapcet-web-options-counselling/',
+      },
+    ],
+    galleryLabel: 'Inside the centre',
+    galleryLink: 'View all photos',
+    directorLabel: 'Who runs the centre',
+    directorRole: DIRECTOR.role,
+    credentialsLabel: 'Qualifications',
+    profileLink: 'Read the full profile',
+    whyLabel: 'What families get',
+    valuesLabel: 'How we work',
+    values: [
+      { title: 'Small batches', body: 'Few enough students that doubts get cleared in the class itself, not after it.' },
+      { title: 'Coaching and counselling at one desk', body: 'The same people who taught the syllabus sit with you for web options.' },
+      { title: 'Honest guidance', body: 'Realistic rank expectations and safety options — never inflated promises.' },
+      { title: 'Director-led', body: `${DIRECTOR.name} personally runs both the classroom and the counselling desk.` },
+    ],
+    ctaTitle: 'Come and see the centre',
+    ctaBody: 'Visit during working hours, or call ahead and we will keep time aside for you.',
+  },
+  te: {
+    eyebrow: `${SITE.foundingYear} నుంచి · పట్టాభిపురం, గుంటూరు`,
+    heroImageAlt: 'ప్రవేశ ఆఫర్‌ను సంతోషంగా జరుపుకునే విద్యార్థులు',
+    storyLabel: 'మా కథ',
+    storyLead:
+      'Siva Tuitions & Coachings గుంటూరులో ఒక కోచింగ్ కేంద్రం — 2005 నుంచి పాఠశాల ట్యూషన్లు, ప్రవేశ పరీక్షల సిద్ధత, అడ్మిషన్ కౌన్సెలింగ్ ఒకే చోట.',
+    storyImageAlt: 'తరగతిలో కలిసి చదువుకునే విద్యార్థులు',
+    pillarsLabel: 'మూడు సేవలు, ఒకే డెస్క్',
+    pillars: [
+      {
+        icon: '📚',
+        title: 'అకడమిక్ ట్యూషన్లు',
+        body: '6వ తరగతి నుంచి ఇంటర్ — CBSE, ICSE, స్టేట్ బోర్డు; మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీ.',
+        href: '/courses/school-tuitions-guntur/',
+      },
+      {
+        icon: '🎯',
+        title: 'ప్రవేశ పరీక్షల కోచింగ్',
+        body: 'EAPCET, NEET, POLYCET తదితర పోటీ పరీక్షలకు షార్ట్-టర్మ్ బ్యాచ్‌లు.',
+        href: '/courses/eamcet-eapcet-coaching-guntur/',
+      },
+      {
+        icon: '🎓',
+        title: 'ప్రవేశ కౌన్సెలింగ్',
+        body: 'ర్యాంక్ విశ్లేషణ, కట్-ఆఫ్‌లు, బ్రాంచ్ ఎంపిక, వెబ్ ఆప్షన్స్, తుది అడ్మిషన్.',
+        href: '/counselling/eapcet-web-options-counselling/',
+      },
+    ],
+    galleryLabel: 'కేంద్రం లోపల',
+    galleryLink: 'అన్ని ఫోటోలు',
+    directorLabel: 'కేంద్రాన్ని నడిపిస్తున్నవారు',
+    directorRole: 'వ్యవస్థాపకులు & డైరెక్టర్',
+    credentialsLabel: 'విద్యార్హతలు',
+    profileLink: 'పూర్తి ప్రొఫైల్ చదవండి',
+    whyLabel: 'కుటుంబాలకు అందేది',
+    valuesLabel: 'మా పని విధానం',
+    values: [
+      { title: 'చిన్న బ్యాచ్‌లు', body: 'తరగతిలోనే సందేహాలు తీరేంత తక్కువ మంది విద్యార్థులు.' },
+      { title: 'ఒకే చోట కోచింగ్, కౌన్సెలింగ్', body: 'సిలబస్ బోధించినవారే వెబ్ ఆప్షన్స్ సమయంలోనూ మీతో కూర్చుంటారు.' },
+      { title: 'నిజాయితీ మార్గదర్శకత్వం', body: 'వాస్తవిక ర్యాంక్ అంచనాలు, సేఫ్టీ ఆప్షన్లు — ఎప్పుడూ అతిశయోక్తి వాగ్దానాలు కాదు.' },
+      { title: 'డైరెక్టర్ నేతృత్వం', body: `${DIRECTOR.name} తరగతి, కౌన్సెలింగ్ డెస్క్ రెండింటినీ నేరుగా చూస్తారు.` },
+    ],
+    ctaTitle: 'కేంద్రాన్ని వచ్చి చూడండి',
+    ctaBody: 'పని వేళల్లో రండి, లేదా ముందుగా కాల్ చేస్తే మీ కోసం సమయం కేటాయిస్తాము.',
+  },
+};
+
 /** Section 10 — photo proof (centre + community in one block). */
 export const PROOF_SECTION = {
   en: {
@@ -631,6 +759,25 @@ export const GROUP_LABELS = {
       graduate: { title: 'డిగ్రీ & పీజీ', lead: 'MBA, MCA, లేటరల్ ఎంట్రీ, PG, IIT/NIT కౌన్సెలింగ్.' },
     },
   },
+};
+
+/** Telugu card badges. Exam names stay in Latin script; only wording is translated. */
+export const COURSE_BADGE_TE = {
+  'school-tuitions-guntur': 'CBSE · ICSE · స్టేట్',
+  'tenth-class-tuitions-guntur': 'SSC · CBSE · ICSE',
+  'intermediate-tuitions-guntur': 'MPC · BiPC',
+  'eamcet-eapcet-coaching-guntur': 'MPC · BiPC',
+  'neet-coaching-guntur': 'BiPC',
+  'polytechnic-polycet-coaching-guntur': '10 తర్వాత',
+  'short-term-crash-coaching-guntur': 'అన్ని గ్రూప్‌లు',
+};
+
+export const COUNSELLING_BADGE_TE = {
+  'eapcet-web-options-counselling': 'EAPCET',
+  'engineering-college-guidance-ap-interstate': 'ఏపీ · తెలంగాణ · ఇతర రాష్ట్రాలు',
+  'neet-medical-admission-counselling': 'NEET',
+  'tenth-polycet-counselling': 'POLYCET',
+  'graduate-web-counselling-icet-ecet-pgcet': 'ICET · ECET · PGCET',
 };
 
 /** Telugu titles/blurbs for course cards, keyed by slug. `href` set when a Telugu page exists. */
