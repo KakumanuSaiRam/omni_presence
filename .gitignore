@@ -13,3 +13,8 @@ publisher/history.jsonl
 publisher/outbox/*.txt
 # IndexNow host-key file written by postdeploy:ping
 /public/*-*.txt
+
+# Local visual-check screenshots
+/preview-*.png
+/production-*.png
+/.shots/
