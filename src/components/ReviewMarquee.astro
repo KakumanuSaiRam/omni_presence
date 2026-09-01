@@ -90,7 +90,7 @@ const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toL
     gap: 1rem;
     width: max-content;
     padding: 0.35rem 1.25rem 0.6rem;
-    animation: review-ltr 55s linear infinite;
+    animation: review-ltr 120s linear infinite;
     will-change: transform;
   }
   .review-viewport:hover .review-track,
@@ -99,7 +99,9 @@ const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toL
   }
 
   .review-card {
-    flex: 0 0 min(20.5rem, calc(100% - 2.5rem));
+    /* Percentages are circular inside a max-content track and blow the width
+       up, so size against the viewport instead. */
+    flex: 0 0 min(20.5rem, 78vw);
     min-height: 14.5rem;
     padding: 1.15rem 1.25rem;
     background: var(--surface-raised);
@@ -149,8 +151,8 @@ const countLabel = copy.countLabel.replace('{n}', GOOGLE_LISTING.reviewCount.toL
   .review-src { color: var(--ink-muted); font-weight: 600; }
 
   @keyframes review-ltr {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   @media (prefers-reduced-motion: reduce) {
