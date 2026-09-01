@@ -401,23 +401,28 @@ const telHref = `tel:${SITE.phoneHref}`;
   }
   .tag {
     display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px;
-    background: var(--surface-muted); border: 1px solid var(--border);
-    font-size: 0.88rem; color: var(--ink);
+    background: var(--surface-muted); border: 1px solid var(--accent-soft);
+    font-size: 0.88rem; color: var(--accent);
+    transition: background 0.2s var(--ease), color 0.2s var(--ease);
   }
-  .section-raised .tag { background: var(--surface-muted); }
+  .tag:hover { background: var(--surface-accent); color: var(--highlight-deep); }
   .section-muted .tag { background: var(--surface-raised); }
   .focus-line { margin-top: 0.85rem; font-size: 0.92rem; color: var(--ink-muted); }
-  .focus-line strong { color: var(--highlight); }
+  .focus-line strong { color: var(--highlight-deep); }
   .chip-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
   .chip-list li {
     font-size: 0.85rem; padding: 0.2rem 0.55rem; border-radius: 6px;
     background: var(--surface-raised); border: 1px solid var(--border);
+    transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
   }
+  .chip-list li:hover { border-color: var(--highlight-soft); transform: translateY(-1px); }
   .chip-list--wide { margin-top: 1rem; }
 
   /* Counselling spotlight */
   .counselling-feature {
-    background: linear-gradient(180deg, var(--surface-accent) 0%, var(--surface) 100%);
+    background:
+      radial-gradient(900px 340px at 85% 0%, var(--surface-accent) 0%, transparent 60%),
+      linear-gradient(180deg, var(--surface-muted) 0%, var(--surface) 100%);
     border-block: 1px solid var(--border);
   }
   .objective {
@@ -460,8 +465,16 @@ const telHref = `tel:${SITE.phoneHref}`;
     margin: 1.5rem 0 0.6rem; font-family: 'Karla', system-ui, sans-serif;
   }
   .photo-strip { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
-  .photo-thumb { margin: 0; overflow: hidden; border-radius: 8px; border: 1px solid var(--border); }
-  .photo-thumb img { width: 100%; height: 7rem; object-fit: cover; display: block; }
+  .photo-thumb {
+    margin: 0; overflow: hidden; border-radius: 10px; border: 1px solid var(--border);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  }
+  .photo-thumb:hover { transform: translateY(-3px); box-shadow: 0 10px 24px var(--shadow); }
+  .photo-thumb img {
+    width: 100%; height: 7rem; object-fit: cover; display: block;
+    transition: transform 0.4s var(--ease);
+  }
+  .photo-thumb:hover img { transform: scale(1.06); }
 
   /* FAQ + contact */
   .faq-compact dt { margin-top: 1rem; }
