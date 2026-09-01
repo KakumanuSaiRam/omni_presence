@@ -1,0 +1,77 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE } from '../../../data/site.js';
+
+const faqs = [
+  {
+    q: 'గుంటూరులో POLYCET / పాలిటెక్నిక్ కోచింగ్ ఎక్కడ దొరుకుతుంది?',
+    a: 'పట్టాభిపురం, గుంటూరులోని Siva Tuitions & Coachings పదో తరగతి విద్యార్థులకు AP POLYCET కోచింగ్, అబ్బాయిలు-అమ్మాయిలు ఇద్దరికీ పాలిటెక్నిక్ ప్రవేశ మార్గదర్శకం ఇస్తుంది. ఫోన్ +91 88797 97777.',
+  },
+  {
+    q: 'మహిళల ప్రభుత్వ పాలిటెక్నిక్ ప్రవేశాలకు మార్గదర్శకం ఉందా?',
+    a: 'ఉంది. గుంటూరు చుట్టూ, ఆంధ్రప్రదేశ్‌లోని మహిళల ప్రభుత్వ పాలిటెక్నిక్‌లకు ర్యాంక్ ప్రకారం జాబితా, వెబ్ ఆప్షన్స్ సహాయం ఉంటాయి.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    inLanguage: 'te',
+    name: 'గుంటూరులో పాలిటెక్నిక్ (POLYCET) కోచింగ్, మార్గదర్శకం',
+    description:
+      'గుంటూరులో AP POLYCET కోచింగ్, పాలిటెక్నిక్ ప్రవేశ మార్గదర్శకం. పదో తరగతి విద్యార్థులను సిద్ధం చేసి, ప్రభుత్వ పాలిటెక్నిక్‌లలో (అబ్బాయిలు, అమ్మాయిలు) ప్రవేశానికి నడిపిస్తారు.',
+    provider: { '@id': `${SITE.url}/#organization` },
+    audience: { '@type': 'EducationalAudience', educationalRole: 'student', audienceType: 'డిప్లొమా కోరుకునే పదో తరగతి విద్యార్థులు' },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'onsite',
+      location: { '@type': 'Place', name: SITE.name, address: `${SITE.address.street}, ${SITE.address.locality} ${SITE.address.postalCode}` },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: 'te',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  },
+];
+---
+<Base
+  lang="te"
+  title="గుంటూరులో పాలిటెక్నిక్ (POLYCET) కోచింగ్ — అబ్బాయిలు, అమ్మాయిలు | Siva Tuitions"
+  description="గుంటూరులో AP POLYCET కోచింగ్, పాలిటెక్నిక్ ప్రవేశ మార్గదర్శకం. పదో తరగతి తర్వాత ప్రభుత్వ పాలిటెక్నిక్ సీట్లు. ఫోన్ +91 88797 97777."
+  jsonLd={jsonLd}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">డిప్లొమా కోరుకునే పదో తరగతి విద్యార్థులు</p>
+        <h1 style="font-size:clamp(1.7rem,4vw,2.6rem)">గుంటూరులో పాలిటెక్నిక్ (POLYCET) కోచింగ్, మార్గదర్శకం — అబ్బాయిలు, అమ్మాయిలు</h1>
+      </div>
+      <p style="max-width:68ch;margin-top:1.1rem">
+        AP POLYCET ద్వారా పదో తరగతి పాస్ విద్యార్థులు ప్రభుత్వ, ప్రైవేట్ పాలిటెక్నిక్‌లలో మూడేళ్ల డిప్లొమా కోర్సుల్లో చేరతారు —
+        మహిళల ప్రభుత్వ పాలిటెక్నిక్‌లు కూడా ఉన్నాయి. మంచి POLYCET ర్యాంక్ తర్వాత ECET లాటరల్ ఎంట్రీతో ఇంజనీరింగ్‌లోకి
+        అతి తక్కువ ఖర్చుతో వెళ్లే మార్గం.
+      </p>
+      <p style="max-width:68ch;margin-top:1.1rem">
+        Siva Tuitions &amp; Coachings POLYCETకు గణితం, ఫిజిక్స్, కెమిస్ట్రీ కోచింగ్ ఇచ్చి, తర్వాత పూర్తి ప్రవేశ ప్రక్రియను నడిపిస్తుంది:
+        ర్యాంక్ ప్రకారం కాలేజీ జాబితాలు (అబ్బాయిలు, అమ్మాయిలు, కో-ఎడ్), సర్టిఫికెట్ వెరిఫికేషన్, వెబ్ ఆప్షన్స్.
+      </p>
+      <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>కాల్ {SITE.phone}</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>వాట్సాప్</a>
+      </p>
+    </div>
+  </section>
+  <section class="section-raised">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">సమాధానాలు</p><h2>తరచుగా వచ్చే ప్రశ్నలు</h2></div>
+      <dl class="faq">
+        {faqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      </dl>
+    </div>
+  </section>
+</Base>

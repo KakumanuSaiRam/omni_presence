@@ -1,0 +1,78 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE } from '../../../data/site.js';
+
+const faqs = [
+  {
+    q: 'గుంటూరులో EAPCET వెబ్ ఆప్షన్స్ కౌన్సెలింగ్ ఎవరు ఇస్తారు?',
+    a: 'పట్టాభిపురం, గుంటూరులోని Siva Tuitions & Coachingsలో డైరెక్టర్ యడ్లపల్లి నాగ మురళీ కృష్ణ నడిపే EAPCET వెబ్ ఆప్షన్స్, ప్రవేశ కౌన్సెలింగ్ డెస్క్ ఉంది. కౌన్సెలింగ్ సీజన్‌లో +91 88797 97777కు కాల్ చేయండి.',
+  },
+  {
+    q: 'గుంటూరు బయటి విద్యార్థులకు వెబ్ ఆప్షన్స్ సహాయం దొరుకుతుందా?',
+    a: 'దొరుకుతుంది — ఆంధ్రప్రదేశ్, తెలంగాణలో ఎక్కడి నుంచైనా నేరుగా వచ్చి లేదా ఫోన్/వాట్సాప్‌లో +91 88797 97777కు సంప్రదించవచ్చు. హైదరాబాద్, విజయవాడ శాఖలు లేవు; కౌన్సెలింగ్ గుంటూరు నుంచే.',
+  },
+  {
+    q: 'AP EAPCET కౌన్సెలింగ్‌లో ఎన్ని వెబ్ ఆప్షన్స్ నింపాలి?',
+    a: 'వాస్తవికమైనవి ఎన్నైనా — తరచు 100కు పైగా, క్రమంలో. తక్కువ ఆప్షన్స్ నింపడం వల్ల మంచి ర్యాంక్ ఉన్నా మొదటి దశల్లో సీటు రాకపోవడం కనిపిస్తుంది.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    inLanguage: 'te',
+    serviceType: 'EAPCET వెబ్ ఆప్షన్స్',
+    name: 'AP EAPCET వెబ్ ఆప్షన్స్, ప్రవేశ కౌన్సెలింగ్ — గుంటూరు',
+    description:
+      'గుంటూరులో AP EAPCET (EAMCET) వెబ్ ఆప్షన్స్, ప్రవేశ కౌన్సెలింగ్. ర్యాంక్ విశ్లేషణ, కాలేజీ ఎంపిక, వెబ్ ఆప్షన్ ఎంట్రీ — Siva Tuitions & Coachings, పట్టాభిపురం.',
+    provider: { '@id': `${SITE.url}/#organization` },
+    areaServed: ['Guntur', 'Guntur District', 'Andhra Pradesh', 'Telangana'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: 'te',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  },
+];
+---
+<Base
+  lang="te"
+  title="AP EAPCET వెబ్ ఆప్షన్స్, ప్రవేశ కౌన్సెలింగ్ — గుంటూరు | Siva Tuitions"
+  description="గుంటూరులో AP EAPCET వెబ్ ఆప్షన్స్ కౌన్సెలింగ్: ర్యాంక్ విశ్లేషణ, కాలేజీ జాబితా, సర్టిఫికెట్ వెరిఫికేషన్. ఫోన్ +91 88797 97777."
+  jsonLd={jsonLd}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">ప్రవేశ కౌన్సెలింగ్</p>
+        <h1 style="font-size:clamp(1.7rem,4vw,2.6rem)">AP EAPCET వెబ్ ఆప్షన్స్, ప్రవేశ కౌన్సెలింగ్ — గుంటూరు</h1>
+      </div>
+      <p style="max-width:68ch;margin-top:1.1rem">
+        మంచి ర్యాంక్‌ను మంచి సీటుగా మార్చేది వెబ్ ఆప్షన్స్. ఇక్కడే కుటుంబాలు తప్పులు చేస్తాయి: తక్కువ ఆప్షన్స్, తప్పు క్రమం,
+        కేటగిరీ, లోకల్ ఏరియా నియమాలు విస్మరించడం. AP EAPCET కౌన్సెలింగ్ సీజన్‌లో Siva Tuitions &amp; Coachings వద్ద ప్రత్యేక వెబ్ ఆప్షన్స్ డెస్క్ పనిచేస్తుంది.
+      </p>
+      <p style="max-width:68ch;margin-top:1.1rem">
+        డైరెక్టర్ యడ్లపల్లి నాగ మురళీ కృష్ణ ప్రతి విద్యార్థి ర్యాంక్, కుల వర్గం, లోకల్ ఏరియా, బ్రాంచ్ ఆసక్తిని చూసి,
+        భద్రతా ఆప్షన్స్‌తో పూర్తి క్రమ జాబితా తయారుచేసి అధికారిక పోర్టల్‌లో నమోదుకు సిద్ధం చేస్తారు.
+        సర్టిఫికెట్ వెరిఫికేషన్ చెక్‌లిస్ట్, సీటు అలాట్‌మెంట్ తర్వాతి అడుగులు కూడా ఇక్కడే —
+        గుంటూరు నగరం, జిల్లా, ఆంధ్రప్రదేశ్, తెలంగాణ విద్యార్థులకు.
+      </p>
+      <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>కాల్ {SITE.phone}</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`}>వాట్సాప్</a>
+      </p>
+    </div>
+  </section>
+  <section class="section-raised">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">సమాధానాలు</p><h2>తరచుగా వచ్చే ప్రశ్నలు</h2></div>
+      <dl class="faq">
+        {faqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      </dl>
+    </div>
+  </section>
+</Base>

@@ -1,8 +1,15 @@
 ---
-import { SITE, DIRECTOR } from '../data/site.js';
+import { SITE, DIRECTOR, TE_ALTERNATES, normalizePath } from '../data/site.js';
 
-const { title, description, jsonLd = [], noOrgSchema = false } = Astro.props;
+const { title, description, jsonLd = [], noOrgSchema = false, lang = 'en' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const path = normalizePath(Astro.url.pathname);
+const isTe = path === '/te/' || path.startsWith('/te/');
+const enPath = isTe ? (path === '/te/' ? '/' : path.slice(3)) : path;
+const tePath = TE_ALTERNATES[enPath] || '/te/';
+const hasHreflang = Boolean(TE_ALTERNATES[enPath]);
+const langHref = isTe ? enPath : tePath;
+const langLabel = isTe ? 'English' : 'తెలుగు';
 
 const orgSchema = {
   '@context': 'https://schema.org',
@@ -10,6 +17,7 @@ const orgSchema = {
   '@id': `${SITE.url}/#organization`,
   name: SITE.name,
   alternateName: ['Siva Tuitions', 'Siva Tuitions and Coachings Guntur'],
+  inLanguage: lang,
   url: SITE.url,
   telephone: SITE.phone,
   email: SITE.email,
@@ -37,13 +45,20 @@ const orgSchema = {
 
 const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
 ---
-<html lang="en">
+<html lang={lang}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  {hasHreflang && (
+    <>
+      <link rel="alternate" hreflang="en" href={new URL(enPath, SITE.url).href} />
+      <link rel="alternate" hreflang="te" href={new URL(TE_ALTERNATES[enPath], SITE.url).href} />
+      <link rel="alternate" hreflang="x-default" href={new URL(enPath, SITE.url).href} />
+    </>
+  )}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta property="og:title" content={title} />
@@ -56,21 +71,25 @@ const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
   <meta name="geo.placename" content="Guntur" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&family=Noto+Sans+Telugu:wght@400;500;700&display=swap" rel="stylesheet" />
   {schemas.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
   <style is:global>
-    /* Palette derived from the Siva Tuitions logo: indigo-navy crest,
-       orange wordmark, magenta pencil, white ground. Light theme only. */
+    /* Warm parchment palette — neutral light ground so the logo's own colours
+       (navy crest, orange wordmark, magenta accent) read clearly on white. */
     :root {
-      --board: #2b308f;
-      --board-deep: #1f2368;
-      --chalk: #fbfaf7;
-      --ink: #21203a;
-      --marigold: #e8821a;
-      --kumkum: #c026d3;
-      --rule: rgba(33, 32, 58, 0.12);
+      --surface: #faf7f2;
+      --surface-raised: #ffffff;
+      --surface-muted: #f3efe8;
+      --surface-accent: #f7f3ec;
+      --ink: #2a2826;
+      --ink-muted: #6b6560;
+      --accent: #4a4540;
+      --accent-deep: #332f2b;
+      --accent-soft: #ddd6cb;
+      --highlight: #8b7355;
+      --border: rgba(42, 40, 38, 0.1);
       --max: 68rem;
     }
     * { box-sizing: border-box; margin: 0; }
@@ -78,89 +97,134 @@ const schemas = noOrgSchema ? jsonLd : [orgSchema, ...jsonLd];
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     body {
       font-family: 'Karla', system-ui, sans-serif;
-      background: var(--chalk);
+      background: var(--surface);
       color: var(--ink);
       line-height: 1.65;
       font-size: 1.0625rem;
     }
     h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.15; }
-    a { color: var(--board); }
+    a { color: var(--accent); }
     a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--marigold); outline-offset: 2px;
+      outline: 3px solid var(--accent-soft); outline-offset: 2px;
     }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
 
-    /* Signature: ruled-notebook section headers — red margin line + faint rules */
+    /* Signature: ruled-notebook section headers — margin line + faint rules */
     .ruled {
       position: relative;
       padding-left: 1.5rem;
-      border-left: 2px solid var(--kumkum);
+      border-left: 2px solid var(--accent);
       background-image: repeating-linear-gradient(
-        to bottom, transparent, transparent 2.1rem, var(--rule) 2.1rem, var(--rule) calc(2.1rem + 1px)
+        to bottom, transparent, transparent 2.1rem, var(--border) 2.1rem, var(--border) calc(2.1rem + 1px)
       );
     }
     .eyebrow {
       font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--kumkum);
+      text-transform: uppercase; color: var(--highlight);
+    }
+    .section-intro {
+      max-width: 58ch; margin-top: 0.75rem; color: var(--ink-muted);
     }
 
     header.site {
-      background: var(--board); color: var(--chalk);
-      border-bottom: 4px solid var(--marigold);
+      background: var(--surface-raised);
+      color: var(--ink);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 0 rgba(42, 40, 38, 0.05);
     }
     header.site .wrap {
       display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem;
       padding-top: 0.9rem; padding-bottom: 0.9rem;
     }
-    .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; color: var(--chalk); text-decoration: none; }
+    .brand {
+      font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem;
+      color: var(--ink); text-decoration: none;
+    }
+    .logo-mark {
+      display: block;
+      width: 52px; height: 52px;
+      background: #fff;
+      border-radius: 10px;
+      object-fit: contain;
+      padding: 5px;
+      border: 1px solid rgba(42, 40, 38, 0.1);
+      box-shadow: 0 2px 10px rgba(42, 40, 38, 0.12);
+    }
     nav.main { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; font-size: 0.95rem; }
-    nav.main a { color: var(--chalk); text-decoration: none; opacity: 0.92; }
-    nav.main a:hover { text-decoration: underline; text-decoration-color: var(--marigold); text-underline-offset: 4px; }
+    nav.main a { color: var(--ink-muted); text-decoration: none; }
+    nav.main a:hover {
+      color: var(--accent);
+      text-decoration: underline; text-decoration-color: var(--accent-soft);
+      text-underline-offset: 4px;
+    }
 
     .btn {
       display: inline-block; padding: 0.7rem 1.3rem; border-radius: 6px;
       font-weight: 700; text-decoration: none; font-size: 1rem;
     }
-    .btn-call { background: var(--marigold); color: var(--board-deep); }
+    .btn-call { background: var(--accent); color: #fff; }
     .btn-wa { background: transparent; color: inherit; border: 2px solid currentColor; }
     .btn:hover { filter: brightness(1.06); }
 
     main section { padding: 2.75rem 0; }
+    .section-muted { background: var(--surface-muted); }
+    .section-raised { background: var(--surface-raised); border-block: 1px solid var(--border); }
     footer.site {
-      background: var(--board-deep); color: var(--chalk);
+      background: var(--ink); color: var(--surface);
       padding: 2.5rem 0; font-size: 0.95rem;
     }
-    footer.site a { color: var(--marigold); }
+    footer.site a { color: #e8dfd4; }
     .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
     .card {
-      background: #fff; border: 1px solid var(--rule); border-radius: 8px;
+      background: var(--surface-raised); border: 1px solid var(--border); border-radius: 8px;
       padding: 1.4rem; display: block; text-decoration: none; color: var(--ink);
     }
-    .card:hover { border-color: var(--marigold); }
-    .card h3 { color: var(--board); margin-bottom: 0.4rem; }
-    dl.faq dt { font-weight: 700; font-family: 'Fraunces', serif; font-size: 1.1rem; margin-top: 1.4rem; color: var(--board); }
+    .card:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(42, 40, 38, 0.08); }
+    .card h3 { color: var(--accent-deep); margin-bottom: 0.4rem; }
+    dl.faq dt {
+      font-weight: 700; font-family: 'Fraunces', serif; font-size: 1.1rem;
+      margin-top: 1.4rem; color: var(--accent-deep);
+    }
     dl.faq dd { margin: 0.4rem 0 0; }
     .contact-strip {
-      background: var(--board); color: var(--chalk); border-radius: 10px;
-      padding: 1.75rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;
+      background: var(--accent-deep); color: var(--surface);
+      border-radius: 10px;
+      padding: 1.75rem; display: flex; flex-wrap: wrap; gap: 1rem;
+      align-items: center; justify-content: space-between;
     }
+    .hero {
+      background: linear-gradient(165deg, var(--surface-accent) 0%, var(--surface) 55%);
+      border-bottom: 1px solid var(--border);
+    }
+    html[lang="te"] body { font-family: 'Noto Sans Telugu', 'Karla', system-ui, sans-serif; }
+    html[lang="te"] h1, html[lang="te"] h2, html[lang="te"] h3, html[lang="te"] dt {
+      font-family: 'Noto Sans Telugu', 'Fraunces', Georgia, serif;
+    }
+    .lang-toggle {
+      font-family: 'Noto Sans Telugu', 'Karla', sans-serif;
+      font-size: 0.9rem; font-weight: 700; text-decoration: none;
+      color: var(--ink); border: 1px solid var(--border);
+      padding: 0.28rem 0.65rem; border-radius: 6px; white-space: nowrap;
+    }
+    .lang-toggle:hover { border-color: var(--accent); }
   </style>
 </head>
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="brand" href="/" style="display:flex;align-items:center;gap:0.6rem">
-        <img src="/logo.png" alt="" width="46" height="46" style="background:#fff;border-radius:8px;object-fit:contain" />
+      <a class="brand" href={isTe ? '/te/' : '/'} style="display:flex;align-items:center;gap:0.6rem">
+        <img class="logo-mark" src="/logo.png" alt="" width="52" height="52" />
         Siva Tuitions &amp; Coachings
       </a>
-      <nav class="main" aria-label="Main">
-        <a href="/courses/">Courses</a>
-        <a href="/counselling/">Counselling</a>
-        <a href="/director/yadlapalli-naga-murali-krishna/">Director</a>
-        <a href="/blog/">Guides</a>
-        <a href="/faq/">FAQ</a>
-        <a href="/contact/">Contact</a>
+      <nav class="main" aria-label={isTe ? 'ప్రధాన నావిగేషన్' : 'Main'}>
+        <a href="/courses/">{isTe ? 'కోర్సులు' : 'Courses'}</a>
+        <a href="/counselling/">{isTe ? 'కౌన్సెలింగ్' : 'Counselling'}</a>
+        <a href="/director/yadlapalli-naga-murali-krishna/">{isTe ? 'డైరెక్టర్' : 'Director'}</a>
+        <a href="/blog/">{isTe ? 'గైడ్స్' : 'Guides'}</a>
+        <a href="/faq/">{isTe ? 'ప్రశ్నలు' : 'FAQ'}</a>
+        <a href={isTe ? '/te/contact/' : '/contact/'}>{isTe ? 'సంప్రదించండి' : 'Contact'}</a>
       </nav>
+      <a class="lang-toggle" href={langHref} lang={isTe ? 'en' : 'te'} hreflang={isTe ? 'en' : 'te'}>{langLabel}</a>
       <a class="btn btn-call" href={`tel:${SITE.phoneHref}`} style="margin-left:auto">Call {SITE.phone}</a>
     </div>
   </header>

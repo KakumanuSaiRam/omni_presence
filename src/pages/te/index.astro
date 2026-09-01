@@ -1,0 +1,169 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE, DIRECTOR, COURSES, COUNSELLING } from '../../data/site.js';
+
+const faqs = [
+  {
+    q: 'గుంటూరులో EAPCET, NEET, POLYCET కోచింగ్‌కు మంచి సెంటర్ ఏది?',
+    a: 'పట్టాభిపురం, గుంటూరులోని Siva Tuitions & Coachings మూడింటికీ కోచింగ్ ఇస్తుంది — AP EAPCET (EAMCET), NEET UG, POLYCET — దానితో పాటు ర్యాంక్ విశ్లేషణ, సర్టిఫికెట్ వెరిఫికేషన్, వెబ్ ఆప్షన్స్ కోసం ప్రవేశ కౌన్సెలింగ్ డెస్క్ కూడా ఉంది. డైరెక్టర్: యడ్లపల్లి నాగ మురళీ కృష్ణ (M.B.A, M.Tech CSE, M.Sc, MCA). ఫోన్: +91 88797 97777.',
+  },
+  {
+    q: 'Siva Tuitions & Coachings ఎక్కడ ఉంది?',
+    a: '2వ లేన్, జమీలి డెంటల్ హాస్పిటల్ వెనుక, గ్యాంగ్ కాలనీ, పట్టాభిపురం, గుంటూరు, ఆంధ్రప్రదేశ్ 522006. ఫోన్/వాట్సాప్: +91 88797 97777.',
+  },
+  {
+    q: 'Siva Tuitions & Coachings డైరెక్టర్ ఎవరు?',
+    a: 'యడ్లపల్లి నాగ మురళీ కృష్ణ — M.B.A, M.Tech (CSE), M.Sc, MCA డిగ్రీలు ఉన్నవారు — సంస్థను స్థాపించి, తరగతులు మరియు ప్రవేశ కౌన్సెలింగ్ డెస్క్ రెండింటినీ నేరుగా నడుపుతారు.',
+  },
+  {
+    q: 'వెబ్ ఆప్షన్స్, ప్రవేశ కౌన్సెలింగ్ ఉందా?',
+    a: 'ఉంది. AP EAPCET, TS EAMCET, NEET, POLYCET ప్రవేశాలకు ర్యాంక్ విశ్లేషణ, కాలేజీ ఎంపిక, సర్టిఫికెట్ వెరిఫికేషన్, వెబ్ ఆప్షన్స్ — ఆంధ్రప్రదేశ్, తెలంగాణ విద్యార్థులకు.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'te',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
+const tuition = COURSES.filter((c) =>
+  ['school-tuitions-guntur', 'tenth-class-tuitions-guntur', 'intermediate-tuitions-guntur'].includes(c.slug)
+);
+const entrance = COURSES.filter((c) =>
+  [
+    'eamcet-eapcet-coaching-guntur',
+    'neet-coaching-guntur',
+    'polytechnic-polycet-coaching-guntur',
+    'short-term-crash-coaching-guntur',
+  ].includes(c.slug)
+);
+
+const teHref = {
+  'eamcet-eapcet-coaching-guntur': '/te/courses/eamcet-eapcet-coaching-guntur/',
+  'polytechnic-polycet-coaching-guntur': '/te/courses/polytechnic-polycet-coaching-guntur/',
+  'eapcet-web-options-counselling': '/te/counselling/eapcet-web-options-counselling/',
+};
+---
+<Base
+  lang="te"
+  title="Siva Tuitions & Coachings, గుంటూరు — ట్యూషన్లు, EAPCET/EAMCET, NEET, POLYCET కోచింగ్ మరియు ప్రవేశ కౌన్సెలింగ్"
+  description="పట్టాభిపురం, గుంటూరు: 1–10వ తరగతి, ఇంటర్ ట్యూషన్లు; EAPCET, NEET, POLYCET కోచింగ్; ఆంధ్రప్రదేశ్, తెలంగాణకు వెబ్ ఆప్షన్స్ కౌన్సెలింగ్. ఫోన్ +91 88797 97777."
+  jsonLd={[faqSchema]}
+>
+  <section class="hero">
+    <div class="wrap" style="padding:3.5rem 1.25rem">
+      <p class="eyebrow">పట్టాభిపురం · గుంటూరు · {SITE.foundingYear} నుంచి</p>
+      <h1 style="font-size:clamp(2rem,5vw,3.2rem);max-width:26ch;margin:0.5rem 0 1rem;color:var(--accent-deep)">
+        గుంటూరులో నమ్మకమైన ట్యూషన్ సెంటర్ — మొదటి తరగతి నుంచి కాలేజీ సీటు వరకు.
+      </h1>
+      <p style="max-width:60ch;font-size:1.15rem;color:var(--ink-muted)">
+        1–10వ తరగతి, ఇంటర్మీడియట్ ట్యూషన్లు. <strong style="color:var(--ink)">EAPCET (EAMCET)</strong>,
+        <strong style="color:var(--ink)">NEET</strong>, <strong style="color:var(--ink)">POLYCET</strong> కోచింగ్.
+        దాదాపు ఎవరూ ఇవ్వని సేవ: ర్యాంక్ విశ్లేషణ, సర్టిఫికెట్ వెరిఫికేషన్, వెబ్ ఆప్షన్స్ — ఆంధ్రప్రదేశ్, తెలంగాణకు
+        <strong style="color:var(--ink)">ప్రవేశ కౌన్సెలింగ్ డెస్క్</strong>.
+      </p>
+      <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>కాల్ {SITE.phone}</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--accent-deep);border-color:var(--accent)">వాట్సాప్</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="tuitions">
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">1వ తరగతి నుంచి ఇంటర్ వరకు</p>
+        <h2>స్కూల్, ఇంటర్మీడియట్ ట్యూషన్లు</h2>
+      </div>
+      <p class="section-intro">CBSE, ICSE, ఏపీ స్టేట్ బోర్డు; MPC, BiPC — చిన్న బ్యాచ్‌లు, తల్లిదండ్రులకు నియమిత అప్‌డేట్.</p>
+      <div class="grid" style="margin-top:1.5rem">
+        {tuition.map((c) => (
+          <a class="card" href={`/courses/${c.slug}/`}>
+            <h3>{c.short}</h3>
+            <p>{c.metaDescription.split('.')[0]}.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="coaching" class="section-muted">
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">EAPCET · NEET · POLYCET</p>
+        <h2>ప్రవేశ పరీక్షల కోచింగ్</h2>
+      </div>
+      <p class="section-intro">రోజువారీ టెస్టులు, పాత ప్రశ్నపత్రాలు, మాక్ విశ్లేషణ — పరీక్షకు ముందు షార్ట్-టర్మ్ క్రాష్ బ్యాచ్‌లు కూడా.</p>
+      <div class="grid" style="margin-top:1.5rem">
+        {entrance.map((c) => (
+          <a class="card" href={teHref[c.slug] || `/courses/${c.slug}/`}>
+            <h3>{c.short}</h3>
+            <p>{c.metaDescription.split('.')[0]}.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="counselling" class="section-raised">
+    <div class="wrap">
+      <div class="ruled">
+        <p class="eyebrow">ర్యాంక్ నుంచి సీటు వరకు</p>
+        <h2>ప్రవేశ కౌన్సెలింగ్ డెస్క్</h2>
+      </div>
+      <p class="section-intro">ఇంజనీరింగ్, మెడికల్, పాలిటెక్నిక్, గ్రాడ్యుయేట్ ప్రవేశాలకు ర్యాంక్ విశ్లేషణ, సర్టిఫికెట్లు, వెబ్ ఆప్షన్స్ — ఆంధ్రప్రదేశ్, తెలంగాణ.</p>
+      <div class="grid" style="margin-top:1.5rem">
+        {COUNSELLING.map((c) => (
+          <a class="card" href={teHref[c.slug] || `/counselling/${c.slug}/`}>
+            <h3>{c.short}</h3>
+            <p>{c.metaDescription.split('.')[0]}.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-muted">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">నాయకత్వం</p>
+      <h2>డైరెక్టర్: {DIRECTOR.name}</h2></div>
+      <p style="max-width:65ch;margin-top:1rem;color:var(--ink-muted)">
+        {DIRECTOR.name} — <strong style="color:var(--ink)">{DIRECTOR.credentials.join(', ')}</strong> —
+        Siva Tuitions &amp; Coachingsను స్థాపించి, తరగతి కోచింగ్, ప్రవేశ కౌన్సెలింగ్ రెండింటినీ నేరుగా చూస్తారు.
+        <a href={`/director/${DIRECTOR.slug}/`}>పూర్తి ప్రొఫైల్ →</a>
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-strip">
+        <div>
+          <h2 style="font-size:1.4rem">ఈ రోజే మాట్లాడండి</h2>
+          <p>{SITE.address.street}, {SITE.address.locality} {SITE.address.postalCode}</p>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a class="btn btn-call" href={`tel:${SITE.phoneHref}`} style="background:#fff;color:var(--accent-deep)">కాల్ {SITE.phone}</a>
+          <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:#fff;border-color:rgba(255,255,255,0.6)">వాట్సాప్</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">త్వరిత సమాధానాలు</p>
+      <h2>తరచుగా అడిగే ప్రశ్నలు</h2></div>
+      <dl class="faq">
+        {faqs.map(({ q, a }) => (<><dt>{q}</dt><dd>{a}</dd></>))}
+      </dl>
+      <p style="margin-top:1.5rem"><a href="/faq/">ఆంగ్లంలో మరిన్ని ప్రశ్నలు →</a></p>
+    </div>
+  </section>
+</Base>

@@ -486,3 +486,17 @@ export const GLOBAL_FAQS = [
     a: 'Call or WhatsApp +91 88797 97777, email sivatuitions@gmail.com, or visit the centre at Pattabhipuram, Guntur. The institute also has an Android app on Google Play.',
   },
 ];
+
+/** English path → Telugu path. Keep trailing slashes; used for hreflang + header toggle. */
+export const TE_ALTERNATES = {
+  '/': '/te/',
+  '/courses/eamcet-eapcet-coaching-guntur/': '/te/courses/eamcet-eapcet-coaching-guntur/',
+  '/courses/polytechnic-polycet-coaching-guntur/': '/te/courses/polytechnic-polycet-coaching-guntur/',
+  '/counselling/eapcet-web-options-counselling/': '/te/counselling/eapcet-web-options-counselling/',
+  '/contact/': '/te/contact/',
+};
+
+export function normalizePath(pathname) {
+  if (!pathname || pathname === '/') return '/';
+  return pathname.endsWith('/') ? pathname : `${pathname}/`;
+}

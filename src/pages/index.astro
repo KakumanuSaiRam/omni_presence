@@ -11,67 +11,111 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: a },
   })),
 };
+
+const TUITION_SLUGS = [
+  'school-tuitions-guntur',
+  'tenth-class-tuitions-guntur',
+  'intermediate-tuitions-guntur',
+];
+const ENTRANCE_SLUGS = [
+  'eamcet-eapcet-coaching-guntur',
+  'neet-coaching-guntur',
+  'polytechnic-polycet-coaching-guntur',
+  'short-term-crash-coaching-guntur',
+];
+
+const tuitionCourses = TUITION_SLUGS.map((slug) => COURSES.find((c) => c.slug === slug)).filter(Boolean);
+const entranceCourses = ENTRANCE_SLUGS.map((slug) => COURSES.find((c) => c.slug === slug)).filter(Boolean);
+
+const SERVICE_SECTIONS = [
+  {
+    id: 'tuitions',
+    eyebrow: 'Classes 1 through Intermediate',
+    title: 'School & Intermediate tuitions',
+    intro:
+      'Strong basics from Class 1 through Intermediate — CBSE, ICSE and AP State board, MPC and BiPC — with small batches and regular parent feedback.',
+    courses: tuitionCourses,
+    muted: false,
+  },
+  {
+    id: 'coaching',
+    eyebrow: 'EAPCET · NEET · POLYCET',
+    title: 'Entrance exam coaching',
+    intro:
+      'Daily practice tests, previous-paper drills and mock analysis for AP EAPCET (EAMCET), NEET UG and POLYCET — plus short-term crash batches before each exam season.',
+    courses: entranceCourses,
+    muted: true,
+  },
+  {
+    id: 'counselling',
+    eyebrow: 'Rank to seat',
+    title: 'Admission counselling desk',
+    intro:
+      'The part almost nobody else offers — rank analysis, certificate verification and web options for engineering, medical, polytechnic and graduate admissions across Andhra Pradesh and Telangana.',
+    counselling: COUNSELLING,
+    muted: false,
+  },
+];
 ---
 <Base
   title="Siva Tuitions & Coachings, Guntur — Best Tuitions, EAPCET/EAMCET, NEET & POLYCET Coaching and Admission Counselling"
   description="Siva Tuitions & Coachings, Pattabhipuram, Guntur: tuitions for Classes 1–10 and Intermediate, EAPCET (EAMCET), NEET and POLYCET coaching, plus web options and admission counselling for Andhra Pradesh and Telangana. Call +91 88797 97777."
   jsonLd={[faqSchema]}
 >
-  <section style="background:var(--board);color:var(--chalk);border-bottom:4px solid var(--marigold)">
+  <section class="hero">
     <div class="wrap" style="padding:3.5rem 1.25rem">
-      <p class="eyebrow" style="color:var(--marigold)">Pattabhipuram · Guntur · Since {SITE.foundingYear}</p>
-      <h1 style="font-size:clamp(2rem,5vw,3.2rem);max-width:26ch;margin:0.5rem 0 1rem">
+      <p class="eyebrow">Pattabhipuram · Guntur · Since {SITE.foundingYear}</p>
+      <h1 style="font-size:clamp(2rem,5vw,3.2rem);max-width:26ch;margin:0.5rem 0 1rem;color:var(--accent-deep)">
         Guntur's trusted tuition point — from Class 1 to your college seat.
       </h1>
-      <p style="max-width:60ch;font-size:1.15rem">
-        Tuitions for Classes 1–10 and Intermediate. Coaching for <strong>EAPCET (EAMCET)</strong>,
-        <strong>NEET</strong> and <strong>POLYCET</strong>. And the part almost nobody else offers:
-        an <strong>admission-counselling desk</strong> that walks your family through rank analysis,
+      <p style="max-width:60ch;font-size:1.15rem;color:var(--ink-muted)">
+        Tuitions for Classes 1–10 and Intermediate. Coaching for <strong style="color:var(--ink)">EAPCET (EAMCET)</strong>,
+        <strong style="color:var(--ink)">NEET</strong> and <strong style="color:var(--ink)">POLYCET</strong>. And the part almost nobody else offers:
+        an <strong style="color:var(--ink)">admission-counselling desk</strong> that walks your family through rank analysis,
         certificate verification and web options — for Andhra Pradesh and Telangana.
       </p>
       <p style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
         <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
-        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--chalk)">WhatsApp us</a>
+        <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--accent-deep);border-color:var(--accent)">WhatsApp us</a>
       </p>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="ruled"><p class="eyebrow">Coaching &amp; tuitions</p>
-      <h2>What we teach</h2></div>
-      <div class="grid" style="margin-top:1.5rem">
-        {COURSES.map((c) => (
-          <a class="card" href={`/courses/${c.slug}/`}>
-            <h3>{c.short}</h3>
-            <p>{c.metaDescription.split('.')[0]}.</p>
-          </a>
-        ))}
+  {SERVICE_SECTIONS.map((section) => (
+    <section
+      id={section.id}
+      class={section.muted ? 'section-muted' : section.id === 'counselling' ? 'section-raised' : ''}
+    >
+      <div class="wrap">
+        <div class="ruled">
+          <p class="eyebrow">{section.eyebrow}</p>
+          <h2>{section.title}</h2>
+        </div>
+        <p class="section-intro">{section.intro}</p>
+        <div class="grid" style="margin-top:1.5rem">
+          {section.courses?.map((c) => (
+            <a class="card" href={`/courses/${c.slug}/`}>
+              <h3>{c.short}</h3>
+              <p>{c.metaDescription.split('.')[0]}.</p>
+            </a>
+          ))}
+          {section.counselling?.map((c) => (
+            <a class="card" href={`/counselling/${c.slug}/`}>
+              <h3>{c.short}</h3>
+              <p>{c.metaDescription.split('.')[0]}.</p>
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
-  <section style="background:#fff;border-block:1px solid var(--rule)">
-    <div class="wrap">
-      <div class="ruled"><p class="eyebrow">Counselling desk</p>
-      <h2>From rank to seat — guided web options &amp; admissions</h2></div>
-      <div class="grid" style="margin-top:1.5rem">
-        {COUNSELLING.map((c) => (
-          <a class="card" href={`/counselling/${c.slug}/`}>
-            <h3>{c.short}</h3>
-            <p>{c.metaDescription.split('.')[0]}.</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section>
+  <section class="section-muted">
     <div class="wrap">
       <div class="ruled"><p class="eyebrow">Leadership</p>
       <h2>Director: {DIRECTOR.name}</h2></div>
-      <p style="max-width:65ch;margin-top:1rem">
-        {DIRECTOR.honorific} {DIRECTOR.name} — <strong>{DIRECTOR.credentials.join(', ')}</strong> —
+      <p style="max-width:65ch;margin-top:1rem;color:var(--ink-muted)">
+        {DIRECTOR.honorific} {DIRECTOR.name} — <strong style="color:var(--ink)">{DIRECTOR.credentials.join(', ')}</strong> —
         founded Siva Tuitions &amp; Coachings and personally leads both the classroom coaching and the
         admission-counselling desk. <a href={`/director/${DIRECTOR.slug}/`}>Read his full profile →</a>
       </p>
@@ -86,8 +130,8 @@ const faqSchema = {
           <p>{SITE.address.street}, {SITE.address.locality} {SITE.address.postalCode}</p>
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap">
-          <a class="btn btn-call" href={`tel:${SITE.phoneHref}`}>Call {SITE.phone}</a>
-          <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:var(--chalk)">WhatsApp</a>
+          <a class="btn btn-call" href={`tel:${SITE.phoneHref}`} style="background:#fff;color:var(--accent-deep)">Call {SITE.phone}</a>
+          <a class="btn btn-wa" href={`https://wa.me/${SITE.whatsapp}`} style="color:#fff;border-color:rgba(255,255,255,0.6)">WhatsApp</a>
         </div>
       </div>
     </div>

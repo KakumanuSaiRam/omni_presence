@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../data/site.js';
+---
+<Base
+  lang="te"
+  title={`సంప్రదించండి ${SITE.name} — పట్టాభిపురం, గుంటూరు | ఫోన్, వాట్సాప్, దారి`}
+  description={`Siva Tuitions & Coachings: ${SITE.phone}, ${SITE.email}. చిరునామా: ${SITE.address.street}, గుంటూరు ${SITE.address.postalCode}.`}
+>
+  <section>
+    <div class="wrap">
+      <div class="ruled"><p class="eyebrow">రండి · కాల్ · వాట్సాప్</p>
+      <h1>Siva Tuitions &amp; Coachingsను సంప్రదించండి</h1></div>
+      <div class="grid" style="margin-top:1.5rem">
+        <div class="card">
+          <h3>చిరునామా</h3>
+          <p>{SITE.address.street},<br/>{SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}</p>
+          <p style="margin-top:0.6rem"><a href={SITE.mapsUrl}>గూగుల్ మ్యాప్స్‌లో తెరవండి →</a></p>
+        </div>
+        <div class="card">
+          <h3>ఫోన్, వాట్సాప్</h3>
+          <p><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
+          <p style="margin-top:0.6rem"><a href={`https://wa.me/${SITE.whatsapp}`}>వాట్సాప్ సందేశం →</a></p>
+        </div>
+        <div class="card">
+          <h3>ఈమెయిల్, యాప్</h3>
+          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <p style="margin-top:0.6rem"><a href={SITE.playStoreUrl}>గూగుల్ ప్లేలో ఆండ్రాయిడ్ యాప్ →</a></p>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem;max-width:65ch">
+        పని వేళలు: సోమవారం–శనివారం, ఉదయం 6:00 – రాత్రి 9:00. EAPCET, NEET, POLYCET కౌన్సెలింగ్ సీజన్‌లో
+        ఆంధ్రప్రదేశ్, తెలంగాణ విద్యార్థులకు ఫోన్, వాట్సాప్ కౌన్సెలింగ్ కూడా ఉంటుంది. హైదరాబాద్ లేదా విజయవాడలో శాఖ లేదు —
+        కేంద్రం పట్టాభిపురం, గుంటూరు మాత్రమే.
+      </p>
+    </div>
+  </section>
+</Base>
