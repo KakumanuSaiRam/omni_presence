@@ -12,8 +12,8 @@ Use the canonical NAP from GEO-PLAYBOOK.md everywhere. Handle preference order:
   students through web options and admissions for EAPCET, NEET, POLYCET, ICET, ECET,
   PG-CET and JoSAA — across Andhra Pradesh and Telangana. Founded and directed by
   Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA).
-  📍 Pattabhipuram, Guntur 522006 · 📞 +91 88797 97777 · 🌐 sivatuitions.com
-- Industry: Education. Size: 2–10. Website: https://sivatuitions.com
+  📍 Pattabhipuram, Guntur 522006 · 📞 +91 88797 97777 · 🌐 sivatuitions.github.io
+- Industry: Education. Size: 2–10. Website: https://sivatuitions.github.io
 
 ## LinkedIn — Director's personal profile
 - Name: Yadlapalli Naga Murali Krishna
@@ -32,7 +32,7 @@ Use the canonical NAP from GEO-PLAYBOOK.md everywhere. Handle preference order:
 - Name: Siva Tuitions & Coachings
 - Bio: Tuitions (1–10, Inter) · EAPCET/EAMCET · NEET · POLYCET coaching & web options
   counselling · Guntur, AP · ☎ +91 88797 97777
-- Location: Guntur, India · Website: https://sivatuitions.com
+- Location: Guntur, India · Website: https://sivatuitions.github.io
 
 ## Reddit
 - Username: SivaTuitionsGuntur
@@ -44,11 +44,11 @@ Use the canonical NAP from GEO-PLAYBOOK.md everywhere. Handle preference order:
 ## WhatsApp Business (on the institute number)
 - Business name: Siva Tuitions & Coachings
 - Category: Education. Description: same as GBP description.
-- Catalog items: each course + counselling service (copy titles from sivatuitions.com).
+- Catalog items: each course + counselling service (copy titles from sivatuitions.github.io).
 - Create a **Channel**: "Siva Tuitions & Coachings — Guntur" for weekly updates.
 
 ## Instagram & Facebook (existing pages — update)
-- Bio/About → canonical NAP + link https://sivatuitions.com
+- Bio/About → canonical NAP + link https://sivatuitions.github.io
 - Category: Education · Add director's name in About
 - Username: align to `sivatuitions` if available.
 

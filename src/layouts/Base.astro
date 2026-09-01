@@ -153,6 +153,9 @@ const FONT_TOGGLE =
       --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     * { box-sizing: border-box; margin: 0; }
+    /* A `display` rule on a component beats the UA's [hidden] { display: none },
+       so restate it with priority. */
+    [hidden] { display: none !important; }
     html { scroll-behavior: smooth; overflow-x: clip; }
     img, svg, video { max-width: 100%; height: auto; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

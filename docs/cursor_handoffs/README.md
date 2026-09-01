@@ -6,8 +6,8 @@ token-heavy build/content work.
 
 | File | Scope | Status |
 |---|---|---|
-| `../CURSOR-HANDOFF.md` | T1–T8: locations, 20 blog guides, Telugu pages, OG images, IndexNow, TrueFoundry generator, broadcaster hardening, QA | In progress (T1 done) |
-| `02-offsite-content-pack.md` | Directory submission packs, Quora/Reddit answer bank, GBP 12-week post calendar, YouTube scripts | Ready to run |
+| `../CURSOR-HANDOFF.md` | T1–T8: locations, 20 blog guides, Telugu pages, OG images, IndexNow, TrueFoundry generator, broadcaster hardening, QA | Done (live on github.io) |
+| `02-offsite-content-pack.md` | Directory submission packs, Quora/Reddit answer bank, GBP 12-week post calendar, YouTube scripts | Done as files in `docs/offsite-pack/` — owner still pastes/submits |
 | `03-api-publishing-visibility.md` | Official-API publisher (Meta/X/LinkedIn/Reddit/Telegram) + automated AI-visibility measurement harness | Done |
 
 Rules that apply to every handoff (repeat them if a prompt is run standalone):

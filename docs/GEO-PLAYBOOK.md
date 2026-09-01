@@ -42,12 +42,13 @@ Director: Yadlapalli Naga Murali Krishna, M.B.A, M.Tech (CSE), M.Sc, MCA
    https://sivatuitions.github.io — use that URL on every listing. When the
    registrar is ready, see `docs/dns-sivatuitions-com.md`. Do not put a `CNAME`
    file back in `public/` until those DNS records exist.
-2. **Google Search Console**: add sivatuitions.com (DNS verification), submit
-   `sitemap-index.xml`, request indexing of home, director, and counselling pages.
-3. **Bing Webmaster Tools**: import from Search Console (one click), submit sitemap,
+2. **Google Search Console**: add **https://sivatuitions.github.io** (URL-prefix
+   verification), submit `sitemap-index.xml`, request indexing of home, `/answers/`,
+   director, and counselling pages. Add `sivatuitions.com` only after DNS cutover.
+3. **Bing Webmaster Tools**: add the github.io site (or import later), submit sitemap,
    use URL Submission for the top 10 pages. *This is ChatGPT's window into the site.*
-4. **IndexNow**: already supported by Bing — ping after each deploy (script provided in
-   `scripts/indexnow.py` — reads key from `.env`).
+4. **IndexNow**: `npm run postdeploy:ping` (`scripts/indexnow.mjs`) after each deploy.
+   Key file is `public/sivatcgunturidxn2026.txt`.
 
 ## Phase 2 — Google Business Profile (Week 1–2)
 
@@ -95,7 +96,7 @@ Ready-to-paste content for all of these is in `docs/social-drafts/`.
 ### Quora & content seeding (high leverage, do monthly)
 Answer real questions ("Which is the best EAMCET coaching in Guntur?", "How to fill
 AP EAPCET web options?") from the institute's account, transparently, linking to the
-relevant guide on sivatuitions.com. Quora ranks highly in both Google and Bing and is
+relevant guide on https://sivatuitions.github.io. Quora ranks highly in both Google and Bing and is
 heavily quoted by AI assistants.
 
 ## Phase 5 — Authority (Month 2+)

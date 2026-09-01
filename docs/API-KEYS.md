@@ -31,34 +31,16 @@ Unconfigured engines (Perplexity, OpenAI, Brave) print `skipped (not configured)
 
 ## 2. IndexNow — free, 2 minutes, no Google account
 
-Tells Bing (and others) “this sitemap changed” after a deploy. Not a secret in the usual sense: the key file is published on the site so Bing can check it.
+Already configured. Key file is live at
+`https://sivatuitions.github.io/sivatcgunturidxn2026.txt`.
 
-1. Generate a key (any UUID is fine):
-
-```bash
-uuidgen | tr '[:upper:]' '[:lower:]'
-```
-
-2. Add to `omni_presence/.env`:
-
-```
-INDEXNOW_KEY=the-uuid-you-generated
-```
-
-Leave `INDEXNOW_HOST` empty. The script uses the live hostname from `src/data/site.js` (`sivatuitions.github.io` until DNS).
-
-3. After `npm run build`:
+After `npm run build`, from `omni_presence/`:
 
 ```bash
 npm run postdeploy:ping
 ```
 
-That writes `public/<key>.txt` and pings IndexNow. The next GitHub Pages deploy must include that `.txt` file for Bing to verify. UUID keys with hyphens are gitignored under `public/*-*.txt`, so either:
-
-- run ping **in GitHub Actions** later, or
-- use a 32-character hex key with **no hyphen** (`openssl rand -hex 16`) so the `.txt` can be committed.
-
-Skip IndexNow until you are ready. The site works without it.
+That submits the sitemap to IndexNow and Bing.
 
 ---
 

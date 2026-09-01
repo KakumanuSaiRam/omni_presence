@@ -6,4 +6,4 @@
 | 2026-09-01 | Google (web) | "best EAPCET coaching in Guntur" | 0 | Absent. Baseline before site deploy. |
 | 2026-09-01 | Google (web) | "Yadlapalli Naga Murali Krishna" | 0 | No results tied to the institute. Director page not yet indexed (site not deployed). |
 
-Baseline recorded pre-deployment. Next run: 2 weeks after DNS + Search Console + Bing Webmaster are live.
+Baseline recorded pre-deployment. Site is live at https://sivatuitions.github.io — next run after Search Console + Bing Webmaster verify the github.io property.

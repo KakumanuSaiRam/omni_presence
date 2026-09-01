@@ -1,8 +1,8 @@
 # omni_presence — Siva Tuitions & Coachings
 
-AI-visibility (GEO) project for [Siva Tuitions & Coachings](https://sivatuitions.com),
+AI-visibility (GEO) project for [Siva Tuitions & Coachings](https://sivatuitions.github.io),
 Pattabhipuram, Guntur — website, off-site playbook, social broadcast tool, and
-validation loop.
+validation loop. (`sivatuitions.com` DNS is not live yet — see `docs/dns-sivatuitions-com.md`.)
 
 ## Repo map
 
@@ -30,9 +30,8 @@ npm run build      # must pass before any commit
 
 ## Deploy
 
-Push to `main` → GitHub Actions builds and deploys to GitHub Pages
-(custom domain `sivatuitions.com` via `public/CNAME`). One-time setup:
-repo Settings → Pages → Source: GitHub Actions; add DNS records per
-`docs/GEO-PLAYBOOK.md` Phase 1.
+Push to `main` on the `site` remote → GitHub Actions deploys
+https://sivatuitions.github.io. Pages source is **GitHub Actions** (not
+“Deploy from a branch”). Custom domain comes later — `docs/dns-sivatuitions-com.md`.
 
 Secrets (TrueFoundry, IndexNow) live in `.env` — gitignored, never committed.
