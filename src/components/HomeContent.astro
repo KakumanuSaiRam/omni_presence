@@ -1,6 +1,5 @@
 ---
 import Illustration from './Illustration.astro';
-import SectionPhoto from './SectionPhoto.astro';
 import EnquiryForm from './EnquiryForm.astro';
 import BranchShowcase from './BranchShowcase.astro';
 import { SITE, DIRECTOR, BRAND, GALLERY, SOCIAL_ACTIVITIES, GLOBAL_FAQS } from '../data/site.js';
@@ -103,7 +102,7 @@ const telHref = `tel:${SITE.phoneHref}`;
 
 <!-- 4 · Academic tuitions -->
 <section id="tuitions" class="section-raised">
-  <div class="wrap split-section">
+  <div class="wrap">
     <div data-reveal>
       <p class="eyebrow">{tuitions.eyebrow}</p>
       <h2 class="section-heading">{tuitions.title}</h2>
@@ -114,29 +113,18 @@ const telHref = `tel:${SITE.phoneHref}`;
           {group.items.map((item) => <span class="tag">{item}</span>)}
         </div>
       ))}
-      <p class="section-links">
-        {tuitions.links.map((link, i) => (
-          <>{i > 0 && ' · '}<a href={link.href}>{link.label} →</a></>
+      <ul class="link-row">
+        {tuitions.links.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
         ))}
-      </p>
-    </div>
-    <div data-reveal data-reveal-delay="1">
-      <Illustration src="/illustrations/tutor-guidance.svg" alt={tuitions.imageAlt} class="section-art" />
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- 5 · Competitive coaching -->
 <section id="coaching" class="section-muted">
-  <div class="wrap split-section split-reverse">
-    <div class="section-art-wrap" data-reveal data-reveal-delay="1">
-      <SectionPhoto
-        src={coaching.photoSrc}
-        alt={coaching.imageAlt}
-        caption={coaching.photoCaption}
-        class="section-art"
-      />
-    </div>
+  <div class="wrap">
     <div data-reveal>
       <p class="eyebrow">{coaching.eyebrow}</p>
       <h2 class="section-heading">{coaching.title}</h2>
@@ -145,11 +133,11 @@ const telHref = `tel:${SITE.phoneHref}`;
         {coaching.programs.map((program) => <span class="tag">{program}</span>)}
       </div>
       <p class="focus-line"><strong>{coaching.focusLabel}:</strong> {coaching.focus.join(' · ')}</p>
-      <p class="section-links">
-        {coaching.links.map((link, i) => (
-          <>{i > 0 && ' · '}<a href={link.href}>{link.label} →</a></>
+      <ul class="link-row">
+        {coaching.links.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
         ))}
-      </p>
+      </ul>
     </div>
   </div>
 </section>
@@ -157,21 +145,11 @@ const telHref = `tel:${SITE.phoneHref}`;
 <!-- 6 · Counselling — the differentiator -->
 <section id="counselling" class="counselling-feature">
   <div class="wrap">
-    <div class="split-section">
-      <div data-reveal>
-        <p class="eyebrow">{counselling.eyebrow}</p>
-        <h2 class="section-heading">{counselling.title}</h2>
-        <p class="section-lead">{counselling.lead}</p>
-        <p class="objective">{counselling.objective}</p>
-      </div>
-      <div data-reveal data-reveal-delay="1">
-        <SectionPhoto
-          src={counselling.photoSrc}
-          alt={counselling.imageAlt}
-          caption={counselling.photoCaption}
-          class="section-art"
-        />
-      </div>
+    <div data-reveal>
+      <p class="eyebrow">{counselling.eyebrow}</p>
+      <h2 class="section-heading">{counselling.title}</h2>
+      <p class="section-lead">{counselling.lead}</p>
+      <p class="objective">{counselling.objective}</p>
     </div>
     <div class="counselling-grid">
       {counselling.columns.map((column, i) => (
@@ -381,6 +359,26 @@ const telHref = `tel:${SITE.phoneHref}`;
   .section-heading { font-size: 1.35rem; color: var(--accent-deep); margin-bottom: 0.5rem; }
   .section-lead { color: var(--ink-muted); max-width: 52ch; }
   .section-links { margin-top: 1rem; font-weight: 600; }
+
+  /* Related course/counselling links — separate choices, not a sequence. */
+  .link-row {
+    list-style: none; padding: 0; margin: 1rem 0 0;
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .link-row li { margin: 0; }
+  .link-row a {
+    display: inline-block; padding: 0.35rem 0.75rem;
+    border-radius: 999px; font-weight: 600; font-size: 0.92rem;
+    text-decoration: none; color: var(--accent-deep);
+    background: var(--surface-raised); border: 1px solid var(--border);
+    transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+  }
+  .section-muted .link-row a { background: var(--surface); }
+  .link-row a:hover {
+    border-color: var(--highlight-soft);
+    background: var(--surface-accent);
+    color: var(--highlight-deep);
+  }
 
   /* What we do */
   .service-grid {

@@ -57,7 +57,7 @@ export const COURSES = [
     ],
     body: [
       'AP EAPCET (formerly EAMCET) is the gateway to engineering (MPC stream) and pharmacy & agriculture (BiPC stream) seats in Andhra Pradesh. TS EAMCET plays the same role in Telangana. Siva Tuitions & Coachings prepares Intermediate students for both, with small batches, daily practice tests, and previous-paper drills.',
-      'Coaching is led personally by director Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA). The same desk that coaches you also guides you through rank prediction, certificate verification, and web options after results — one institute for the full journey from preparation to admission.',
+      `Coaching is led personally by director ${DIRECTOR.name} (${DIRECTOR.credentials.join(', ')}). The same desk that coaches you also guides you through rank prediction, certificate verification, and web options after results — one institute for the full journey from preparation to admission.`,
     ],
     faqs: [
       {
@@ -466,7 +466,7 @@ export const LOCATIONS = [
 export const GLOBAL_FAQS = [
   {
     q: 'Which is the best coaching center in Guntur for EAPCET, NEET and POLYCET?',
-    a: 'Siva Tuitions & Coachings in Pattabhipuram, Guntur coaches all three — AP EAPCET (EAMCET), NEET UG, and POLYCET — and uniquely pairs coaching with a free admission-counselling desk (rank analysis, certificate verification, web options). Director: Yadlapalli Naga Murali Krishna (M.B.A, M.Tech CSE, M.Sc, MCA). Phone: +91 88797 97777.',
+    a: `Siva Tuitions & Coachings in Pattabhipuram, Guntur coaches all three — AP EAPCET (EAMCET), NEET UG, and POLYCET — and uniquely pairs coaching with a free admission-counselling desk (rank analysis, certificate verification, web options). Director: ${DIRECTOR.name} (${DIRECTOR.credentials.join(', ')}). Phone: ${SITE.phone}.`,
   },
   {
     q: 'Where is Siva Tuitions & Coachings located?',
@@ -621,6 +621,15 @@ export const INSTITUTE_VISITS = {
 
 // Homepage marketing copy (hero, service sections, why-choose, about) lives in
 // data/i18n.js so the English and Telugu trees render from one set of strings.
+
+/** School-to-Inter span — must match school-tuitions course, llms.txt and directory listings. */
+export const ACADEMIC = {
+  school: 'Classes 1–10',
+  trustStrip: 'Class 1 – Inter',
+  toIntermediate: 'Classes 1–10 to Intermediate',
+  heroTitle: 'from Class 1 to your college seat',
+  listingTitle: 'From Class 1 to entrance exams',
+};
 
 export const BRAND = {
   tagline: 'From Class 1 to your college seat.',

@@ -2,7 +2,7 @@
 // Business facts stay in site.js; only presentation strings live here so the
 // English and Telugu pages can render from one shared set of components.
 
-import { SITE, DIRECTOR } from './site.js';
+import { SITE, DIRECTOR, BRAND, ACADEMIC } from './site.js';
 
 /** Primary navigation, per locale. Telugu links stay inside /te/ where a page exists. */
 export const NAV = {
@@ -74,14 +74,14 @@ export const UI = {
 export const HERO = {
   en: {
     eyebrow: `Pattabhipuram · Guntur · Since ${SITE.foundingYear}`,
-    title: 'Guntur\'s trusted tuition point — from Class 6 to your college seat.',
-    subline: 'Academic Excellence · Competitive Coaching · Career & Counselling Guidance',
+    title: `Guntur's trusted tuition point — ${ACADEMIC.heroTitle}.`,
+    subline: BRAND.mission,
     lead: 'Tuitions, EAPCET/NEET/POLYCET coaching, and admission counselling — one centre, one desk.',
     imageAlt: 'Students preparing happily for a competitive entrance exam',
   },
   te: {
     eyebrow: `పట్టాభిపురం · గుంటూరు · ${SITE.foundingYear} నుంచి`,
-    title: 'గుంటూరులో నమ్మకమైన ట్యూషన్ పాయింట్ — 6వ తరగతి నుంచి కాలేజీ సీట్ వరకు.',
+    title: 'గుంటూరులో నమ్మకమైన ట్యూషన్ పాయింట్ — 1వ తరగతి నుంచి కాలేజీ సీట్ వరకు.',
     subline: 'అకడమిక్ ఎక్సలెన్స్ · పోటీ పరీక్షల కోచింగ్ · కెరీర్ & కౌన్సెలింగ్ మార్గదర్శకత్వం',
     lead: 'ట్యూషన్లు, EAPCET/NEET/POLYCET కోచింగ్, ప్రవేశ కౌన్సెలింగ్ — ఒకే కేంద్రం, ఒకే డెస్క్.',
     imageAlt: 'పోటీ పరీక్షలకు సంతోషంగా సిద్ధమవుతున్న విద్యార్థులు',
@@ -126,13 +126,13 @@ export const BRANCH_SECTION = {
 export const TRUST = {
   en: [
     { value: `Since ${SITE.foundingYear}`, label: 'Guntur’s own centre' },
-    { value: 'Class 6 – Inter', label: 'CBSE · ICSE · State' },
+    { value: ACADEMIC.trustStrip, label: 'CBSE · ICSE · State' },
     { value: 'EAPCET · NEET · POLYCET', label: 'Entrance coaching' },
     { value: 'Director-led', label: 'Counselling desk' },
   ],
   te: [
     { value: `${SITE.foundingYear} నుంచి`, label: 'గుంటూరులో మా కేంద్రం' },
-    { value: '6వ – ఇంటర్', label: 'CBSE · ICSE · స్టేట్' },
+    { value: '1వ – ఇంటర్', label: 'CBSE · ICSE · స్టేట్' },
     { value: 'EAPCET · NEET · POLYCET', label: 'ప్రవేశ పరీక్షల కోచింగ్' },
     { value: 'డైరెక్టర్ నేతృత్వం', label: 'కౌన్సెలింగ్ డెస్క్' },
   ],
@@ -145,7 +145,7 @@ export const SERVICES_OVERVIEW = {
     title: 'What we do',
     lead: 'Three services under one roof — and the third is what most coaching centres in Guntur do not offer.',
     items: [
-      { icon: '📚', title: 'Academic Tuitions', body: 'Class 6 to Intermediate — CBSE, ICSE and State Board.', href: '#tuitions' },
+      { icon: '📚', title: 'Academic Tuitions', body: `${ACADEMIC.toIntermediate} — CBSE, ICSE and State Board.`, href: '#tuitions' },
       { icon: '🎯', title: 'Competitive Coaching', body: 'Short-term and summer programmes for EAPCET, NEET and POLYCET.', href: '#coaching' },
       { icon: '🎓', title: 'Admissions & Counselling', body: 'Rank analysis to final admission — the guidance families struggle to find.', href: '#counselling' },
     ],
@@ -155,7 +155,7 @@ export const SERVICES_OVERVIEW = {
     title: 'మేము అందించే సేవలు',
     lead: 'ఒకే చోట మూడు సేవలు — మూడోది గుంటూరులో చాలా కోచింగ్ సెంటర్లు ఇవ్వని సేవ.',
     items: [
-      { icon: '📚', title: 'అకడమిక్ ట్యూషన్లు', body: '6వ తరగతి నుంచి ఇంటర్ వరకు — CBSE, ICSE, స్టేట్ బోర్డు.', href: '#tuitions' },
+      { icon: '📚', title: 'అకడమిక్ ట్యూషన్లు', body: '1–10వ తరగతి నుంచి ఇంటర్ వరకు — CBSE, ICSE, స్టేట్ బోర్డు.', href: '#tuitions' },
       { icon: '🎯', title: 'పోటీ పరీక్షల కోచింగ్', body: 'EAPCET, NEET, POLYCET కోసం షార్ట్-టర్మ్, సమ్మర్ ప్రోగ్రామ్‌లు.', href: '#coaching' },
       { icon: '🎓', title: 'ప్రవేశాలు & కౌన్సెలింగ్', body: 'ర్యాంక్ విశ్లేషణ నుంచి తుది అడ్మిషన్ వరకు పూర్తి మార్గదర్శకత్వం.', href: '#counselling' },
     ],
@@ -165,7 +165,7 @@ export const SERVICES_OVERVIEW = {
 /** Section 4 — academic tuitions detail. */
 export const TUITIONS_SECTION = {
   en: {
-    eyebrow: 'Class 6 to Intermediate',
+    eyebrow: ACADEMIC.toIntermediate,
     title: 'Academic Tuitions',
     lead: 'Regular, supplementary and betterment tuitions — small batches with regular parent updates.',
     groups: [
@@ -181,7 +181,7 @@ export const TUITIONS_SECTION = {
     imageAlt: 'Teacher guiding school students in a tuition classroom',
   },
   te: {
-    eyebrow: '6వ తరగతి నుంచి ఇంటర్ వరకు',
+    eyebrow: '1–10వ తరగతి నుంచి ఇంటర్ వరకు',
     title: 'అకడమిక్ ట్యూషన్లు',
     lead: 'రెగ్యులర్, సప్లిమెంటరీ, బెటర్‌మెంట్ ట్యూషన్లు — చిన్న బ్యాచ్‌లు, తల్లిదండ్రులకు నియమిత అప్‌డేట్‌లు.',
     groups: [
@@ -335,7 +335,7 @@ export const ENQUIRY_FORM = {
     sendWhatsapp: 'Send on WhatsApp',
     sendEmail: 'Send by email',
     categories: [
-      'Academic Tuitions (Classes 6–10 / Intermediate)',
+      `Academic Tuitions (${ACADEMIC.school} / Intermediate)`,
       'EAPCET / EAMCET Coaching',
       'NEET Coaching',
       'POLYCET / Polytechnic',
@@ -363,7 +363,7 @@ export const ENQUIRY_FORM = {
     sendWhatsapp: 'వాట్సాప్‌లో పంపండి',
     sendEmail: 'ఈమెయిల్‌లో పంపండి',
     categories: [
-      'అకడమిక్ ట్యూషన్లు (6–10 / ఇంటర్)',
+      'అకడమిక్ ట్యూషన్లు (1–10 / ఇంటర్)',
       'EAPCET / EAMCET కోచింగ్',
       'NEET కోచింగ్',
       'POLYCET / పాలిటెక్నిక్',
@@ -388,7 +388,7 @@ export const ENQUIRY_WIDGET = {
     roles: ['Parent', 'Student', 'Other'],
     topic: 'Enquiry about',
     topics: [
-      'Academic Tuitions (Classes 6–10)',
+      `Academic Tuitions (${ACADEMIC.school})`,
       'Intermediate Tuitions (MPC / BiPC)',
       'EAPCET / EAMCET Coaching',
       'NEET Coaching',
@@ -403,6 +403,7 @@ export const ENQUIRY_WIDGET = {
     ],
     stage: 'Current class / stage',
     stages: [
+      'Class 1–5',
       'Class 6–8',
       'Class 9',
       'Class 10',
@@ -451,7 +452,7 @@ export const ENQUIRY_WIDGET = {
     roles: ['తల్లిదండ్రులు', 'విద్యార్థి', 'ఇతర'],
     topic: 'దేని గురించి',
     topics: [
-      'అకడమిక్ ట్యూషన్లు (6–10 తరగతి)',
+      'అకడమిక్ ట్యూషన్లు (1–10వ తరగతి)',
       'ఇంటర్ ట్యూషన్లు (MPC / BiPC)',
       'EAPCET / EAMCET కోచింగ్',
       'NEET కోచింగ్',
@@ -466,6 +467,7 @@ export const ENQUIRY_WIDGET = {
     ],
     stage: 'ప్రస్తుత తరగతి / దశ',
     stages: [
+      '1–5వ తరగతి',
       '6–8 తరగతి',
       '9వ తరగతి',
       '10వ తరగతి',
@@ -513,7 +515,7 @@ export const ABOUT_SECTION = {
     title: 'About Siva Tuitions & Coachings',
     paragraphs: [
       'Siva Tuitions & Coachings is an academic, competitive coaching and educational counselling centre dedicated to helping students achieve their academic and career goals.',
-      'We provide academic tuition from 6th Class to Intermediate — CBSE, ICSE and State Board — with specialized coaching in Mathematics, Physics and Chemistry.',
+      `We provide academic tuition from ${ACADEMIC.school} to Intermediate — CBSE, ICSE and State Board — with specialized coaching in Mathematics, Physics and Chemistry.`,
       'Short-term programmes prepare students for EAPCET, POLYCET and other competitive entrance examinations.',
       'Our Counselling & Guidance Centre supports students and parents from application and rank analysis through cut-offs, branch selection, web options and final admission.',
     ],
@@ -528,7 +530,7 @@ export const ABOUT_SECTION = {
     title: 'Siva Tuitions & Coachings గురించి',
     paragraphs: [
       'Siva Tuitions & Coachings ఒక అకడమిక్, పోటీ పరీక్షల కోచింగ్ మరియు విద్యా కౌన్సెలింగ్ కేంద్రం — విద్యార్థుల చదువు, కెరీర్ లక్ష్యాలను సాధించడంలో సహాయం చేస్తుంది.',
-      '6వ తరగతి నుంచి ఇంటర్మీడియట్ వరకు అకడమిక్ ట్యూషన్లు — CBSE, ICSE, స్టేట్ బోర్డు — మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీలో ప్రత్యేక కోచింగ్.',
+      '1–10వ తరగతి నుంచి ఇంటర్మీడియట్ వరకు అకడమిక్ ట్యూషన్లు — CBSE, ICSE, స్టేట్ బోర్డు — మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీలో ప్రత్యేక కోచింగ్.',
       'EAPCET, POLYCET తో పాటు ఇతర పోటీ ప్రవేశ పరీక్షలకు షార్ట్-టర్మ్ ప్రోగ్రామ్‌లు.',
       'మా కౌన్సెలింగ్ & గైడెన్స్ కేంద్రం — అప్లికేషన్, ర్యాంక్ విశ్లేషణ నుంచి కట్-ఆఫ్‌లు, బ్రాంచ్ ఎంపిక, వెబ్ ఆప్షన్స్, తుది అడ్మిషన్ వరకు సహాయం.',
     ],
@@ -547,14 +549,14 @@ export const ABOUT_PAGE = {
     heroImageAlt: 'Students celebrating an admission offer',
     storyLabel: 'Our story',
     storyLead:
-      'Siva Tuitions & Coachings is a Guntur coaching centre — school tuitions, entrance exam prep, and admission counselling under one roof since 2005.',
+      `Siva Tuitions & Coachings is a Guntur coaching centre — school tuitions, entrance exam prep, and admission counselling under one roof since ${SITE.foundingYear}.`,
     storyImageAlt: 'Students studying together in a classroom',
     pillarsLabel: 'Three services, one desk',
     pillars: [
       {
         icon: '📚',
         title: 'Academic tuitions',
-        body: 'Class 6 to Intermediate — CBSE, ICSE and State Board, with Maths, Physics and Chemistry.',
+        body: `${ACADEMIC.toIntermediate} — CBSE, ICSE and State Board, with Maths, Physics and Chemistry.`,
         href: '/courses/school-tuitions-guntur/',
       },
       {
@@ -592,14 +594,14 @@ export const ABOUT_PAGE = {
     heroImageAlt: 'ప్రవేశ ఆఫర్‌ను సంతోషంగా జరుపుకునే విద్యార్థులు',
     storyLabel: 'మా కథ',
     storyLead:
-      'Siva Tuitions & Coachings గుంటూరులో ఒక కోచింగ్ కేంద్రం — 2005 నుంచి పాఠశాల ట్యూషన్లు, ప్రవేశ పరీక్షల సిద్ధత, అడ్మిషన్ కౌన్సెలింగ్ ఒకే చోట.',
+      `Siva Tuitions & Coachings గుంటూరులో ఒక కోచింగ్ కేంద్రం — ${SITE.foundingYear} నుంచి పాఠశాల ట్యూషన్లు, ప్రవేశ పరీక్షల సిద్ధత, అడ్మిషన్ కౌన్సెలింగ్ ఒకే చోట.`,
     storyImageAlt: 'తరగతిలో కలిసి చదువుకునే విద్యార్థులు',
     pillarsLabel: 'మూడు సేవలు, ఒకే డెస్క్',
     pillars: [
       {
         icon: '📚',
         title: 'అకడమిక్ ట్యూషన్లు',
-        body: '6వ తరగతి నుంచి ఇంటర్ — CBSE, ICSE, స్టేట్ బోర్డు; మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీ.',
+        body: '1–10వ తరగతి నుంచి ఇంటర్ — CBSE, ICSE, స్టేట్ బోర్డు; మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీ.',
         href: '/courses/school-tuitions-guntur/',
       },
       {
@@ -690,15 +692,15 @@ export const CONTACT_SECTION = {
 export const FAQS_TE = [
   {
     q: 'గుంటూరులో EAPCET, NEET, POLYCET కోచింగ్‌కు మంచి సెంటర్ ఏది?',
-    a: 'పట్టాభిపురం, గుంటూరులోని Siva Tuitions & Coachings మూడింటికీ కోచింగ్ ఇస్తుంది — AP EAPCET (EAMCET), NEET UG, POLYCET — దానితో పాటు ర్యాంక్ విశ్లేషణ, సర్టిఫికెట్ వెరిఫికేషన్, వెబ్ ఆప్షన్స్ కోసం ప్రవేశ కౌన్సెలింగ్ డెస్క్ కూడా ఉంది. డైరెక్టర్: యడ్లపల్లి నాగ మురళీ కృష్ణ (M.B.A, M.Tech CSE, M.Sc, MCA). ఫోన్: +91 88797 97777.',
+    a: `పట్టాభిపురం, గుంటూరులోని Siva Tuitions & Coachings మూడింటికీ కోచింగ్ ఇస్తుంది — AP EAPCET (EAMCET), NEET UG, POLYCET — దానితో పాటు ర్యాంక్ విశ్లేషణ, సర్టిఫికెట్ వెరిఫికేషన్, వెబ్ ఆప్షన్స్ కోసం ప్రవేశ కౌన్సెలింగ్ డెస్క్ కూడా ఉంది. డైరెక్టర్: ${DIRECTOR.name} (${DIRECTOR.credentials.join(', ')}). ఫోన్: ${SITE.phone}.`,
   },
   {
     q: 'Siva Tuitions & Coachings ఎక్కడ ఉంది?',
-    a: '2వ లేన్, జమీలి డెంటల్ హాస్పిటల్ వెనుక, గ్యాంగ్ కాలనీ, పట్టాభిపురం, గుంటూరు, ఆంధ్రప్రదేశ్ 522006. ఫోన్/వాట్సాప్: +91 88797 97777.',
+    a: `2వ లేన్, జమీలి డెంటల్ హాస్పిటల్ వెనుక, గ్యాంగ్ కాలనీ, పట్టాభిపురం, గుంటూరు, ఆంధ్రప్రదేశ్ ${SITE.address.postalCode}. ఫోన్/వాట్సాప్: ${SITE.phone}.`,
   },
   {
     q: 'Siva Tuitions & Coachings డైరెక్టర్ ఎవరు?',
-    a: 'యడ్లపల్లి నాగ మురళీ కృష్ణ — M.B.A, M.Tech (CSE), M.Sc, MCA డిగ్రీలు ఉన్నవారు — సంస్థను స్థాపించి, తరగతులు మరియు ప్రవేశ కౌన్సెలింగ్ డెస్క్ రెండింటినీ నేరుగా నడుపుతారు.',
+    a: `${DIRECTOR.name} — ${DIRECTOR.credentials.join(', ')} డిగ్రీలు ఉన్నవారు — సంస్థను స్థాపించి, తరగతులు మరియు ప్రవేశ కౌన్సెలింగ్ డెస్క్ రెండింటినీ నేరుగా నడుపుతారు.`,
   },
   {
     q: 'వెబ్ ఆప్షన్స్, ప్రవేశ కౌన్సెలింగ్ ఉందా?',
@@ -710,7 +712,7 @@ export const FAQS_TE = [
   },
   {
     q: 'Siva Tuitionsను ఎలా సంప్రదించాలి?',
-    a: '+91 88797 97777 కు కాల్ లేదా వాట్సాప్ చేయండి, sivatuitions@gmail.com కు ఈమెయిల్ పంపండి, లేదా పట్టాభిపురం, గుంటూరులోని కేంద్రాన్ని సందర్శించండి. గూగుల్ ప్లేలో ఆండ్రాయిడ్ యాప్ కూడా ఉంది.',
+    a: `${SITE.phone} కు కాల్ లేదా వాట్సాప్ చేయండి, ${SITE.email} కు ఈమెయిల్ పంపండి, లేదా పట్టాభిపురం, గుంటూరులోని కేంద్రాన్ని సందర్శించండి. గూగుల్ ప్లేలో ఆండ్రాయిడ్ యాప్ కూడా ఉంది.`,
   },
 ];
 
@@ -851,13 +853,13 @@ export const COUNSELLING_TE = {
 export const COURSES_LISTING = {
   en: {
     eyebrow: 'Courses',
-    title: 'From Class 6 to entrance exams',
+    title: ACADEMIC.listingTitle,
     intro:
       'School tuitions, Intermediate MPC/BiPC, and short-term EAPCET, NEET or POLYCET batches — pick the stage below.',
   },
   te: {
     eyebrow: 'కోర్సులు',
-    title: '6వ తరగతి నుంచి ప్రవేశ పరీక్షల వరకు',
+    title: '1వ తరగతి నుంచి ప్రవేశ పరీక్షల వరకు',
     intro:
       '1–10వ తరగతి, ఇంటర్ ట్యూషన్లు; EAPCET, NEET, POLYCET షార్ట్-టర్మ్ బ్యాచ్‌లు — క్రింద మీ దశను ఎంచుకోండి.',
   },
